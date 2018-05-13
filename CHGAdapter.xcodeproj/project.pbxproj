@@ -169,7 +169,7 @@
 				8FE94D8620A43E9000386F56 /* headerFooterView */,
 				8FE94D7A20A42C6E00386F56 /* cell */,
 				8FE04B0B20A4108C0038BE0D /* controllers */,
-				8FE04B0520A410420038BE0D /* CHGAdapter */,
+				8FE04B0520A410420038BE0D /* CHGAdapterLib */,
 				8FE04AD320A40FFD0038BE0D /* AppDelegate.h */,
 				8FE04AD420A40FFD0038BE0D /* AppDelegate.m */,
 				8FE04ADC20A40FFE0038BE0D /* Assets.xcassets */,
@@ -198,7 +198,7 @@
 			path = CHGAdapterUITests;
 			sourceTree = "<group>";
 		};
-		8FE04B0520A410420038BE0D /* CHGAdapter */ = {
+		8FE04B0520A410420038BE0D /* CHGAdapterLib */ = {
 			isa = PBXGroup;
 			children = (
 				8FE94D8920A590FB00386F56 /* emptyDataShow */,
@@ -212,7 +212,7 @@
 				8FE94D8020A430B500386F56 /* CHGTableViewHeaderFooterView.h */,
 				8FE94D8120A430B500386F56 /* CHGTableViewHeaderFooterView.m */,
 			);
-			path = CHGAdapter;
+			path = CHGAdapterLib;
 			sourceTree = "<group>";
 		};
 		8FE04B0B20A4108C0038BE0D /* controllers */ = {

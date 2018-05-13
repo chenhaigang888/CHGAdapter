@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CHGAdapter"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "主要解决UITableView与dataSource和Delegate解耦合"
 
   # This description is used to generate tags and improve search results.
@@ -89,7 +89,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "CHGAdapter", "CHGAdapter/**/*.{h,m}"
+  s.source_files  = "CHGAdapter", "CHGAdapter/*.{h,m}"
   #s.exclude_files = "CHGAdapter/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
