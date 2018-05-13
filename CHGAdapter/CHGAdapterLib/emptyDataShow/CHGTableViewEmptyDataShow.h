@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "UIScrollView+EmptyDataSet.h"
 
+
 @interface CHGTableViewEmptyDataShow : NSObject<DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 
 @property(nonatomic,strong) NSString * _Nullable imageName;
