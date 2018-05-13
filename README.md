@@ -10,20 +10,6 @@ pod 'CHGAdapter', '~> 0.1.0'
 
 Usage
 
-#import "TestViewController.h"
-#import "CHGTableViewAdapter.h"
-#import "TestAdapter.h"
-#import "Test2ViewController.h"
-
-@interface TestViewController ()
-
-@property(nonatomic,weak) IBOutlet UITableView * tableView;
-@property(nonatomic,strong) TestAdapter * adapter;
-@property(nonatomic,strong) CHGTableViewAdapterData * adapterData;
-
-@end
-
-@implementation TestViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,6 +17,7 @@ Usage
     self.tableView.tableViewAdapter = self.adapter;
     [self.tableView setEmptyDataShowWithTitle:@"暂无数据" image:@"icon_dl_xsmm"];
     __weak typeof(self) weakSelf = self;
+    //cell、HeadView、FooterView中的button 点击、UITextField输入都通过此block回调
     self.tableView.eventTransmissionBlock = ^id(id target, id params, NSInteger tag, CHGCallBack callBack) {
         NSLog(@"target:%@",[target class]);
         NSLog(@"params:%@",params);
@@ -39,6 +26,7 @@ Usage
         return nil;
     };
     
+    //cell点击
     self.tableView.tableViewDidSelectRowBlock = ^(UITableView *tableView, NSIndexPath *indexPath, id itemData) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         Test2ViewController * test2VC = [Test2ViewController new];
@@ -46,13 +34,9 @@ Usage
     };
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 -(CHGTableViewAdapter*)adapter{
     if (!_adapter) {
-        _adapter = [TestAdapter new];
+        _adapter = [CHGTableViewAdapter new];
         _adapter.cellName = @"SimpleTableViewCell";
         _adapter.headerName = @"SampleTableViewHeaderFooterView";
         _adapter.footerName = @"SampleTableViewHeaderFooterView";
@@ -78,62 +62,3 @@ Usage
     _adapterData.footerDatas = @[@"bbb1",@"bbb"];
     return _adapterData;
 }
-
-@end
-
-
-
-
-SimpleTableViewCell 文件中
-
-#import "SimpleTableViewCell.h"
-
-@implementation SimpleTableViewCell
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
--(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView withData:(id)data {
-    [super cellForRowAtIndexPath:indexPath tableView:tableView withData:data];
-    self.backgroundColor = indexPath.row % 2 == 0 ? [UIColor greenColor]:[UIColor redColor];
-    self.title.text = [NSString stringWithFormat:@"%@",data];
-}
-
--(IBAction)btnTap:(id)sender {
-    self.eventTransmissionBlock(self, self.cellData, 0, ^id(id data) {
-        NSLog(@"cell中回调：%@",data);
-        self.title.text = [NSString stringWithFormat:@"%@",data];
-        return nil;
-    });
-}
-
-@end
-
-
-
-SampleTableViewHeaderFooterView.m 文件
-
-#import "SampleTableViewHeaderFooterView.h"
-
-@implementation SampleTableViewHeaderFooterView
-
--(void)headerFooterForSection:(NSInteger)section inTableView:(UITableView *)tableView withData:(id)data type:(CHGTableViewHeaderFooterViewType)type{
-    [super headerFooterForSection:section inTableView:tableView withData:data type:type];
-    [self.button setTitle:data forState:UIControlStateNormal];
-}
-
--(IBAction)btnTap:(id)sender {
-    self.eventTransmissionBlock(self, self.headerFooterData, 0, ^id(id data) {
-        NSLog(@"回调：%@",data);
-        return nil;
-    });
-}
-
