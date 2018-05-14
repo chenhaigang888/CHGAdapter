@@ -403,6 +403,30 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
+		8FAB169820A9933900696281 /* CHGTableViewAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				8FE94D8920A590FB00386F56 /* emptyDataShow */,
+				8FE94D7620A4259A00386F56 /* category */,
+				8FE94D6820A41A9700386F56 /* model */,
+				8FE94D6520A4187200386F56 /* CHGTableViewAdapter.h */,
+				8FE94D6620A4187200386F56 /* CHGTableViewAdapter.m */,
+				8FE94D6C20A41F9000386F56 /* CHGTableViewCell.h */,
+				8FE94D6D20A41F9000386F56 /* CHGTableViewCell.m */,
+				8FE94D7520A4252500386F56 /* CHGTableViewAdapterDefine.h */,
+				8FE94D8020A430B500386F56 /* CHGTableViewHeaderFooterView.h */,
+				8FE94D8120A430B500386F56 /* CHGTableViewHeaderFooterView.m */,
+			);
+			path = CHGTableViewAdapter;
+			sourceTree = "<group>";
+		};
+		8FAB169920A9937700696281 /* CHGCollectionViewAdapter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CHGCollectionViewAdapter;
+			sourceTree = "<group>";
+		};
 		8FE04AC720A40FFD0038BE0D = {
 			isa = PBXGroup;
 			children = (
@@ -461,16 +485,8 @@
 		8FE04B0520A410420038BE0D /* CHGAdapterLib */ = {
 			isa = PBXGroup;
 			children = (
-				8FE94D8920A590FB00386F56 /* emptyDataShow */,
-				8FE94D7620A4259A00386F56 /* category */,
-				8FE94D6820A41A9700386F56 /* model */,
-				8FE94D6520A4187200386F56 /* CHGTableViewAdapter.h */,
-				8FE94D6620A4187200386F56 /* CHGTableViewAdapter.m */,
-				8FE94D6C20A41F9000386F56 /* CHGTableViewCell.h */,
-				8FE94D6D20A41F9000386F56 /* CHGTableViewCell.m */,
-				8FE94D7520A4252500386F56 /* CHGTableViewAdapterDefine.h */,
-				8FE94D8020A430B500386F56 /* CHGTableViewHeaderFooterView.h */,
-				8FE94D8120A430B500386F56 /* CHGTableViewHeaderFooterView.m */,
+				8FAB169920A9937700696281 /* CHGCollectionViewAdapter */,
+				8FAB169820A9933900696281 /* CHGTableViewAdapter */,
 			);
 			path = CHGAdapterLib;
 			sourceTree = "<group>";
