@@ -39,17 +39,17 @@
                     ];
     如果 cellDatas中的数据是model，model的类型可以相同也可以不同。
  */
-@property(nonatomic,strong) NSArray * cellDatas;
+@property(nonatomic,copy) NSArray * cellDatas;
 
 /**
  存放所有header的数据
  */
-@property(nonatomic,strong) NSArray * headerDatas;
+@property(nonatomic,copy) NSArray * headerDatas;
 
 /**
  存放所有footer的数据
  */
-@property(nonatomic,strong) NSArray * footerDatas;
+@property(nonatomic,copy) NSArray * footerDatas;
 
 /**
  自定义数据,可以通过此参数保留一些数据，方便在Adapter中、cell、headerView、footerView中获取这些数据

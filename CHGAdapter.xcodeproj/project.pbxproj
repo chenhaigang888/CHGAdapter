@@ -38,6 +38,10 @@
 		8FAB169420A96AE900696281 /* RecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB167420A96AE900696281 /* RecordTableViewCell.m */; };
 		8FAB169520A96AE900696281 /* RecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB167520A96AE900696281 /* RecordTableViewCell.xib */; };
 		8FAB169620A96AE900696281 /* RecordSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB167620A96AE900696281 /* RecordSwitchTableViewCell.xib */; };
+		8FAB169C20A9940F00696281 /* CHGCollectionViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB169B20A9940F00696281 /* CHGCollectionViewAdapter.m */; };
+		8FAB16A020A9956400696281 /* CHGCollectionViewAdapterData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB169F20A9956400696281 /* CHGCollectionViewAdapterData.m */; };
+		8FAB16A420A9963F00696281 /* UICollectionView+CHGCollectionViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB16A320A9963F00696281 /* UICollectionView+CHGCollectionViewAdapter.m */; };
+		8FAB16A820A9A4D900696281 /* CHGCollectionViewEmptyDataShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB16A720A9A4D900696281 /* CHGCollectionViewEmptyDataShow.m */; };
 		8FE04AD520A40FFD0038BE0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE04AD420A40FFD0038BE0D /* AppDelegate.m */; };
 		8FE04ADD20A40FFE0038BE0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FE04ADC20A40FFE0038BE0D /* Assets.xcassets */; };
 		8FE04AE020A40FFE0038BE0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FE04ADE20A40FFE0038BE0D /* LaunchScreen.storyboard */; };
@@ -117,6 +121,14 @@
 		8FAB167620A96AE900696281 /* RecordSwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordSwitchTableViewCell.xib; sourceTree = "<group>"; };
 		8FAB167720A96AE900696281 /* RecordSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordSwitchTableViewCell.h; sourceTree = "<group>"; };
 		8FAB167820A96AE900696281 /* RecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordTableViewCell.h; sourceTree = "<group>"; };
+		8FAB169A20A9940F00696281 /* CHGCollectionViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGCollectionViewAdapter.h; sourceTree = "<group>"; };
+		8FAB169B20A9940F00696281 /* CHGCollectionViewAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGCollectionViewAdapter.m; sourceTree = "<group>"; };
+		8FAB169E20A9956400696281 /* CHGCollectionViewAdapterData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGCollectionViewAdapterData.h; sourceTree = "<group>"; };
+		8FAB169F20A9956400696281 /* CHGCollectionViewAdapterData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGCollectionViewAdapterData.m; sourceTree = "<group>"; };
+		8FAB16A220A9963F00696281 /* UICollectionView+CHGCollectionViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+CHGCollectionViewAdapter.h"; sourceTree = "<group>"; };
+		8FAB16A320A9963F00696281 /* UICollectionView+CHGCollectionViewAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+CHGCollectionViewAdapter.m"; sourceTree = "<group>"; };
+		8FAB16A620A9A4D900696281 /* CHGCollectionViewEmptyDataShow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGCollectionViewEmptyDataShow.h; sourceTree = "<group>"; };
+		8FAB16A720A9A4D900696281 /* CHGCollectionViewEmptyDataShow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGCollectionViewEmptyDataShow.m; sourceTree = "<group>"; };
 		8FE04AD020A40FFD0038BE0D /* CHGAdapter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHGAdapter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FE04AD320A40FFD0038BE0D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8FE04AD420A40FFD0038BE0D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -423,8 +435,40 @@
 		8FAB169920A9937700696281 /* CHGCollectionViewAdapter */ = {
 			isa = PBXGroup;
 			children = (
+				8FAB16A520A9A4A000696281 /* emptyDataShow */,
+				8FAB16A120A9960300696281 /* category */,
+				8FAB169D20A9953700696281 /* model */,
+				8FAB169A20A9940F00696281 /* CHGCollectionViewAdapter.h */,
+				8FAB169B20A9940F00696281 /* CHGCollectionViewAdapter.m */,
 			);
 			path = CHGCollectionViewAdapter;
+			sourceTree = "<group>";
+		};
+		8FAB169D20A9953700696281 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB169E20A9956400696281 /* CHGCollectionViewAdapterData.h */,
+				8FAB169F20A9956400696281 /* CHGCollectionViewAdapterData.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		8FAB16A120A9960300696281 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB16A220A9963F00696281 /* UICollectionView+CHGCollectionViewAdapter.h */,
+				8FAB16A320A9963F00696281 /* UICollectionView+CHGCollectionViewAdapter.m */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
+		8FAB16A520A9A4A000696281 /* emptyDataShow */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB16A620A9A4D900696281 /* CHGCollectionViewEmptyDataShow.h */,
+				8FAB16A720A9A4D900696281 /* CHGCollectionViewEmptyDataShow.m */,
+			);
+			path = emptyDataShow;
 			sourceTree = "<group>";
 		};
 		8FE04AC720A40FFD0038BE0D = {
@@ -690,6 +734,7 @@
 				8FAB169220A96AE900696281 /* RecordInputDataViewController.m in Sources */,
 				8FAB168020A96AE900696281 /* OneTextFieldHeaderFooterView.m in Sources */,
 				8FAB168D20A96AE900696281 /* SampleTableViewHeaderFooterView.m in Sources */,
+				8FAB16A020A9956400696281 /* CHGCollectionViewAdapterData.m in Sources */,
 				8FAB167A20A96AE900696281 /* MenuViewController.m in Sources */,
 				8FAB169320A96AE900696281 /* RecordSwitchTableViewCell.m in Sources */,
 				8FE94D8220A430B500386F56 /* CHGTableViewHeaderFooterView.m in Sources */,
@@ -700,11 +745,14 @@
 				8FAB169020A96AE900696281 /* RecordAdapter.m in Sources */,
 				8FE04AE320A40FFE0038BE0D /* main.m in Sources */,
 				8FE94D6720A4187200386F56 /* CHGTableViewAdapter.m in Sources */,
+				8FAB16A420A9963F00696281 /* UICollectionView+CHGCollectionViewAdapter.m in Sources */,
 				8FAB168F20A96AE900696281 /* ViewController.m in Sources */,
 				8FAB169420A96AE900696281 /* RecordTableViewCell.m in Sources */,
 				8FAB168B20A96AE900696281 /* SimpleTableViewCell.m in Sources */,
 				8FAB168220A96AE900696281 /* EventTransmissionViewController.m in Sources */,
 				8FE94D8C20A5915F00386F56 /* CHGTableViewEmptyDataShow.m in Sources */,
+				8FAB16A820A9A4D900696281 /* CHGCollectionViewEmptyDataShow.m in Sources */,
+				8FAB169C20A9940F00696281 /* CHGCollectionViewAdapter.m in Sources */,
 				8FE94D6F20A41F9000386F56 /* CHGTableViewCell.m in Sources */,
 				8FE04AD520A40FFD0038BE0D /* AppDelegate.m in Sources */,
 			);
