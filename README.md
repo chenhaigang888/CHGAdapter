@@ -13,6 +13,7 @@
 
 > pod 'CHGAdapter', '~> 0.1.0'
 
+### example
 
 ```
 #import "ViewController.h"
