@@ -2,7 +2,7 @@
 主要解决UITableView 在每个controller中都需要设置dataSource和delegate的烦恼，并UITableViewCell与DataSource tableView解耦合
 具体表现为
 
-- 1.Adapter与UITableView、Adapter与UITableViewCell完全解耦合。
+- Adapter与UITableView、Adapter与UITableViewCell完全解耦合。
 - 只需要在controller中设置好adapter，给adapter需要显示的数据，adapter会把每个cell需要的数据赋予cell。
 - UITableViewCell中按钮的点击事件、UITextField的输入事件、UISwitch等等都通过统一的CHGTableViewDidSelectRowBlock进行传输。
 - controller少了很多有关UITableViewDelegate以及UITableViewDatasource的相关代码，controller代码更加清晰。
