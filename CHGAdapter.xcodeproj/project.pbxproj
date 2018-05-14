@@ -8,28 +8,48 @@
 
 /* Begin PBXBuildFile section */
 		7B400DAAB2F917417E165201 /* libPods-CHGAdapter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC09ED455D43E832A8ACE449 /* libPods-CHGAdapter.a */; };
+		8FAB167920A96AE900696281 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB163A20A96AE800696281 /* MenuViewController.xib */; };
+		8FAB167A20A96AE900696281 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB163B20A96AE800696281 /* MenuViewController.m */; };
+		8FAB167B20A96AE900696281 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB163E20A96AE800696281 /* TitleTableViewCell.xib */; };
+		8FAB167C20A96AE900696281 /* TitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB163F20A96AE800696281 /* TitleTableViewCell.m */; };
+		8FAB167D20A96AE900696281 /* OneButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB164320A96AE800696281 /* OneButtonTableViewCell.xib */; };
+		8FAB167E20A96AE900696281 /* OneButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB164420A96AE800696281 /* OneButtonTableViewCell.m */; };
+		8FAB167F20A96AE900696281 /* OneTextFieldHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB164720A96AE800696281 /* OneTextFieldHeaderFooterView.xib */; };
+		8FAB168020A96AE900696281 /* OneTextFieldHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB164820A96AE800696281 /* OneTextFieldHeaderFooterView.m */; };
+		8FAB168120A96AE900696281 /* EventTransmissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB164B20A96AE800696281 /* EventTransmissionViewController.xib */; };
+		8FAB168220A96AE900696281 /* EventTransmissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB164C20A96AE800696281 /* EventTransmissionViewController.m */; };
+		8FAB168320A96AE900696281 /* CustomAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB164F20A96AE900696281 /* CustomAdapter.m */; };
+		8FAB168420A96AE900696281 /* Style2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB165420A96AE900696281 /* Style2TableViewCell.xib */; };
+		8FAB168520A96AE900696281 /* Style1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB165520A96AE900696281 /* Style1TableViewCell.m */; };
+		8FAB168620A96AE900696281 /* Style1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB165620A96AE900696281 /* Style1TableViewCell.xib */; };
+		8FAB168720A96AE900696281 /* Style2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB165720A96AE900696281 /* Style2TableViewCell.m */; };
+		8FAB168820A96AE900696281 /* MultipleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB165A20A96AE900696281 /* MultipleViewController.m */; };
+		8FAB168920A96AE900696281 /* MultipleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB165B20A96AE900696281 /* MultipleViewController.xib */; };
+		8FAB168A20A96AE900696281 /* SimpleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB166020A96AE900696281 /* SimpleTableViewCell.xib */; };
+		8FAB168B20A96AE900696281 /* SimpleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB166120A96AE900696281 /* SimpleTableViewCell.m */; };
+		8FAB168C20A96AE900696281 /* SampleTableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB166420A96AE900696281 /* SampleTableViewHeaderFooterView.xib */; };
+		8FAB168D20A96AE900696281 /* SampleTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB166520A96AE900696281 /* SampleTableViewHeaderFooterView.m */; };
+		8FAB168E20A96AE900696281 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB166720A96AE900696281 /* ViewController.xib */; };
+		8FAB168F20A96AE900696281 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB166820A96AE900696281 /* ViewController.m */; };
+		8FAB169020A96AE900696281 /* RecordAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB166D20A96AE900696281 /* RecordAdapter.m */; };
+		8FAB169120A96AE900696281 /* RecordInputDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB167020A96AE900696281 /* RecordInputDataViewController.xib */; };
+		8FAB169220A96AE900696281 /* RecordInputDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB167120A96AE900696281 /* RecordInputDataViewController.m */; };
+		8FAB169320A96AE900696281 /* RecordSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB167320A96AE900696281 /* RecordSwitchTableViewCell.m */; };
+		8FAB169420A96AE900696281 /* RecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB167420A96AE900696281 /* RecordTableViewCell.m */; };
+		8FAB169520A96AE900696281 /* RecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB167520A96AE900696281 /* RecordTableViewCell.xib */; };
+		8FAB169620A96AE900696281 /* RecordSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB167620A96AE900696281 /* RecordSwitchTableViewCell.xib */; };
 		8FE04AD520A40FFD0038BE0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE04AD420A40FFD0038BE0D /* AppDelegate.m */; };
 		8FE04ADD20A40FFE0038BE0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FE04ADC20A40FFE0038BE0D /* Assets.xcassets */; };
 		8FE04AE020A40FFE0038BE0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FE04ADE20A40FFE0038BE0D /* LaunchScreen.storyboard */; };
 		8FE04AE320A40FFE0038BE0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE04AE220A40FFE0038BE0D /* main.m */; };
 		8FE04AED20A40FFE0038BE0D /* CHGAdapterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE04AEC20A40FFE0038BE0D /* CHGAdapterTests.m */; };
 		8FE04AF820A40FFF0038BE0D /* CHGAdapterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE04AF720A40FFF0038BE0D /* CHGAdapterUITests.m */; };
-		8FE04B0920A4107E0038BE0D /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE04B0720A4107E0038BE0D /* TestViewController.m */; };
-		8FE04B0A20A4107E0038BE0D /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FE04B0820A4107E0038BE0D /* TestViewController.xib */; };
 		8FE94D6720A4187200386F56 /* CHGTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE94D6620A4187200386F56 /* CHGTableViewAdapter.m */; };
 		8FE94D6B20A41AC700386F56 /* CHGTableViewAdapterData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE94D6A20A41AC700386F56 /* CHGTableViewAdapterData.m */; };
 		8FE94D6F20A41F9000386F56 /* CHGTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE94D6D20A41F9000386F56 /* CHGTableViewCell.m */; };
 		8FE94D7920A425C900386F56 /* UITableView+CHGTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE94D7820A425C900386F56 /* UITableView+CHGTableViewAdapter.m */; };
-		8FE94D7E20A42C9E00386F56 /* SimpleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE94D7C20A42C9E00386F56 /* SimpleTableViewCell.m */; };
-		8FE94D7F20A42C9E00386F56 /* SimpleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FE94D7D20A42C9E00386F56 /* SimpleTableViewCell.xib */; };
 		8FE94D8220A430B500386F56 /* CHGTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE94D8120A430B500386F56 /* CHGTableViewHeaderFooterView.m */; };
-		8FE94D8520A43E8900386F56 /* SampleTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE94D8420A43E8900386F56 /* SampleTableViewHeaderFooterView.m */; };
-		8FE94D8820A43EA200386F56 /* SampleTableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FE94D8720A43EA200386F56 /* SampleTableViewHeaderFooterView.xib */; };
 		8FE94D8C20A5915F00386F56 /* CHGTableViewEmptyDataShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE94D8B20A5915F00386F56 /* CHGTableViewEmptyDataShow.m */; };
-		8FF158C320A6920000D17B85 /* Simple2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF158C220A6920000D17B85 /* Simple2TableViewCell.m */; };
-		8FF158C720A69F9200D17B85 /* TestAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF158C620A69F9200D17B85 /* TestAdapter.m */; };
-		8FF158CB20A6AF4F00D17B85 /* Test2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF158C920A6AF4F00D17B85 /* Test2ViewController.m */; };
-		8FF158CC20A6AF4F00D17B85 /* Test2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF158CA20A6AF4F00D17B85 /* Test2ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +71,52 @@
 
 /* Begin PBXFileReference section */
 		425CFC518C2702DFCE0E4C37 /* Pods-CHGAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHGAdapter.release.xcconfig"; path = "Pods/Target Support Files/Pods-CHGAdapter/Pods-CHGAdapter.release.xcconfig"; sourceTree = "<group>"; };
+		8FAB163920A96AE800696281 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		8FAB163A20A96AE800696281 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		8FAB163B20A96AE800696281 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		8FAB163D20A96AE800696281 /* TitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleTableViewCell.h; sourceTree = "<group>"; };
+		8FAB163E20A96AE800696281 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
+		8FAB163F20A96AE800696281 /* TitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleTableViewCell.m; sourceTree = "<group>"; };
+		8FAB164220A96AE800696281 /* OneButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneButtonTableViewCell.h; sourceTree = "<group>"; };
+		8FAB164320A96AE800696281 /* OneButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneButtonTableViewCell.xib; sourceTree = "<group>"; };
+		8FAB164420A96AE800696281 /* OneButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneButtonTableViewCell.m; sourceTree = "<group>"; };
+		8FAB164620A96AE800696281 /* OneTextFieldHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneTextFieldHeaderFooterView.h; sourceTree = "<group>"; };
+		8FAB164720A96AE800696281 /* OneTextFieldHeaderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneTextFieldHeaderFooterView.xib; sourceTree = "<group>"; };
+		8FAB164820A96AE800696281 /* OneTextFieldHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneTextFieldHeaderFooterView.m; sourceTree = "<group>"; };
+		8FAB164A20A96AE800696281 /* EventTransmissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTransmissionViewController.h; sourceTree = "<group>"; };
+		8FAB164B20A96AE800696281 /* EventTransmissionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTransmissionViewController.xib; sourceTree = "<group>"; };
+		8FAB164C20A96AE800696281 /* EventTransmissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTransmissionViewController.m; sourceTree = "<group>"; };
+		8FAB164F20A96AE900696281 /* CustomAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAdapter.m; sourceTree = "<group>"; };
+		8FAB165020A96AE900696281 /* CustomAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAdapter.h; sourceTree = "<group>"; };
+		8FAB165220A96AE900696281 /* Style1TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Style1TableViewCell.h; sourceTree = "<group>"; };
+		8FAB165320A96AE900696281 /* Style2TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Style2TableViewCell.h; sourceTree = "<group>"; };
+		8FAB165420A96AE900696281 /* Style2TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Style2TableViewCell.xib; sourceTree = "<group>"; };
+		8FAB165520A96AE900696281 /* Style1TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Style1TableViewCell.m; sourceTree = "<group>"; };
+		8FAB165620A96AE900696281 /* Style1TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Style1TableViewCell.xib; sourceTree = "<group>"; };
+		8FAB165720A96AE900696281 /* Style2TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Style2TableViewCell.m; sourceTree = "<group>"; };
+		8FAB165A20A96AE900696281 /* MultipleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleViewController.m; sourceTree = "<group>"; };
+		8FAB165B20A96AE900696281 /* MultipleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleViewController.xib; sourceTree = "<group>"; };
+		8FAB165C20A96AE900696281 /* MultipleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleViewController.h; sourceTree = "<group>"; };
+		8FAB165F20A96AE900696281 /* SimpleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTableViewCell.h; sourceTree = "<group>"; };
+		8FAB166020A96AE900696281 /* SimpleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleTableViewCell.xib; sourceTree = "<group>"; };
+		8FAB166120A96AE900696281 /* SimpleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTableViewCell.m; sourceTree = "<group>"; };
+		8FAB166320A96AE900696281 /* SampleTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleTableViewHeaderFooterView.h; sourceTree = "<group>"; };
+		8FAB166420A96AE900696281 /* SampleTableViewHeaderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleTableViewHeaderFooterView.xib; sourceTree = "<group>"; };
+		8FAB166520A96AE900696281 /* SampleTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleTableViewHeaderFooterView.m; sourceTree = "<group>"; };
+		8FAB166720A96AE900696281 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		8FAB166820A96AE900696281 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8FAB166920A96AE900696281 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8FAB166C20A96AE900696281 /* RecordAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordAdapter.h; sourceTree = "<group>"; };
+		8FAB166D20A96AE900696281 /* RecordAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordAdapter.m; sourceTree = "<group>"; };
+		8FAB166F20A96AE900696281 /* RecordInputDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordInputDataViewController.h; sourceTree = "<group>"; };
+		8FAB167020A96AE900696281 /* RecordInputDataViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordInputDataViewController.xib; sourceTree = "<group>"; };
+		8FAB167120A96AE900696281 /* RecordInputDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordInputDataViewController.m; sourceTree = "<group>"; };
+		8FAB167320A96AE900696281 /* RecordSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordSwitchTableViewCell.m; sourceTree = "<group>"; };
+		8FAB167420A96AE900696281 /* RecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordTableViewCell.m; sourceTree = "<group>"; };
+		8FAB167520A96AE900696281 /* RecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordTableViewCell.xib; sourceTree = "<group>"; };
+		8FAB167620A96AE900696281 /* RecordSwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordSwitchTableViewCell.xib; sourceTree = "<group>"; };
+		8FAB167720A96AE900696281 /* RecordSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordSwitchTableViewCell.h; sourceTree = "<group>"; };
+		8FAB167820A96AE900696281 /* RecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordTableViewCell.h; sourceTree = "<group>"; };
 		8FE04AD020A40FFD0038BE0D /* CHGAdapter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHGAdapter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FE04AD320A40FFD0038BE0D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8FE04AD420A40FFD0038BE0D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -64,9 +130,6 @@
 		8FE04AF320A40FFF0038BE0D /* CHGAdapterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CHGAdapterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FE04AF720A40FFF0038BE0D /* CHGAdapterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGAdapterUITests.m; sourceTree = "<group>"; };
 		8FE04AF920A40FFF0038BE0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8FE04B0620A4107E0038BE0D /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		8FE04B0720A4107E0038BE0D /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		8FE04B0820A4107E0038BE0D /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		8FE94D6520A4187200386F56 /* CHGTableViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGTableViewAdapter.h; sourceTree = "<group>"; };
 		8FE94D6620A4187200386F56 /* CHGTableViewAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGTableViewAdapter.m; sourceTree = "<group>"; };
 		8FE94D6920A41AC700386F56 /* CHGTableViewAdapterData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGTableViewAdapterData.h; sourceTree = "<group>"; };
@@ -76,23 +139,10 @@
 		8FE94D7520A4252500386F56 /* CHGTableViewAdapterDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGTableViewAdapterDefine.h; sourceTree = "<group>"; };
 		8FE94D7720A425C900386F56 /* UITableView+CHGTableViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+CHGTableViewAdapter.h"; sourceTree = "<group>"; };
 		8FE94D7820A425C900386F56 /* UITableView+CHGTableViewAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CHGTableViewAdapter.m"; sourceTree = "<group>"; };
-		8FE94D7B20A42C9E00386F56 /* SimpleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleTableViewCell.h; sourceTree = "<group>"; };
-		8FE94D7C20A42C9E00386F56 /* SimpleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleTableViewCell.m; sourceTree = "<group>"; };
-		8FE94D7D20A42C9E00386F56 /* SimpleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleTableViewCell.xib; sourceTree = "<group>"; };
 		8FE94D8020A430B500386F56 /* CHGTableViewHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGTableViewHeaderFooterView.h; sourceTree = "<group>"; };
 		8FE94D8120A430B500386F56 /* CHGTableViewHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGTableViewHeaderFooterView.m; sourceTree = "<group>"; };
-		8FE94D8320A43E8900386F56 /* SampleTableViewHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleTableViewHeaderFooterView.h; sourceTree = "<group>"; };
-		8FE94D8420A43E8900386F56 /* SampleTableViewHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleTableViewHeaderFooterView.m; sourceTree = "<group>"; };
-		8FE94D8720A43EA200386F56 /* SampleTableViewHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SampleTableViewHeaderFooterView.xib; sourceTree = "<group>"; };
 		8FE94D8A20A5915F00386F56 /* CHGTableViewEmptyDataShow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGTableViewEmptyDataShow.h; sourceTree = "<group>"; };
 		8FE94D8B20A5915F00386F56 /* CHGTableViewEmptyDataShow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGTableViewEmptyDataShow.m; sourceTree = "<group>"; };
-		8FF158C120A6920000D17B85 /* Simple2TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Simple2TableViewCell.h; sourceTree = "<group>"; };
-		8FF158C220A6920000D17B85 /* Simple2TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Simple2TableViewCell.m; sourceTree = "<group>"; };
-		8FF158C520A69F9200D17B85 /* TestAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAdapter.h; sourceTree = "<group>"; };
-		8FF158C620A69F9200D17B85 /* TestAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAdapter.m; sourceTree = "<group>"; };
-		8FF158C820A6AF4F00D17B85 /* Test2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test2ViewController.h; sourceTree = "<group>"; };
-		8FF158C920A6AF4F00D17B85 /* Test2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test2ViewController.m; sourceTree = "<group>"; };
-		8FF158CA20A6AF4F00D17B85 /* Test2ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Test2ViewController.xib; sourceTree = "<group>"; };
 		E6D62535AB7A68DC337BC3EB /* Pods-CHGAdapter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHGAdapter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CHGAdapter/Pods-CHGAdapter.debug.xcconfig"; sourceTree = "<group>"; };
 		EC09ED455D43E832A8ACE449 /* libPods-CHGAdapter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CHGAdapter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -140,6 +190,219 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8FAB162C20A96A8900696281 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB165D20A96AE900696281 /* 简单的使用 */,
+				8FAB164D20A96AE900696281 /* 扩展CHGTableViewAdapter显示多种cell及headerview */,
+				8FAB163720A96AE800696281 /* 入口 */,
+				8FAB166A20A96AE900696281 /* 使用customData参数记录cell中的数据 */,
+				8FAB164020A96AE800696281 /* 事件传输 */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
+		8FAB163720A96AE800696281 /* 入口 */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB163820A96AE800696281 /* controller */,
+				8FAB163C20A96AE800696281 /* cell */,
+			);
+			path = "入口";
+			sourceTree = "<group>";
+		};
+		8FAB163820A96AE800696281 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB163920A96AE800696281 /* MenuViewController.h */,
+				8FAB163A20A96AE800696281 /* MenuViewController.xib */,
+				8FAB163B20A96AE800696281 /* MenuViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		8FAB163C20A96AE800696281 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB163D20A96AE800696281 /* TitleTableViewCell.h */,
+				8FAB163E20A96AE800696281 /* TitleTableViewCell.xib */,
+				8FAB163F20A96AE800696281 /* TitleTableViewCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		8FAB164020A96AE800696281 /* 事件传输 */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB164120A96AE800696281 /* cell */,
+				8FAB164520A96AE800696281 /* headFooterView */,
+				8FAB164920A96AE800696281 /* controllers */,
+			);
+			path = "事件传输";
+			sourceTree = "<group>";
+		};
+		8FAB164120A96AE800696281 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB164220A96AE800696281 /* OneButtonTableViewCell.h */,
+				8FAB164320A96AE800696281 /* OneButtonTableViewCell.xib */,
+				8FAB164420A96AE800696281 /* OneButtonTableViewCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		8FAB164520A96AE800696281 /* headFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB164620A96AE800696281 /* OneTextFieldHeaderFooterView.h */,
+				8FAB164720A96AE800696281 /* OneTextFieldHeaderFooterView.xib */,
+				8FAB164820A96AE800696281 /* OneTextFieldHeaderFooterView.m */,
+			);
+			path = headFooterView;
+			sourceTree = "<group>";
+		};
+		8FAB164920A96AE800696281 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB164A20A96AE800696281 /* EventTransmissionViewController.h */,
+				8FAB164B20A96AE800696281 /* EventTransmissionViewController.xib */,
+				8FAB164C20A96AE800696281 /* EventTransmissionViewController.m */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		8FAB164D20A96AE900696281 /* 扩展CHGTableViewAdapter显示多种cell及headerview */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB164E20A96AE900696281 /* Adapter */,
+				8FAB165120A96AE900696281 /* cell */,
+				8FAB165820A96AE900696281 /* headFooterView */,
+				8FAB165920A96AE900696281 /* controllers */,
+			);
+			path = "扩展CHGTableViewAdapter显示多种cell及headerview";
+			sourceTree = "<group>";
+		};
+		8FAB164E20A96AE900696281 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB164F20A96AE900696281 /* CustomAdapter.m */,
+				8FAB165020A96AE900696281 /* CustomAdapter.h */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		8FAB165120A96AE900696281 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB165220A96AE900696281 /* Style1TableViewCell.h */,
+				8FAB165320A96AE900696281 /* Style2TableViewCell.h */,
+				8FAB165420A96AE900696281 /* Style2TableViewCell.xib */,
+				8FAB165520A96AE900696281 /* Style1TableViewCell.m */,
+				8FAB165620A96AE900696281 /* Style1TableViewCell.xib */,
+				8FAB165720A96AE900696281 /* Style2TableViewCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		8FAB165820A96AE900696281 /* headFooterView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = headFooterView;
+			sourceTree = "<group>";
+		};
+		8FAB165920A96AE900696281 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB165A20A96AE900696281 /* MultipleViewController.m */,
+				8FAB165B20A96AE900696281 /* MultipleViewController.xib */,
+				8FAB165C20A96AE900696281 /* MultipleViewController.h */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		8FAB165D20A96AE900696281 /* 简单的使用 */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB165E20A96AE900696281 /* cell */,
+				8FAB166220A96AE900696281 /* headFooterView */,
+				8FAB166620A96AE900696281 /* controllers */,
+			);
+			path = "简单的使用";
+			sourceTree = "<group>";
+		};
+		8FAB165E20A96AE900696281 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB165F20A96AE900696281 /* SimpleTableViewCell.h */,
+				8FAB166020A96AE900696281 /* SimpleTableViewCell.xib */,
+				8FAB166120A96AE900696281 /* SimpleTableViewCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		8FAB166220A96AE900696281 /* headFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB166320A96AE900696281 /* SampleTableViewHeaderFooterView.h */,
+				8FAB166420A96AE900696281 /* SampleTableViewHeaderFooterView.xib */,
+				8FAB166520A96AE900696281 /* SampleTableViewHeaderFooterView.m */,
+			);
+			path = headFooterView;
+			sourceTree = "<group>";
+		};
+		8FAB166620A96AE900696281 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB166720A96AE900696281 /* ViewController.xib */,
+				8FAB166820A96AE900696281 /* ViewController.m */,
+				8FAB166920A96AE900696281 /* ViewController.h */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		8FAB166A20A96AE900696281 /* 使用customData参数记录cell中的数据 */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB166B20A96AE900696281 /* adapter */,
+				8FAB166E20A96AE900696281 /* controller */,
+				8FAB167220A96AE900696281 /* cell */,
+			);
+			path = "使用customData参数记录cell中的数据";
+			sourceTree = "<group>";
+		};
+		8FAB166B20A96AE900696281 /* adapter */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB166C20A96AE900696281 /* RecordAdapter.h */,
+				8FAB166D20A96AE900696281 /* RecordAdapter.m */,
+			);
+			path = adapter;
+			sourceTree = "<group>";
+		};
+		8FAB166E20A96AE900696281 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB166F20A96AE900696281 /* RecordInputDataViewController.h */,
+				8FAB167020A96AE900696281 /* RecordInputDataViewController.xib */,
+				8FAB167120A96AE900696281 /* RecordInputDataViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		8FAB167220A96AE900696281 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				8FAB167320A96AE900696281 /* RecordSwitchTableViewCell.m */,
+				8FAB167420A96AE900696281 /* RecordTableViewCell.m */,
+				8FAB167520A96AE900696281 /* RecordTableViewCell.xib */,
+				8FAB167620A96AE900696281 /* RecordSwitchTableViewCell.xib */,
+				8FAB167720A96AE900696281 /* RecordSwitchTableViewCell.h */,
+				8FAB167820A96AE900696281 /* RecordTableViewCell.h */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		8FE04AC720A40FFD0038BE0D = {
 			isa = PBXGroup;
 			children = (
@@ -165,10 +428,7 @@
 		8FE04AD220A40FFD0038BE0D /* CHGAdapter */ = {
 			isa = PBXGroup;
 			children = (
-				8FF158C420A69F6B00D17B85 /* adapter */,
-				8FE94D8620A43E9000386F56 /* headerFooterView */,
-				8FE94D7A20A42C6E00386F56 /* cell */,
-				8FE04B0B20A4108C0038BE0D /* controllers */,
+				8FAB162C20A96A8900696281 /* Sample */,
 				8FE04B0520A410420038BE0D /* CHGAdapterLib */,
 				8FE04AD320A40FFD0038BE0D /* AppDelegate.h */,
 				8FE04AD420A40FFD0038BE0D /* AppDelegate.m */,
@@ -215,19 +475,6 @@
 			path = CHGAdapterLib;
 			sourceTree = "<group>";
 		};
-		8FE04B0B20A4108C0038BE0D /* controllers */ = {
-			isa = PBXGroup;
-			children = (
-				8FE04B0620A4107E0038BE0D /* TestViewController.h */,
-				8FE04B0720A4107E0038BE0D /* TestViewController.m */,
-				8FE04B0820A4107E0038BE0D /* TestViewController.xib */,
-				8FF158C820A6AF4F00D17B85 /* Test2ViewController.h */,
-				8FF158C920A6AF4F00D17B85 /* Test2ViewController.m */,
-				8FF158CA20A6AF4F00D17B85 /* Test2ViewController.xib */,
-			);
-			path = controllers;
-			sourceTree = "<group>";
-		};
 		8FE94D6820A41A9700386F56 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,28 +493,6 @@
 			path = category;
 			sourceTree = "<group>";
 		};
-		8FE94D7A20A42C6E00386F56 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				8FE94D7B20A42C9E00386F56 /* SimpleTableViewCell.h */,
-				8FE94D7C20A42C9E00386F56 /* SimpleTableViewCell.m */,
-				8FE94D7D20A42C9E00386F56 /* SimpleTableViewCell.xib */,
-				8FF158C120A6920000D17B85 /* Simple2TableViewCell.h */,
-				8FF158C220A6920000D17B85 /* Simple2TableViewCell.m */,
-			);
-			path = cell;
-			sourceTree = "<group>";
-		};
-		8FE94D8620A43E9000386F56 /* headerFooterView */ = {
-			isa = PBXGroup;
-			children = (
-				8FE94D8320A43E8900386F56 /* SampleTableViewHeaderFooterView.h */,
-				8FE94D8420A43E8900386F56 /* SampleTableViewHeaderFooterView.m */,
-				8FE94D8720A43EA200386F56 /* SampleTableViewHeaderFooterView.xib */,
-			);
-			path = headerFooterView;
-			sourceTree = "<group>";
-		};
 		8FE94D8920A590FB00386F56 /* emptyDataShow */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,15 +500,6 @@
 				8FE94D8B20A5915F00386F56 /* CHGTableViewEmptyDataShow.m */,
 			);
 			path = emptyDataShow;
-			sourceTree = "<group>";
-		};
-		8FF158C420A69F6B00D17B85 /* adapter */ = {
-			isa = PBXGroup;
-			children = (
-				8FF158C520A69F9200D17B85 /* TestAdapter.h */,
-				8FF158C620A69F9200D17B85 /* TestAdapter.m */,
-			);
-			path = adapter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,12 +606,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FAB168920A96AE900696281 /* MultipleViewController.xib in Resources */,
+				8FAB168120A96AE900696281 /* EventTransmissionViewController.xib in Resources */,
+				8FAB169620A96AE900696281 /* RecordSwitchTableViewCell.xib in Resources */,
+				8FAB167B20A96AE900696281 /* TitleTableViewCell.xib in Resources */,
+				8FAB168A20A96AE900696281 /* SimpleTableViewCell.xib in Resources */,
+				8FAB169120A96AE900696281 /* RecordInputDataViewController.xib in Resources */,
 				8FE04AE020A40FFE0038BE0D /* LaunchScreen.storyboard in Resources */,
-				8FF158CC20A6AF4F00D17B85 /* Test2ViewController.xib in Resources */,
-				8FE94D7F20A42C9E00386F56 /* SimpleTableViewCell.xib in Resources */,
-				8FE94D8820A43EA200386F56 /* SampleTableViewHeaderFooterView.xib in Resources */,
-				8FE04B0A20A4107E0038BE0D /* TestViewController.xib in Resources */,
+				8FAB168E20A96AE900696281 /* ViewController.xib in Resources */,
+				8FAB167F20A96AE900696281 /* OneTextFieldHeaderFooterView.xib in Resources */,
+				8FAB169520A96AE900696281 /* RecordTableViewCell.xib in Resources */,
+				8FAB167920A96AE900696281 /* MenuViewController.xib in Resources */,
 				8FE04ADD20A40FFE0038BE0D /* Assets.xcassets in Resources */,
+				8FAB168C20A96AE900696281 /* SampleTableViewHeaderFooterView.xib in Resources */,
+				8FAB168420A96AE900696281 /* Style2TableViewCell.xib in Resources */,
+				8FAB167D20A96AE900696281 /* OneButtonTableViewCell.xib in Resources */,
+				8FAB168620A96AE900696281 /* Style1TableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,19 +667,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FF158C320A6920000D17B85 /* Simple2TableViewCell.m in Sources */,
+				8FAB167C20A96AE900696281 /* TitleTableViewCell.m in Sources */,
 				8FE94D6B20A41AC700386F56 /* CHGTableViewAdapterData.m in Sources */,
-				8FF158C720A69F9200D17B85 /* TestAdapter.m in Sources */,
+				8FAB168820A96AE900696281 /* MultipleViewController.m in Sources */,
+				8FAB167E20A96AE900696281 /* OneButtonTableViewCell.m in Sources */,
+				8FAB169220A96AE900696281 /* RecordInputDataViewController.m in Sources */,
+				8FAB168020A96AE900696281 /* OneTextFieldHeaderFooterView.m in Sources */,
+				8FAB168D20A96AE900696281 /* SampleTableViewHeaderFooterView.m in Sources */,
+				8FAB167A20A96AE900696281 /* MenuViewController.m in Sources */,
+				8FAB169320A96AE900696281 /* RecordSwitchTableViewCell.m in Sources */,
 				8FE94D8220A430B500386F56 /* CHGTableViewHeaderFooterView.m in Sources */,
-				8FE04B0920A4107E0038BE0D /* TestViewController.m in Sources */,
+				8FAB168720A96AE900696281 /* Style2TableViewCell.m in Sources */,
+				8FAB168320A96AE900696281 /* CustomAdapter.m in Sources */,
 				8FE94D7920A425C900386F56 /* UITableView+CHGTableViewAdapter.m in Sources */,
+				8FAB168520A96AE900696281 /* Style1TableViewCell.m in Sources */,
+				8FAB169020A96AE900696281 /* RecordAdapter.m in Sources */,
 				8FE04AE320A40FFE0038BE0D /* main.m in Sources */,
 				8FE94D6720A4187200386F56 /* CHGTableViewAdapter.m in Sources */,
-				8FE94D7E20A42C9E00386F56 /* SimpleTableViewCell.m in Sources */,
+				8FAB168F20A96AE900696281 /* ViewController.m in Sources */,
+				8FAB169420A96AE900696281 /* RecordTableViewCell.m in Sources */,
+				8FAB168B20A96AE900696281 /* SimpleTableViewCell.m in Sources */,
+				8FAB168220A96AE900696281 /* EventTransmissionViewController.m in Sources */,
 				8FE94D8C20A5915F00386F56 /* CHGTableViewEmptyDataShow.m in Sources */,
 				8FE94D6F20A41F9000386F56 /* CHGTableViewCell.m in Sources */,
-				8FF158CB20A6AF4F00D17B85 /* Test2ViewController.m in Sources */,
-				8FE94D8520A43E8900386F56 /* SampleTableViewHeaderFooterView.m in Sources */,
 				8FE04AD520A40FFD0038BE0D /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
