@@ -11,7 +11,7 @@
 ### Installation with CocoaPods
 
 
-> pod 'CHGAdapter', '~> 0.1.2'
+> pod 'CHGAdapter', '~> 0.1.3'
 
 ### example
 
