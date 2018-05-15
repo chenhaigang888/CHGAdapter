@@ -11,7 +11,7 @@
 @class CHGCollectionViewAdapter;
 @class CHGCollectionViewEmptyDataShow;
 
-typedef void(^CHGCollectionViewDidSelectItemAtIndexPathBlock)(UICollectionView * collectionView,NSIndexPath * indexPath);
+typedef void(^CHGCollectionViewDidSelectItemAtIndexPathBlock)(UICollectionView * collectionView,NSIndexPath * indexPath, id itemData);
 
 @interface UICollectionView (CHGCollectionViewAdapter)
 

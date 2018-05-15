@@ -11,5 +11,7 @@
 @interface CHGCollectionViewAdapterData : NSObject
 
 @property(nonatomic,copy) NSArray * cellDatas;
+@property(nonatomic,copy) NSArray * headerDatas;
+@property(nonatomic,copy) NSArray * footerDatas;
 
 @end

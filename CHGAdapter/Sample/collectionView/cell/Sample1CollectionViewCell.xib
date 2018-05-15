@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="Sample1CollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="234" height="311"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="234" height="311"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYV-zv-Hw8">
+                        <rect key="frame" x="0.0" y="160.5" width="234" height="150.5"/>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="btnTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="i4a-G3-q63"/>
+                        </connections>
+                    </button>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1uh-DD-r2b">
+                        <rect key="frame" x="5" y="5" width="224" height="150.5"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.65535898110000002" green="1" blue="0.61199745250000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="1uh-DD-r2b" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="7to-oa-ZU7"/>
+                <constraint firstItem="sYV-zv-Hw8" firstAttribute="top" secondItem="1uh-DD-r2b" secondAttribute="bottom" constant="5" id="8MY-FF-6hF"/>
+                <constraint firstItem="1uh-DD-r2b" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="PHa-uS-47l"/>
+                <constraint firstAttribute="trailing" secondItem="sYV-zv-Hw8" secondAttribute="trailing" id="WnP-db-gXD"/>
+                <constraint firstAttribute="bottom" secondItem="sYV-zv-Hw8" secondAttribute="bottom" id="jpT-0Y-lho"/>
+                <constraint firstAttribute="trailing" secondItem="1uh-DD-r2b" secondAttribute="trailing" constant="5" id="kPF-cO-Mcv"/>
+                <constraint firstItem="sYV-zv-Hw8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="tOC-ft-ezh"/>
+                <constraint firstItem="sYV-zv-Hw8" firstAttribute="height" secondItem="1uh-DD-r2b" secondAttribute="height" id="u9w-PH-yyE"/>
+                <constraint firstItem="sYV-zv-Hw8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="xSZ-Ej-A72"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="234" height="311"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="tOC-ft-ezh"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="btn" destination="sYV-zv-Hw8" id="wKH-NE-cRH"/>
+                <outlet property="textField" destination="1uh-DD-r2b" id="4H0-yT-BZS"/>
+            </connections>
+            <point key="canvasLocation" x="51" y="108.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

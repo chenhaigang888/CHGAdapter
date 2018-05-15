@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="SampleHeaderCollectionReusableView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfx-16-vtu">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="btnTap:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="04Q-Me-Ci5"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="nfx-16-vtu" firstAttribute="leading" secondItem="9Gg-ye-v9C" secondAttribute="leading" id="6pZ-D8-JQC"/>
+                <constraint firstItem="9Gg-ye-v9C" firstAttribute="trailing" secondItem="nfx-16-vtu" secondAttribute="trailing" id="eda-Gm-BWW"/>
+                <constraint firstItem="nfx-16-vtu" firstAttribute="top" secondItem="9Gg-ye-v9C" secondAttribute="top" id="sfL-eh-UDt"/>
+                <constraint firstItem="9Gg-ye-v9C" firstAttribute="bottom" secondItem="nfx-16-vtu" secondAttribute="bottom" id="vby-4v-v2b"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="9Gg-ye-v9C"/>
+            <connections>
+                <outlet property="btn" destination="nfx-16-vtu" id="Jsp-of-9Lx"/>
+            </connections>
+        </collectionReusableView>
+    </objects>
+</document>

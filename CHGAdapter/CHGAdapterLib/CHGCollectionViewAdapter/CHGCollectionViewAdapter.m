@@ -8,12 +8,20 @@
 
 #import "CHGCollectionViewAdapter.h"
 #import "CHGCollectionViewCell.h"
-
+#import "CHGCollectionReusableView.h"
 
 @implementation CHGCollectionViewAdapter
 
 -(NSString*)obtainCellNameWithCellData:(id)data collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     return self.cellName;
+}
+
+- (NSString *)obtainSupplementaryElementNameWithCellData:(id)data collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    return [kind isEqualToString:UICollectionElementKindSectionHeader]
+            ?
+            self.sectionHeaderName
+            :
+            self.sectionFooterName;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -96,8 +104,43 @@
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     
+    NSArray * reusableViewData =
+    [kind isEqualToString:UICollectionElementKindSectionHeader]
+    ?
+    self.adapterData.headerDatas
+    :
+    self.adapterData.footerDatas;
+    id headerFooterData = nil;
+    if (!reusableViewData || [reusableViewData count] != 0) {
+        if (indexPath.section >= reusableViewData.count) {
+            [collectionView registerClass:[CHGCollectionReusableView class] forSupplementaryViewOfKind:kind withReuseIdentifier:@"CHGCollectionReusableView"];
+            CHGCollectionReusableView * reusableView = (CHGCollectionReusableView*)[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"CHGCollectionReusableView" forIndexPath:indexPath];
+            reusableView.eventTransmissionBlock = collectionView.eventTransmissionBlock;
+            [reusableView reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind reusableViewData:headerFooterData];
+            return reusableView;
+        }
+        headerFooterData = reusableViewData[indexPath.section];
+    }
+    
+    NSString * identifier = [self obtainSupplementaryElementNameWithCellData:headerFooterData collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath];
+    if ([identifier length] == 0) return nil;
+    if ([self fileIsExit:identifier]) {
+        [collectionView registerNib:[UINib nibWithNibName:identifier bundle:nil] forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
+    } else {
+        [collectionView registerClass:NSClassFromString(identifier) forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
+    }
+    CHGCollectionReusableView * reusableView = (CHGCollectionReusableView*)[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:identifier forIndexPath:indexPath];
+    reusableView.eventTransmissionBlock = collectionView.eventTransmissionBlock;
+    [reusableView reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind reusableViewData:headerFooterData];
+    return reusableView;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (collectionView.collectionViewDidSelectItemAtIndexPathBlock) {
+        collectionView.collectionViewDidSelectItemAtIndexPathBlock(collectionView, indexPath, [self cellDataWithIndexPath:indexPath]);
+    }
 }
 
 /**

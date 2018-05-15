@@ -14,6 +14,8 @@
 
 -(NSString*)obtainCellNameWithCellData:(id)data collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 
+- (NSString *)obtainSupplementaryElementNameWithCellData:(id)data collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath;
+
 @end
 
 
@@ -25,5 +27,7 @@
 @property(nonatomic,copy) NSString * rowsOfSectionKeyName;
 
 @property(nonatomic,copy) NSString * cellName;
+@property(nonatomic,copy) NSString * sectionHeaderName;
+@property(nonatomic,copy) NSString * sectionFooterName;
 
 @end
