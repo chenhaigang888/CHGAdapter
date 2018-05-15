@@ -306,12 +306,12 @@
 		8FAB165120A96AE900696281 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				8FAB165220A96AE900696281 /* Style1TableViewCell.h */,
 				8FAB165320A96AE900696281 /* Style2TableViewCell.h */,
+				8FAB165720A96AE900696281 /* Style2TableViewCell.m */,
 				8FAB165420A96AE900696281 /* Style2TableViewCell.xib */,
+				8FAB165220A96AE900696281 /* Style1TableViewCell.h */,
 				8FAB165520A96AE900696281 /* Style1TableViewCell.m */,
 				8FAB165620A96AE900696281 /* Style1TableViewCell.xib */,
-				8FAB165720A96AE900696281 /* Style2TableViewCell.m */,
 			);
 			path = cell;
 			sourceTree = "<group>";
