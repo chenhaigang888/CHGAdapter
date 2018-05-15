@@ -7,6 +7,7 @@
 //
 
 #import "Sample1CollectionViewCell.h"
+#import "CHGCollectionViewAdapter.h"
 
 @implementation Sample1CollectionViewCell
 
@@ -19,6 +20,7 @@
 -(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView *)collectionView withData:(id)data {
     [super cellForRowAtIndexPath:indexPath collectionView:collectionView withData:data];
     [self.btn setTitle:[NSString stringWithFormat:@"%@",data] forState:UIControlStateNormal];
+    self.textField.text = collectionView.collectionViewAdapter.adapterData.customData[indexPath];
 }
 
 -(IBAction)btnTap:(id)sender {
@@ -31,6 +33,7 @@
 }
 
 -(void)textFieldInput:(id)sender {
+    self.collectionView.collectionViewAdapter.adapterData.customData[self.indexPath] = self.textField.text;
     self.eventTransmissionBlock(self, self.textField.text, 2, nil);
 }
 

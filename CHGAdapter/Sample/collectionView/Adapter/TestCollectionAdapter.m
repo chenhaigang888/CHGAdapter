@@ -11,8 +11,10 @@
 @implementation TestCollectionAdapter
 
 -(NSString*)obtainCellNameWithCellData:(id)data collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section % 2 == 0) {
+    if (indexPath.section % 3 == 0) {
         return @"SampleCollectionViewCell";
+    } else if (indexPath.section % 3 == 1) {
+        return @"Sample2CollectionViewCell";
     }
     return @"Sample1CollectionViewCell";
 }

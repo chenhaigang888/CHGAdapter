@@ -8,6 +8,7 @@
 
 #import "CollectionViewViewController.h"
 #import "TestCollectionAdapter.h"
+#import "SampleLayout.h"
 
 @interface CollectionViewViewController ()
 
@@ -25,6 +26,7 @@
     layout.itemSize = CGSizeMake(100, 100);
     layout.headerReferenceSize = CGSizeMake(self.view.frame.size.width, 30);
     layout.footerReferenceSize = CGSizeMake(self.view.frame.size.width, 30);
+//    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.collectionView.collectionViewLayout = layout;
     self.adapter.adapterData = self.adapterData;
     self.collectionView.collectionViewAdapter = self.adapter;
@@ -37,6 +39,12 @@
     self.collectionView.collectionViewDidSelectItemAtIndexPathBlock = ^(UICollectionView *collectionView, NSIndexPath *indexPath, id itemData) {
         NSLog(@"itemData:%@",itemData);
     };
+    
+    [self.collectionView performBatchUpdates:^{
+        
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,8 +66,27 @@
     if (!_adapterData) {
         _adapterData = [CHGCollectionViewAdapterData new];
     }
+    _adapterData.customData = [NSMutableDictionary dictionary];
     _adapterData.cellDatas =
     @[
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
       @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
       @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
       @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
