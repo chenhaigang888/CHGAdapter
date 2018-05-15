@@ -117,7 +117,7 @@
         if ([sectionData isKindOfClass:[NSArray class]]) {
             cellData = sectionData[indexPath.row];
         } else {
-            cellData = sectionData;
+            cellData = self.adapterData.cellDatas[indexPath.row];
         }
     }
     return cellData;
