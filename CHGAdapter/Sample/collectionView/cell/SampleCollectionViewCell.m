@@ -17,7 +17,7 @@
 
 -(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView *)collectionView withData:(id)data {
     [super cellForRowAtIndexPath:indexPath collectionView:collectionView withData:data];
-    self.title.text = data;
+    self.title.text = [NSString stringWithFormat:@"%@",data];
 }
 
 @end

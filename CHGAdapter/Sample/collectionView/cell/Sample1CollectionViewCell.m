@@ -18,7 +18,7 @@
 
 -(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView *)collectionView withData:(id)data {
     [super cellForRowAtIndexPath:indexPath collectionView:collectionView withData:data];
-    [self.btn setTitle:data forState:UIControlStateNormal];
+    [self.btn setTitle:[NSString stringWithFormat:@"%@",data] forState:UIControlStateNormal];
 }
 
 -(IBAction)btnTap:(id)sender {

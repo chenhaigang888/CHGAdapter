@@ -77,10 +77,6 @@
             return 1;
         }
     }
-    
-    
-    
-//    return [self.adapterData.cellDatas count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
