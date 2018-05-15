@@ -93,6 +93,7 @@ typedef NS_ENUM(NSUInteger, CHGTableViewHeaderFooterViewType) {
  点击cell是否有动画
  */
 @property(nonatomic,assign) BOOL tableViewDeselectRowAtIndexPathAnimation;
+@property(nonatomic,assign) NSInteger tag;
 
 
 @end

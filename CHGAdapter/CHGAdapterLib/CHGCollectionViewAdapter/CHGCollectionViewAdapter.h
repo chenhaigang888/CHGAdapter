@@ -46,5 +46,6 @@
 @property(nonatomic,copy) NSString * cellName;
 @property(nonatomic,copy) NSString * sectionHeaderName;
 @property(nonatomic,copy) NSString * sectionFooterName;
+@property(nonatomic,assign) NSInteger tag;
 
 @end

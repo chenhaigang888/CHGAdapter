@@ -54,7 +54,12 @@
     if (!_adapterData) {
         _adapterData = [CHGTableViewAdapterData new];
     }
-    _adapterData.cellDatas = @[@[@"1",@"2",@"3",@"4",@"5",@"6"],@[@"1",@"2",@"3",@"4",@"5",@"6"],@[@"1",@"2",@"3",@"4",@"5",@"6"]];
+    _adapterData.cellDatas =
+  @[
+    @[@"1",@"2",@"3",@"4",@"5",@"6"],
+    @[@"1",@"2",@"3",@"4",@"5",@"6"],
+    @[@"1",@"2",@"3",@"4",@"5",@"6"]
+    ];
     _adapterData.headerDatas = @[@"第一个section的Header",@"第二个section的Header"];
     _adapterData.footerDatas = @[@"第一个section的Footer",@"第二个section的Footer"];
     return _adapterData;
