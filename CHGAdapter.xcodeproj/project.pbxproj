@@ -250,9 +250,6 @@
 				8F45863A20AAC4ED00C5C136 /* CollectionReusableView */,
 				8F45863120AAA89300C5C136 /* cell */,
 				8F45863020AAA88B00C5C136 /* controllers */,
-				8F45862820AAA3C500C5C136 /* CollectionViewViewController.h */,
-				8F45862920AAA3C500C5C136 /* CollectionViewViewController.m */,
-				8F45862A20AAA3C500C5C136 /* CollectionViewViewController.xib */,
 			);
 			path = collectionView;
 			sourceTree = "<group>";
@@ -260,6 +257,9 @@
 		8F45863020AAA88B00C5C136 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8F45862820AAA3C500C5C136 /* CollectionViewViewController.h */,
+				8F45862920AAA3C500C5C136 /* CollectionViewViewController.m */,
+				8F45862A20AAA3C500C5C136 /* CollectionViewViewController.xib */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
