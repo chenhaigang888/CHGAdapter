@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import "EventTransmissionViewController.h"
 #import "RecordInputDataViewController.h"
+#import "CollectionViewViewController.h"
 
 @interface MenuViewController ()
 
@@ -45,6 +46,10 @@
             RecordInputDataViewController * vc = [RecordInputDataViewController new];
             vc.title = itemData;
             [strongSelf.navigationController pushViewController:vc animated:YES];
+        } else if (indexPath.row == 3) {
+            CollectionViewViewController * vc = [CollectionViewViewController new];
+            vc.title = itemData;
+            [strongSelf.navigationController pushViewController:vc animated:YES];
         }
     };
 }
@@ -70,7 +75,7 @@
     }
     _adapterData.customData = [NSMutableDictionary dictionary];//用于记录用户输入的数据
     _adapterData.cellDatas = @[
-                               @[@"简单的使用",@"事件传输",@"使用customData参数记录cell中的数据"]
+                               @[@"简单的使用",@"事件传输",@"使用customData参数记录cell中的数据",@"collection的adapter用法"]
                                ];
     return _adapterData;
 }
