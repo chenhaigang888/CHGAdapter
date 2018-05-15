@@ -28,11 +28,12 @@
     self.collectionView.collectionViewLayout = layout;
     self.adapter.adapterData = self.adapterData;
     self.collectionView.collectionViewAdapter = self.adapter;
+    [self.collectionView setEmptyDataShowWithTitle:@"没有任何数据" image:@"icon_dl_xsmm"];
     self.collectionView.eventTransmissionBlock = ^id(id target, id params, NSInteger tag, CHGCallBack callBack) {
         NSLog(@"paramsjjj:%@",params);
         return nil;
     };
-    
+
     self.collectionView.collectionViewDidSelectItemAtIndexPathBlock = ^(UICollectionView *collectionView, NSIndexPath *indexPath, id itemData) {
         NSLog(@"itemData:%@",itemData);
     };
