@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@class CHGCollectionViewAdapterData;
+#import "CHGCollectionViewAdapterData.h"
+#import "UICollectionView+CHGCollectionViewAdapter.h"
 
-@protocol CHGCollectionAdapterProtocol<UICollectionViewDataSource,UICollectionViewDelegate>
+@protocol CHGCollectionAdapterProtocol<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
+-(NSString*)obtainCellNameWithCellData:(id)data collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
@@ -18,5 +21,9 @@
 @interface CHGCollectionViewAdapter : NSObject<CHGCollectionAdapterProtocol>
 
 @property(nonatomic,strong) CHGCollectionViewAdapterData * adapterData;
+
+@property(nonatomic,copy) NSString * rowsOfSectionKeyName;
+
+@property(nonatomic,copy) NSString * cellName;
 
 @end

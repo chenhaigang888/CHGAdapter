@@ -20,6 +20,7 @@ typedef void(^CHGCollectionViewDidSelectItemAtIndexPathBlock)(UICollectionView *
 @property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;
 ///当页面没有数据的时候的显示配置
 @property(nonatomic,strong) CHGCollectionViewEmptyDataShow * collectionViewEmptyDataShow;
+///collectionView item 点击时候的回调
 @property(nonatomic,copy) CHGCollectionViewDidSelectItemAtIndexPathBlock collectionViewDidSelectItemAtIndexPathBlock;
 
 ///设置没有数据的显示
