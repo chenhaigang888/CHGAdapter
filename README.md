@@ -1,4 +1,4 @@
-# CHGAdapter
+# CHGAdapter 
 主要解决UITableView 在每个controller中都需要设置dataSource和delegate的烦恼，并UITableViewCell与DataSource tableView解耦合
 具体表现为
 
@@ -8,8 +8,9 @@
 - controller少了很多有关UITableViewDelegate以及UITableViewDatasource的相关代码，controller代码更加清晰。
 - 基于以上特点adapter、cell、HeaderFooterView都可以最大限度的复用
 
-### Installation with CocoaPods
+swift版： https://github.com/chenhaigang888/CHGAdapter_swift
 
+### Installation with CocoaPods
 
 > pod 'CHGAdapter', '~> 0.1.3'
 
