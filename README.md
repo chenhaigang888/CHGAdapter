@@ -114,12 +114,6 @@ swift版： https://github.com/chenhaigang888/CHGAdapter_swift
     self.collectionView.collectionViewDidSelectItemAtIndexPathBlock = ^(UICollectionView *collectionView, NSIndexPath *indexPath, id itemData) {
         NSLog(@"itemData:%@",itemData);
     };
-    
-    [self.collectionView performBatchUpdates:^{
-        
-    } completion:^(BOOL finished) {
-        
-    }];
 }
 
 - (void)didReceiveMemoryWarning {
