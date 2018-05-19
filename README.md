@@ -1,4 +1,4 @@
-# CHGAdapter
+# CHGAdapter 
 主要解决UITableView 在每个controller中都需要设置dataSource和delegate的烦恼，并UITableViewCell与DataSource tableView解耦合
 具体表现为
 
@@ -8,12 +8,13 @@
 - controller少了很多有关UITableViewDelegate以及UITableViewDatasource的相关代码，controller代码更加清晰。
 - 基于以上特点adapter、cell、HeaderFooterView都可以最大限度的复用
 
-### Installation with CocoaPods
+swift版： https://github.com/chenhaigang888/CHGAdapter_swift
 
+### Installation with CocoaPods
 
 > pod 'CHGAdapter', '~> 0.1.3'
 
-### example
+### example  UITableView
 
 ```
 #import "ViewController.h"
@@ -74,5 +75,113 @@
 }
 
 @end
+
+```
+
+
+### example UICollectionView
+
+```
+#import "CollectionViewViewController.h"
+#import "TestCollectionAdapter.h"
+#import "SampleLayout.h"
+
+@interface CollectionViewViewController ()
+
+@property(nonatomic,weak) IBOutlet UICollectionView * collectionView;
+@property(nonatomic,strong) TestCollectionAdapter * adapter;
+@property(nonatomic,strong) CHGCollectionViewAdapterData * adapterData;
+
+@end
+
+@implementation CollectionViewViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    UICollectionViewFlowLayout * layout = [UICollectionViewFlowLayout new];
+    layout.itemSize = CGSizeMake(100, 100);
+    layout.headerReferenceSize = CGSizeMake(self.view.frame.size.width, 30);
+    layout.footerReferenceSize = CGSizeMake(self.view.frame.size.width, 30);
+    self.collectionView.collectionViewLayout = layout;
+    self.adapter.adapterData = self.adapterData;
+    self.collectionView.collectionViewAdapter = self.adapter;
+    [self.collectionView setEmptyDataShowWithTitle:@"没有任何数据" image:@"icon_dl_xsmm"];
+    self.collectionView.eventTransmissionBlock = ^id(id target, id params, NSInteger tag, CHGCallBack callBack) {
+        NSLog(@"paramsjjj:%@",params);
+        return nil;
+    };
+
+    self.collectionView.collectionViewDidSelectItemAtIndexPathBlock = ^(UICollectionView *collectionView, NSIndexPath *indexPath, id itemData) {
+        NSLog(@"itemData:%@",itemData);
+    };
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+-(TestCollectionAdapter*)adapter {
+    if (!_adapter) {
+        _adapter = [TestCollectionAdapter new];
+        _adapter.cellName = @"Sample1CollectionViewCell";
+        _adapter.sectionHeaderName = @"SampleHeaderCollectionReusableView";
+        _adapter.sectionFooterName = @"SampleHeaderCollectionReusableView";
+        _adapter.rowsOfSectionKeyName = @"test";
+    }
+    return _adapter;
+}
+
+-(CHGCollectionViewAdapterData*)adapterData {
+    if (!_adapterData) {
+        _adapterData = [CHGCollectionViewAdapterData new];
+    }
+    _adapterData.customData = [NSMutableDictionary dictionary];
+    _adapterData.cellDatas =
+    @[
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
+      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]}
+      ];
+    _adapterData.headerDatas = @[@"h1",@"h2"];
+    _adapterData.footerDatas = @[@"f1",@"f2",@"f3",@"f4"];
+    return _adapterData;
+}
+
+@end
+```
+
+
+### example  自定义Adapter
+CHGTableViewAdapter和CHGCollectionViewAdapter默认实现一种类型的Cell和一种类型的HeaderView以及FooterView，如果你的TableView、CollectionView想显示不通风格的Cell、HeaderView、FooterView；可以通过集成CHGCollectionViewAdapter、CHGCollectionViewAdapter方式扩展。通过扩展实现以下几个方法返回不同类型,以及在Adapter的子类中实现TableView的DataSource、Delegate方法。CollectionView同理
+
+```
+/**
+ 获取cell的类名
+
+ @param data indexPath的数据
+ @param tableView tableView对象
+ @param indexPath indexPath
+ @return 返回indexPath的cell 类名
+ */
+-(NSString*)obtainCellNameWithCellData:(id)data tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+
+/**
+ 获取header的类名
+
+ @param data 当前header的数据
+ @param tableView tableView对象
+ @param section section
+ @return 返回section的类名
+ */
+-(NSString*)obtainHeaderNameWithHeaderData:(id)data tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
+
+/**
+ 获取footer的类名
+ 
+ @param data 当前footer的数据
+ @param tableView tableView对象
+ @param section section
+ @return 返回section的类名
+ */
+-(NSString*)obtainFooterNameWithFooterData:(id)data tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section;
 
 ```
