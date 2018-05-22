@@ -31,6 +31,8 @@
     self.tableView.tableViewDidSelectRowBlock = ^(UITableView *tableView, NSIndexPath *indexPath, id itemData) {
         NSLog(@"当前点击section:%li row:%li",indexPath.section,indexPath.row);
     };
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
