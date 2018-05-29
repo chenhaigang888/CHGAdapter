@@ -57,4 +57,19 @@
  */
 -(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView*)tableView withData:(id)data NS_REQUIRES_SUPER;
 
+/**
+ 将被复用
+ 
+ @param identifier identifier
+ */
+-(void)willReuseWithIdentifier:(NSString*)identifier;
+
+/**
+ 将被复用
+
+ @param identifier identifier
+ @param indexPath indexPath
+ */
+-(void)willReuseWithIdentifier:(NSString*)identifier indexPath:(NSIndexPath*)indexPath;
+
 @end

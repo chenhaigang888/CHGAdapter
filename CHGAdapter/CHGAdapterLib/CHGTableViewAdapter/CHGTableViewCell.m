@@ -74,4 +74,24 @@
     [super setFrame:frame];
 }
 
+
+/**
+ 将被复用
+
+ @param identifier identifier
+ */
+-(void)willReuseWithIdentifier:(NSString*)identifier {
+    
+}
+
+/**
+ 将被复用
+ 
+ @param identifier identifier
+ @param indexPath indexPath
+ */
+-(void)willReuseWithIdentifier:(NSString*)identifier indexPath:(NSIndexPath*)indexPath {
+    
+}
+
 @end

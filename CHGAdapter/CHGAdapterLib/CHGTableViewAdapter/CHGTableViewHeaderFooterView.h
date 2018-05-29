@@ -48,4 +48,11 @@
  */
 -(void)headerFooterForSection:(NSInteger)section inTableView:(UITableView*)tableView withData:(id)data type:(CHGTableViewHeaderFooterViewType)type NS_REQUIRES_SUPER;
 
+/**
+ 将要复用
+
+ @param identifier identifier
+ */
+-(void)willReuseWithIdentifier:(NSString *)identifier;
+
 @end

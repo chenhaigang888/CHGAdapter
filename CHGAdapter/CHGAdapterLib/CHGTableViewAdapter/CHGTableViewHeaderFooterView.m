@@ -52,4 +52,14 @@
     return self.tableView.tableViewAdapter.controller;
 }
 
+/**
+ 将要复用
+ 
+ @param identifier identifier
+ */
+-(void)willReuseWithIdentifier:(NSString *)identifier {
+    
+}
+
+
 @end

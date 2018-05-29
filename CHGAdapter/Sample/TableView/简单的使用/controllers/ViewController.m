@@ -35,6 +35,11 @@
     
 }
 
+- (void)dealloc
+{
+    NSLog(@"dealloc");
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

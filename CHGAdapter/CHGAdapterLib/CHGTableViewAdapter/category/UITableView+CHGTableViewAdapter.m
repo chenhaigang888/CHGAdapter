@@ -9,6 +9,8 @@
 #import "UITableView+CHGTableViewAdapter.h"
 #import <objc/runtime.h>
 #import "CHGTableViewEmptyDataShow.h"
+#import "CHGTableViewCell.h"
+#import "CHGTableViewHeaderFooterView.h"
 
 static const void * tableViewAdapterKey = &tableViewAdapterKey;
 static const void * eventTransmissionBlockKey = &eventTransmissionBlockKey;
@@ -17,6 +19,53 @@ static const void * tableViewEmptyDataShowKey = &tableViewEmptyDataShowKey;
 
 @implementation UITableView (CHGTableViewAdapter)
 
++ (void)load{
+    [[self class] m1];
+    [[self class] m2];
+    [[self class] m3];
+}
+
++(void)m1{
+    Method fromeInitModelMethod = class_getInstanceMethod([self class], @selector(dequeueReusableCellWithIdentifier:));
+    Method toInitModelMethod = class_getInstanceMethod([self class], @selector(swizzlingDequeueReusableCellWithIdentifier:));
+    if (!class_addMethod([self class], @selector(swizzlingDequeueReusableCellWithIdentifier:), method_getImplementation(toInitModelMethod), method_getTypeEncoding(toInitModelMethod))) {
+        method_exchangeImplementations(fromeInitModelMethod, toInitModelMethod);
+    }
+}
+
++(void)m2{
+    Method fromeInitModelMethod = class_getInstanceMethod([self class], @selector(dequeueReusableCellWithIdentifier:forIndexPath:));
+    Method toInitModelMethod = class_getInstanceMethod([self class], @selector(swizzlingDequeueReusableCellWithIdentifier:forIndexPath:));
+    if (!class_addMethod([self class], @selector(swizzlingDequeueReusableCellWithIdentifier:forIndexPath:), method_getImplementation(toInitModelMethod), method_getTypeEncoding(toInitModelMethod))) {
+        method_exchangeImplementations(fromeInitModelMethod, toInitModelMethod);
+    }
+}
+
++(void)m3{
+    Method fromeInitModelMethod = class_getInstanceMethod([self class], @selector(dequeueReusableHeaderFooterViewWithIdentifier:));
+    Method toInitModelMethod = class_getInstanceMethod([self class], @selector(swizzlingDequeueReusableHeaderFooterViewWithIdentifier:));
+    if (!class_addMethod([self class], @selector(swizzlingDequeueReusableHeaderFooterViewWithIdentifier:), method_getImplementation(toInitModelMethod), method_getTypeEncoding(toInitModelMethod))) {
+        method_exchangeImplementations(fromeInitModelMethod, toInitModelMethod);
+    }
+}
+
+
+- (nullable __kindof UITableViewCell *)swizzlingDequeueReusableCellWithIdentifier:(NSString *)identifier {
+    CHGTableViewCell * cell = [self swizzlingDequeueReusableCellWithIdentifier:identifier];
+    [cell willReuseWithIdentifier:identifier];
+    return cell;
+}
+
+- (__kindof UITableViewCell *)swizzlingDequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
+    CHGTableViewCell * cell = [self swizzlingDequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    [cell willReuseWithIdentifier:identifier indexPath:indexPath];
+    return cell;
+}
+
+- (nullable __kindof UITableViewHeaderFooterView *)swizzlingDequeueReusableHeaderFooterViewWithIdentifier:(NSString *)identifier {
+    CHGTableViewHeaderFooterView * headerFooterView = [self swizzlingDequeueReusableHeaderFooterViewWithIdentifier:identifier];
+    return headerFooterView;
+}
 
 -(CHGTableViewAdapter*)tableViewAdapter {
     return objc_getAssociatedObject(self, tableViewAdapterKey);
