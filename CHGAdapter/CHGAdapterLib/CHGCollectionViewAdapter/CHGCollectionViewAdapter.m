@@ -142,6 +142,30 @@
     }
 }
 
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(8_0) {
+    if([cell isKindOfClass:[CHGCollectionViewCell class]]){
+        [((CHGCollectionViewCell*)cell) cellWillAppear];
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(8_0) {
+    if([view isKindOfClass:[CHGCollectionReusableView class]]){
+        [((CHGCollectionReusableView*)view) reusableViewWillAppear];
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    if ([cell isKindOfClass:[CHGCollectionViewCell class]]) {
+        [((CHGCollectionViewCell*)cell) cellDidDisappear];
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingSupplementaryView:(UICollectionReusableView *)view forElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {
+    if([view isKindOfClass:[CHGCollectionReusableView class]]){
+        [((CHGCollectionReusableView*)view) reusableViewDidDisappear];
+    }
+}
+
 /**
  判断文件是否存在
  

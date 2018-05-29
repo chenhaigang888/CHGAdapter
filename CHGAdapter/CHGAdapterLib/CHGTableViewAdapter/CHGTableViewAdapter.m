@@ -37,7 +37,6 @@
     return xib;
 }
 
-
 -(NSString*)obtainCellNameWithCellData:(id)data tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return self.cellName;
 }
@@ -140,7 +139,7 @@
         } else {
             [tableView registerClass:NSClassFromString(identifier) forCellReuseIdentifier:identifier];
         }
-        cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     }
     //将cell的数据赋予cell
     cell.eventTransmissionBlock = tableView.eventTransmissionBlock;
@@ -199,6 +198,48 @@
     view.frame = CGRectMake(0, 0, tableView.frame.size.width, [self tableView:tableView heightForHeaderInSection:section]);
     [view headerFooterForSection:section inTableView:tableView withData:headerFooterData type:type];
     return view;
+}
+
+//headerView将显示
+-(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    if ([view isKindOfClass:[CHGTableViewHeaderFooterView class]]) {
+        [((CHGTableViewHeaderFooterView*)view) headerFooterViewWillAppearWithType:CHGTableViewHeaderFooterViewHeaderType];
+    }
+}
+
+//cell将显示
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([cell isKindOfClass:[CHGTableViewCell class]]) {
+        [((CHGTableViewCell*)cell) cellWillAppear];
+    }
+}
+
+//footerView将显示
+-(void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {
+    if ([view isKindOfClass:[CHGTableViewHeaderFooterView class]]) {
+        [((CHGTableViewHeaderFooterView*)view) headerFooterViewWillAppearWithType:CHGTableViewHeaderFooterViewFooterType];
+    }
+}
+
+//HeaderView已经消失
+-(void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section {
+    if ([view isKindOfClass:[CHGTableViewHeaderFooterView class]]) {
+      [((CHGTableViewHeaderFooterView*)view) headerFooterViewDidDisAppearWithType:CHGTableViewHeaderFooterViewHeaderType];
+    }
+}
+
+//cell已经消失
+-(void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([cell isKindOfClass:[CHGTableViewCell class]]) {
+        [((CHGTableViewCell*)cell) cellDidDisappear];
+    }
+}
+
+//footerView已经消失
+-(void)tableView:(UITableView *)tableView didEndDisplayingFooterView:(UIView *)view forSection:(NSInteger)section {
+    if ([view isKindOfClass:[CHGTableViewHeaderFooterView class]]) {
+        [((CHGTableViewHeaderFooterView*)view) headerFooterViewDidDisAppearWithType:CHGTableViewHeaderFooterViewFooterType];
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

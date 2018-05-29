@@ -49,21 +49,27 @@ static const void * tableViewEmptyDataShowKey = &tableViewEmptyDataShowKey;
     }
 }
 
-
 - (nullable __kindof UITableViewCell *)swizzlingDequeueReusableCellWithIdentifier:(NSString *)identifier {
-    CHGTableViewCell * cell = [self swizzlingDequeueReusableCellWithIdentifier:identifier];
-    [cell willReuseWithIdentifier:identifier];
+    UITableViewCell * cell = [self swizzlingDequeueReusableCellWithIdentifier:identifier];
+    if ([cell isKindOfClass:[CHGTableViewCell class]]) {
+        [((CHGTableViewCell*)cell) willReuseWithIdentifier:identifier];
+    }
     return cell;
 }
 
 - (__kindof UITableViewCell *)swizzlingDequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
-    CHGTableViewCell * cell = [self swizzlingDequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    [cell willReuseWithIdentifier:identifier indexPath:indexPath];
+    UITableViewCell * cell = [self swizzlingDequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    if ([cell isKindOfClass:[CHGTableViewCell class]]) {
+        [((CHGTableViewCell*)cell) willReuseWithIdentifier:identifier indexPath:indexPath];
+    }
     return cell;
 }
 
 - (nullable __kindof UITableViewHeaderFooterView *)swizzlingDequeueReusableHeaderFooterViewWithIdentifier:(NSString *)identifier {
-    CHGTableViewHeaderFooterView * headerFooterView = [self swizzlingDequeueReusableHeaderFooterViewWithIdentifier:identifier];
+    UITableViewHeaderFooterView * headerFooterView = [self swizzlingDequeueReusableHeaderFooterViewWithIdentifier:identifier];
+    if ([headerFooterView isKindOfClass:[CHGTableViewHeaderFooterView class]]) {
+        [((CHGTableViewHeaderFooterView*)headerFooterView) willReuseWithIdentifier:identifier];
+    }
     return headerFooterView;
 }
 

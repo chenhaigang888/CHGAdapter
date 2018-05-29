@@ -55,4 +55,14 @@
  */
 -(void)willReuseWithIdentifier:(NSString *)identifier;
 
+/**
+ headerFooterView将要显示
+ */
+-(void)headerFooterViewWillAppearWithType:(CHGTableViewHeaderFooterViewType)type;
+
+/**
+ headerFooterView已经消失
+ */
+-(void)headerFooterViewDidDisAppearWithType:(CHGTableViewHeaderFooterViewType)type;
+
 @end

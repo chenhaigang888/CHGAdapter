@@ -74,7 +74,6 @@
     [super setFrame:frame];
 }
 
-
 /**
  将被复用
 
@@ -91,6 +90,24 @@
  @param indexPath indexPath
  */
 -(void)willReuseWithIdentifier:(NSString*)identifier indexPath:(NSIndexPath*)indexPath {
+    
+}
+
+/**
+ cell将要显示
+ */
+-(void)cellWillAppear {
+    
+}
+
+/**
+ cell已经消失
+ */
+-(void)cellDidDisappear {
+    
+}
+
+-(void)layoutSubviews {
     
 }
 

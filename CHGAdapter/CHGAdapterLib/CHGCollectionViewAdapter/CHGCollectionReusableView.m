@@ -45,4 +45,28 @@
     return self.collectionView.collectionViewAdapter.controller;
 }
 
+/**
+ 将被复用
+ 
+ @param identifier identifier
+ @param indexPath indexPath
+ */
+-(void)willReuseWithIdentifier:(NSString*)identifier indexPath:(NSIndexPath*)indexPath {
+    
+}
+
+/**
+ cell将要显示
+ */
+-(void)reusableViewWillAppear {
+    
+}
+
+/**
+ cell已经消失
+ */
+-(void)reusableViewDidDisappear {
+    
+}
+
 @end

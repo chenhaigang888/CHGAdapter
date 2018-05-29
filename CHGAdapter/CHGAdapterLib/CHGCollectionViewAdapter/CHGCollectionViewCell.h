@@ -45,4 +45,23 @@
  */
 -(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView*)collectionView withData:(id)data NS_REQUIRES_SUPER;
 
+
+/**
+ 将被复用
+ 
+ @param identifier identifier
+ @param indexPath indexPath
+ */
+-(void)willReuseWithIdentifier:(NSString*)identifier indexPath:(NSIndexPath*)indexPath;
+
+/**
+ cell将要显示
+ */
+-(void)cellWillAppear;
+
+/**
+ cell已经消失
+ */
+-(void)cellDidDisappear;
+
 @end
