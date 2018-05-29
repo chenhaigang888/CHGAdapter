@@ -25,4 +25,22 @@
     self.type = type;
 }
 
+/**
+ 获取当前Adapter的tag
+ 
+ @return 返回tag
+ */
+-(NSInteger)adapterTag {
+    return self.tableView.tableViewAdapter.tag;
+}
+
+/**
+ 获取AdapterData中的customData
+ 
+ @return 获取AdapterData中的customData
+ */
+-(id)customData {
+    return self.tableView.tableViewAdapter.adapterData.customData;
+}
+
 @end

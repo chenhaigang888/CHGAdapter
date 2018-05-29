@@ -7,10 +7,27 @@
 //
 
 #import "CHGCollectionViewCell.h"
+#import "CHGCollectionViewAdapter.h"
 
 @implementation CHGCollectionViewCell
 
+/**
+ 获取当前Adapter的tag
+ 
+ @return 返回tag
+ */
+-(NSInteger)adapterTag {
+    return self.collectionView.collectionViewAdapter.tag;
+}
 
+/**
+ 获取AdapterData中的customData
+ 
+ @return 获取AdapterData中的customData
+ */
+-(id)customData {
+    return self.collectionView.collectionViewAdapter.adapterData.customData;
+}
 
 -(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView*)collectionView withData:(id)data {
     self.indexPath = indexPath;

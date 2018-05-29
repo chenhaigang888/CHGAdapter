@@ -7,6 +7,7 @@
 //
 
 #import "CHGCollectionReusableView.h"
+#import "CHGCollectionViewAdapter.h"
 
 @implementation CHGCollectionReusableView
 
@@ -15,6 +16,24 @@
     self.indexPath = indexPath;
     self.kind = kind;
     self.reusableViewData = reusableViewData;
+}
+
+/**
+ 获取当前Adapter的tag
+ 
+ @return 返回tag
+ */
+-(NSInteger)adapterTag {
+    return self.collectionView.collectionViewAdapter.tag;
+}
+
+/**
+ 获取AdapterData中的customData
+ 
+ @return 获取AdapterData中的customData
+ */
+-(id)customData {
+    return self.collectionView.collectionViewAdapter.adapterData.customData;
 }
 
 @end

@@ -11,11 +11,25 @@
 
 @interface CHGTableViewCell : UITableViewCell
 
-@property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;
-@property(nonatomic,strong) NSIndexPath * indexPath;
-@property(nonatomic,weak) UITableView * tableView;
-@property(nonatomic,strong) id cellData;
+@property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;//当前数据可通过此block向外部传递
+@property(nonatomic,strong) NSIndexPath * indexPath;//当前cell的indexPath信息
+@property(nonatomic,weak) UITableView * tableView;//当前Cell所在的tableView
+@property(nonatomic,strong) id cellData;//当前cell需要显示的数据
+@property(nonatomic,weak) UIViewController * controller;//当前cell所在的controller
 
+/**
+ 获取当前Adapter的tag
+ 
+ @return 返回tag
+ */
+-(NSInteger)adapterTag;
+
+/**
+ 获取AdapterData中的customData
+ 
+ @return 获取AdapterData中的customData
+ */
+-(id)customData;
 
 /**
  初始化子view
