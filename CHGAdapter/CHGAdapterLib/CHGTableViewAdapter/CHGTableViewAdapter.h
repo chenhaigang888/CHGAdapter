@@ -94,6 +94,7 @@ typedef NS_ENUM(NSUInteger, CHGTableViewHeaderFooterViewType) {
  */
 @property(nonatomic,assign) BOOL tableViewDeselectRowAtIndexPathAnimation;
 @property(nonatomic,assign) NSInteger tag;
+@property(nonatomic,weak) UIViewController * controller;
 
 
 @end

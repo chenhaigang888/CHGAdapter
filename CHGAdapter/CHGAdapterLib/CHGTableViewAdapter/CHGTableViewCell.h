@@ -15,7 +15,8 @@
 @property(nonatomic,strong) NSIndexPath * indexPath;//当前cell的indexPath信息
 @property(nonatomic,weak) UITableView * tableView;//当前Cell所在的tableView
 @property(nonatomic,strong) id cellData;//当前cell需要显示的数据
-@property(nonatomic,weak) UIViewController * controller;//当前cell所在的controller
+///cell分割线高度
+@property(nonatomic,assign) CGFloat dividerHeight;
 
 /**
  获取当前Adapter的tag
@@ -30,6 +31,13 @@
  @return 获取AdapterData中的customData
  */
 -(id)customData;
+
+/**
+ 返回当前cell所在的controller
+ 
+ @return 返回当前cell所在的controller
+ */
+-(UIViewController*)controller;
 
 /**
  初始化子view

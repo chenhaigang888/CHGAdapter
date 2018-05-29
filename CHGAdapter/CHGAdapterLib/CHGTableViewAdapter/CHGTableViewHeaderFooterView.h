@@ -33,6 +33,13 @@
 -(id)customData;
 
 /**
+ 返回当前cell所在的controller
+ 
+ @return 返回当前cell所在的controller
+ */
+-(UIViewController*)controller;
+
+/**
  必须重写这个方法 子类应该在这个方法中给HeaderFooterView中的各个view设定value
  @param section 当前HeaderFooterView在UITableView中的位置
  @param tableView 当前HeaderFooterView所在的UITableView

@@ -16,7 +16,7 @@
 @property(nonatomic,strong) NSIndexPath * indexPath;
 @property(nonatomic,copy) NSString * kind;
 @property(nonatomic,strong) id reusableViewData;
-@property(nonatomic,weak) UIViewController * controller;//当前cell所在的controller
+
 
 /**
  获取当前Adapter的tag
@@ -31,6 +31,13 @@
  @return 获取AdapterData中的customData
  */
 -(id)customData;
+
+/**
+ 返回当前cell所在的controller
+ 
+ @return 返回当前cell所在的controller
+ */
+-(UIViewController*)controller;
 
 -(void)reusableViewForCollectionView:(UICollectionView*)collectionView indexPath:(NSIndexPath*)indexPath kind:(NSString*)kind reusableViewData:(id)reusableViewData;
 

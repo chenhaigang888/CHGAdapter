@@ -43,4 +43,13 @@
     return self.tableView.tableViewAdapter.adapterData.customData;
 }
 
+/**
+ 返回当前cell所在的controller
+ 
+ @return 返回当前cell所在的controller
+ */
+-(UIViewController*)controller {
+    return self.tableView.tableViewAdapter.controller;
+}
+
 @end

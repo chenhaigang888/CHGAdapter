@@ -60,4 +60,18 @@
     return self.tableView.tableViewAdapter.adapterData.customData;
 }
 
+/**
+ 返回当前cell所在的controller
+ 
+ @return 返回当前cell所在的controller
+ */
+-(UIViewController*)controller {
+    return self.tableView.tableViewAdapter.controller;
+}
+
+- (void)setFrame:(CGRect)frame {
+    frame.size.height -= self.dividerHeight;    // 减掉的值就是分隔线的高度
+    [super setFrame:frame];
+}
+
 @end

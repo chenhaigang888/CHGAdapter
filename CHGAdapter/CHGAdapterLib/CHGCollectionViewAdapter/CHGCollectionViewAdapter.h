@@ -47,5 +47,6 @@
 @property(nonatomic,copy) NSString * sectionHeaderName;
 @property(nonatomic,copy) NSString * sectionFooterName;
 @property(nonatomic,assign) NSInteger tag;
+@property(nonatomic,weak) UIViewController * controller;
 
 @end
