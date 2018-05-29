@@ -28,7 +28,7 @@
 
 /**
  判断文件是否存在
-
+ 
  @param fileName 文件名称
  @return 返回文件是否存在的结果
  */
@@ -64,6 +64,9 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSArray * cellDatas = self.adapterData.cellDatas;
+    if (!cellDatas || cellDatas.count == 0) {
+        return 0;
+    }
     if (self.rowsOfSectionKeyName) {
         if ([cellDatas[0] isKindOfClass:[NSArray class]]) {//是数组
             return [cellDatas count];
@@ -100,7 +103,7 @@
 
 /**
  获取cell的data
-
+ 
  @param indexPath indexPath
  @return 返回cell的data
  */
@@ -155,7 +158,7 @@
 
 /**
  获取header或者footer的View
-
+ 
  @param tableView tableView
  @param type 类型
  @param section section
