@@ -107,8 +107,4 @@
     
 }
 
--(void)layoutSubviews {
-    
-}
-
 @end

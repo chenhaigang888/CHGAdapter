@@ -18,27 +18,18 @@
 
 - (NSString *)obtainSupplementaryElementNameWithCellData:(id)data collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     return [kind isEqualToString:UICollectionElementKindSectionHeader]
-            ?
-            self.sectionHeaderName
-            :
-            self.sectionFooterName;
+    ?
+    self.sectionHeaderName
+    :
+    self.sectionFooterName;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     NSArray * cellDatas = self.adapterData.cellDatas;
-    if (self.rowsOfSectionKeyName) {
-        if ([cellDatas[0] isKindOfClass:[NSArray class]]) {//是数组
-            return [cellDatas count];
-        } else {//如果不是数组
-            return [cellDatas count];
-        }
-    } else {
-        if ([cellDatas[0] isKindOfClass:[NSArray class]]) {
-            return [cellDatas count];
-        } else {
-            return 1;
-        }
+    if (!cellDatas || cellDatas.count == 0) {
+        return 0;
     }
+    return cellDatas.count;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -46,18 +37,15 @@
     if ([cellDatas count] == 0) {
         return 0;
     }
-    if (self.rowsOfSectionKeyName
-        && ![cellDatas[section] isKindOfClass:[NSArray class]]
-        ) {
+    if (self.rowsOfSectionKeyName && ![cellDatas[section] isKindOfClass:[NSArray class]]) {
         return [[cellDatas[section] valueForKey:self.rowsOfSectionKeyName] count];
     }
     id cellData = [cellDatas objectAtIndex:section];
     if ([cellData isKindOfClass:[NSArray class]]) {
         return cellData == nil ? 0 : [cellData count];
     } else {
-        return [cellDatas count];
+        return 1;
     }
-    return 1;
 }
 
 /**
@@ -71,18 +59,11 @@
         return nil;
     }
     id sectionData = self.adapterData.cellDatas[indexPath.section];
-    id cellData = nil;
-    if (self.rowsOfSectionKeyName
-        && ![sectionData isKindOfClass:[NSArray class]]) {
-        cellData = [sectionData valueForKey:self.rowsOfSectionKeyName][indexPath.row];
+    if (self.rowsOfSectionKeyName && ![sectionData isKindOfClass:[NSArray class]]) {
+        return [sectionData valueForKey:self.rowsOfSectionKeyName][indexPath.row];
     } else {
-        if ([sectionData isKindOfClass:[NSArray class]]) {
-            cellData = sectionData[indexPath.row];
-        } else {
-            cellData = self.adapterData.cellDatas[indexPath.row];
-        }
+        return [sectionData isKindOfClass:[NSArray class]] ? sectionData[indexPath.row] : sectionData;
     }
-    return cellData;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
