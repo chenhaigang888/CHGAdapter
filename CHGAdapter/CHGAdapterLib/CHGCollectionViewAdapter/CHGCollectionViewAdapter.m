@@ -93,17 +93,15 @@
     :
     self.adapterData.footerDatas;
     id headerFooterData = nil;
-    if (!reusableViewData || [reusableViewData count] != 0) {
-        if (indexPath.section >= reusableViewData.count) {
-            [collectionView registerClass:[CHGCollectionReusableView class] forSupplementaryViewOfKind:kind withReuseIdentifier:@"CHGCollectionReusableView"];
-            CHGCollectionReusableView * reusableView = (CHGCollectionReusableView*)[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"CHGCollectionReusableView" forIndexPath:indexPath];
-            reusableView.eventTransmissionBlock = collectionView.eventTransmissionBlock;
-            [reusableView reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind reusableViewData:headerFooterData];
-            return reusableView;
-        }
-        headerFooterData = reusableViewData[indexPath.section];
+    if (!reusableViewData || [reusableViewData count] == 0 || indexPath.section >= reusableViewData.count) {
+        [collectionView registerClass:[CHGCollectionReusableView class] forSupplementaryViewOfKind:kind withReuseIdentifier:@"CHGCollectionReusableView"];
+        CHGCollectionReusableView * reusableView = (CHGCollectionReusableView*)[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"CHGCollectionReusableView" forIndexPath:indexPath];
+        reusableView.eventTransmissionBlock = collectionView.eventTransmissionBlock;
+        [reusableView reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind reusableViewData:headerFooterData];
+        return reusableView;
     }
     
+    headerFooterData = reusableViewData[indexPath.section];
     NSString * identifier = [self obtainSupplementaryElementNameWithCellData:headerFooterData collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath];
     if ([identifier length] == 0) return nil;
     if ([self fileIsExit:identifier]) {
