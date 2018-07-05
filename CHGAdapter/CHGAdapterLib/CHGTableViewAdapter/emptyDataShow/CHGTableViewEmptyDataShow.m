@@ -12,25 +12,17 @@
 @implementation CHGTableViewEmptyDataShow
 
 
-//+(_Nonnull instancetype) sharedInstance {
-//    static dispatch_once_t pred;
-//    static id baseSingleTon = nil;
-//    
-//    dispatch_once(&pred, ^{
-//        baseSingleTon = [super new];
-//    });
-//    return baseSingleTon;
-//
-//}
-
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
 {
     return [UIImage imageNamed:_imageName];
 }
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    NSMutableAttributedString * s = [[NSMutableAttributedString alloc] initWithString:_title attributes:nil];
-    [s addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:17] range:NSMakeRange(0, _title.length)];
+    NSMutableAttributedString * s = [[NSMutableAttributedString alloc] initWithString:_title
+                                                                           attributes:nil];
+    [s addAttribute:NSFontAttributeName
+              value:[UIFont systemFontOfSize:17]
+              range:NSMakeRange(0, _title.length)];
     return s;
 }
 
@@ -40,6 +32,18 @@
 
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView {
     return self.verticalOffset;
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view {
+    if (self.emptyDataDidTapViewBlock) {
+        self.emptyDataDidTapViewBlock(scrollView,view);
+    }
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button {
+    if (self.emptyDataDidTapButtonBlock) {
+        self.emptyDataDidTapButtonBlock(scrollView,button);
+    }
 }
 
 @end

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CHGTableViewAdapterDefine.h"
+#import "CHGCollectionViewEmptyDataShow.h"
 @class CHGCollectionViewAdapter;
-@class CHGCollectionViewEmptyDataShow;
+
 
 typedef void(^CHGCollectionViewDidSelectItemAtIndexPathBlock)(UICollectionView * collectionView,NSIndexPath * indexPath, id itemData);
 
