@@ -50,7 +50,7 @@
         _adapter.cellName = @"Sample1CollectionViewCell";
         _adapter.sectionHeaderName = @"SampleHeaderCollectionReusableView";
         _adapter.sectionFooterName = @"SampleHeaderCollectionReusableView";
-        _adapter.rowsOfSectionKeyName = @"test";
+        _adapter.rowsOfSectionKeyName = @"test";//当需要使用item的某一个字段作为数组的时候使用
     }
     return _adapter;
 }
@@ -65,6 +65,15 @@
       @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
       @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]}
       ];
+    
+//    @[
+//      @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]
+//      @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]
+//      ];
+    
+//        @[
+//          @"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"
+//          ];
     _adapterData.headerDatas = @[@"h1",@"h2"];
     _adapterData.footerDatas = @[@"f1",@"f2",@"f3",@"f4"];
     return _adapterData;
