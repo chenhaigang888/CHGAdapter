@@ -12,7 +12,7 @@ swift版： https://github.com/chenhaigang888/CHGAdapter_swift
 
 ### Installation with CocoaPods
 
-> pod 'CHGAdapter', '~> 0.1.7'
+> pod 'CHGAdapter', '~> 0.1.8'
 
 ### example  UITableView
 
