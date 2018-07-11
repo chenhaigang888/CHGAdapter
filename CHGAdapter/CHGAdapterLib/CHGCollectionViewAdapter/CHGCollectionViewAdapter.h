@@ -49,4 +49,21 @@
 @property(nonatomic,assign) NSInteger tag;
 @property(nonatomic,weak) UIViewController * controller;
 
+/**
+ 获取cell的data
+ 
+ @param indexPath indexPath
+ @return 返回cell的data
+ */
+-(id)cellDataWithIndexPath:(NSIndexPath*)indexPath;
+
+/**
+ 返回headerFooter数据
+ 
+ @param kind 当前传入的是Header或者footer的标志(UICollectionElementKindSectionHeader,UICollectionElementKindSectionFooter)
+ @param indexPath indexPath
+ @return 返回数据
+ */
+-(id)headerFooterDataWithrSupplementaryElementOfKind:(NSString *)kind indexPath:(NSIndexPath *)indexPath;
+
 @end

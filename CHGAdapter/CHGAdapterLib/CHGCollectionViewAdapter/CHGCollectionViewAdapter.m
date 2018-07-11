@@ -93,6 +93,26 @@
     return reusableView;
 }
 
+/**
+ 返回headerFooter数据
+
+ @param kind 当前传入的是Header或者footer的标志(UICollectionElementKindSectionHeader,UICollectionElementKindSectionFooter)
+ @param indexPath indexPath
+ @return 返回数据
+ */
+-(id)headerFooterDataWithrSupplementaryElementOfKind:(NSString *)kind indexPath:(NSIndexPath *)indexPath {
+    NSArray * reusableViewData =
+    [kind isEqualToString:UICollectionElementKindSectionHeader]
+    ?
+    self.adapterData.headerDatas
+    :
+    self.adapterData.footerDatas;
+    if (!reusableViewData || [reusableViewData count] == 0 || indexPath.section >= reusableViewData.count) {
+        return nil;
+    }
+    return reusableViewData[indexPath.section];
+}
+
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     NSArray * reusableViewData =
     [kind isEqualToString:UICollectionElementKindSectionHeader]
@@ -100,12 +120,11 @@
     self.adapterData.headerDatas
     :
     self.adapterData.footerDatas;
-    id headerFooterData = nil;
+    id headerFooterData = [self headerFooterDataWithrSupplementaryElementOfKind:kind indexPath:indexPath];
     if (!reusableViewData || [reusableViewData count] == 0 || indexPath.section >= reusableViewData.count) {
         return [self defaultReusableViewWithCollectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath headerFooterData:headerFooterData];
     }
-    
-    headerFooterData = reusableViewData[indexPath.section];
+
     NSString * identifier = [self obtainSupplementaryElementNameWithCellData:headerFooterData collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath];
     if (identifier.length == 0){
         return [self defaultReusableViewWithCollectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath headerFooterData:headerFooterData];
