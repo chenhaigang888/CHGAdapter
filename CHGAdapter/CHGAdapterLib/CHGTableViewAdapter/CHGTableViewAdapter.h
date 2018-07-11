@@ -96,5 +96,20 @@ typedef NS_ENUM(NSUInteger, CHGTableViewHeaderFooterViewType) {
 @property(nonatomic,assign) NSInteger tag;
 @property(nonatomic,weak) UIViewController * controller;
 
+/**
+ 获取cell的data
+ 
+ @param indexPath indexPath
+ @return 返回cell的data
+ */
+-(id)cellDataWithIndexPath:(NSIndexPath*)indexPath;
 
+/**
+ 获取headerFooter的数据
+ 
+ @param type header或者footer类型
+ @param section section
+ @return 返回headerFooter的数据
+ */
+-(id)headerFooterDataWithType:(CHGTableViewHeaderFooterViewType)type section:(NSInteger)section;
 @end

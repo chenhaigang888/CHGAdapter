@@ -134,6 +134,29 @@
 }
 
 /**
+ 获取headerFooter的数据
+
+ @param type header或者footer类型
+ @param section section
+ @return 返回headerFooter的数据
+ */
+-(id)headerFooterDataWithType:(CHGTableViewHeaderFooterViewType)type section:(NSInteger)section{
+    NSArray * headerFooterDatas =
+    type == CHGTableViewHeaderFooterViewHeaderType
+    ?
+    self.adapterData.headerDatas
+    :
+    self.adapterData.footerDatas;
+    if (!headerFooterDatas || [headerFooterDatas count] != 0) {
+        if (section >= headerFooterDatas.count) {
+            return nil;
+        }
+        return headerFooterDatas[section];
+    }
+    return nil;
+}
+
+/**
  获取header或者footer的View
  
  @param tableView tableView
@@ -142,20 +165,7 @@
  @return 繁华view
  */
 -(UIView*)tableView:(UITableView*)tableView tableViewHeaderFooterViewType:(CHGTableViewHeaderFooterViewType)type viewForHeaderInSection:(NSInteger)section {
-    NSArray * headerFooterDatas =
-    type == CHGTableViewHeaderFooterViewHeaderType
-    ?
-    self.adapterData.headerDatas
-    :
-    self.adapterData.footerDatas;
-    id headerFooterData = nil;
-    if (!headerFooterDatas || [headerFooterDatas count] != 0) {
-        if (section >= headerFooterDatas.count) {
-            return nil;
-        }
-        headerFooterData = headerFooterDatas[section];
-    }
-    
+    id headerFooterData = [self headerFooterDataWithType:type section:section];
     NSString * identifier =
     type == CHGTableViewHeaderFooterViewHeaderType
     ?
