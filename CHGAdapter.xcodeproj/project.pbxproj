@@ -21,6 +21,20 @@
 		8F45864D20AACC7400C5C136 /* TestCollectionAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45864C20AACC7400C5C136 /* TestCollectionAdapter.m */; };
 		8F45865120AADF0E00C5C136 /* SampleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45865020AADF0E00C5C136 /* SampleLayout.m */; };
 		8F45865920AAF5AE00C5C136 /* Sample2CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45865820AAF5AE00C5C136 /* Sample2CollectionViewCell.m */; };
+		8F78F664210BF9030044BD1B /* CHGSimpleTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F78F663210BF9030044BD1B /* CHGSimpleTableViewAdapter.m */; };
+		8F78F66C210C01F50044BD1B /* SimpleAdapterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F78F66A210C01F50044BD1B /* SimpleAdapterViewController.m */; };
+		8F78F66D210C01F50044BD1B /* SimpleAdapterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F78F66B210C01F50044BD1B /* SimpleAdapterViewController.xib */; };
+		8F78F678210C03650044BD1B /* AddressNoSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F78F676210C03650044BD1B /* AddressNoSelectTableViewCell.m */; };
+		8F78F679210C03650044BD1B /* AddressNoSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F78F677210C03650044BD1B /* AddressNoSelectTableViewCell.xib */; };
+		8F78F67C210C037C0044BD1B /* AddressNoSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F78F67B210C037C0044BD1B /* AddressNoSelectModel.m */; };
+		8F78F680210C04440044BD1B /* AddressSelectedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F78F67E210C04440044BD1B /* AddressSelectedTableViewCell.m */; };
+		8F78F681210C04440044BD1B /* AddressSelectedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F78F67F210C04440044BD1B /* AddressSelectedTableViewCell.xib */; };
+		8F78F684210C07530044BD1B /* HeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F78F683210C07530044BD1B /* HeaderModel.m */; };
+		8F78F687210C07630044BD1B /* FooterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F78F686210C07630044BD1B /* FooterModel.m */; };
+		8F78F68A210C08720044BD1B /* FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F78F689210C08720044BD1B /* FooterView.m */; };
+		8F78F68C210C08820044BD1B /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F78F68B210C08820044BD1B /* FooterView.xib */; };
+		8F78F68F210C093C0044BD1B /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F78F68E210C093C0044BD1B /* HeaderView.m */; };
+		8F78F691210C09470044BD1B /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F78F690210C09470044BD1B /* HeaderView.xib */; };
 		8FAB167920A96AE900696281 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB163A20A96AE800696281 /* MenuViewController.xib */; };
 		8FAB167A20A96AE900696281 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB163B20A96AE800696281 /* MenuViewController.m */; };
 		8FAB167B20A96AE900696281 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB163E20A96AE800696281 /* TitleTableViewCell.xib */; };
@@ -110,6 +124,29 @@
 		8F45865020AADF0E00C5C136 /* SampleLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleLayout.m; sourceTree = "<group>"; };
 		8F45865720AAF5AE00C5C136 /* Sample2CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sample2CollectionViewCell.h; sourceTree = "<group>"; };
 		8F45865820AAF5AE00C5C136 /* Sample2CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sample2CollectionViewCell.m; sourceTree = "<group>"; };
+		8F78F662210BF9030044BD1B /* CHGSimpleTableViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGSimpleTableViewAdapter.h; sourceTree = "<group>"; };
+		8F78F663210BF9030044BD1B /* CHGSimpleTableViewAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGSimpleTableViewAdapter.m; sourceTree = "<group>"; };
+		8F78F669210C01F50044BD1B /* SimpleAdapterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleAdapterViewController.h; sourceTree = "<group>"; };
+		8F78F66A210C01F50044BD1B /* SimpleAdapterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleAdapterViewController.m; sourceTree = "<group>"; };
+		8F78F66B210C01F50044BD1B /* SimpleAdapterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleAdapterViewController.xib; sourceTree = "<group>"; };
+		8F78F675210C03650044BD1B /* AddressNoSelectTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressNoSelectTableViewCell.h; sourceTree = "<group>"; };
+		8F78F676210C03650044BD1B /* AddressNoSelectTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressNoSelectTableViewCell.m; sourceTree = "<group>"; };
+		8F78F677210C03650044BD1B /* AddressNoSelectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressNoSelectTableViewCell.xib; sourceTree = "<group>"; };
+		8F78F67A210C037C0044BD1B /* AddressNoSelectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressNoSelectModel.h; sourceTree = "<group>"; };
+		8F78F67B210C037C0044BD1B /* AddressNoSelectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressNoSelectModel.m; sourceTree = "<group>"; };
+		8F78F67D210C04440044BD1B /* AddressSelectedTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressSelectedTableViewCell.h; sourceTree = "<group>"; };
+		8F78F67E210C04440044BD1B /* AddressSelectedTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressSelectedTableViewCell.m; sourceTree = "<group>"; };
+		8F78F67F210C04440044BD1B /* AddressSelectedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressSelectedTableViewCell.xib; sourceTree = "<group>"; };
+		8F78F682210C07530044BD1B /* HeaderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderModel.h; sourceTree = "<group>"; };
+		8F78F683210C07530044BD1B /* HeaderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderModel.m; sourceTree = "<group>"; };
+		8F78F685210C07630044BD1B /* FooterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FooterModel.h; sourceTree = "<group>"; };
+		8F78F686210C07630044BD1B /* FooterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FooterModel.m; sourceTree = "<group>"; };
+		8F78F688210C08720044BD1B /* FooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
+		8F78F689210C08720044BD1B /* FooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FooterView.m; sourceTree = "<group>"; };
+		8F78F68B210C08820044BD1B /* FooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterView.xib; sourceTree = "<group>"; };
+		8F78F68D210C093C0044BD1B /* HeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		8F78F68E210C093C0044BD1B /* HeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+		8F78F690210C09470044BD1B /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		8FAB163920A96AE800696281 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		8FAB163A20A96AE800696281 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		8FAB163B20A96AE800696281 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
@@ -240,6 +277,7 @@
 		8F45862620AAA38200C5C136 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				8F78F665210C01A30044BD1B /* CHGSimpleTableViewAdapter用法 */,
 				8FAB165D20A96AE900696281 /* 简单的使用 */,
 				8FAB164D20A96AE900696281 /* 扩展CHGTableViewAdapter显示多种cell及headerview */,
 				8FAB163720A96AE800696281 /* 入口 */,
@@ -312,6 +350,74 @@
 				8F45865020AADF0E00C5C136 /* SampleLayout.m */,
 			);
 			path = other;
+			sourceTree = "<group>";
+		};
+		8F78F665210C01A30044BD1B /* CHGSimpleTableViewAdapter用法 */ = {
+			isa = PBXGroup;
+			children = (
+				8F78F668210C01D30044BD1B /* model */,
+				8F78F667210C01C60044BD1B /* view */,
+				8F78F666210C01BE0044BD1B /* controller */,
+			);
+			path = "CHGSimpleTableViewAdapter用法";
+			sourceTree = "<group>";
+		};
+		8F78F666210C01BE0044BD1B /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				8F78F669210C01F50044BD1B /* SimpleAdapterViewController.h */,
+				8F78F66A210C01F50044BD1B /* SimpleAdapterViewController.m */,
+				8F78F66B210C01F50044BD1B /* SimpleAdapterViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		8F78F667210C01C60044BD1B /* view */ = {
+			isa = PBXGroup;
+			children = (
+				8F78F66F210C03210044BD1B /* UITableViewHeaderFooterView */,
+				8F78F66E210C03150044BD1B /* UITableViewCell */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		8F78F668210C01D30044BD1B /* model */ = {
+			isa = PBXGroup;
+			children = (
+				8F78F67A210C037C0044BD1B /* AddressNoSelectModel.h */,
+				8F78F67B210C037C0044BD1B /* AddressNoSelectModel.m */,
+				8F78F682210C07530044BD1B /* HeaderModel.h */,
+				8F78F683210C07530044BD1B /* HeaderModel.m */,
+				8F78F685210C07630044BD1B /* FooterModel.h */,
+				8F78F686210C07630044BD1B /* FooterModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		8F78F66E210C03150044BD1B /* UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8F78F675210C03650044BD1B /* AddressNoSelectTableViewCell.h */,
+				8F78F676210C03650044BD1B /* AddressNoSelectTableViewCell.m */,
+				8F78F677210C03650044BD1B /* AddressNoSelectTableViewCell.xib */,
+				8F78F67D210C04440044BD1B /* AddressSelectedTableViewCell.h */,
+				8F78F67E210C04440044BD1B /* AddressSelectedTableViewCell.m */,
+				8F78F67F210C04440044BD1B /* AddressSelectedTableViewCell.xib */,
+			);
+			path = UITableViewCell;
+			sourceTree = "<group>";
+		};
+		8F78F66F210C03210044BD1B /* UITableViewHeaderFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				8F78F688210C08720044BD1B /* FooterView.h */,
+				8F78F689210C08720044BD1B /* FooterView.m */,
+				8F78F68B210C08820044BD1B /* FooterView.xib */,
+				8F78F68D210C093C0044BD1B /* HeaderView.h */,
+				8F78F68E210C093C0044BD1B /* HeaderView.m */,
+				8F78F690210C09470044BD1B /* HeaderView.xib */,
+			);
+			path = UITableViewHeaderFooterView;
 			sourceTree = "<group>";
 		};
 		8FAB162C20A96A8900696281 /* Sample */ = {
@@ -537,6 +643,8 @@
 				8FE94D7520A4252500386F56 /* CHGTableViewAdapterDefine.h */,
 				8FE94D8020A430B500386F56 /* CHGTableViewHeaderFooterView.h */,
 				8FE94D8120A430B500386F56 /* CHGTableViewHeaderFooterView.m */,
+				8F78F662210BF9030044BD1B /* CHGSimpleTableViewAdapter.h */,
+				8F78F663210BF9030044BD1B /* CHGSimpleTableViewAdapter.m */,
 			);
 			path = CHGTableViewAdapter;
 			sourceTree = "<group>";
@@ -780,10 +888,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FAB168920A96AE900696281 /* MultipleViewController.xib in Resources */,
+				8F78F691210C09470044BD1B /* HeaderView.xib in Resources */,
+				8F78F68C210C08820044BD1B /* FooterView.xib in Resources */,
 				8FAB168120A96AE900696281 /* EventTransmissionViewController.xib in Resources */,
+				8F78F679210C03650044BD1B /* AddressNoSelectTableViewCell.xib in Resources */,
 				8FAB169620A96AE900696281 /* RecordSwitchTableViewCell.xib in Resources */,
 				8FAB167B20A96AE900696281 /* TitleTableViewCell.xib in Resources */,
 				8FAB168A20A96AE900696281 /* SimpleTableViewCell.xib in Resources */,
+				8F78F681210C04440044BD1B /* AddressSelectedTableViewCell.xib in Resources */,
 				8FAB169120A96AE900696281 /* RecordInputDataViewController.xib in Resources */,
 				8FE04AE020A40FFE0038BE0D /* LaunchScreen.storyboard in Resources */,
 				8FAB168E20A96AE900696281 /* ViewController.xib in Resources */,
@@ -795,6 +907,7 @@
 				8FE04ADD20A40FFE0038BE0D /* Assets.xcassets in Resources */,
 				8FAB168C20A96AE900696281 /* SampleTableViewHeaderFooterView.xib in Resources */,
 				8FAB168420A96AE900696281 /* Style2TableViewCell.xib in Resources */,
+				8F78F66D210C01F50044BD1B /* SimpleAdapterViewController.xib in Resources */,
 				8F45863620AAA8B700C5C136 /* SampleCollectionViewCell.xib in Resources */,
 				8F45862C20AAA3C500C5C136 /* CollectionViewViewController.xib in Resources */,
 				8FAB167D20A96AE900696281 /* OneButtonTableViewCell.xib in Resources */,
@@ -844,6 +957,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F78F68A210C08720044BD1B /* FooterView.m in Sources */,
 				8FAB167C20A96AE900696281 /* TitleTableViewCell.m in Sources */,
 				8FE94D6B20A41AC700386F56 /* CHGTableViewAdapterData.m in Sources */,
 				8F45863920AAC0B000C5C136 /* CHGCollectionReusableView.m in Sources */,
@@ -851,6 +965,7 @@
 				8FAB167E20A96AE900696281 /* OneButtonTableViewCell.m in Sources */,
 				8FAB169220A96AE900696281 /* RecordInputDataViewController.m in Sources */,
 				8FAB168020A96AE900696281 /* OneTextFieldHeaderFooterView.m in Sources */,
+				8F78F678210C03650044BD1B /* AddressNoSelectTableViewCell.m in Sources */,
 				8FAB168D20A96AE900696281 /* SampleTableViewHeaderFooterView.m in Sources */,
 				8FAB16A020A9956400696281 /* CHGCollectionViewAdapterData.m in Sources */,
 				8FAB167A20A96AE900696281 /* MenuViewController.m in Sources */,
@@ -858,17 +973,24 @@
 				8F45863520AAA8B700C5C136 /* SampleCollectionViewCell.m in Sources */,
 				8FE94D8220A430B500386F56 /* CHGTableViewHeaderFooterView.m in Sources */,
 				8FAB168720A96AE900696281 /* Style2TableViewCell.m in Sources */,
+				8F78F67C210C037C0044BD1B /* AddressNoSelectModel.m in Sources */,
 				8F45864820AACB9200C5C136 /* Sample1CollectionViewCell.m in Sources */,
 				8FAB168320A96AE900696281 /* CustomAdapter.m in Sources */,
 				8FE94D7920A425C900386F56 /* UITableView+CHGTableViewAdapter.m in Sources */,
 				8F45865120AADF0E00C5C136 /* SampleLayout.m in Sources */,
+				8F78F684210C07530044BD1B /* HeaderModel.m in Sources */,
 				8FAB168520A96AE900696281 /* Style1TableViewCell.m in Sources */,
+				8F78F680210C04440044BD1B /* AddressSelectedTableViewCell.m in Sources */,
+				8F78F66C210C01F50044BD1B /* SimpleAdapterViewController.m in Sources */,
 				8FAB169020A96AE900696281 /* RecordAdapter.m in Sources */,
 				8FE04AE320A40FFE0038BE0D /* main.m in Sources */,
 				8FE94D6720A4187200386F56 /* CHGTableViewAdapter.m in Sources */,
+				8F78F664210BF9030044BD1B /* CHGSimpleTableViewAdapter.m in Sources */,
+				8F78F687210C07630044BD1B /* FooterModel.m in Sources */,
 				8FAB16A420A9963F00696281 /* UICollectionView+CHGCollectionViewAdapter.m in Sources */,
 				8F45864D20AACC7400C5C136 /* TestCollectionAdapter.m in Sources */,
 				8F45862F20AAA75F00C5C136 /* CHGCollectionViewCell.m in Sources */,
+				8F78F68F210C093C0044BD1B /* HeaderView.m in Sources */,
 				8FAB168F20A96AE900696281 /* ViewController.m in Sources */,
 				8FAB169420A96AE900696281 /* RecordTableViewCell.m in Sources */,
 				8FAB168B20A96AE900696281 /* SimpleTableViewCell.m in Sources */,
