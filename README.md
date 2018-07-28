@@ -12,7 +12,7 @@ swift版： https://github.com/chenhaigang888/CHGAdapter_swift
 
 ### Installation with CocoaPods
 
-> pod 'CHGAdapter', '~> 0.2.0'
+> pod 'CHGAdapter', '~> 0.2.1'
 
 ### example  UITableView
 
@@ -149,6 +149,14 @@ swift版： https://github.com/chenhaigang888/CHGAdapter_swift
 @end
 ```
 
+### example  CHGSimpleTableViewAdapter快速布局
+
+- CHGSimpleTableViewAdapter中Cell的数据（Model）必须实现协议CHGTableViewCellModelProtocol并且实现并且实现其方法
+- CHGSimpleTableViewAdapter中的HeaderFooter的数据（Model）必须实现协议CHGTableViewHeaderFooterModelProtocol并且实现并且实现其方法
+具体使用请参考Demo中的SimpleAdapterViewController页面
+
+@end
+```
 
 ### example  自定义Adapter
 CHGTableViewAdapter和CHGCollectionViewAdapter默认实现一种类型的Cell和一种类型的HeaderView以及FooterView，如果你的TableView、CollectionView想显示不通风格的Cell、HeaderView、FooterView；可以通过集成CHGCollectionViewAdapter、CHGCollectionViewAdapter方式扩展。通过扩展实现以下几个方法返回不同类型,以及在Adapter的子类中实现TableView的DataSource、Delegate方法。CollectionView同理
