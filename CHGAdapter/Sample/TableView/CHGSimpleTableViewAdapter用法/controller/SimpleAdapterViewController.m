@@ -38,8 +38,6 @@
 -(CHGSimpleTableViewAdapter*)adapter{
     if (!_adapter) {
         _adapter = [CHGSimpleTableViewAdapter new];
-        _adapter.headerHeight = 0.01;
-        _adapter.footerHeight = 0.01;
     }
     return _adapter;
 }
@@ -53,6 +51,7 @@
         @[
             [[AddressNoSelectModel alloc] initWithStatus:0],
             [[AddressNoSelectModel alloc] initWithStatus:1],
+            [[AddressNoSelectModel alloc] initWithStatus:1]
           ];
         
         //header的数据
