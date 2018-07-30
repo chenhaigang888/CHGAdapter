@@ -12,34 +12,28 @@
 #import "AddressNoSelectModel.h"
 #import "HeaderModel.h"
 #import "FooterModel.h"
+#import "UITableView+CHGSimpleTableViewAdapter.h"
 
 @interface SimpleAdapterViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic,strong) CHGSimpleTableViewAdapter * adapter;
 @property (nonatomic,strong) CHGTableViewAdapterData * adapterData;
 
 @end
 
 @implementation SimpleAdapterViewController
 
+- (void)dealloc
+{
+    NSLog(@"SimpleAdapterViewController 内存释放");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.adapter.adapterData = self.adapterData;
-    self.tableView.tableViewAdapter = self.adapter;
+    self.tableView.adapterData = self.adapterData;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
--(CHGSimpleTableViewAdapter*)adapter{
-    if (!_adapter) {
-        _adapter = [CHGSimpleTableViewAdapter new];
-    }
-    return _adapter;
 }
 
 -(CHGTableViewAdapterData*) adapterData {

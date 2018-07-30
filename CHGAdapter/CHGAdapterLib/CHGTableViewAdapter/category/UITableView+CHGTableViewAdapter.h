@@ -24,15 +24,18 @@ typedef void(^CHGTableViewDidSelectRowBlock)(UITableView * tableView, NSIndexPat
 @interface UITableView (CHGTableViewAdapter)
 
 ///tableView的adapter
-@property(nonatomic,weak) CHGTableViewAdapter * tableViewAdapter;
+@property(nonatomic,strong) CHGTableViewAdapter * tableViewAdapter;
 ///HeaderView、FooterView、Cell中的点击、触摸、输入等相关事件通过此block回传到ViewController中
 @property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;
 ///tableView 点击cell会通过此block回传数据
 @property(nonatomic,copy) CHGTableViewDidSelectRowBlock tableViewDidSelectRowBlock;
 ///当页面没有数据的时候的显示配置
 @property(nonatomic,strong) CHGTableViewEmptyDataShow * tableViewEmptyDataShow;
+
 ///设置没有数据的显示
 -(void)setEmptyDataShowWithTitle:(NSString*)title image:(NSString*)imageName;
+
+
 
 /**
  隐藏头部
@@ -48,5 +51,8 @@ typedef void(^CHGTableViewDidSelectRowBlock)(UITableView * tableView, NSIndexPat
  自适应高度
  */
 -(void)autoHeight;
+
+//-(CHGTableViewAdapterData*)getAdapterData;
+//-(void)adapterData;
 
 @end

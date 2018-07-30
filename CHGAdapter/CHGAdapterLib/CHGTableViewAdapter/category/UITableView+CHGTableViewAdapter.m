@@ -11,6 +11,7 @@
 #import "CHGTableViewEmptyDataShow.h"
 #import "CHGTableViewCell.h"
 #import "CHGTableViewHeaderFooterView.h"
+#import "CHGSimpleTableViewAdapter.h"
 
 static const void * tableViewAdapterKey = &tableViewAdapterKey;
 static const void * eventTransmissionBlockKey = &eventTransmissionBlockKey;
@@ -136,7 +137,5 @@ static const void * tableViewEmptyDataShowKey = &tableViewEmptyDataShowKey;
     CHGTableViewAdapter * adapter = self.tableViewAdapter;
     adapter.cellHeight = -1;
 }
-
-
 
 @end

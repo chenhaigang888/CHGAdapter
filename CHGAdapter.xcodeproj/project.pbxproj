@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7B400DAAB2F917417E165201 /* libPods-CHGAdapter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC09ED455D43E832A8ACE449 /* libPods-CHGAdapter.a */; };
+		8F0EF9A0210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0EF99F210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m */; };
 		8F45862B20AAA3C500C5C136 /* CollectionViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45862920AAA3C500C5C136 /* CollectionViewViewController.m */; };
 		8F45862C20AAA3C500C5C136 /* CollectionViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F45862A20AAA3C500C5C136 /* CollectionViewViewController.xib */; };
 		8F45862F20AAA75F00C5C136 /* CHGCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45862E20AAA75F00C5C136 /* CHGCollectionViewCell.m */; };
@@ -102,6 +103,8 @@
 
 /* Begin PBXFileReference section */
 		425CFC518C2702DFCE0E4C37 /* Pods-CHGAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHGAdapter.release.xcconfig"; path = "Pods/Target Support Files/Pods-CHGAdapter/Pods-CHGAdapter.release.xcconfig"; sourceTree = "<group>"; };
+		8F0EF99E210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+CHGSimpleTableViewAdapter.h"; sourceTree = "<group>"; };
+		8F0EF99F210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CHGSimpleTableViewAdapter.m"; sourceTree = "<group>"; };
 		8F45862820AAA3C500C5C136 /* CollectionViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewViewController.h; sourceTree = "<group>"; };
 		8F45862920AAA3C500C5C136 /* CollectionViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewViewController.m; sourceTree = "<group>"; };
 		8F45862A20AAA3C500C5C136 /* CollectionViewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewViewController.xib; sourceTree = "<group>"; };
@@ -770,6 +773,8 @@
 			children = (
 				8FE94D7720A425C900386F56 /* UITableView+CHGTableViewAdapter.h */,
 				8FE94D7820A425C900386F56 /* UITableView+CHGTableViewAdapter.m */,
+				8F0EF99E210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.h */,
+				8F0EF99F210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -986,6 +991,7 @@
 				8FE04AE320A40FFE0038BE0D /* main.m in Sources */,
 				8FE94D6720A4187200386F56 /* CHGTableViewAdapter.m in Sources */,
 				8F78F664210BF9030044BD1B /* CHGSimpleTableViewAdapter.m in Sources */,
+				8F0EF9A0210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m in Sources */,
 				8F78F687210C07630044BD1B /* FooterModel.m in Sources */,
 				8FAB16A420A9963F00696281 /* UICollectionView+CHGCollectionViewAdapter.m in Sources */,
 				8F45864D20AACC7400C5C136 /* TestCollectionAdapter.m in Sources */,
