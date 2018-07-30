@@ -30,10 +30,12 @@
 }
 
 - (CHGTableViewAdapter *)swizzlingTableViewAdapter {
-    if (![self swizzlingTableViewAdapter]) {
+    CHGTableViewAdapter * adapter = [self swizzlingTableViewAdapter];
+    if (!adapter) {
         self.tableViewAdapter = [CHGSimpleTableViewAdapter new];
+        return [self swizzlingTableViewAdapter];
     }
-    return [self swizzlingTableViewAdapter];
+    return adapter;
 }
 
 @end
