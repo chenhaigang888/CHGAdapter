@@ -22,11 +22,6 @@
 
 @implementation SimpleAdapterViewController
 
-- (void)dealloc
-{
-    NSLog(@"SimpleAdapterViewController 内存释放");
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.adapterData = self.adapterData;
@@ -39,7 +34,6 @@
 -(CHGTableViewAdapterData*) adapterData {
     if (!_adapterData) {
         _adapterData = [CHGTableViewAdapterData new];
-        
         //cell的数据
         _adapterData.cellDatas =
         @[
@@ -62,7 +56,6 @@
             [[FooterModel alloc] initWithFooterTitle:@"已经选择地址的Footer"]
         ];
     }
-    
     return _adapterData;
 }
 @end
