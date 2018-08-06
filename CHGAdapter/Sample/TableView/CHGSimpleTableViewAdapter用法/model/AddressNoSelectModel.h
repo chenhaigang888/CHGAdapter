@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CHGSimpleTableViewAdapter.h"
+#import "CHGAdapter.h"
 
 @interface AddressNoSelectModel : NSObject<CHGTableViewCellModelProtocol>
 
