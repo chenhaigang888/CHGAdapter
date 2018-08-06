@@ -7,13 +7,10 @@
 //
 
 #import "SimpleAdapterViewController.h"
-//#import "CHGSimpleTableViewAdapter.h"
-//#import "CHGTableViewAdapterData.h"
 #import "AddressNoSelectModel.h"
 #import "HeaderModel.h"
 #import "FooterModel.h"
 #import "CHGAdapter.h"
-//#import "UITableView+CHGSimpleTableViewAdapter.h"
 
 @interface SimpleAdapterViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
