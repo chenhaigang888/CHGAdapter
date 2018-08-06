@@ -6,7 +6,8 @@
 //  Copyright © 2018年 chen haiGang. All rights reserved.
 //
 
-#import "CHGTableViewHeaderFooterView.h"
+//#import "CHGTableViewHeaderFooterView.h"
+#import "CHGAdapter.h"
 
 @interface HeaderView : CHGTableViewHeaderFooterView
 

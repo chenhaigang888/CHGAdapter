@@ -21,14 +21,6 @@
     }
 }
 
--(void)setAdapterData:(CHGTableViewAdapterData *)adapterData {
-    self.tableViewAdapter.adapterData = adapterData;
-}
-
--(CHGTableViewAdapterData*)adapterData {
-    return self.tableViewAdapter.adapterData;
-}
-
 - (CHGTableViewAdapter *)swizzlingTableViewAdapter {
     CHGTableViewAdapter * adapter = [self swizzlingTableViewAdapter];
     if (!adapter) {
@@ -37,5 +29,46 @@
     }
     return adapter;
 }
+
+-(void)setAdapterData:(CHGTableViewAdapterData *)adapterData {
+    self.tableViewAdapter.adapterData = adapterData;
+}
+
+-(CHGTableViewAdapterData*)adapterData {
+    return self.tableViewAdapter.adapterData;
+}
+
+- (NSArray *)cellDatas {
+    return self.adapterData.cellDatas;
+}
+
+- (void)setCellDatas:(NSArray *)cellDatas {
+    self.adapterData.cellDatas = cellDatas;
+}
+
+- (NSArray *)headerDatas {
+    return self.adapterData.headerDatas;
+}
+
+- (void)setHeaderDatas:(NSArray *)headerDatas {
+    self.adapterData.headerDatas = headerDatas;
+}
+
+- (NSArray *)footerDatas {
+    return self.adapterData.footerDatas;
+}
+
+- (void)setFooterDatas:(NSArray *)footerDatas {
+    self.adapterData.footerDatas = footerDatas;
+}
+
+- (NSArray *)customData {
+    return self.adapterData.customData;
+}
+
+- (void)setCustomData:(NSArray *)customData {
+    self.adapterData.customData = customData;
+}
+
 
 @end

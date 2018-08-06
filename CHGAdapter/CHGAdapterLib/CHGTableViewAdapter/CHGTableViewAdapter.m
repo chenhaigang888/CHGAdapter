@@ -21,6 +21,7 @@
         self.cellHeight = -1;
         self.headerHeight = 30;
         self.footerHeight = 30;
+        self.adapterData = [CHGTableViewAdapterData new];
     }
     return self;
 }

@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CHGSimpleTableViewAdapter.h"
+//#import "CHGSimpleTableViewAdapter.h"
+#import "CHGAdapter.h"
 
 @interface FooterModel : NSObject<CHGTableViewHeaderFooterModelProtocol>
 

@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "CHGTableViewAdapter.h"
+//#import "CHGTableViewAdapter.h"
+#import "CHGAdapter.h"
 
 @interface ViewController ()
 

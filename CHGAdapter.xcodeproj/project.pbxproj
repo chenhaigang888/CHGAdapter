@@ -105,6 +105,7 @@
 		425CFC518C2702DFCE0E4C37 /* Pods-CHGAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHGAdapter.release.xcconfig"; path = "Pods/Target Support Files/Pods-CHGAdapter/Pods-CHGAdapter.release.xcconfig"; sourceTree = "<group>"; };
 		8F0EF99E210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+CHGSimpleTableViewAdapter.h"; sourceTree = "<group>"; };
 		8F0EF99F210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CHGSimpleTableViewAdapter.m"; sourceTree = "<group>"; };
+		8F2F9EDC2118651D00DD4946 /* CHGAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGAdapter.h; sourceTree = "<group>"; };
 		8F45862820AAA3C500C5C136 /* CollectionViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewViewController.h; sourceTree = "<group>"; };
 		8F45862920AAA3C500C5C136 /* CollectionViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewViewController.m; sourceTree = "<group>"; };
 		8F45862A20AAA3C500C5C136 /* CollectionViewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewViewController.xib; sourceTree = "<group>"; };
@@ -755,6 +756,7 @@
 			children = (
 				8FAB169920A9937700696281 /* CHGCollectionViewAdapter */,
 				8FAB169820A9933900696281 /* CHGTableViewAdapter */,
+				8F2F9EDC2118651D00DD4946 /* CHGAdapter.h */,
 			);
 			path = CHGAdapterLib;
 			sourceTree = "<group>";
