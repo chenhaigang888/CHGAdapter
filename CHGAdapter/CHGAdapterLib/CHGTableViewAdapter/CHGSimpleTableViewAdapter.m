@@ -11,33 +11,75 @@
 @implementation CHGSimpleTableViewAdapter
 
 -(NSString*)obtainCellNameWithCellData:(id)data tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [((id<CHGTableViewCellModelProtocol>)data) cellClassNameInTableView:tableView indexPath:indexPath];
+    id<CHGTableViewCellModelProtocol> cellModelProtocol = data;
+    if ([cellModelProtocol respondsToSelector:@selector(cellClassNameInTableView:indexPath:)]) {
+        return [cellModelProtocol cellClassNameInTableView:tableView indexPath:indexPath];
+    }
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    return [cellModelProtocol getCellClass];
+#pragma clang diagnostic pop
 }
 
 -(NSString*)obtainHeaderNameWithHeaderData:(id)data tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return [((id<CHGTableViewHeaderFooterModelProtocol>)data) headerFooterClassInTableViw:tableView section:section type:CHGTableViewHeaderFooterViewHeaderType];
+    id<CHGTableViewHeaderFooterModelProtocol> headerFooterModelProtocol = data;
+    if ([headerFooterModelProtocol respondsToSelector:@selector(headerFooterClassInTableViw:section:type:)]) {
+        return [headerFooterModelProtocol headerFooterClassInTableViw:tableView section:section type:CHGTableViewHeaderFooterViewHeaderType];
+    }
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    return [headerFooterModelProtocol getHeaderFooterClass];
+#pragma clang diagnostic pop
 }
 
 -(NSString*)obtainFooterNameWithFooterData:(id)data tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    return [((id<CHGTableViewHeaderFooterModelProtocol>)data) headerFooterClassInTableViw:tableView section:section type:CHGTableViewHeaderFooterViewFooterType];
+    id<CHGTableViewHeaderFooterModelProtocol> headerFooterModelProtocol = data;
+    if ([headerFooterModelProtocol respondsToSelector:@selector(headerFooterClassInTableViw:section:type:)]) {
+        return [headerFooterModelProtocol headerFooterClassInTableViw:tableView section:section type:CHGTableViewHeaderFooterViewFooterType];
+    }
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    return [headerFooterModelProtocol getHeaderFooterClass];
+#pragma clang diagnostic pop
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [((id<CHGTableViewCellModelProtocol>)[self cellDataWithIndexPath:indexPath]) cellHeighInTableView:tableView indexPath:indexPath];
+    id<CHGTableViewCellModelProtocol> cellModelProtocol = [self cellDataWithIndexPath:indexPath];
+    if ([cellModelProtocol respondsToSelector:@selector(cellHeighInTableView:indexPath:)]) {
+        return [cellModelProtocol cellHeighInTableView:tableView indexPath:indexPath];
+    }
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    return [cellModelProtocol getCellHeigh];
+#pragma clang diagnostic pop
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    id <CHGTableViewHeaderFooterModelProtocol> model = [self headerFooterDataWithType:CHGTableViewHeaderFooterViewHeaderType section:section];
-    if (model) {
-        return [model headerFooterHeighInTableViw:tableView section:section type:CHGTableViewHeaderFooterViewHeaderType];
+    id <CHGTableViewHeaderFooterModelProtocol> headerFooterModelProtocol = [self headerFooterDataWithType:CHGTableViewHeaderFooterViewHeaderType section:section];
+    if (headerFooterModelProtocol) {
+        if ([headerFooterModelProtocol respondsToSelector:@selector(headerFooterHeighInTableViw:section:type:)]) {
+            return [headerFooterModelProtocol headerFooterHeighInTableViw:tableView section:section type:CHGTableViewHeaderFooterViewHeaderType];
+        } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+            return [headerFooterModelProtocol getHeaderFooterHeigh];
+#pragma clang diagnostic pop
+        }
     }
     return [super tableView:tableView heightForHeaderInSection:section];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    id <CHGTableViewHeaderFooterModelProtocol> model = [self headerFooterDataWithType:CHGTableViewHeaderFooterViewFooterType section:section];
-    if (model) {
-        return [model headerFooterHeighInTableViw:tableView section:section type:CHGTableViewHeaderFooterViewFooterType];
+    id <CHGTableViewHeaderFooterModelProtocol> headerFooterModelProtocol = [self headerFooterDataWithType:CHGTableViewHeaderFooterViewFooterType section:section];
+    if (headerFooterModelProtocol) {
+        if ([headerFooterModelProtocol respondsToSelector:@selector(headerFooterHeighInTableViw:section:type:)]) {
+            return [headerFooterModelProtocol headerFooterHeighInTableViw:tableView section:section type:CHGTableViewHeaderFooterViewFooterType];
+        } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+            return [headerFooterModelProtocol getHeaderFooterHeigh];
+#pragma clang diagnostic pop
+        }
     }
     return [super tableView:tableView heightForHeaderInSection:section];
 }

@@ -8,10 +8,14 @@
 
 #import "CHGTableViewAdapter.h"
 
+#define CHGTableViewDeprecated(instead) DEPRECATED_MSG_ATTRIBUTE(" Use " # instead " instead")
+
 /**
  cell的Model需要实现的协议
  */
 @protocol CHGTableViewCellModelProtocol <NSObject>
+
+-(NSString*)getCellClass CHGTableViewDeprecated(-cellClassNameInTableView:indexPath);
 
 /**
  绑定一个cell 类
@@ -19,6 +23,8 @@
  @return 返回类名
  */
 -(NSString*)cellClassNameInTableView:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath;
+
+-(CGFloat)getCellHeigh CHGTableViewDeprecated(-cellHeighInTableView:indexPath);
 
 /**
  返回当前cell的高度
@@ -34,12 +40,16 @@
  */
 @protocol CHGTableViewHeaderFooterModelProtocol <NSObject>
 
+-(NSString*)getHeaderFooterClass CHGTableViewDeprecated(-headerFooterClassInTableViw:section:type:);
+
 /**
  绑定一个cell、headerFooter 类
  
  @return 返回类名
  */
 -(NSString*)headerFooterClassInTableViw:(UITableView*)tableView section:(NSInteger)section type:(CHGTableViewHeaderFooterViewType)type;
+
+-(CGFloat)getHeaderFooterHeigh CHGTableViewDeprecated(-headerFooterHeighInTableViw:section:type:);
 
 /**
  返回当前headerFooter的高度
