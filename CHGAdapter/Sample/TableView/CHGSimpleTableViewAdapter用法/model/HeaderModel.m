@@ -19,11 +19,11 @@
     return self;
 }
 
-- (NSString *)getHeaderFooterClass {
+- (NSString *)headerFooterClassInTableViw:(UITableView *)tableView section:(NSInteger)section type:(CHGTableViewHeaderFooterViewType)type {
     return @"HeaderView";
 }
 
-- (CGFloat)getHeaderFooterHeigh {
+- (CGFloat)headerFooterHeighInTableViw:(UITableView *)tableView section:(NSInteger)section type:(CHGTableViewHeaderFooterViewType)type {
     return 30;
 }
 

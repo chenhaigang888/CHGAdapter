@@ -20,7 +20,7 @@
     return self;
 }
 
-- (NSString *)getCellClass {
+- (NSString *)cellClassNameInTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
     if (self.status == 0) {
         return @"AddressNoSelectTableViewCell";//未选择地址
     } else {
@@ -28,8 +28,8 @@
     }
 }
 
-- (CGFloat)getCellHeigh {
-//    return -1;//-1会自动适应高度 
+- (CGFloat)cellHeighInTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+    //    return -1;//-1会自动适应高度
     if (self.status == 0) {
         return 44;//未选择地址的cell高度
     } else {

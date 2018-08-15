@@ -15,17 +15,17 @@
 
 /**
  绑定一个cell 类
-
+ 
  @return 返回类名
  */
--(NSString*)getCellClass;
+-(NSString*)cellClassNameInTableView:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath;
 
 /**
  返回当前cell的高度
-
+ 
  @return cell、headerFooter的高度
  */
--(CGFloat)getCellHeigh;
+-(CGFloat)cellHeighInTableView:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath;
 
 @end
 
@@ -36,17 +36,17 @@
 
 /**
  绑定一个cell、headerFooter 类
-
+ 
  @return 返回类名
  */
--(NSString*)getHeaderFooterClass;
+-(NSString*)headerFooterClassInTableViw:(UITableView*)tableView section:(NSInteger)section type:(CHGTableViewHeaderFooterViewType)type;
 
 /**
  返回当前headerFooter的高度
-
+ 
  @return headerFooter的高度
  */
--(CGFloat)getHeaderFooterHeigh;
+-(CGFloat)headerFooterHeighInTableViw:(UITableView*)tableView section:(NSInteger)section type:(CHGTableViewHeaderFooterViewType)type;
 
 @end
 
