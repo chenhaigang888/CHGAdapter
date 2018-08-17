@@ -70,6 +70,7 @@
 }
 
 -(CHGCollectionViewAdapterData*)adapterData {
+    
     if (!_adapterData) {
         _adapterData = [CHGCollectionViewAdapterData new];
     }

@@ -15,16 +15,14 @@
  */
 @protocol CHGTableViewCellModelProtocol <NSObject>
 
--(NSString*)getCellClass CHGTableViewDeprecated(-cellClassNameInTableView:indexPath);
 
+@required
 /**
  绑定一个cell 类
  
  @return 返回类名
  */
 -(NSString*)cellClassNameInTableView:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath;
-
--(CGFloat)getCellHeigh CHGTableViewDeprecated(-cellHeighInTableView:indexPath);
 
 /**
  返回当前cell的高度
@@ -33,6 +31,10 @@
  */
 -(CGFloat)cellHeighInTableView:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath;
 
+@optional
+-(NSString*)getCellClass CHGTableViewDeprecated(-cellClassNameInTableView:indexPath);
+-(CGFloat)getCellHeigh CHGTableViewDeprecated(-cellHeighInTableView:indexPath);
+
 @end
 
 /**
@@ -40,8 +42,7 @@
  */
 @protocol CHGTableViewHeaderFooterModelProtocol <NSObject>
 
--(NSString*)getHeaderFooterClass CHGTableViewDeprecated(-headerFooterClassInTableViw:section:type:);
-
+@required
 /**
  绑定一个cell、headerFooter 类
  
@@ -49,14 +50,16 @@
  */
 -(NSString*)headerFooterClassInTableViw:(UITableView*)tableView section:(NSInteger)section type:(CHGTableViewHeaderFooterViewType)type;
 
--(CGFloat)getHeaderFooterHeigh CHGTableViewDeprecated(-headerFooterHeighInTableViw:section:type:);
-
 /**
  返回当前headerFooter的高度
  
  @return headerFooter的高度
  */
 -(CGFloat)headerFooterHeighInTableViw:(UITableView*)tableView section:(NSInteger)section type:(CHGTableViewHeaderFooterViewType)type;
+
+@optional
+-(CGFloat)getHeaderFooterHeigh CHGTableViewDeprecated(-headerFooterHeighInTableViw:section:type:);
+-(NSString*)getHeaderFooterClass CHGTableViewDeprecated(-headerFooterClassInTableViw:section:type:);
 
 @end
 
