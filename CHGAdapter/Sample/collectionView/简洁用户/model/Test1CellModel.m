@@ -14,4 +14,12 @@
     return @"Test1CollectionViewCell";
 }
 
+///一下方法可以不实现
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+//    if (indexPath.row == 1) {
+//        return CGSizeMake(200, 200);
+//    }
+//    return CGSizeMake(100, 100);
+//}
+
 @end

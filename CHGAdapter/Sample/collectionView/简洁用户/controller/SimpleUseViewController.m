@@ -12,6 +12,8 @@
 #import "Test2CellModel.h"
 #import "Test1ReuseableViewModel.h"
 #import "Test2ReuseableViewModel.h"
+#import "TestLayout.h"
+#import "MyAdapter.h"
 
 @interface SimpleUseViewController ()
 

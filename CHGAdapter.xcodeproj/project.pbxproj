@@ -52,6 +52,8 @@
 		8F99E7B12126A4960057C298 /* Test2CollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F99E7AF2126A4960057C298 /* Test2CollectionReusableView.m */; };
 		8F99E7B22126A4960057C298 /* Test2CollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F99E7B02126A4960057C298 /* Test2CollectionReusableView.xib */; };
 		8F99E7B52126A4B00057C298 /* Test2ReuseableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F99E7B42126A4B00057C298 /* Test2ReuseableViewModel.m */; };
+		8F99E7B92126C3170057C298 /* TestLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F99E7B72126C3170057C298 /* TestLayout.m */; };
+		8F99E7BD2126C39A0057C298 /* MyAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F99E7BC2126C39A0057C298 /* MyAdapter.m */; };
 		8FAB167920A96AE900696281 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB163A20A96AE800696281 /* MenuViewController.xib */; };
 		8FAB167A20A96AE900696281 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB163B20A96AE800696281 /* MenuViewController.m */; };
 		8FAB167B20A96AE900696281 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FAB163E20A96AE800696281 /* TitleTableViewCell.xib */; };
@@ -194,6 +196,10 @@
 		8F99E7B02126A4960057C298 /* Test2CollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Test2CollectionReusableView.xib; sourceTree = "<group>"; };
 		8F99E7B32126A4B00057C298 /* Test2ReuseableViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test2ReuseableViewModel.h; sourceTree = "<group>"; };
 		8F99E7B42126A4B00057C298 /* Test2ReuseableViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test2ReuseableViewModel.m; sourceTree = "<group>"; };
+		8F99E7B72126C3170057C298 /* TestLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLayout.m; sourceTree = "<group>"; };
+		8F99E7B82126C3170057C298 /* TestLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLayout.h; sourceTree = "<group>"; };
+		8F99E7BB2126C39A0057C298 /* MyAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyAdapter.h; sourceTree = "<group>"; };
+		8F99E7BC2126C39A0057C298 /* MyAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyAdapter.m; sourceTree = "<group>"; };
 		8FAB163920A96AE800696281 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		8FAB163A20A96AE800696281 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		8FAB163B20A96AE800696281 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
@@ -479,6 +485,7 @@
 		8F99E78B2126977A0057C298 /* 简洁用户 */ = {
 			isa = PBXGroup;
 			children = (
+				8F99E7B62126C2FE0057C298 /* Other */,
 				8F99E793212698B20057C298 /* View */,
 				8F99E792212698AB0057C298 /* model */,
 				8F99E78C212697900057C298 /* controller */,
@@ -544,6 +551,25 @@
 				8F99E7B02126A4960057C298 /* Test2CollectionReusableView.xib */,
 			);
 			path = UICollectionReusableView;
+			sourceTree = "<group>";
+		};
+		8F99E7B62126C2FE0057C298 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				8F99E7BA2126C3800057C298 /* Adapter */,
+				8F99E7B82126C3170057C298 /* TestLayout.h */,
+				8F99E7B72126C3170057C298 /* TestLayout.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		8F99E7BA2126C3800057C298 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				8F99E7BB2126C39A0057C298 /* MyAdapter.h */,
+				8F99E7BC2126C39A0057C298 /* MyAdapter.m */,
+			);
+			path = Adapter;
 			sourceTree = "<group>";
 		};
 		8FAB162C20A96A8900696281 /* Sample */ = {
@@ -1127,6 +1153,7 @@
 				8FAB169020A96AE900696281 /* RecordAdapter.m in Sources */,
 				8F99E7B12126A4960057C298 /* Test2CollectionReusableView.m in Sources */,
 				8F99E7A02126A15B0057C298 /* Test2CellModel.m in Sources */,
+				8F99E7B92126C3170057C298 /* TestLayout.m in Sources */,
 				8F99E790212697B60057C298 /* SimpleUseViewController.m in Sources */,
 				8F99E789212690B10057C298 /* UICollectionView+CHGSimpleCollectionViewAdapter.m in Sources */,
 				8FE04AE320A40FFE0038BE0D /* main.m in Sources */,
@@ -1143,6 +1170,7 @@
 				8FAB169420A96AE900696281 /* RecordTableViewCell.m in Sources */,
 				8F99E7B52126A4B00057C298 /* Test2ReuseableViewModel.m in Sources */,
 				8FAB168B20A96AE900696281 /* SimpleTableViewCell.m in Sources */,
+				8F99E7BD2126C39A0057C298 /* MyAdapter.m in Sources */,
 				8F45864320AAC84C00C5C136 /* SampleHeaderCollectionReusableView.m in Sources */,
 				8FAB168220A96AE900696281 /* EventTransmissionViewController.m in Sources */,
 				8FE94D8C20A5915F00386F56 /* CHGTableViewEmptyDataShow.m in Sources */,
