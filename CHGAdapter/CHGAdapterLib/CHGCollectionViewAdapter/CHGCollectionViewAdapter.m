@@ -12,6 +12,15 @@
 
 @implementation CHGCollectionViewAdapter
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.adapterData = [CHGCollectionViewAdapterData new];
+    }
+    return self;
+}
+
 -(NSString*)obtainCellNameWithCellData:(id)data collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     return self.cellName;
 }

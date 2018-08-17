@@ -16,7 +16,7 @@ typedef void(^CHGCollectionViewDidSelectItemAtIndexPathBlock)(UICollectionView *
 
 @interface UICollectionView (CHGCollectionViewAdapter)
 
-@property(nonatomic,weak) CHGCollectionViewAdapter * collectionViewAdapter;
+@property(nonatomic,strong) CHGCollectionViewAdapter * collectionViewAdapter;
 ///HeaderView、FooterView、Cell中的点击、触摸、输入等相关事件通过此block回传到ViewController中
 @property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;
 ///当页面没有数据的时候的显示配置

@@ -47,7 +47,7 @@
 }
 
 - (NSArray *)headerDatas {
-    return self.adapterData.headerDatas;
+    return (NSArray *)self.adapterData.headerDatas;
 }
 
 - (void)setHeaderDatas:(NSArray *)headerDatas {
@@ -62,11 +62,11 @@
     self.adapterData.footerDatas = footerDatas;
 }
 
-- (NSArray *)customData {
+- (id)customData {
     return self.adapterData.customData;
 }
 
-- (void)setCustomData:(NSArray *)customData {
+- (void)setCustomData:(id)customData {
     self.adapterData.customData = customData;
 }
 

@@ -15,6 +15,7 @@
 
 #import "CHGTableViewAdapter.h"
 #import "UITableView+CHGSimpleTableViewAdapter.h"
+#import "UICollectionView+CHGSimpleCollectionViewAdapter.h"
 #import "CHGCollectionViewAdapter.h"
 #import "CHGSimpleTableViewAdapter.h"
 #import "CHGTableViewHeaderFooterView.h"
