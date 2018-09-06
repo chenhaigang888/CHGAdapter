@@ -17,6 +17,7 @@ static const void * tableViewAdapterKey = &tableViewAdapterKey;
 static const void * eventTransmissionBlockKey = &eventTransmissionBlockKey;
 static const void * tableViewDidSelectRowBlockKey = &tableViewDidSelectRowBlockKey;
 static const void * tableViewEmptyDataShowKey = &tableViewEmptyDataShowKey;
+static const void * scrollListenerKey = &scrollListenerKey;
 
 @implementation UITableView (CHGTableViewAdapter)
 
@@ -82,6 +83,19 @@ static const void * tableViewEmptyDataShowKey = &tableViewEmptyDataShowKey;
     objc_setAssociatedObject(self, tableViewAdapterKey, tableViewAdapter, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     self.delegate = tableViewAdapter;
     self.dataSource = tableViewAdapter;
+}
+
+-(void)setScrollListener:(CHGScrollListener *)scrollListener {
+    objc_setAssociatedObject(self, scrollListenerKey, scrollListener, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CHGScrollListener *)scrollListener {
+    id obj = objc_getAssociatedObject(self, scrollListenerKey);
+    if (!obj) {
+        self.scrollListener = [CHGScrollListener new];
+        return self.scrollListener;
+    }
+    return obj;
 }
 
 -(void)setEventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock {

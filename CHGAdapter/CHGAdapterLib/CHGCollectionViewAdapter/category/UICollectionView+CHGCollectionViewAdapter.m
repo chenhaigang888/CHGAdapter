@@ -17,6 +17,7 @@ static const void * collectionViewAdapterKey = &collectionViewAdapterKey;
 static const void * eventTransmissionBlockKey = &eventTransmissionBlockKey;
 static const void * collectionViewEmptyDataShowKey = &collectionViewEmptyDataShowKey;
 static const void * collectionViewDidSelectItemAtIndexPathBlockKey = &collectionViewDidSelectItemAtIndexPathBlockKey;
+static const void * scrollListenerKey = &scrollListenerKey;
 
 @implementation UICollectionView (CHGCollectionViewAdapter)
 
@@ -106,6 +107,19 @@ static const void * collectionViewDidSelectItemAtIndexPathBlockKey = &collection
 -(void)setEmptyDataSetSource:(id<DZNEmptyDataSetSource>)dataSource emptyDataSetDelegate:(id<DZNEmptyDataSetDelegate>)delegate {
     self.emptyDataSetSource = dataSource;
     self.emptyDataSetDelegate = delegate;
+}
+
+-(void)setScrollListener:(CHGScrollListener *)scrollListener {
+    objc_setAssociatedObject(self, scrollListenerKey, scrollListener, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CHGScrollListener *)scrollListener {
+    id obj = objc_getAssociatedObject(self, scrollListenerKey);
+    if (!obj) {
+        self.scrollListener = [CHGScrollListener new];
+        return self.scrollListener;
+    }
+    return obj;
 }
 
 

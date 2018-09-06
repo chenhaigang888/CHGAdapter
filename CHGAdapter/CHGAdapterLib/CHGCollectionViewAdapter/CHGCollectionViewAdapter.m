@@ -190,4 +190,104 @@
     return xib;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    UICollectionView * collectionView = (UICollectionView *)scrollView;
+    if(collectionView.scrollListener && collectionView.scrollListener.scrollViewDidScrollBlock){
+        collectionView.scrollListener.scrollViewDidScrollBlock(scrollView);
+    }
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView NS_AVAILABLE_IOS(3_2){
+    UICollectionView * collectionView = (UICollectionView *)scrollView;
+    if(collectionView.scrollListener && collectionView.scrollListener.scrollViewDidZoomBlock){
+        collectionView.scrollListener.scrollViewDidZoomBlock(scrollView);
+    }
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    UICollectionView * collectionView = (UICollectionView *)scrollView;
+    if(collectionView.scrollListener && collectionView.scrollListener.scrollViewWillBeginDraggingBlock){
+        collectionView.scrollListener.scrollViewWillBeginDraggingBlock(scrollView);
+    }
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset NS_AVAILABLE_IOS(5_0){
+    UICollectionView * collectionView = (UICollectionView *)scrollView;
+    if(collectionView.scrollListener && collectionView.scrollListener.scrollViewWillEndDraggingBlock){
+        collectionView.scrollListener.scrollViewWillEndDraggingBlock(scrollView, velocity, *targetContentOffset);
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    UICollectionView * collectionView = (UICollectionView *)scrollView;
+    if(collectionView.scrollListener && collectionView.scrollListener.scrollViewDidEndDraggingBlock){
+        collectionView.scrollListener.scrollViewDidEndDraggingBlock(scrollView, decelerate);
+    }
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    UICollectionView * collectionView = (UICollectionView *)scrollView;
+    if(collectionView.scrollListener && collectionView.scrollListener.scrollViewWillBeginDeceleratingBlock){
+        collectionView.scrollListener.scrollViewWillBeginDeceleratingBlock(scrollView);
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    UICollectionView * collectionView = (UICollectionView *)scrollView;
+    if(collectionView.scrollListener && collectionView.scrollListener.scrollViewDidEndDeceleratingBlock){
+        collectionView.scrollListener.scrollViewDidEndDeceleratingBlock(scrollView);
+    }
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    UICollectionView * collectionView = (UICollectionView *)scrollView;
+    if(collectionView.scrollListener && collectionView.scrollListener.scrollViewDidEndScrollingAnimationBlock){
+        collectionView.scrollListener.scrollViewDidEndScrollingAnimationBlock(scrollView);
+    }
+}
+
+- (nullable UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+    UICollectionView * collectionView = (UICollectionView *)scrollView;
+    if(collectionView.scrollListener && collectionView.scrollListener.viewForZoomingBlock){
+        return collectionView.scrollListener.viewForZoomingBlock(scrollView);
+    }
+    return nil;
+}
+
+- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view NS_AVAILABLE_IOS(3_2){
+    UICollectionView * collectionView = (UICollectionView *)scrollView;
+    if(collectionView.scrollListener && collectionView.scrollListener.scrollViewWillBeginZoomingBlock){
+        collectionView.scrollListener.scrollViewWillBeginZoomingBlock(scrollView, view);
+    }
+}
+
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view atScale:(CGFloat)scale{
+    UICollectionView * collectionView = (UICollectionView *)scrollView;
+    if(collectionView.scrollListener && collectionView.scrollListener.scrollViewDidEndZoomingBlock){
+        collectionView.scrollListener.scrollViewDidEndZoomingBlock(scrollView, view, scale);
+    }
+}
+
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView{
+    UICollectionView * collectionView = (UICollectionView *)scrollView;
+    if(collectionView.scrollListener && collectionView.scrollListener.scrollViewShouldScrollToTopBlock){
+        return collectionView.scrollListener.scrollViewShouldScrollToTopBlock(scrollView);
+    }
+    return scrollView.scrollsToTop;
+}
+
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView{
+    UICollectionView * collectionView = (UICollectionView *)scrollView;
+    if(collectionView.scrollListener && collectionView.scrollListener.scrollViewDidScrollToTopBlock){
+        collectionView.scrollListener.scrollViewDidScrollToTopBlock(scrollView);
+    }
+}
+
+- (void)scrollViewDidChangeAdjustedContentInset:(UIScrollView *)scrollView API_AVAILABLE(ios(11.0), tvos(11.0)) {
+    UICollectionView * collectionView = (UICollectionView *)scrollView;
+    if(collectionView.scrollListener && collectionView.scrollListener.scrollViewDidChangeAdjustedContentInsetBlock){
+        collectionView.scrollListener.scrollViewDidChangeAdjustedContentInsetBlock(scrollView);
+    }
+}
+
 @end

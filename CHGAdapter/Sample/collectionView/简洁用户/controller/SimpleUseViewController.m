@@ -41,7 +41,9 @@
     self.collectionView.cellDatas = self.cellDatas;
     self.collectionView.headerDatas = self.headerDatas;
     self.collectionView.footerDatas = self.footerDatas;
-    
+//    self.collectionView.scrollListener.scrollViewDidScrollBlock = ^(UIScrollView *scrollView) {
+//        NSLog(@"y:%f",scrollView.contentOffset.y);
+//    };
 }
 
 -(NSArray*)footerDatas {

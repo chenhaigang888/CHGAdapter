@@ -45,6 +45,11 @@
         
         return nil;
     };
+    
+    self.tableView.scrollListener.scrollViewDidScrollBlock = ^(UIScrollView *scrollView) {
+        NSLog(@"y:%f",scrollView.contentOffset.y);
+    };
+    
 }
 
 - (void)didReceiveMemoryWarning {

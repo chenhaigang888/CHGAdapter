@@ -13,6 +13,7 @@
 //
 //#endif /* CHGAdapter_h */
 
+#import "CHGScrollListener.h"
 #import "CHGTableViewAdapter.h"
 #import "UITableView+CHGSimpleTableViewAdapter.h"
 #import "UICollectionView+CHGSimpleCollectionViewAdapter.h"

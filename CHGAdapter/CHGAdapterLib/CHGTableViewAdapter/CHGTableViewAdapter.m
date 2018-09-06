@@ -238,4 +238,105 @@
     }
 }
 
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    UITableView * tableView = (UITableView *)scrollView;
+    if(tableView.scrollListener && tableView.scrollListener.scrollViewDidScrollBlock){
+        tableView.scrollListener.scrollViewDidScrollBlock(scrollView);
+    }
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView NS_AVAILABLE_IOS(3_2){
+    UITableView * tableView = (UITableView *)scrollView;
+    if(tableView.scrollListener && tableView.scrollListener.scrollViewDidZoomBlock){
+        tableView.scrollListener.scrollViewDidZoomBlock(scrollView);
+    }
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    UITableView * tableView = (UITableView *)scrollView;
+    if(tableView.scrollListener && tableView.scrollListener.scrollViewWillBeginDraggingBlock){
+        tableView.scrollListener.scrollViewWillBeginDraggingBlock(scrollView);
+    }
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset NS_AVAILABLE_IOS(5_0){
+    UITableView * tableView = (UITableView *)scrollView;
+    if(tableView.scrollListener && tableView.scrollListener.scrollViewWillEndDraggingBlock){
+        tableView.scrollListener.scrollViewWillEndDraggingBlock(scrollView, velocity, *targetContentOffset);
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    UITableView * tableView = (UITableView *)scrollView;
+    if(tableView.scrollListener && tableView.scrollListener.scrollViewDidEndDraggingBlock){
+        tableView.scrollListener.scrollViewDidEndDraggingBlock(scrollView, decelerate);
+    }
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    UITableView * tableView = (UITableView *)scrollView;
+    if(tableView.scrollListener && tableView.scrollListener.scrollViewWillBeginDeceleratingBlock){
+        tableView.scrollListener.scrollViewWillBeginDeceleratingBlock(scrollView);
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    UITableView * tableView = (UITableView *)scrollView;
+    if(tableView.scrollListener && tableView.scrollListener.scrollViewDidEndDeceleratingBlock){
+        tableView.scrollListener.scrollViewDidEndDeceleratingBlock(scrollView);
+    }
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    UITableView * tableView = (UITableView *)scrollView;
+    if(tableView.scrollListener && tableView.scrollListener.scrollViewDidEndScrollingAnimationBlock){
+        tableView.scrollListener.scrollViewDidEndScrollingAnimationBlock(scrollView);
+    }
+}
+
+- (nullable UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+    UITableView * tableView = (UITableView *)scrollView;
+    if(tableView.scrollListener && tableView.scrollListener.viewForZoomingBlock){
+        return tableView.scrollListener.viewForZoomingBlock(scrollView);
+    }
+    return nil;
+}
+
+- (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view NS_AVAILABLE_IOS(3_2){
+    UITableView * tableView = (UITableView *)scrollView;
+    if(tableView.scrollListener && tableView.scrollListener.scrollViewWillBeginZoomingBlock){
+        tableView.scrollListener.scrollViewWillBeginZoomingBlock(scrollView, view);
+    }
+}
+
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view atScale:(CGFloat)scale{
+    UITableView * tableView = (UITableView *)scrollView;
+    if(tableView.scrollListener && tableView.scrollListener.scrollViewDidEndZoomingBlock){
+        tableView.scrollListener.scrollViewDidEndZoomingBlock(scrollView, view, scale);
+    }
+}
+
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView{
+    UITableView * tableView = (UITableView *)scrollView;
+    if(tableView.scrollListener && tableView.scrollListener.scrollViewShouldScrollToTopBlock){
+        return tableView.scrollListener.scrollViewShouldScrollToTopBlock(scrollView);
+    }
+    return scrollView.scrollsToTop;
+}
+
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView{
+    UITableView * tableView = (UITableView *)scrollView;
+    if(tableView.scrollListener && tableView.scrollListener.scrollViewDidScrollToTopBlock){
+        tableView.scrollListener.scrollViewDidScrollToTopBlock(scrollView);
+    }
+}
+
+- (void)scrollViewDidChangeAdjustedContentInset:(UIScrollView *)scrollView API_AVAILABLE(ios(11.0), tvos(11.0)) {
+    UITableView * tableView = (UITableView *)scrollView;
+    if(tableView.scrollListener && tableView.scrollListener.scrollViewDidChangeAdjustedContentInsetBlock){
+        tableView.scrollListener.scrollViewDidChangeAdjustedContentInsetBlock(scrollView);
+    }
+}
+
 @end
