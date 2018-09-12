@@ -62,6 +62,10 @@
     return self.footerHeight;
 }
 
+- (NSString *)subDataKeyPathWithIndexPath:(NSIndexPath *)indexPath targetView:(UIScrollView *)targetView {
+    return self.keyPathOfSubData;
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSArray * cellDatas = self.adapterData.cellDatas;
     if (!cellDatas || cellDatas.count == 0) {
@@ -75,8 +79,11 @@
     if ([cellDatas count] == 0) {
         return 0;
     }
-    if (self.rowsOfSectionKeyName && ![cellDatas[section] isKindOfClass:[NSArray class]]) {
-        return [[cellDatas[section] valueForKey:self.rowsOfSectionKeyName] count];
+    
+    NSString * keyPathOfSubDataTemp = [self subDataKeyPathWithIndexPath:[NSIndexPath indexPathForRow:0 inSection:section] targetView:tableView];
+    
+    if (keyPathOfSubDataTemp && ![cellDatas[section] isKindOfClass:[NSArray class]]) {
+        return [[cellDatas[section] valueForKey:keyPathOfSubDataTemp] count];
     }
     id cellData = [cellDatas objectAtIndex:section];
     if ([cellData isKindOfClass:[NSArray class]]) {
@@ -92,20 +99,21 @@
  @param indexPath indexPath
  @return 返回cell的data
  */
--(id)cellDataWithIndexPath:(NSIndexPath*)indexPath {
+-(id)cellDataWithIndexPath:(NSIndexPath*)indexPath tableView:(UITableView*)tableView {
     if (self.adapterData.cellDatas.count == 0) {
         return nil;
     }
     id sectionData = self.adapterData.cellDatas[indexPath.section];
-    if (self.rowsOfSectionKeyName && ![sectionData isKindOfClass:[NSArray class]]) {
-        return [sectionData valueForKey:self.rowsOfSectionKeyName][indexPath.row];
+    NSString * keyPathOfSubDataTemp = [self subDataKeyPathWithIndexPath:indexPath targetView:tableView];
+    if (keyPathOfSubDataTemp && ![sectionData isKindOfClass:[NSArray class]]) {
+        return [sectionData valueForKey:keyPathOfSubDataTemp][indexPath.row];
     } else {
         return [sectionData isKindOfClass:[NSArray class]] ? sectionData[indexPath.row] : sectionData;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    id cellData = [self cellDataWithIndexPath:indexPath];
+    id cellData = [self cellDataWithIndexPath:indexPath tableView:tableView];
     //获取cell
     NSString * identifier = [self obtainCellNameWithCellData:cellData tableView:tableView cellForRowAtIndexPath:indexPath];
     if (identifier.length == 0) {
@@ -234,7 +242,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:self.tableViewDeselectRowAtIndexPathAnimation];
     if (tableView.tableViewDidSelectRowBlock) {
-        tableView.tableViewDidSelectRowBlock(tableView, indexPath, [self cellDataWithIndexPath:indexPath]);
+        tableView.tableViewDidSelectRowBlock(tableView, indexPath, [self cellDataWithIndexPath:indexPath tableView:tableView]);
     }
 }
 
@@ -338,5 +346,7 @@
         tableView.scrollListener.scrollViewDidChangeAdjustedContentInsetBlock(scrollView);
     }
 }
+
+
 
 @end

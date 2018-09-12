@@ -22,4 +22,4 @@
 #import "CHGTableViewHeaderFooterView.h"
 #import "CHGTableViewCell.h"
 #import "CHGCollectionViewCell.h"
-
+#import "CHGSubDataOfKeyPathDelegate.h"

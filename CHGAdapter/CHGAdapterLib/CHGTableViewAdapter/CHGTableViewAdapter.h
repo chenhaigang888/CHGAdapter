@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "CHGTableViewAdapterData.h"
 #import "UITableView+CHGTableViewAdapter.h"
+#import "CHGSubDataOfKeyPathDelegate.h"
 
 /**
  UITableViewAdapter协议
  */
-@protocol CHGTableViewAdapterProtocol<UITableViewDataSource,UITableViewDelegate>
+@protocol CHGTableViewAdapterProtocol<UITableViewDataSource,UITableViewDelegate,CHGSubDataOfKeyPathDelegate>
 
 @optional
 /**
@@ -70,7 +71,7 @@ typedef NS_ENUM(NSUInteger, CHGTableViewHeaderFooterViewType) {
  ];
     这里如果想使用goods字段用一个section展示，则可以设置 rowsOfSectionKeyName = goods；
  */
-@property(nonatomic,copy) NSString * rowsOfSectionKeyName;
+@property(nonatomic,copy) NSString * keyPathOfSubData;
 
 /**
  如果cell、headerView、footerView都只有一种风格，可以直接通过以下3个参数进行设置，否则可以通过继承CHGTableViewAdapter类重写方法实现 分别是
@@ -102,7 +103,7 @@ typedef NS_ENUM(NSUInteger, CHGTableViewHeaderFooterViewType) {
  @param indexPath indexPath
  @return 返回cell的data
  */
--(id)cellDataWithIndexPath:(NSIndexPath*)indexPath;
+-(id)cellDataWithIndexPath:(NSIndexPath*)indexPath tableView:(UITableView*)tableView;
 
 /**
  获取headerFooter的数据

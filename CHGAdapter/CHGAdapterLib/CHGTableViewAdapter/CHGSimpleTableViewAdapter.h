@@ -61,6 +61,8 @@
 -(CGFloat)getHeaderFooterHeigh CHGTableViewDeprecated(-headerFooterHeighInTableViw:section:type:);
 -(NSString*)getHeaderFooterClass CHGTableViewDeprecated(-headerFooterClassInTableViw:section:type:);
 
+-(NSString*)subDataKeyPathWithIndexPath:(NSIndexPath*)indexPath tableView:(UITableView*)tableView;
+
 @end
 
 /**
