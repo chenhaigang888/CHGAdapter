@@ -12,7 +12,7 @@
 
 #pragma mark 构造view
 -(NSString*)obtainCellNameWithCellData:(id)data collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    id<CHGCollectionViewCellModelProtocol> cellModelProtocol = [self cellDataWithIndexPath:indexPath];
+    id<CHGCollectionViewCellModelProtocol> cellModelProtocol = [self cellDataWithIndexPath:indexPath collectionView:collectionView];
     return [cellModelProtocol cellClassNameInCollectionView:collectionView atIndexPath:indexPath];
 }
 
@@ -88,7 +88,7 @@
 
 ///动态设置每个Item的尺寸大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    id<CHGCollectionViewCellModelProtocol> cellModelProtocol = [self cellDataWithIndexPath:indexPath];
+    id<CHGCollectionViewCellModelProtocol> cellModelProtocol = [self cellDataWithIndexPath:indexPath collectionView:collectionView];
     if ([cellModelProtocol respondsToSelector:@selector(collectionView:layout:sizeForItemAtIndexPath:)]) {
         return [cellModelProtocol collectionView:collectionView
                                           layout:collectionViewLayout
@@ -111,6 +111,19 @@
         return layout.footerReferenceSize;
     }
     return CGSizeMake(collectionView.frame.size.width, 30);
+}
+
+- (NSString *)subDataKeyPathWithIndexPath:(NSIndexPath *)indexPath targetView:(UIScrollView *)targetView {
+    id sectionData = self.adapterData.cellDatas[indexPath.section];
+    if ([sectionData conformsToProtocol:@protocol(CHGCollectionViewSupplementaryElementModelProtocol)]) {//遵守了协议
+        if ([sectionData respondsToSelector:@selector(subDataKeyPathWithIndexPath:collectionView:)]) {
+            id<CHGCollectionViewSupplementaryElementModelProtocol> supplementaryElementModelProtocol = sectionData;
+            NSString * keyPath = [supplementaryElementModelProtocol subDataKeyPathWithIndexPath:indexPath
+                                                                                 collectionView:(UICollectionView*)targetView];
+            return keyPath.length == 0 ? [super subDataKeyPathWithIndexPath:indexPath targetView:targetView] : keyPath;
+        }
+    }
+    return [super subDataKeyPathWithIndexPath:indexPath targetView:targetView];
 }
 
 @end

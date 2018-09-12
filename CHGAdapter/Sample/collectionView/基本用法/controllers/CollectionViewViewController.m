@@ -64,7 +64,7 @@
         _adapter.cellName = @"Sample1CollectionViewCell";
         _adapter.sectionHeaderName = @"SampleHeaderCollectionReusableView";
         _adapter.sectionFooterName = @"SampleHeaderCollectionReusableView";
-        _adapter.rowsOfSectionKeyName = @"test";//当需要使用item的某一个字段作为数组的时候使用
+        _adapter.keyPathOfSubData = @"test";//当需要使用item的某一个字段作为数组的时候使用
     }
     return _adapter;
 }

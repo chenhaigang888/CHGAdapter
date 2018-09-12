@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CHGAdapter.h"
 
-@interface CityModel : NSObject<CHGTableViewCellModelProtocol>
+@interface CityModel : NSObject<CHGTableViewCellModelProtocol,CHGCollectionViewCellModelProtocol>
 
 @property (nonatomic,strong) NSString *name;
 
@@ -17,7 +17,7 @@
 
 @end
 
-@interface CountryModel : NSObject<CHGTableViewHeaderFooterModelProtocol>
+@interface CountryModel : NSObject<CHGTableViewHeaderFooterModelProtocol,CHGCollectionViewSupplementaryElementModelProtocol>
 
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSArray<CityModel*> * citys;

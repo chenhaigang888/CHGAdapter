@@ -24,6 +24,10 @@
     return -1;
 }
 
+- (NSString *)cellClassNameInCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
+    return @"CityCollectionViewCell";
+}
+
 @end
 
 @implementation CountryModel
@@ -46,5 +50,14 @@
 - (NSString *)subDataKeyPathWithIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView {
     return @"citys";
 }
+
+- (NSString *)reusableViewInCollectionView:(UICollectionView *)collectionView supplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    return @"CountryCollectionReusableView";
+}
+
+- (NSString *)subDataKeyPathWithIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView *)collectionView {
+    return @"citys";
+}
+
 
 @end

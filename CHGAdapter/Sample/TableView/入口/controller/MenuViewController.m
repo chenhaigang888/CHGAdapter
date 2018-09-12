@@ -15,6 +15,7 @@
 #import "SimpleAdapterViewController.h"
 #import "SimpleUseViewController.h"
 #import "TVKeyPathViewController.h"
+#import "CVKeyPathViewController.h"
 
 @interface MenuViewController ()
 
@@ -63,6 +64,9 @@
         } else if (indexPath.row == 6) {
             TVKeyPathViewController * vc = [TVKeyPathViewController new];
             [strongSelf.navigationController pushViewController:vc animated:YES];
+        } else if (indexPath.row == 7) {
+            CVKeyPathViewController * vc = [CVKeyPathViewController new];
+            [strongSelf.navigationController pushViewController:vc animated:YES];
         }
     };
 }
@@ -94,7 +98,8 @@
                                  @"collection的adapter用法",
                                  @"SimpleAdapter用法（快速布局）",
                                  @"collectionView最简洁用法",
-                                 @"keyPath用法（tableView）"
+                                 @"keyPath用法（tableView）",
+                                 @"keyPath用法（collectionView）"
                                  ]
                                ];
     return _adapterData;

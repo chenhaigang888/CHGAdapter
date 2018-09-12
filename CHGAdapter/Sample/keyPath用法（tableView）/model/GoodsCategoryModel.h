@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CHGAdapter.h"
 
-@interface GoodsModel : NSObject<CHGTableViewCellModelProtocol>
+@interface GoodsModel : NSObject<CHGTableViewCellModelProtocol,CHGCollectionViewCellModelProtocol>
 
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,strong) NSNumber *price;
@@ -18,7 +18,7 @@
 
 @end
 
-@interface GoodsCategoryModel : NSObject<CHGTableViewHeaderFooterModelProtocol>
+@interface GoodsCategoryModel : NSObject<CHGTableViewHeaderFooterModelProtocol,CHGCollectionViewSupplementaryElementModelProtocol>
 
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,copy) NSArray<GoodsModel*> *goods;

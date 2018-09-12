@@ -62,6 +62,8 @@
 
 //动态设置每列的间距大小
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section;
+
+-(NSString*)subDataKeyPathWithIndexPath:(NSIndexPath*)indexPath collectionView:(UICollectionView*)collectionView;
 @end
 
 @interface CHGSimpleCollectionViewAdapter : CHGCollectionViewAdapter

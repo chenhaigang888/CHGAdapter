@@ -46,8 +46,9 @@
     if ([cellDatas count] == 0) {
         return 0;
     }
-    if (self.rowsOfSectionKeyName && ![cellDatas[section] isKindOfClass:[NSArray class]]) {
-        return [[cellDatas[section] valueForKey:self.rowsOfSectionKeyName] count];
+    NSString * keyPathOfSubDataTemp = [self subDataKeyPathWithIndexPath:[NSIndexPath indexPathForRow:0 inSection:section] targetView:collectionView];
+    if (keyPathOfSubDataTemp && ![cellDatas[section] isKindOfClass:[NSArray class]]) {
+        return [[cellDatas[section] valueForKey:keyPathOfSubDataTemp] count];
     }
     id cellData = [cellDatas objectAtIndex:section];
     if ([cellData isKindOfClass:[NSArray class]]) {
@@ -57,26 +58,31 @@
     }
 }
 
+- (NSString *)subDataKeyPathWithIndexPath:(NSIndexPath *)indexPath targetView:(UIScrollView *)targetView {
+    return self.keyPathOfSubData;
+}
+
 /**
  获取cell的data
  
  @param indexPath indexPath
  @return 返回cell的data
  */
--(id)cellDataWithIndexPath:(NSIndexPath*)indexPath {
+-(id)cellDataWithIndexPath:(NSIndexPath*)indexPath collectionView:(UICollectionView*)collectionView{
     if (self.adapterData.cellDatas.count == 0) {
         return nil;
     }
     id sectionData = self.adapterData.cellDatas[indexPath.section];
-    if (self.rowsOfSectionKeyName && ![sectionData isKindOfClass:[NSArray class]]) {
-        return [sectionData valueForKey:self.rowsOfSectionKeyName][indexPath.row];
+    NSString * keyPathOfSubDataTemp = [self subDataKeyPathWithIndexPath:indexPath targetView:collectionView];
+    if (keyPathOfSubDataTemp && ![sectionData isKindOfClass:[NSArray class]]) {
+        return [sectionData valueForKey:keyPathOfSubDataTemp][indexPath.row];
     } else {
         return [sectionData isKindOfClass:[NSArray class]] ? sectionData[indexPath.row] : sectionData;
     }
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    id cellData = [self cellDataWithIndexPath:indexPath];
+    id cellData = [self cellDataWithIndexPath:indexPath collectionView:collectionView];
     //获取cell
     NSString * identifier = [self obtainCellNameWithCellData:cellData collectionView:collectionView cellForItemAtIndexPath:indexPath];
     if (identifier.length == 0) {
@@ -151,7 +157,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (collectionView.collectionViewDidSelectItemAtIndexPathBlock) {
-        collectionView.collectionViewDidSelectItemAtIndexPathBlock(collectionView, indexPath, [self cellDataWithIndexPath:indexPath]);
+        collectionView.collectionViewDidSelectItemAtIndexPathBlock(collectionView, indexPath, [self cellDataWithIndexPath:indexPath collectionView:collectionView]);
     }
 }
 
@@ -289,5 +295,7 @@
         collectionView.scrollListener.scrollViewDidChangeAdjustedContentInsetBlock(scrollView);
     }
 }
+
+
 
 @end

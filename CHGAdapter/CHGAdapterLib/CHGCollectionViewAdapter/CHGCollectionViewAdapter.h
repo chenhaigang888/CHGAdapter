@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "CHGCollectionViewAdapterData.h"
 #import "UICollectionView+CHGCollectionViewAdapter.h"
+#import "CHGSubDataOfKeyPathDelegate.h"
 
-@protocol CHGCollectionAdapterProtocol<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@protocol CHGCollectionAdapterProtocol<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,CHGSubDataOfKeyPathDelegate>
 
 /**
  返回CHGCollectionViewCell子类的类名
@@ -41,7 +42,7 @@
 @interface CHGCollectionViewAdapter : NSObject<CHGCollectionAdapterProtocol>
 
 @property(nonatomic,strong) CHGCollectionViewAdapterData * adapterData;
-@property(nonatomic,copy) NSString * rowsOfSectionKeyName;
+@property(nonatomic,copy) NSString * keyPathOfSubData;
 
 @property(nonatomic,copy) NSString * cellName;
 @property(nonatomic,copy) NSString * sectionHeaderName;
@@ -55,7 +56,7 @@
  @param indexPath indexPath
  @return 返回cell的data
  */
--(id)cellDataWithIndexPath:(NSIndexPath*)indexPath;
+-(id)cellDataWithIndexPath:(NSIndexPath*)indexPath collectionView:(UICollectionView*)collectionView;
 
 /**
  返回headerFooter数据

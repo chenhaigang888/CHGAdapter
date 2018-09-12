@@ -101,6 +101,16 @@
 		8FB8F19B2149188100B96551 /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FB8F1992149188100B96551 /* CityTableViewCell.xib */; };
 		8FB8F19E2149191100B96551 /* CountryHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8F19D2149191100B96551 /* CountryHeaderFooterView.m */; };
 		8FB8F1A02149191800B96551 /* CountryHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FB8F19F2149191800B96551 /* CountryHeaderFooterView.xib */; };
+		8FB8F1A8214932D200B96551 /* CVKeyPathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8F1A6214932D200B96551 /* CVKeyPathViewController.m */; };
+		8FB8F1A9214932D200B96551 /* CVKeyPathViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FB8F1A7214932D200B96551 /* CVKeyPathViewController.xib */; };
+		8FB8F1AE214933F600B96551 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8F1AC214933F600B96551 /* GoodsCollectionViewCell.m */; };
+		8FB8F1AF214933F600B96551 /* GoodsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FB8F1AD214933F600B96551 /* GoodsCollectionViewCell.xib */; };
+		8FB8F1B42149348500B96551 /* GoodsCategoryCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8F1B22149348500B96551 /* GoodsCategoryCollectionReusableView.m */; };
+		8FB8F1B52149348500B96551 /* GoodsCategoryCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FB8F1B32149348500B96551 /* GoodsCategoryCollectionReusableView.xib */; };
+		8FB8F1B9214936E800B96551 /* CountryCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8F1B7214936E800B96551 /* CountryCollectionReusableView.m */; };
+		8FB8F1BA214936E800B96551 /* CountryCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FB8F1B8214936E800B96551 /* CountryCollectionReusableView.xib */; };
+		8FB8F1BE2149379500B96551 /* CityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8F1BC2149379500B96551 /* CityCollectionViewCell.m */; };
+		8FB8F1BF2149379500B96551 /* CityCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FB8F1BD2149379500B96551 /* CityCollectionViewCell.xib */; };
 		8FE04AD520A40FFD0038BE0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE04AD420A40FFD0038BE0D /* AppDelegate.m */; };
 		8FE04ADD20A40FFE0038BE0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FE04ADC20A40FFE0038BE0D /* Assets.xcassets */; };
 		8FE04AE020A40FFE0038BE0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FE04ADE20A40FFE0038BE0D /* LaunchScreen.storyboard */; };
@@ -289,6 +299,21 @@
 		8FB8F19C2149191100B96551 /* CountryHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryHeaderFooterView.h; sourceTree = "<group>"; };
 		8FB8F19D2149191100B96551 /* CountryHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountryHeaderFooterView.m; sourceTree = "<group>"; };
 		8FB8F19F2149191800B96551 /* CountryHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryHeaderFooterView.xib; sourceTree = "<group>"; };
+		8FB8F1A5214932D200B96551 /* CVKeyPathViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CVKeyPathViewController.h; sourceTree = "<group>"; };
+		8FB8F1A6214932D200B96551 /* CVKeyPathViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CVKeyPathViewController.m; sourceTree = "<group>"; };
+		8FB8F1A7214932D200B96551 /* CVKeyPathViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CVKeyPathViewController.xib; sourceTree = "<group>"; };
+		8FB8F1AB214933F600B96551 /* GoodsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsCollectionViewCell.h; sourceTree = "<group>"; };
+		8FB8F1AC214933F600B96551 /* GoodsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsCollectionViewCell.m; sourceTree = "<group>"; };
+		8FB8F1AD214933F600B96551 /* GoodsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsCollectionViewCell.xib; sourceTree = "<group>"; };
+		8FB8F1B12149348500B96551 /* GoodsCategoryCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsCategoryCollectionReusableView.h; sourceTree = "<group>"; };
+		8FB8F1B22149348500B96551 /* GoodsCategoryCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsCategoryCollectionReusableView.m; sourceTree = "<group>"; };
+		8FB8F1B32149348500B96551 /* GoodsCategoryCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsCategoryCollectionReusableView.xib; sourceTree = "<group>"; };
+		8FB8F1B6214936E800B96551 /* CountryCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountryCollectionReusableView.h; sourceTree = "<group>"; };
+		8FB8F1B7214936E800B96551 /* CountryCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountryCollectionReusableView.m; sourceTree = "<group>"; };
+		8FB8F1B8214936E800B96551 /* CountryCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryCollectionReusableView.xib; sourceTree = "<group>"; };
+		8FB8F1BB2149379500B96551 /* CityCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityCollectionViewCell.h; sourceTree = "<group>"; };
+		8FB8F1BC2149379500B96551 /* CityCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityCollectionViewCell.m; sourceTree = "<group>"; };
+		8FB8F1BD2149379500B96551 /* CityCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityCollectionViewCell.xib; sourceTree = "<group>"; };
 		8FE04AD020A40FFD0038BE0D /* CHGAdapter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHGAdapter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FE04AD320A40FFD0038BE0D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8FE04AD420A40FFD0038BE0D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -628,6 +653,7 @@
 		8FAB162C20A96A8900696281 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
+				8FB8F1A12149328800B96551 /* keyPath用法（collectionView） */,
 				8FB8F17B214905B900B96551 /* keyPath用法（tableView） */,
 				8F45862720AAA39400C5C136 /* collectionView */,
 				8F45862620AAA38200C5C136 /* TableView */,
@@ -968,6 +994,68 @@
 			path = headerFooterView;
 			sourceTree = "<group>";
 		};
+		8FB8F1A12149328800B96551 /* keyPath用法（collectionView） */ = {
+			isa = PBXGroup;
+			children = (
+				8FB8F1A4214932AB00B96551 /* model */,
+				8FB8F1A3214932A400B96551 /* view */,
+				8FB8F1A22149329B00B96551 /* controller */,
+			);
+			path = "keyPath用法（collectionView）";
+			sourceTree = "<group>";
+		};
+		8FB8F1A22149329B00B96551 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				8FB8F1A5214932D200B96551 /* CVKeyPathViewController.h */,
+				8FB8F1A6214932D200B96551 /* CVKeyPathViewController.m */,
+				8FB8F1A7214932D200B96551 /* CVKeyPathViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		8FB8F1A3214932A400B96551 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				8FB8F1B02149346500B96551 /* headFooterView */,
+				8FB8F1AA214933DA00B96551 /* collectionViewCell */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		8FB8F1A4214932AB00B96551 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		8FB8F1AA214933DA00B96551 /* collectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8FB8F1AB214933F600B96551 /* GoodsCollectionViewCell.h */,
+				8FB8F1AC214933F600B96551 /* GoodsCollectionViewCell.m */,
+				8FB8F1AD214933F600B96551 /* GoodsCollectionViewCell.xib */,
+				8FB8F1BB2149379500B96551 /* CityCollectionViewCell.h */,
+				8FB8F1BC2149379500B96551 /* CityCollectionViewCell.m */,
+				8FB8F1BD2149379500B96551 /* CityCollectionViewCell.xib */,
+			);
+			path = collectionViewCell;
+			sourceTree = "<group>";
+		};
+		8FB8F1B02149346500B96551 /* headFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				8FB8F1B12149348500B96551 /* GoodsCategoryCollectionReusableView.h */,
+				8FB8F1B22149348500B96551 /* GoodsCategoryCollectionReusableView.m */,
+				8FB8F1B32149348500B96551 /* GoodsCategoryCollectionReusableView.xib */,
+				8FB8F1B6214936E800B96551 /* CountryCollectionReusableView.h */,
+				8FB8F1B7214936E800B96551 /* CountryCollectionReusableView.m */,
+				8FB8F1B8214936E800B96551 /* CountryCollectionReusableView.xib */,
+			);
+			path = headFooterView;
+			sourceTree = "<group>";
+		};
 		8FE04AC720A40FFD0038BE0D = {
 			isa = PBXGroup;
 			children = (
@@ -1171,13 +1259,17 @@
 				8FAB168920A96AE900696281 /* MultipleViewController.xib in Resources */,
 				8F78F691210C09470044BD1B /* HeaderView.xib in Resources */,
 				8F78F68C210C08820044BD1B /* FooterView.xib in Resources */,
+				8FB8F1BA214936E800B96551 /* CountryCollectionReusableView.xib in Resources */,
 				8FAB168120A96AE900696281 /* EventTransmissionViewController.xib in Resources */,
 				8F78F679210C03650044BD1B /* AddressNoSelectTableViewCell.xib in Resources */,
 				8FAB169620A96AE900696281 /* RecordSwitchTableViewCell.xib in Resources */,
 				8FAB167B20A96AE900696281 /* TitleTableViewCell.xib in Resources */,
+				8FB8F1AF214933F600B96551 /* GoodsCollectionViewCell.xib in Resources */,
 				8FAB168A20A96AE900696281 /* SimpleTableViewCell.xib in Resources */,
+				8FB8F1BF2149379500B96551 /* CityCollectionViewCell.xib in Resources */,
 				8F99E79D212699DC0057C298 /* Test1CollectionViewCell.xib in Resources */,
 				8F78F681210C04440044BD1B /* AddressSelectedTableViewCell.xib in Resources */,
+				8FB8F1B52149348500B96551 /* GoodsCategoryCollectionReusableView.xib in Resources */,
 				8FAB169120A96AE900696281 /* RecordInputDataViewController.xib in Resources */,
 				8FE04AE020A40FFE0038BE0D /* LaunchScreen.storyboard in Resources */,
 				8FAB168E20A96AE900696281 /* ViewController.xib in Resources */,
@@ -1197,6 +1289,7 @@
 				8F78F66D210C01F50044BD1B /* SimpleAdapterViewController.xib in Resources */,
 				8F45863620AAA8B700C5C136 /* SampleCollectionViewCell.xib in Resources */,
 				8F99E791212697B60057C298 /* SimpleUseViewController.xib in Resources */,
+				8FB8F1A9214932D200B96551 /* CVKeyPathViewController.xib in Resources */,
 				8F45862C20AAA3C500C5C136 /* CollectionViewViewController.xib in Resources */,
 				8FB8F18D21490EF600B96551 /* GoodsCategoryHeaderFooterView.xib in Resources */,
 				8FB8F1A02149191800B96551 /* CountryHeaderFooterView.xib in Resources */,
@@ -1253,6 +1346,7 @@
 				8F45863920AAC0B000C5C136 /* CHGCollectionReusableView.m in Sources */,
 				8F99E798212699910057C298 /* Test1CellModel.m in Sources */,
 				8FAB168820A96AE900696281 /* MultipleViewController.m in Sources */,
+				8FB8F1BE2149379500B96551 /* CityCollectionViewCell.m in Sources */,
 				8FAB167E20A96AE900696281 /* OneButtonTableViewCell.m in Sources */,
 				8FB8F18B21490EED00B96551 /* GoodsCategoryHeaderFooterView.m in Sources */,
 				8FAB169220A96AE900696281 /* RecordInputDataViewController.m in Sources */,
@@ -1271,8 +1365,10 @@
 				8F78F67C210C037C0044BD1B /* AddressNoSelectModel.m in Sources */,
 				8F45864820AACB9200C5C136 /* Sample1CollectionViewCell.m in Sources */,
 				8FAB168320A96AE900696281 /* CustomAdapter.m in Sources */,
+				8FB8F1B9214936E800B96551 /* CountryCollectionReusableView.m in Sources */,
 				8F99E7A42126A1BA0057C298 /* Test2CollectionViewCell.m in Sources */,
 				8FE94D7920A425C900386F56 /* UITableView+CHGTableViewAdapter.m in Sources */,
+				8FB8F1B42149348500B96551 /* GoodsCategoryCollectionReusableView.m in Sources */,
 				8F45865120AADF0E00C5C136 /* SampleLayout.m in Sources */,
 				8F78F684210C07530044BD1B /* HeaderModel.m in Sources */,
 				8FAB168520A96AE900696281 /* Style1TableViewCell.m in Sources */,
@@ -1281,6 +1377,7 @@
 				8FAB169020A96AE900696281 /* RecordAdapter.m in Sources */,
 				8FB8F19221490F9500B96551 /* GoodsTableViewCell.m in Sources */,
 				8F99E7B12126A4960057C298 /* Test2CollectionReusableView.m in Sources */,
+				8FB8F1A8214932D200B96551 /* CVKeyPathViewController.m in Sources */,
 				8F0EE8BE21412875004058D7 /* CHGScrollListener.m in Sources */,
 				8F99E7A02126A15B0057C298 /* Test2CellModel.m in Sources */,
 				8F99E7B92126C3170057C298 /* TestLayout.m in Sources */,
@@ -1309,6 +1406,7 @@
 				8FAB168220A96AE900696281 /* EventTransmissionViewController.m in Sources */,
 				8FE94D8C20A5915F00386F56 /* CHGTableViewEmptyDataShow.m in Sources */,
 				8F45862B20AAA3C500C5C136 /* CollectionViewViewController.m in Sources */,
+				8FB8F1AE214933F600B96551 /* GoodsCollectionViewCell.m in Sources */,
 				8FAB16A820A9A4D900696281 /* CHGCollectionViewEmptyDataShow.m in Sources */,
 				8F45865920AAF5AE00C5C136 /* Sample2CollectionViewCell.m in Sources */,
 				8FAB169C20A9940F00696281 /* CHGCollectionViewAdapter.m in Sources */,

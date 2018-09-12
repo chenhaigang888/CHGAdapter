@@ -26,6 +26,10 @@
     return -1;
 }
 
+- (NSString *)cellClassNameInCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
+    return @"GoodsCollectionViewCell";
+}
+
 @end
 
 @implementation GoodsCategoryModel
@@ -46,6 +50,14 @@
 }
 
 - (NSString *)subDataKeyPathWithIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView {
+    return @"goods";
+}
+
+- (NSString *)reusableViewInCollectionView:(UICollectionView *)collectionView supplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    return @"GoodsCategoryCollectionReusableView";
+}
+
+- (NSString *)subDataKeyPathWithIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView *)collectionView {
     return @"goods";
 }
 
