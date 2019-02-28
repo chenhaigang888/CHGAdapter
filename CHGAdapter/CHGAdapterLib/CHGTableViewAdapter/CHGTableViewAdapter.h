@@ -19,7 +19,7 @@
 @optional
 /**
  获取cell的类名
-
+ 
  @param data indexPath的数据
  @param tableView tableView对象
  @param indexPath indexPath
@@ -29,7 +29,7 @@
 
 /**
  获取header的类名
-
+ 
  @param data 当前header的数据
  @param tableView tableView对象
  @param section section
@@ -64,12 +64,12 @@ typedef NS_ENUM(NSUInteger, CHGTableViewHeaderFooterViewType) {
  当 adapterData中的cellDatas 数据是model或者字典类型，并且字典或者model类型中有一个对象是Array类型，如果想用Array中的数据使用section展示，则可以使用Array类型的Key设置到此参数。
  例如：
  例如 cellDatas = @[
-    @{@"orderName":@"订单":@"goods":@[@"goods1",@"goods1"]},
-    @{@"orderName":@"订单":@"goods":@[@"goods1",@"goods1"]},
-    @{@"orderName":@"订单":@"goods":@[@"goods1",@"goods1"]},
-    @{@"orderName":@"订单":@"goods":@[@"goods1",@"goods1"]}
+ @{@"orderName":@"订单":@"goods":@[@"goods1",@"goods1"]},
+ @{@"orderName":@"订单":@"goods":@[@"goods1",@"goods1"]},
+ @{@"orderName":@"订单":@"goods":@[@"goods1",@"goods1"]},
+ @{@"orderName":@"订单":@"goods":@[@"goods1",@"goods1"]}
  ];
-    这里如果想使用goods字段用一个section展示，则可以设置 rowsOfSectionKeyName = goods；
+ 这里如果想使用goods字段用一个section展示，则可以设置 rowsOfSectionKeyName = goods；
  */
 @property(nonatomic,copy) NSString * keyPathOfSubData;
 
@@ -113,4 +113,6 @@ typedef NS_ENUM(NSUInteger, CHGTableViewHeaderFooterViewType) {
  @return 返回headerFooter的数据
  */
 -(id)headerFooterDataWithType:(CHGTableViewHeaderFooterViewType)type section:(NSInteger)section;
+
+
 @end

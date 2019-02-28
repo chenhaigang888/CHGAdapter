@@ -62,6 +62,14 @@
     self.adapterData.footerDatas = footerDatas;
 }
 
+- (NSArray *)indexDatas {
+    return self.adapterData.indexDatas;
+}
+
+- (void)setIndexDatas:(NSArray *)indexDatas {
+    self.adapterData.indexDatas = indexDatas;
+}
+
 - (id)customData {
     return self.adapterData.customData;
 }

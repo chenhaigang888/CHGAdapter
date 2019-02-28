@@ -16,6 +16,7 @@
 @property(nonatomic,strong) NSArray * cellDatas;
 @property(nonatomic,strong) NSArray * headerDatas;
 @property(nonatomic,strong) NSArray * footerDatas;
+@property(nonatomic,strong) NSArray * indexDatas;
 @property(nonatomic,strong) id customData;
 
 @end

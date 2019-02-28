@@ -93,6 +93,18 @@
     }
 }
 
+//添加索引栏标题数组
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return self.adapterData.indexDatas;
+}
+
+
+//点击索引栏标题时执行
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    return [[UILocalizedIndexedCollation currentCollation] sectionForSectionIndexTitleAtIndex:index];
+}
+
 /**
  获取cell的data
  
@@ -144,7 +156,7 @@
 
 /**
  获取headerFooter的数据
-
+ 
  @param type header或者footer类型
  @param section section
  @return 返回headerFooter的数据
