@@ -81,7 +81,7 @@
 #pragma clang diagnostic pop
         }
     }
-    return [super tableView:tableView heightForHeaderInSection:section];
+    return [super tableView:tableView heightForFooterInSection:section];
 }
 
 - (NSString *)subDataKeyPathWithIndexPath:(NSIndexPath *)indexPath targetView:(UIScrollView *)targetView {
