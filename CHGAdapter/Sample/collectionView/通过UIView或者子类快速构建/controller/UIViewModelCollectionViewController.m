@@ -44,11 +44,11 @@
     if (!_view1) {
         _view1 = [UIView new];
         _view1.frame = CGRectMake(5, 5, 50, 50);
-        _view1.collectionViewCellSize = CGSizeMake(60, 60);
+        _view1.chg_collectionViewCellSize = CGSizeMake(60, 60);
         _view1.backgroundColor = UIColor.yellowColor;
         
-        _view1.collectionViewHeaderSize = CGSizeMake(self.view.frame.size.width, 60);
-        _view1.collectionViewFooterSize = CGSizeMake(self.view.frame.size.width, 60);
+        _view1.chg_collectionViewHeaderSize = CGSizeMake(self.view.frame.size.width, 60);
+        _view1.chg_collectionViewFooterSize = CGSizeMake(self.view.frame.size.width, 60);
     }
     return _view1;
 }
@@ -58,7 +58,7 @@
         _headerView = [UIView new];
         _headerView.frame = CGRectMake(5, 5, self.view.frame.size.width - 10, 50);
         _headerView.backgroundColor = UIColor.greenColor;
-        _headerView.collectionViewHeaderSize = CGSizeMake(self.view.frame.size.width, 60);
+        _headerView.chg_collectionViewHeaderSize = CGSizeMake(self.view.frame.size.width, 60);
     }
     return _headerView;
 }
@@ -68,7 +68,7 @@
         _footerView = [UIView new];
         _footerView.frame = CGRectMake(5, 5, self.view.frame.size.width - 10, 50);
         _footerView.backgroundColor = UIColor.purpleColor;
-        _footerView.collectionViewFooterSize = CGSizeMake(self.view.frame.size.width, 60);
+        _footerView.chg_collectionViewFooterSize = CGSizeMake(self.view.frame.size.width, 60);
     }
     return _footerView;
 }
@@ -76,7 +76,7 @@
 - (UISwitch *)switchBtn {
     if (!_switchBtn) {
         _switchBtn = [[UISwitch alloc] initWithFrame:CGRectMake(5, 5, 50, 50)];
-        _switchBtn.collectionViewCellSize = CGSizeMake(60, 60);
+        _switchBtn.chg_collectionViewCellSize = CGSizeMake(60, 60);
         _switchBtn.backgroundColor = UIColor.whiteColor;
     }
     return _switchBtn;

@@ -48,7 +48,7 @@
     if (!_headerTitle) {
         _headerTitle = [UILabel new];
         _headerTitle.text = @"标题";
-        _headerTitle.tableViewHeaderHeight = 40;
+        _headerTitle.chg_tableViewHeaderHeight = 50;
         _headerTitle.frame = CGRectMake(5, 5, self.view.frame.size.width - 10, 30);
     }
     return _headerTitle;
@@ -57,7 +57,7 @@
 - (UITextView *)footerDesc {
     if (!_footerDesc) {
         _footerDesc = [UITextView new];
-        _footerDesc.tableViewFooterHeight = 200;
+        _footerDesc.chg_tableViewFooterHeight = 200;
         _footerDesc.frame = CGRectMake(5, 5, self.view.frame.size.width - 10, 190);
         _footerDesc.text = @"footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容footer 内容";
     }
@@ -75,7 +75,7 @@
     if (!_view1) {
         _view1 = [UIView new];
         _view1.frame = CGRectMake(5, 5, 100, 100);
-        _view1.tableViewCelllHeight = 110;
+        _view1.chg_tableViewCelllHeight = 110;
         _view1.backgroundColor = UIColor.redColor;
     }
     return _view1;
@@ -85,7 +85,7 @@
     if (!_btn) {
         _btn = [[UIButton alloc] init];
         _btn.frame = CGRectMake(5, 5, self.view.frame.size.width - 10, 40);
-        _btn.tableViewCelllHeight = 50;
+        _btn.chg_tableViewCelllHeight = 50;
         [_btn setTitle:@"按钮" forState:UIControlStateNormal];
         [_btn setTitleColor:UIColor.blueColor forState:UIControlStateNormal];
         [_btn addTarget:self action:@selector(btnTap:) forControlEvents:UIControlEventTouchUpInside];
@@ -96,7 +96,7 @@
 - (UITextField *)textField {
     if (!_textField) {
         _textField = [[UITextField alloc] initWithFrame:CGRectMake(5, 5, self.view.frame.size.width- 10, 40)];
-        _textField.tableViewCelllHeight = 50;
+        _textField.chg_tableViewCelllHeight = 50;
         _textField.placeholder = @"请输入文本";
     }
     return _textField;

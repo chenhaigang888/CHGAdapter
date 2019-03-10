@@ -461,14 +461,14 @@
 			path = model;
 			sourceTree = "<group>";
 		};
-		5FE05EE32235127700AD18EF /* UIKit */ = {
+		5FE05EE32235127700AD18EF /* Kit */ = {
 			isa = PBXGroup;
 			children = (
 				5FE05EE42235128D00AD18EF /* cell */,
 				5FEAFE8722350C01003480CA /* UIView+AdapterContentModel.h */,
 				5FEAFE8822350C01003480CA /* UIView+AdapterContentModel.m */,
 			);
-			path = UIKit;
+			path = Kit;
 			sourceTree = "<group>";
 		};
 		5FE05EE42235128D00AD18EF /* cell */ = {
@@ -1224,7 +1224,7 @@
 		8FE04B0520A410420038BE0D /* CHGAdapterLib */ = {
 			isa = PBXGroup;
 			children = (
-				5FE05EE32235127700AD18EF /* UIKit */,
+				5FE05EE32235127700AD18EF /* Kit */,
 				5FEAFE7D2234C7E1003480CA /* tools */,
 				8F0EE8BA21412848004058D7 /* public */,
 				8FAB169920A9937700696281 /* CHGCollectionViewAdapter */,
@@ -1697,6 +1697,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9YWR4JNK3S;
 				INFOPLIST_FILE = CHGAdapter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1715,6 +1716,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9YWR4JNK3S;
 				INFOPLIST_FILE = CHGAdapter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

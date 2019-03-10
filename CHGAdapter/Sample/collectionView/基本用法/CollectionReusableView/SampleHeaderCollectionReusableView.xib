@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,12 +24,11 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="nfx-16-vtu" firstAttribute="leading" secondItem="9Gg-ye-v9C" secondAttribute="leading" id="6pZ-D8-JQC"/>
-                <constraint firstItem="9Gg-ye-v9C" firstAttribute="trailing" secondItem="nfx-16-vtu" secondAttribute="trailing" id="eda-Gm-BWW"/>
-                <constraint firstItem="nfx-16-vtu" firstAttribute="top" secondItem="9Gg-ye-v9C" secondAttribute="top" id="sfL-eh-UDt"/>
-                <constraint firstItem="9Gg-ye-v9C" firstAttribute="bottom" secondItem="nfx-16-vtu" secondAttribute="bottom" id="vby-4v-v2b"/>
+                <constraint firstItem="nfx-16-vtu" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="6pZ-D8-JQC"/>
+                <constraint firstAttribute="trailing" secondItem="nfx-16-vtu" secondAttribute="trailing" id="eda-Gm-BWW"/>
+                <constraint firstItem="nfx-16-vtu" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="sfL-eh-UDt"/>
+                <constraint firstAttribute="bottom" secondItem="nfx-16-vtu" secondAttribute="bottom" id="vby-4v-v2b"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="9Gg-ye-v9C"/>
             <connections>
                 <outlet property="btn" destination="nfx-16-vtu" id="Jsp-of-9Lx"/>
             </connections>
