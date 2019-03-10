@@ -7,6 +7,7 @@
 //
 
 #import "CHGTableViewAdapter.h"
+#import "CHGTableViewAdapter.h"
 
 #define CHGTableViewDeprecated(instead) DEPRECATED_MSG_ATTRIBUTE(" Use " # instead " instead")
 

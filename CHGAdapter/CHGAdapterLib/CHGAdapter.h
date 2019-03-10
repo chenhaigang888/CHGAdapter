@@ -12,9 +12,12 @@
 //
 //
 //#endif /* CHGAdapter_h */
+//#import "CHGTableViewAdapterDefine.h"
 
-#import "CHGScrollListener.h"
+
+
 #import "CHGTableViewAdapter.h"
+#import "CHGScrollListener.h"
 #import "UITableView+CHGSimpleTableViewAdapter.h"
 #import "UICollectionView+CHGSimpleCollectionViewAdapter.h"
 #import "CHGCollectionViewAdapter.h"
@@ -23,3 +26,4 @@
 #import "CHGTableViewCell.h"
 #import "CHGCollectionViewCell.h"
 #import "CHGSubDataOfKeyPathDelegate.h"
+#import "UIView+AdapterContentModel.h"

@@ -9,6 +9,8 @@
 #ifndef CHGTableViewAdapterDefine_h
 #define CHGTableViewAdapterDefine_h
 
+
+
 typedef id(^CHGCallBack)(id data);
 
 /**

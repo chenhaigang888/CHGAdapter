@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FCDA492223525AD009CD4A9 /* CHGOneViewTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCDA491223525AD009CD4A9 /* CHGOneViewTableViewHeaderFooterView.m */; };
+		5FCDA495223533DE009CD4A9 /* CHGOneViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCDA494223533DE009CD4A9 /* CHGOneViewCollectionViewCell.m */; };
+		5FCDA49A2235356F009CD4A9 /* UIViewModelCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCDA4992235356F009CD4A9 /* UIViewModelCollectionViewController.m */; };
+		5FCDA49D223539FC009CD4A9 /* CHGOneViewCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCDA49C223539FC009CD4A9 /* CHGOneViewCollectionReusableView.m */; };
+		5FE05EE7223512D900AD18EF /* CHGOneViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05EE6223512D900AD18EF /* CHGOneViewTableViewCell.m */; };
+		5FE05EEE2235156100AD18EF /* UIViewModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05EEC2235156100AD18EF /* UIViewModelViewController.m */; };
+		5FEAFE802234C817003480CA /* CHGTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEAFE7F2234C817003480CA /* CHGTaskManager.m */; };
+		5FEAFE8922350C01003480CA /* UIView+AdapterContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEAFE8822350C01003480CA /* UIView+AdapterContentModel.m */; };
 		7B400DAAB2F917417E165201 /* libPods-CHGAdapter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC09ED455D43E832A8ACE449 /* libPods-CHGAdapter.a */; };
 		8F0EE8BE21412875004058D7 /* CHGScrollListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0EE8BD21412875004058D7 /* CHGScrollListener.m */; };
 		8F0EF9A0210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0EF99F210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m */; };
@@ -144,6 +152,22 @@
 
 /* Begin PBXFileReference section */
 		425CFC518C2702DFCE0E4C37 /* Pods-CHGAdapter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHGAdapter.release.xcconfig"; path = "Pods/Target Support Files/Pods-CHGAdapter/Pods-CHGAdapter.release.xcconfig"; sourceTree = "<group>"; };
+		5FCDA490223525AD009CD4A9 /* CHGOneViewTableViewHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGOneViewTableViewHeaderFooterView.h; sourceTree = "<group>"; };
+		5FCDA491223525AD009CD4A9 /* CHGOneViewTableViewHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGOneViewTableViewHeaderFooterView.m; sourceTree = "<group>"; };
+		5FCDA493223533DE009CD4A9 /* CHGOneViewCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGOneViewCollectionViewCell.h; sourceTree = "<group>"; };
+		5FCDA494223533DE009CD4A9 /* CHGOneViewCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGOneViewCollectionViewCell.m; sourceTree = "<group>"; };
+		5FCDA4982235356F009CD4A9 /* UIViewModelCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewModelCollectionViewController.h; sourceTree = "<group>"; };
+		5FCDA4992235356F009CD4A9 /* UIViewModelCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIViewModelCollectionViewController.m; sourceTree = "<group>"; };
+		5FCDA49B223539FC009CD4A9 /* CHGOneViewCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGOneViewCollectionReusableView.h; sourceTree = "<group>"; };
+		5FCDA49C223539FC009CD4A9 /* CHGOneViewCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGOneViewCollectionReusableView.m; sourceTree = "<group>"; };
+		5FE05EE5223512D900AD18EF /* CHGOneViewTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGOneViewTableViewCell.h; sourceTree = "<group>"; };
+		5FE05EE6223512D900AD18EF /* CHGOneViewTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGOneViewTableViewCell.m; sourceTree = "<group>"; };
+		5FE05EEB2235156100AD18EF /* UIViewModelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewModelViewController.h; sourceTree = "<group>"; };
+		5FE05EEC2235156100AD18EF /* UIViewModelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIViewModelViewController.m; sourceTree = "<group>"; };
+		5FEAFE7E2234C817003480CA /* CHGTaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGTaskManager.h; sourceTree = "<group>"; };
+		5FEAFE7F2234C817003480CA /* CHGTaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGTaskManager.m; sourceTree = "<group>"; };
+		5FEAFE8722350C01003480CA /* UIView+AdapterContentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+AdapterContentModel.h"; sourceTree = "<group>"; };
+		5FEAFE8822350C01003480CA /* UIView+AdapterContentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+AdapterContentModel.m"; sourceTree = "<group>"; };
 		8F0EE8BC21412875004058D7 /* CHGScrollListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGScrollListener.h; sourceTree = "<group>"; };
 		8F0EE8BD21412875004058D7 /* CHGScrollListener.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGScrollListener.m; sourceTree = "<group>"; };
 		8F0EF99E210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+CHGSimpleTableViewAdapter.h"; sourceTree = "<group>"; };
@@ -387,6 +411,90 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5FCDA4962235353E009CD4A9 /* 通过UIView或者子类快速构建 */ = {
+			isa = PBXGroup;
+			children = (
+				5FCDA4972235354D009CD4A9 /* controller */,
+			);
+			path = "通过UIView或者子类快速构建";
+			sourceTree = "<group>";
+		};
+		5FCDA4972235354D009CD4A9 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				5FCDA4982235356F009CD4A9 /* UIViewModelCollectionViewController.h */,
+				5FCDA4992235356F009CD4A9 /* UIViewModelCollectionViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		5FE05EDF2235122200AD18EF /* 通过UIView或者子类快速构建 */ = {
+			isa = PBXGroup;
+			children = (
+				5FE05EE22235124D00AD18EF /* model */,
+				5FE05EE12235124500AD18EF /* view */,
+				5FE05EE02235123A00AD18EF /* controller */,
+			);
+			path = "通过UIView或者子类快速构建";
+			sourceTree = "<group>";
+		};
+		5FE05EE02235123A00AD18EF /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				5FE05EEB2235156100AD18EF /* UIViewModelViewController.h */,
+				5FE05EEC2235156100AD18EF /* UIViewModelViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		5FE05EE12235124500AD18EF /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		5FE05EE22235124D00AD18EF /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		5FE05EE32235127700AD18EF /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				5FE05EE42235128D00AD18EF /* cell */,
+				5FEAFE8722350C01003480CA /* UIView+AdapterContentModel.h */,
+				5FEAFE8822350C01003480CA /* UIView+AdapterContentModel.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		5FE05EE42235128D00AD18EF /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				5FE05EE5223512D900AD18EF /* CHGOneViewTableViewCell.h */,
+				5FE05EE6223512D900AD18EF /* CHGOneViewTableViewCell.m */,
+				5FCDA490223525AD009CD4A9 /* CHGOneViewTableViewHeaderFooterView.h */,
+				5FCDA491223525AD009CD4A9 /* CHGOneViewTableViewHeaderFooterView.m */,
+				5FCDA493223533DE009CD4A9 /* CHGOneViewCollectionViewCell.h */,
+				5FCDA494223533DE009CD4A9 /* CHGOneViewCollectionViewCell.m */,
+				5FCDA49B223539FC009CD4A9 /* CHGOneViewCollectionReusableView.h */,
+				5FCDA49C223539FC009CD4A9 /* CHGOneViewCollectionReusableView.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		5FEAFE7D2234C7E1003480CA /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				5FEAFE7E2234C817003480CA /* CHGTaskManager.h */,
+				5FEAFE7F2234C817003480CA /* CHGTaskManager.m */,
+			);
+			path = tools;
+			sourceTree = "<group>";
+		};
 		8F0EE8BA21412848004058D7 /* public */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +516,7 @@
 		8F45862620AAA38200C5C136 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				5FE05EDF2235122200AD18EF /* 通过UIView或者子类快速构建 */,
 				8F78F665210C01A30044BD1B /* CHGSimpleTableViewAdapter用法 */,
 				8FAB165D20A96AE900696281 /* 简单的使用 */,
 				8FAB164D20A96AE900696281 /* 扩展CHGTableViewAdapter显示多种cell及headerview */,
@@ -421,6 +530,7 @@
 		8F45862720AAA39400C5C136 /* collectionView */ = {
 			isa = PBXGroup;
 			children = (
+				5FCDA4962235353E009CD4A9 /* 通过UIView或者子类快速构建 */,
 				8F99E78B2126977A0057C298 /* 简洁用户 */,
 				8F99E78A212697470057C298 /* 基本用法 */,
 			);
@@ -1114,6 +1224,8 @@
 		8FE04B0520A410420038BE0D /* CHGAdapterLib */ = {
 			isa = PBXGroup;
 			children = (
+				5FE05EE32235127700AD18EF /* UIKit */,
+				5FEAFE7D2234C7E1003480CA /* tools */,
 				8F0EE8BA21412848004058D7 /* public */,
 				8FAB169920A9937700696281 /* CHGCollectionViewAdapter */,
 				8FAB169820A9933900696281 /* CHGTableViewAdapter */,
@@ -1341,6 +1453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F78F68A210C08720044BD1B /* FooterView.m in Sources */,
+				5FCDA492223525AD009CD4A9 /* CHGOneViewTableViewHeaderFooterView.m in Sources */,
 				8FAB167C20A96AE900696281 /* TitleTableViewCell.m in Sources */,
 				8FE94D6B20A41AC700386F56 /* CHGTableViewAdapterData.m in Sources */,
 				8F45863920AAC0B000C5C136 /* CHGCollectionReusableView.m in Sources */,
@@ -1366,9 +1479,11 @@
 				8F45864820AACB9200C5C136 /* Sample1CollectionViewCell.m in Sources */,
 				8FAB168320A96AE900696281 /* CustomAdapter.m in Sources */,
 				8FB8F1B9214936E800B96551 /* CountryCollectionReusableView.m in Sources */,
+				5FE05EE7223512D900AD18EF /* CHGOneViewTableViewCell.m in Sources */,
 				8F99E7A42126A1BA0057C298 /* Test2CollectionViewCell.m in Sources */,
 				8FE94D7920A425C900386F56 /* UITableView+CHGTableViewAdapter.m in Sources */,
 				8FB8F1B42149348500B96551 /* GoodsCategoryCollectionReusableView.m in Sources */,
+				5FCDA495223533DE009CD4A9 /* CHGOneViewCollectionViewCell.m in Sources */,
 				8F45865120AADF0E00C5C136 /* SampleLayout.m in Sources */,
 				8F78F684210C07530044BD1B /* HeaderModel.m in Sources */,
 				8FAB168520A96AE900696281 /* Style1TableViewCell.m in Sources */,
@@ -1386,11 +1501,14 @@
 				8F99E789212690B10057C298 /* UICollectionView+CHGSimpleCollectionViewAdapter.m in Sources */,
 				8FE04AE320A40FFE0038BE0D /* main.m in Sources */,
 				8FE94D6720A4187200386F56 /* CHGTableViewAdapter.m in Sources */,
+				5FCDA49D223539FC009CD4A9 /* CHGOneViewCollectionReusableView.m in Sources */,
 				8F78F664210BF9030044BD1B /* CHGSimpleTableViewAdapter.m in Sources */,
+				5FE05EEE2235156100AD18EF /* UIViewModelViewController.m in Sources */,
 				8F0EF9A0210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m in Sources */,
 				8F99E7A92126A2B50057C298 /* Test1CollectionReusableView.m in Sources */,
 				8F78F687210C07630044BD1B /* FooterModel.m in Sources */,
 				8FAB16A420A9963F00696281 /* UICollectionView+CHGCollectionViewAdapter.m in Sources */,
+				5FEAFE802234C817003480CA /* CHGTaskManager.m in Sources */,
 				8FB8F1822149065200B96551 /* TVKeyPathViewController.m in Sources */,
 				8F45864D20AACC7400C5C136 /* TestCollectionAdapter.m in Sources */,
 				8FB8F1962149175500B96551 /* CountryModel.m in Sources */,
@@ -1401,8 +1519,10 @@
 				8F99E7B52126A4B00057C298 /* Test2ReuseableViewModel.m in Sources */,
 				8FB8F19E2149191100B96551 /* CountryHeaderFooterView.m in Sources */,
 				8FAB168B20A96AE900696281 /* SimpleTableViewCell.m in Sources */,
+				5FEAFE8922350C01003480CA /* UIView+AdapterContentModel.m in Sources */,
 				8F99E7BD2126C39A0057C298 /* MyAdapter.m in Sources */,
 				8F45864320AAC84C00C5C136 /* SampleHeaderCollectionReusableView.m in Sources */,
+				5FCDA49A2235356F009CD4A9 /* UIViewModelCollectionViewController.m in Sources */,
 				8FAB168220A96AE900696281 /* EventTransmissionViewController.m in Sources */,
 				8FE94D8C20A5915F00386F56 /* CHGTableViewEmptyDataShow.m in Sources */,
 				8F45862B20AAA3C500C5C136 /* CollectionViewViewController.m in Sources */,

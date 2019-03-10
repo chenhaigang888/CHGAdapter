@@ -11,6 +11,12 @@
 #import "UITableView+CHGTableViewAdapter.h"
 #import "CHGSubDataOfKeyPathDelegate.h"
 
+///CHGTableViewHeaderFooterView类型
+typedef NS_ENUM(NSUInteger, CHGTableViewHeaderFooterViewType) {
+    CHGTableViewHeaderFooterViewHeaderType, //tableView的HeaderView
+    CHGTableViewHeaderFooterViewFooterType  //tableView的FooterView
+};
+
 /**
  UITableViewAdapter协议
  */
@@ -49,11 +55,7 @@
 
 @end
 
-///CHGTableViewHeaderFooterView类型
-typedef NS_ENUM(NSUInteger, CHGTableViewHeaderFooterViewType) {
-    CHGTableViewHeaderFooterViewHeaderType, //tableView的HeaderView
-    CHGTableViewHeaderFooterViewFooterType  //tableView的FooterView
-};
+
 
 ///UITableView的adapter
 @interface CHGTableViewAdapter : NSObject<CHGTableViewAdapterProtocol>

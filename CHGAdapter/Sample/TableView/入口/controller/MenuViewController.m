@@ -16,6 +16,8 @@
 #import "SimpleUseViewController.h"
 #import "TVKeyPathViewController.h"
 #import "CVKeyPathViewController.h"
+#import "UIViewModelViewController.h"
+#import "UIViewModelCollectionViewController.h"
 
 @interface MenuViewController ()
 
@@ -67,6 +69,12 @@
         } else if (indexPath.row == 7) {
             CVKeyPathViewController * vc = [CVKeyPathViewController new];
             [strongSelf.navigationController pushViewController:vc animated:YES];
+        } else if (indexPath.row == 8) {
+            UIViewModelViewController * vc = [UIViewModelViewController new];
+            [strongSelf.navigationController pushViewController:vc animated:YES];
+        } else if (indexPath.row == 9) {
+            UIViewModelCollectionViewController * vc = [UIViewModelCollectionViewController new];
+            [strongSelf.navigationController pushViewController:vc animated:YES];
         }
     };
 }
@@ -99,7 +107,9 @@
                                  @"SimpleAdapter用法（快速布局）",
                                  @"collectionView最简洁用法",
                                  @"keyPath用法（tableView）",
-                                 @"keyPath用法（collectionView）"
+                                 @"keyPath用法（collectionView）",
+                                 @"TableView直接创建UIView及之类快速布局",
+                                 @"CollectionView直接创建UIView及之类快速布局",
                                  ]
                                ];
     return _adapterData;
