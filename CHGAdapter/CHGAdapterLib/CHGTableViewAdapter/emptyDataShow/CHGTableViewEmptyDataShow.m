@@ -14,7 +14,7 @@
 
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
 {
-    return [UIImage imageNamed:_imageName];
+    return _imageName.length == 0 ? nil : [UIImage imageNamed:_imageName];
 }
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {

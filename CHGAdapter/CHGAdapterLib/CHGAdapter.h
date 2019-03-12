@@ -17,6 +17,7 @@
 
 
 #import "CHGTableViewAdapter.h"
+#import "CHGTaskManager.h"
 #import "CHGScrollListener.h"
 #import "UITableView+CHGSimpleTableViewAdapter.h"
 #import "UICollectionView+CHGSimpleCollectionViewAdapter.h"
