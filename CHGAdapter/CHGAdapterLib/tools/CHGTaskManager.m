@@ -79,7 +79,7 @@
 -(void)addTask:(CHGRunloopTaskBlock)task {
     [self.tasks addObject:task];
     //如果任务超过18个则移除第一个任务
-    NSLog(@"任务数量:%li",self.tasks.count);
+//    NSLog(@"任务数量:%li",self.tasks.count);
     if (self.tasks.count > self.maxTask) {
         [self.tasks removeObjectAtIndex:0];
     }
@@ -94,7 +94,7 @@ void CHG_callBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, voi
     CHGRunloopTaskBlock task = manager.tasks.firstObject;
     task();
     [manager.tasks removeObjectAtIndex:0];//第一个任务执行完毕后将任务移除
-    NSLog(@"移除一个任务后 任务数量:%li",manager.tasks.count);
+//    NSLog(@"移除一个任务后 任务数量:%li",manager.tasks.count);
     if (manager.tasks.count == 0) {
         [manager.timer invalidate];
     }
@@ -109,7 +109,7 @@ void CHG_callBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, voi
 
 - (void)dealloc
 {
-    NSLog(@"---------------------CHGTaskManager end------------------------------");
+//    NSLog(@"---------------------CHGTaskManager end------------------------------");
 }
 
 @end
