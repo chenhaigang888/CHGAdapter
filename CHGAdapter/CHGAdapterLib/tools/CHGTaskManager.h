@@ -28,10 +28,17 @@ typedef void(^CHGRunloopTaskBlock)(void);
 
 /**
  添加任务
-
+ 
  @param task 任务
  */
 -(void)addTask:(CHGRunloopTaskBlock)task;
+
+/**
+ 移除任务
+ 
+ @param task 任务
+ */
+-(void)removeTask:(CHGRunloopTaskBlock)task;
 
 @end
 
