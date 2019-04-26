@@ -34,6 +34,7 @@
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    [collectionView.collectionViewLayout invalidateLayout];
     NSArray * cellDatas = self.adapterData.cellDatas;
     if (!cellDatas || cellDatas.count == 0) {
         return 0;
@@ -110,7 +111,7 @@
 
 /**
  返回headerFooter数据
-
+ 
  @param kind 当前传入的是Header或者footer的标志(UICollectionElementKindSectionHeader,UICollectionElementKindSectionFooter)
  @param indexPath indexPath
  @return 返回数据
@@ -139,7 +140,7 @@
     if (!reusableViewData || [reusableViewData count] == 0 || indexPath.section >= reusableViewData.count) {
         return [self defaultReusableViewWithCollectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath headerFooterData:headerFooterData];
     }
-
+    
     NSString * identifier = [self obtainSupplementaryElementNameWithCellData:headerFooterData collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath];
     if (identifier.length == 0){
         return [self defaultReusableViewWithCollectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath headerFooterData:headerFooterData];
