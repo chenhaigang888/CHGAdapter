@@ -48,7 +48,7 @@
     }
     NSString * keyPathOfSubDataTemp = [self subDataKeyPathWithIndexPath:[NSIndexPath indexPathForRow:0 inSection:section] targetView:collectionView];
     if (keyPathOfSubDataTemp && ![cellDatas[section] isKindOfClass:[NSArray class]]) {
-        return [[cellDatas[section] valueForKey:keyPathOfSubDataTemp] count];
+        return [[cellDatas[section] valueForKeyPath:keyPathOfSubDataTemp] count];
     }
     id cellData = [cellDatas objectAtIndex:section];
     if ([cellData isKindOfClass:[NSArray class]]) {
@@ -75,7 +75,7 @@
     id sectionData = self.adapterData.cellDatas[indexPath.section];
     NSString * keyPathOfSubDataTemp = [self subDataKeyPathWithIndexPath:indexPath targetView:collectionView];
     if (keyPathOfSubDataTemp && ![sectionData isKindOfClass:[NSArray class]]) {
-        return [sectionData valueForKey:keyPathOfSubDataTemp][indexPath.row];
+        return [sectionData valueForKeyPath:keyPathOfSubDataTemp][indexPath.row];
     } else {
         return [sectionData isKindOfClass:[NSArray class]] ? sectionData[indexPath.row] : sectionData;
     }
