@@ -60,7 +60,7 @@ static const void * chg_collectionViewFooterSizeKey = &chg_collectionViewFooterS
 }
 
 - (void)setChg_tableViewCelllHeight:(CGFloat)chg_tableViewCelllHeight {
-    objc_setAssociatedObject(self, chg_tableViewCelllHeightKey, @(chg_tableViewCelllHeight), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, chg_tableViewCelllHeightKey, @(chg_tableViewCelllHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma - mark CHGTableViewCellModelProtocol method
@@ -88,7 +88,7 @@ static const void * chg_collectionViewFooterSizeKey = &chg_collectionViewFooterS
 }
 
 - (void)setChg_tableViewFooterHeight:(CGFloat)chg_tableViewFooterHeight {
-    objc_setAssociatedObject(self, chg_tableViewFooterHeightKey, @(chg_tableViewFooterHeight), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, chg_tableViewFooterHeightKey, @(chg_tableViewFooterHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma - mark UITableViewHeader extension
@@ -98,7 +98,7 @@ static const void * chg_collectionViewFooterSizeKey = &chg_collectionViewFooterS
 
 - (void)setChg_tableViewHeaderHeight:(CGFloat)chg_tableViewHeaderHeight {
     NSLog(@"tableViewHeaderHeight:%f",chg_tableViewHeaderHeight);
-    objc_setAssociatedObject(self, chg_tableViewHeaderHeightKey, @(chg_tableViewHeaderHeight), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, chg_tableViewHeaderHeightKey, @(chg_tableViewHeaderHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (NSString *)chg_tableViewHeaderClassName {
