@@ -11,13 +11,26 @@
 
 @implementation CHGCollectionViewCell
 
+@synthesize cellData;
+
+@synthesize eventTransmissionBlock;
+
+@synthesize indexPath;
+
+@synthesize targetView;
+
+
+-(UICollectionView*)getCollectionView {
+    return (UICollectionView*)self.targetView;
+}
+
 /**
  获取当前Adapter的tag
  
  @return 返回tag
  */
 -(NSInteger)adapterTag {
-    return self.collectionView.collectionViewAdapter.tag;
+    return [self getCollectionView].collectionViewAdapter.tag;
 }
 
 /**
@@ -26,7 +39,7 @@
  @return 获取AdapterData中的customData
  */
 -(id)customData {
-    return self.collectionView.collectionViewAdapter.adapterData.customData;
+    return [self getCollectionView].collectionViewAdapter.adapterData.customData;
 }
 
 /**
@@ -35,23 +48,13 @@
  @return 返回当前cell所在的controller
  */
 -(UIViewController*)controller {
-    return self.collectionView.collectionViewAdapter.controller;
+    return [self getCollectionView].collectionViewAdapter.controller;
 }
 
--(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView*)collectionView withData:(id)data {
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
     self.indexPath = indexPath;
-    self.collectionView = collectionView;
+    self.targetView = targetView;
     self.cellData = data;
-}
-
-/**
- 将被复用
- 
- @param identifier identifier
- @param indexPath indexPath
- */
--(void)willReuseWithIdentifier:(NSString*)identifier indexPath:(NSIndexPath*)indexPath {
-    
 }
 
 /**
@@ -65,6 +68,24 @@
  cell已经消失
  */
 -(void)cellDidDisappear {
+    
+}
+
+- (void)setLayout {
+    
+}
+
+
+- (void)setUpSubviews {
+    
+}
+
+
+- (void)willReuseWithIdentifier:(nonnull NSString *)identifier {
+    
+}
+
+- (void)willReuseWithIdentifier:(NSString *)identifier indexPath:(NSIndexPath *)indexPath {
     
 }
 

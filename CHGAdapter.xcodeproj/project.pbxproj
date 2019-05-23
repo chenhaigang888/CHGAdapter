@@ -168,6 +168,7 @@
 		5FEAFE7F2234C817003480CA /* CHGTaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGTaskManager.m; sourceTree = "<group>"; };
 		5FEAFE8722350C01003480CA /* UIView+AdapterContentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+AdapterContentModel.h"; sourceTree = "<group>"; };
 		5FEAFE8822350C01003480CA /* UIView+AdapterContentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+AdapterContentModel.m"; sourceTree = "<group>"; };
+		84408B22229678EB00D8F6F8 /* CHGCellLifeCycleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGCellLifeCycleProtocol.h; sourceTree = "<group>"; };
 		8F0EE8BC21412875004058D7 /* CHGScrollListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGScrollListener.h; sourceTree = "<group>"; };
 		8F0EE8BD21412875004058D7 /* CHGScrollListener.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGScrollListener.m; sourceTree = "<group>"; };
 		8F0EF99E210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+CHGSimpleTableViewAdapter.h"; sourceTree = "<group>"; };
@@ -500,6 +501,7 @@
 			children = (
 				8F0EE8BB21412854004058D7 /* model */,
 				8FB8F184214907BF00B96551 /* CHGSubDataOfKeyPathDelegate.h */,
+				84408B22229678EB00D8F6F8 /* CHGCellLifeCycleProtocol.h */,
 			);
 			path = public;
 			sourceTree = "<group>";

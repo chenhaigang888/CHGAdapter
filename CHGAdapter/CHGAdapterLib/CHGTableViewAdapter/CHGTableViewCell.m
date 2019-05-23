@@ -10,6 +10,15 @@
 
 @implementation CHGTableViewCell
 
+@synthesize cellData;
+
+@synthesize eventTransmissionBlock;
+
+@synthesize indexPath;
+
+@synthesize targetView;
+
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -24,6 +33,10 @@
     return self;
 }
 
+-(UITableView*)getTableView {
+    return (UITableView*)self.targetView;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
@@ -36,19 +49,13 @@
     //子类可在此布局
 }
 
--(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView withData:(id)data {
-    self.indexPath = indexPath;
-    self.tableView = tableView;
-    self.cellData = data;
-}
-
 /**
  获取当前Adapter的tag
  
  @return 返回tag
  */
 -(NSInteger)adapterTag {
-    return self.tableView.tableViewAdapter.tag;
+    return ((UITableView*)self.targetView).tableViewAdapter.tag;
 }
 
 /**
@@ -57,7 +64,7 @@
  @return 获取AdapterData中的customData
  */
 -(id)customData {
-    return self.tableView.tableViewAdapter.adapterData.customData;
+    return ((UITableView*)self.targetView).tableViewAdapter.adapterData.customData;
 }
 
 /**
@@ -66,7 +73,7 @@
  @return 返回当前cell所在的controller
  */
 -(UIViewController*)controller {
-    return self.tableView.tableViewAdapter.controller;
+    return ((UITableView*)self.targetView).tableViewAdapter.controller;
 }
 
 - (void)setFrame:(CGRect)frame {
@@ -106,5 +113,12 @@
 -(void)cellDidDisappear {
     
 }
+
+- (void)cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath targetView:(nonnull UIView *)targetView withData:(nonnull id)data {
+    self.indexPath = indexPath;
+    self.targetView = targetView;
+    self.cellData = data;
+}
+
 
 @end

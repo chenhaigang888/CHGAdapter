@@ -97,7 +97,8 @@
     }
     CHGCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     cell.eventTransmissionBlock = collectionView.eventTransmissionBlock;
-    [cell cellForRowAtIndexPath:indexPath collectionView:collectionView withData:cellData];
+    [cell cellForRowAtIndexPath:indexPath targetView:collectionView withData:cellData];
+//    [cell cellForRowAtIndexPath:indexPath collectionView:collectionView withData:cellData];
     return cell;
 }
 

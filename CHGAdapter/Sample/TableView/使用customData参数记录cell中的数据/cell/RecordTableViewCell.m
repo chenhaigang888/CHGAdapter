@@ -23,16 +23,24 @@
     [super setSelected:selected animated:animated];
 }
 
--(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView withData:(id)data {
-    [super cellForRowAtIndexPath:indexPath tableView:tableView withData:data];
-    CHGTableViewAdapterData * adapterData = tableView.tableViewAdapter.adapterData;
+//-(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView withData:(id)data {
+//    [super cellForRowAtIndexPath:indexPath tableView:tableView withData:data];
+//    CHGTableViewAdapterData * adapterData = tableView.tableViewAdapter.adapterData;
+//    id recordData = adapterData.customData;
+//    id content = recordData[indexPath];//为了方便我这里使用indexPath作为key来存储数据。也可以通过其他参数，比如model的id字段
+//    self.textField.text = content;
+//}
+
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
+    [super cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
+    CHGTableViewAdapterData * adapterData = ((UITableView*)self.targetView).tableViewAdapter.adapterData;
     id recordData = adapterData.customData;
     id content = recordData[indexPath];//为了方便我这里使用indexPath作为key来存储数据。也可以通过其他参数，比如model的id字段
     self.textField.text = content;
 }
 
 -(void)textFieldInput:(id)sender {
-    self.tableView.tableViewAdapter.adapterData.customData[self.indexPath] = self.textField.text;
+    ((UITableView*)self.targetView).tableViewAdapter.adapterData.customData[self.indexPath] = self.textField.text;
 }
 
 @end

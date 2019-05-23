@@ -10,8 +10,14 @@
 
 @implementation CHGOneViewCollectionViewCell
 
-- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView *)collectionView withData:(id)data {
-    [super cellForRowAtIndexPath:indexPath collectionView:collectionView withData:data];
+//- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView *)collectionView withData:(id)data {
+//    [super cellForRowAtIndexPath:indexPath collectionView:collectionView withData:data];
+//    UIView * view = data;
+//    [self.contentView addSubview:view];
+//}
+
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
+    [super cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
     UIView * view = data;
     [self.contentView addSubview:view];
 }

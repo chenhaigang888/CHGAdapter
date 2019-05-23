@@ -142,7 +142,8 @@
     }
     //将cell的数据赋予cell
     cell.eventTransmissionBlock = tableView.eventTransmissionBlock;
-    [cell cellForRowAtIndexPath:indexPath tableView:tableView withData:cellData];
+    [cell cellForRowAtIndexPath:indexPath targetView:tableView withData:cellData];
+//    [cell cellForRowAtIndexPath:indexPath tableView:tableView withData:cellData];
     return cell;
 }
 

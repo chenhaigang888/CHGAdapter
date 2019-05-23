@@ -22,8 +22,14 @@
     // Configure the view for the selected state
 }
 
-- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView withData:(id)data {
-    [super cellForRowAtIndexPath:indexPath tableView:tableView withData:data];
+//- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView withData:(id)data {
+//    [super cellForRowAtIndexPath:indexPath tableView:tableView withData:data];
+//    GoodsModel * model = data;
+//    self.title.text = model.name;
+//}
+
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
+    [super cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
     GoodsModel * model = data;
     self.title.text = model.name;
 }

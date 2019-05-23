@@ -20,8 +20,12 @@
     [super setSelected:selected animated:animated];
 }
 
--(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView withData:(id)data {
-    [super cellForRowAtIndexPath:indexPath tableView:tableView withData:data];
+//-(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView withData:(id)data {
+//    [super cellForRowAtIndexPath:indexPath tableView:tableView withData:data];
+//}
+
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
+    [super cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
 }
 
 -(IBAction)btnTap:(id)sender {

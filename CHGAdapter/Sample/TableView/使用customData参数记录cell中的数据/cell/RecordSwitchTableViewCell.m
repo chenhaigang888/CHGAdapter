@@ -23,14 +23,20 @@
     // Configure the view for the selected state
 }
 
--(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView withData:(id)data {
-    [super cellForRowAtIndexPath:indexPath tableView:tableView withData:data];
+//-(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView withData:(id)data {
+//    [super cellForRowAtIndexPath:indexPath tableView:tableView withData:data];
+//    self.title.text = data;
+//    self.switch_.on = [tableView.tableViewAdapter.adapterData.customData[indexPath] boolValue];
+//}
+
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
+    [super cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
     self.title.text = data;
-    self.switch_.on = [tableView.tableViewAdapter.adapterData.customData[indexPath] boolValue];
+    self.switch_.on = [((UITableView*)targetView).tableViewAdapter.adapterData.customData[indexPath] boolValue];
 }
 
 -(void)switchValueChange:(id)sender {
-    self.tableView.tableViewAdapter.adapterData.customData[self.indexPath] = @(self.switch_.isOn);
+    ((UITableView*)self.targetView).tableViewAdapter.adapterData.customData[self.indexPath] = @(self.switch_.isOn);
 }
 
 @end

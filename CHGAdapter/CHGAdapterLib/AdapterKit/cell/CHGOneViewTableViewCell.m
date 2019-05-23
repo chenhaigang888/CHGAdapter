@@ -10,8 +10,14 @@
 
 @implementation CHGOneViewTableViewCell
 
-- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView withData:(id)data {
-    [super cellForRowAtIndexPath:indexPath tableView:tableView withData:data];
+//- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView withData:(id)data {
+//    [super cellForRowAtIndexPath:indexPath tableView:tableView withData:data];
+//    UIView * view = data;
+//    [self.contentView addSubview:view];
+//}
+
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
+    [super cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
     UIView * view = data;
     [self.contentView addSubview:view];
 }
