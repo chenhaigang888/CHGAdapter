@@ -8,6 +8,8 @@
 
 #import "CHGBaseView.h"
 
+#pragma - mark CHGViewLifeCycleProtocol method
+
 @implementation CHGBaseView
 
 @synthesize cellData;
@@ -62,6 +64,41 @@
 
 
 
+#pragma - mark CHGTableViewHeaderFooterLifeCycleProtocol method
 
+@synthesize controller;
+
+@synthesize headerFooterData;
+
+@synthesize section;
+
+@synthesize tableView;
+
+@synthesize tableViewHeaderFooterLifeCycleProtocols;
+
+@synthesize type;
+
+- (void)headerFooterForSection:(NSInteger)section inTableView:(nonnull UITableView *)tableView withData:(nonnull id)data type:(id)type {
+    self.section = section;
+    self.tableView = tableView;
+    self.headerFooterData = data;
+    self.type = type;
+    
+    for (id<CHGTableViewHeaderFooterLifeCycleProtocol> tableViewHeaderFooterLifeCycleProtocol in self.tableViewHeaderFooterLifeCycleProtocols) {
+        [tableViewHeaderFooterLifeCycleProtocol headerFooterForSection:section inTableView:tableView withData:data type:type];
+    }
+}
+
+- (void)headerFooterViewDidDisAppearWithType:(id)type {
+    for (id<CHGTableViewHeaderFooterLifeCycleProtocol> tableViewHeaderFooterLifeCycleProtocol in self.tableViewHeaderFooterLifeCycleProtocols) {
+        [tableViewHeaderFooterLifeCycleProtocol headerFooterViewDidDisAppearWithType:type];
+    }
+}
+
+- (void)headerFooterViewWillAppearWithType:(id)type {
+    for (id<CHGTableViewHeaderFooterLifeCycleProtocol> tableViewHeaderFooterLifeCycleProtocol in self.tableViewHeaderFooterLifeCycleProtocols) {
+        [tableViewHeaderFooterLifeCycleProtocol headerFooterViewWillAppearWithType:type];
+    }
+}
 
 @end

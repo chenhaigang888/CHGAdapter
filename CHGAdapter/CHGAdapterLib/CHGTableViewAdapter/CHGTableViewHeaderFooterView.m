@@ -10,20 +10,28 @@
 
 @implementation CHGTableViewHeaderFooterView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+@synthesize controller;
 
--(void)headerFooterForSection:(NSInteger)section inTableView:(UITableView*)tableView withData:(id)data type:(CHGTableViewHeaderFooterViewType)type {
-    self.section = section;
-    self.tableView = tableView;
-    self.headerFooterData = data;
-    self.type = type;
+@synthesize eventTransmissionBlock;
+
+@synthesize headerFooterData;
+
+@synthesize section;
+
+@synthesize tableView;
+
+@synthesize tableViewHeaderFooterLifeCycleProtocols;
+
+@synthesize type;
+
+- (NSMutableArray<CHGTableViewHeaderFooterLifeCycleProtocol> *)tableViewHeaderFooterLifeCycleProtocols {
+    if (!tableViewHeaderFooterLifeCycleProtocols) {
+        tableViewHeaderFooterLifeCycleProtocols = [NSMutableArray<CHGTableViewHeaderFooterLifeCycleProtocol> array];
+    }
+    return tableViewHeaderFooterLifeCycleProtocols;
 }
+
+
 
 /**
  获取当前Adapter的tag
@@ -58,21 +66,40 @@
  @param identifier identifier
  */
 -(void)willReuseWithIdentifier:(NSString *)identifier {
-    
+    for (id<CHGTableViewHeaderFooterLifeCycleProtocol> tableViewHeaderFooterLifeCycleProtocol in self.tableViewHeaderFooterLifeCycleProtocols) {
+        [tableViewHeaderFooterLifeCycleProtocol willReuseWithIdentifier:identifier];
+    }
 }
 
 /**
  headerFooterView将要显示
  */
 -(void)headerFooterViewWillAppearWithType:(CHGTableViewHeaderFooterViewType)type {
-    
+    for (id<CHGTableViewHeaderFooterLifeCycleProtocol> tableViewHeaderFooterLifeCycleProtocol in self.tableViewHeaderFooterLifeCycleProtocols) {
+        [tableViewHeaderFooterLifeCycleProtocol headerFooterViewWillAppearWithType:type];
+    }
 }
 
 /**
  headerFooterView已经消失
  */
 -(void)headerFooterViewDidDisAppearWithType:(CHGTableViewHeaderFooterViewType)type {
-    
+    for (id<CHGTableViewHeaderFooterLifeCycleProtocol> tableViewHeaderFooterLifeCycleProtocol in self.tableViewHeaderFooterLifeCycleProtocols) {
+        [tableViewHeaderFooterLifeCycleProtocol headerFooterViewDidDisAppearWithType:type];
+    }
 }
+
+-(void)headerFooterForSection:(NSInteger)section inTableView:(UITableView*)tableView withData:(id)data type:(CHGTableViewHeaderFooterViewType)type {
+    self.section = section;
+    self.tableView = tableView;
+    self.headerFooterData = data;
+    self.type = type;
+    
+    for (id<CHGTableViewHeaderFooterLifeCycleProtocol> tableViewHeaderFooterLifeCycleProtocol in self.tableViewHeaderFooterLifeCycleProtocols) {
+        [tableViewHeaderFooterLifeCycleProtocol headerFooterForSection:section inTableView:tableView withData:data type:type];
+    }
+}
+
+
 
 @end

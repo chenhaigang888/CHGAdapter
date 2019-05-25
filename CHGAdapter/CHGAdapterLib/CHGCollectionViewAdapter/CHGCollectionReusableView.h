@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "UITableView+CHGTableViewAdapter.h"
+#import "CHGCollectionReusableViewLifeCycleProtocol.h"
 
-@interface CHGCollectionReusableView : UICollectionReusableView
+@interface CHGCollectionReusableView : UICollectionReusableView<CHGCollectionReusableViewLifeCycleProtocol>
 
-@property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;
-@property(nonatomic,weak) UICollectionView * collectionView;
-@property(nonatomic,strong) NSIndexPath * indexPath;
-@property(nonatomic,copy) NSString * kind;
-@property(nonatomic,strong) id reusableViewData;
+//@property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;
+//@property(nonatomic,weak) UICollectionView * collectionView;
+//@property(nonatomic,strong) NSIndexPath * indexPath;
+//@property(nonatomic,copy) NSString * kind;
+//@property(nonatomic,strong) id reusableViewData;
 
 
 /**
@@ -39,24 +40,24 @@
  */
 -(UIViewController*)controller;
 
--(void)reusableViewForCollectionView:(UICollectionView*)collectionView indexPath:(NSIndexPath*)indexPath kind:(NSString*)kind reusableViewData:(id)reusableViewData;
-
-/**
- 将被复用
- 
- @param identifier identifier
- @param indexPath indexPath
- */
--(void)willReuseWithIdentifier:(NSString*)identifier indexPath:(NSIndexPath*)indexPath;
-
-/**
- cell将要显示
- */
--(void)reusableViewWillAppear;
-
-/**
- cell已经消失
- */
--(void)reusableViewDidDisappear;
+//-(void)reusableViewForCollectionView:(UICollectionView*)collectionView indexPath:(NSIndexPath*)indexPath kind:(NSString*)kind reusableViewData:(id)reusableViewData;
+//
+///**
+// 将被复用
+//
+// @param identifier identifier
+// @param indexPath indexPath
+// */
+//-(void)willReuseWithIdentifier:(NSString*)identifier indexPath:(NSIndexPath*)indexPath;
+//
+///**
+// cell将要显示
+// */
+//-(void)reusableViewWillAppear;
+//
+///**
+// cell已经消失
+// */
+//-(void)reusableViewDidDisappear;
 
 @end

@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "CHGViewLifeCycleProtocol.h"
+#import "CHGTableViewHeaderFooterLifeCycleProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CHGBaseView : UIView<CHGViewLifeCycleProtocol>
+@interface CHGBaseView : UIView<CHGViewLifeCycleProtocol,CHGTableViewHeaderFooterLifeCycleProtocol>
 
 @end
 
