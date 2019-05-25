@@ -8,10 +8,41 @@
 
 #import <UIKit/UIKit.h>
 #import "UICollectionView+CHGCollectionViewAdapter.h"
-#import "CHGCellLifeCycleProtocol.h"
+#import "CHGViewLifeCycleProtocol.h"
 
-@interface CHGCollectionViewCell : UICollectionViewCell<CHGCellLifeCycleProtocol>
+@interface CHGCollectionViewCell : UICollectionViewCell<CHGViewLifeCycleProtocol>
 
 -(UICollectionView*)getCollectionView;
+
+/**
+ 初始化子view
+ */
+-(void)setUpSubviews;
+
+/**
+ 布局子view
+ */
+-(void)setLayout;
+
+/**
+ 获取当前Adapter的tag
+ 
+ @return 返回tag
+ */
+-(NSInteger)adapterTag;
+
+/**
+ 获取AdapterData中的customData
+ 
+ @return 获取AdapterData中的customData
+ */
+-(id)customData;
+
+/**
+ 返回当前cell所在的controller
+ 
+ @return 返回当前cell所在的controller
+ */
+-(UIViewController*)controller;
 
 @end

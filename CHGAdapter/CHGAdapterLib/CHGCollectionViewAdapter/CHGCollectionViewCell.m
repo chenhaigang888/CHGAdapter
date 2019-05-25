@@ -13,12 +13,20 @@
 
 @synthesize cellData;
 
-@synthesize eventTransmissionBlock;
-
 @synthesize indexPath;
 
 @synthesize targetView;
 
+@synthesize eventTransmissionBlock;
+
+@synthesize viewLifeCycleProtocols;
+
+- (NSMutableArray<CHGViewLifeCycleProtocol> *)viewLifeCycleProtocols {
+    if (!viewLifeCycleProtocols) {
+        viewLifeCycleProtocols = [NSMutableArray<CHGViewLifeCycleProtocol> array];
+    }
+    return viewLifeCycleProtocols;
+}
 
 -(UICollectionView*)getCollectionView {
     return (UICollectionView*)self.targetView;
@@ -51,26 +59,6 @@
     return [self getCollectionView].collectionViewAdapter.controller;
 }
 
-- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
-    self.indexPath = indexPath;
-    self.targetView = targetView;
-    self.cellData = data;
-}
-
-/**
- cell将要显示
- */
--(void)cellWillAppear {
-    
-}
-
-/**
- cell已经消失
- */
--(void)cellDidDisappear {
-    
-}
-
 - (void)setLayout {
     
 }
@@ -80,13 +68,43 @@
     
 }
 
+/**
+ cell将要显示
+ */
+-(void)cellWillAppear {
+    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
+        [viewLifeCycleProtocol cellWillAppear];
+    }
+}
+
+/**
+ cell已经消失
+ */
+-(void)cellDidDisappear {
+    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
+        [viewLifeCycleProtocol cellDidDisappear];
+    }
+}
 
 - (void)willReuseWithIdentifier:(nonnull NSString *)identifier {
-    
+    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
+        [viewLifeCycleProtocol willReuseWithIdentifier:identifier];
+    }
 }
 
 - (void)willReuseWithIdentifier:(NSString *)identifier indexPath:(NSIndexPath *)indexPath {
-    
+    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
+        [viewLifeCycleProtocol willReuseWithIdentifier:identifier indexPath:indexPath];
+    }
+}
+
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
+    self.indexPath = indexPath;
+    self.targetView = targetView;
+    self.cellData = data;
+    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
+        [viewLifeCycleProtocol cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
+    }
 }
 
 @end

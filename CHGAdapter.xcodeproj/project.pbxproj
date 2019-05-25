@@ -16,6 +16,15 @@
 		5FEAFE802234C817003480CA /* CHGTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEAFE7F2234C817003480CA /* CHGTaskManager.m */; };
 		5FEAFE8922350C01003480CA /* UIView+AdapterContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEAFE8822350C01003480CA /* UIView+AdapterContentModel.m */; };
 		7B400DAAB2F917417E165201 /* libPods-CHGAdapter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC09ED455D43E832A8ACE449 /* libPods-CHGAdapter.a */; };
+		842100C022991BBB00C83132 /* CHGBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842100BF22991BBB00C83132 /* CHGBaseView.m */; };
+		84373CCD229924AF0020A849 /* UIView+CHGBehaviorListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 84373CCB229924AF0020A849 /* UIView+CHGBehaviorListener.m */; };
+		84373CD2229928E20020A849 /* CHGBaseViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84373CD0229928E20020A849 /* CHGBaseViewViewController.m */; };
+		84373CD3229928E20020A849 /* CHGBaseViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84373CD1229928E20020A849 /* CHGBaseViewViewController.xib */; };
+		84373CD9229929CF0020A849 /* CHGBaseViewTest1Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 84373CD8229929CF0020A849 /* CHGBaseViewTest1Model.m */; };
+		84373CDE22992A510020A849 /* CHGBaseViewTest1ModelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84373CDC22992A510020A849 /* CHGBaseViewTest1ModelTableViewCell.m */; };
+		84373CDF22992A510020A849 /* CHGBaseViewTest1ModelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84373CDD22992A510020A849 /* CHGBaseViewTest1ModelTableViewCell.xib */; };
+		84373CE322992A7B0020A849 /* CHGBaseViewTest1View.m in Sources */ = {isa = PBXBuildFile; fileRef = 84373CE222992A7B0020A849 /* CHGBaseViewTest1View.m */; };
+		84373CE62299314A0020A849 /* CHGBaseViewTest2View.m in Sources */ = {isa = PBXBuildFile; fileRef = 84373CE52299314A0020A849 /* CHGBaseViewTest2View.m */; };
 		8F0EE8BE21412875004058D7 /* CHGScrollListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0EE8BD21412875004058D7 /* CHGScrollListener.m */; };
 		8F0EF9A0210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0EF99F210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m */; };
 		8F45862B20AAA3C500C5C136 /* CollectionViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45862920AAA3C500C5C136 /* CollectionViewViewController.m */; };
@@ -168,7 +177,23 @@
 		5FEAFE7F2234C817003480CA /* CHGTaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGTaskManager.m; sourceTree = "<group>"; };
 		5FEAFE8722350C01003480CA /* UIView+AdapterContentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+AdapterContentModel.h"; sourceTree = "<group>"; };
 		5FEAFE8822350C01003480CA /* UIView+AdapterContentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+AdapterContentModel.m"; sourceTree = "<group>"; };
-		84408B22229678EB00D8F6F8 /* CHGCellLifeCycleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGCellLifeCycleProtocol.h; sourceTree = "<group>"; };
+		842100BE22991BBB00C83132 /* CHGBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGBaseView.h; sourceTree = "<group>"; };
+		842100BF22991BBB00C83132 /* CHGBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGBaseView.m; sourceTree = "<group>"; };
+		84373CCB229924AF0020A849 /* UIView+CHGBehaviorListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CHGBehaviorListener.m"; sourceTree = "<group>"; };
+		84373CCC229924AF0020A849 /* UIView+CHGBehaviorListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CHGBehaviorListener.h"; sourceTree = "<group>"; };
+		84373CCF229928E20020A849 /* CHGBaseViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGBaseViewViewController.h; sourceTree = "<group>"; };
+		84373CD0229928E20020A849 /* CHGBaseViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGBaseViewViewController.m; sourceTree = "<group>"; };
+		84373CD1229928E20020A849 /* CHGBaseViewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CHGBaseViewViewController.xib; sourceTree = "<group>"; };
+		84373CD7229929CF0020A849 /* CHGBaseViewTest1Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGBaseViewTest1Model.h; sourceTree = "<group>"; };
+		84373CD8229929CF0020A849 /* CHGBaseViewTest1Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGBaseViewTest1Model.m; sourceTree = "<group>"; };
+		84373CDB22992A510020A849 /* CHGBaseViewTest1ModelTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGBaseViewTest1ModelTableViewCell.h; sourceTree = "<group>"; };
+		84373CDC22992A510020A849 /* CHGBaseViewTest1ModelTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGBaseViewTest1ModelTableViewCell.m; sourceTree = "<group>"; };
+		84373CDD22992A510020A849 /* CHGBaseViewTest1ModelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CHGBaseViewTest1ModelTableViewCell.xib; sourceTree = "<group>"; };
+		84373CE122992A7B0020A849 /* CHGBaseViewTest1View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGBaseViewTest1View.h; sourceTree = "<group>"; };
+		84373CE222992A7B0020A849 /* CHGBaseViewTest1View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGBaseViewTest1View.m; sourceTree = "<group>"; };
+		84373CE42299314A0020A849 /* CHGBaseViewTest2View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGBaseViewTest2View.h; sourceTree = "<group>"; };
+		84373CE52299314A0020A849 /* CHGBaseViewTest2View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGBaseViewTest2View.m; sourceTree = "<group>"; };
+		84408B22229678EB00D8F6F8 /* CHGViewLifeCycleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGViewLifeCycleProtocol.h; sourceTree = "<group>"; };
 		8F0EE8BC21412875004058D7 /* CHGScrollListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGScrollListener.h; sourceTree = "<group>"; };
 		8F0EE8BD21412875004058D7 /* CHGScrollListener.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGScrollListener.m; sourceTree = "<group>"; };
 		8F0EF99E210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+CHGSimpleTableViewAdapter.h"; sourceTree = "<group>"; };
@@ -496,12 +521,91 @@
 			path = tools;
 			sourceTree = "<group>";
 		};
+		842100BD22991B9500C83132 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				842100BE22991BBB00C83132 /* CHGBaseView.h */,
+				842100BF22991BBB00C83132 /* CHGBaseView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84373CCE229928B90020A849 /* CHGBaseView */ = {
+			isa = PBXGroup;
+			children = (
+				84373CD6229928F60020A849 /* model */,
+				84373CD5229928F10020A849 /* view */,
+				84373CD4229928EC0020A849 /* vc */,
+			);
+			path = CHGBaseView;
+			sourceTree = "<group>";
+		};
+		84373CD4229928EC0020A849 /* vc */ = {
+			isa = PBXGroup;
+			children = (
+				84373CCF229928E20020A849 /* CHGBaseViewViewController.h */,
+				84373CD0229928E20020A849 /* CHGBaseViewViewController.m */,
+				84373CD1229928E20020A849 /* CHGBaseViewViewController.xib */,
+			);
+			path = vc;
+			sourceTree = "<group>";
+		};
+		84373CD5229928F10020A849 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				84373CE022992A5D0020A849 /* view */,
+				84373CDA22992A370020A849 /* cell */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		84373CD6229928F60020A849 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				84373CD7229929CF0020A849 /* CHGBaseViewTest1Model.h */,
+				84373CD8229929CF0020A849 /* CHGBaseViewTest1Model.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		84373CDA22992A370020A849 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				84373CDB22992A510020A849 /* CHGBaseViewTest1ModelTableViewCell.h */,
+				84373CDC22992A510020A849 /* CHGBaseViewTest1ModelTableViewCell.m */,
+				84373CDD22992A510020A849 /* CHGBaseViewTest1ModelTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		84373CE022992A5D0020A849 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				84373CE122992A7B0020A849 /* CHGBaseViewTest1View.h */,
+				84373CE222992A7B0020A849 /* CHGBaseViewTest1View.m */,
+				84373CE42299314A0020A849 /* CHGBaseViewTest2View.h */,
+				84373CE52299314A0020A849 /* CHGBaseViewTest2View.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		84B2936D2299385B000AF03C /* category */ = {
+			isa = PBXGroup;
+			children = (
+				84373CCC229924AF0020A849 /* UIView+CHGBehaviorListener.h */,
+				84373CCB229924AF0020A849 /* UIView+CHGBehaviorListener.m */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
 		8F0EE8BA21412848004058D7 /* public */ = {
 			isa = PBXGroup;
 			children = (
+				84B2936D2299385B000AF03C /* category */,
+				842100BD22991B9500C83132 /* View */,
 				8F0EE8BB21412854004058D7 /* model */,
 				8FB8F184214907BF00B96551 /* CHGSubDataOfKeyPathDelegate.h */,
-				84408B22229678EB00D8F6F8 /* CHGCellLifeCycleProtocol.h */,
+				84408B22229678EB00D8F6F8 /* CHGViewLifeCycleProtocol.h */,
 			);
 			path = public;
 			sourceTree = "<group>";
@@ -518,6 +622,7 @@
 		8F45862620AAA38200C5C136 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				84373CCE229928B90020A849 /* CHGBaseView */,
 				5FE05EDF2235122200AD18EF /* 通过UIView或者子类快速构建 */,
 				8F78F665210C01A30044BD1B /* CHGSimpleTableViewAdapter用法 */,
 				8FAB165D20A96AE900696281 /* 简单的使用 */,
@@ -1395,10 +1500,12 @@
 				8F45864920AACB9200C5C136 /* Sample1CollectionViewCell.xib in Resources */,
 				8FE04ADD20A40FFE0038BE0D /* Assets.xcassets in Resources */,
 				8FAB168C20A96AE900696281 /* SampleTableViewHeaderFooterView.xib in Resources */,
+				84373CDF22992A510020A849 /* CHGBaseViewTest1ModelTableViewCell.xib in Resources */,
 				8FAB168420A96AE900696281 /* Style2TableViewCell.xib in Resources */,
 				8F99E7B22126A4960057C298 /* Test2CollectionReusableView.xib in Resources */,
 				8FB8F19321490F9500B96551 /* GoodsTableViewCell.xib in Resources */,
 				8F99E7AA2126A2B50057C298 /* Test1CollectionReusableView.xib in Resources */,
+				84373CD3229928E20020A849 /* CHGBaseViewViewController.xib in Resources */,
 				8FB8F1832149065200B96551 /* TVKeyPathViewController.xib in Resources */,
 				8F78F66D210C01F50044BD1B /* SimpleAdapterViewController.xib in Resources */,
 				8F45863620AAA8B700C5C136 /* SampleCollectionViewCell.xib in Resources */,
@@ -1472,8 +1579,10 @@
 				8FAB16A020A9956400696281 /* CHGCollectionViewAdapterData.m in Sources */,
 				8FAB167A20A96AE900696281 /* MenuViewController.m in Sources */,
 				8FAB169320A96AE900696281 /* RecordSwitchTableViewCell.m in Sources */,
+				842100C022991BBB00C83132 /* CHGBaseView.m in Sources */,
 				8FB8F19A2149188100B96551 /* CityTableViewCell.m in Sources */,
 				8F45863520AAA8B700C5C136 /* SampleCollectionViewCell.m in Sources */,
+				84373CD2229928E20020A849 /* CHGBaseViewViewController.m in Sources */,
 				8FE94D8220A430B500386F56 /* CHGTableViewHeaderFooterView.m in Sources */,
 				8F99E7AD2126A2D90057C298 /* Test1ReuseableViewModel.m in Sources */,
 				8FAB168720A96AE900696281 /* Style2TableViewCell.m in Sources */,
@@ -1490,8 +1599,10 @@
 				8F78F684210C07530044BD1B /* HeaderModel.m in Sources */,
 				8FAB168520A96AE900696281 /* Style1TableViewCell.m in Sources */,
 				8F78F680210C04440044BD1B /* AddressSelectedTableViewCell.m in Sources */,
+				84373CE62299314A0020A849 /* CHGBaseViewTest2View.m in Sources */,
 				8F78F66C210C01F50044BD1B /* SimpleAdapterViewController.m in Sources */,
 				8FAB169020A96AE900696281 /* RecordAdapter.m in Sources */,
+				84373CDE22992A510020A849 /* CHGBaseViewTest1ModelTableViewCell.m in Sources */,
 				8FB8F19221490F9500B96551 /* GoodsTableViewCell.m in Sources */,
 				8F99E7B12126A4960057C298 /* Test2CollectionReusableView.m in Sources */,
 				8FB8F1A8214932D200B96551 /* CVKeyPathViewController.m in Sources */,
@@ -1520,7 +1631,9 @@
 				8FAB169420A96AE900696281 /* RecordTableViewCell.m in Sources */,
 				8F99E7B52126A4B00057C298 /* Test2ReuseableViewModel.m in Sources */,
 				8FB8F19E2149191100B96551 /* CountryHeaderFooterView.m in Sources */,
+				84373CE322992A7B0020A849 /* CHGBaseViewTest1View.m in Sources */,
 				8FAB168B20A96AE900696281 /* SimpleTableViewCell.m in Sources */,
+				84373CCD229924AF0020A849 /* UIView+CHGBehaviorListener.m in Sources */,
 				5FEAFE8922350C01003480CA /* UIView+AdapterContentModel.m in Sources */,
 				8F99E7BD2126C39A0057C298 /* MyAdapter.m in Sources */,
 				8F45864320AAC84C00C5C136 /* SampleHeaderCollectionReusableView.m in Sources */,
@@ -1532,6 +1645,7 @@
 				8FAB16A820A9A4D900696281 /* CHGCollectionViewEmptyDataShow.m in Sources */,
 				8F45865920AAF5AE00C5C136 /* Sample2CollectionViewCell.m in Sources */,
 				8FAB169C20A9940F00696281 /* CHGCollectionViewAdapter.m in Sources */,
+				84373CD9229929CF0020A849 /* CHGBaseViewTest1Model.m in Sources */,
 				8FE94D6F20A41F9000386F56 /* CHGTableViewCell.m in Sources */,
 				8F99E78621267EF90057C298 /* CHGSimpleCollectionViewAdapter.m in Sources */,
 				8FE04AD520A40FFD0038BE0D /* AppDelegate.m in Sources */,

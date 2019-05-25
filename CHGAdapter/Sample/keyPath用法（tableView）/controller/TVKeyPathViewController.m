@@ -53,8 +53,8 @@
         [CountryModel initWithName:@"中国" citys:citys],
         [CountryModel initWithName:@"美国" citys:citys1],
       ];
-//    self.tableView.headerDatas = self.tableView.cellDatas;
-//    self.tableView.tableViewAdapter.keyPathOfSubData = @"goods";
+    self.tableView.headerDatas = self.tableView.cellDatas;
+//    self.tableView.footerDatas = self.tableView.cellDatas;
 }
 
 - (void)didReceiveMemoryWarning {

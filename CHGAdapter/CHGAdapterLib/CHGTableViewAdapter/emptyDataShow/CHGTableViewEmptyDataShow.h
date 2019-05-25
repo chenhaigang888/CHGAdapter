@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "UIScrollView+EmptyDataSet.h"
 
-typedef void(^CHGEmptyDataDidTapViewBlock)(UIScrollView * scrollView,UIView * view);
-typedef void(^CHGEmptyDataDidTapButtonBlock)(UIScrollView * scrollView,UIButton * button);
+typedef void(^CHGEmptyDataDidTapViewBlock)(UIScrollView * _Nullable scrollView,UIView * _Nullable view);
+typedef void(^CHGEmptyDataDidTapButtonBlock)(UIScrollView * _Nullable scrollView,UIButton * _Nullable button);
 
 /**
  定义没有数据时候的简单显示及操作，如需更多功能可扩展此类以及实现DZNEmptyDataSetSource,DZNEmptyDataSetDelegate中的方法
@@ -40,11 +40,11 @@ typedef void(^CHGEmptyDataDidTapButtonBlock)(UIScrollView * scrollView,UIButton 
 /**
  没有数据的时候点击提示内容的回调
  */
-@property(nonatomic,copy) CHGEmptyDataDidTapViewBlock emptyDataDidTapViewBlock;
+@property(nonatomic,copy) CHGEmptyDataDidTapViewBlock _Nullable emptyDataDidTapViewBlock;
 
 /**
  没有数据的时候点击按钮的回调
  */
-@property(nonatomic,copy) CHGEmptyDataDidTapButtonBlock emptyDataDidTapButtonBlock;
+@property(nonatomic,copy) CHGEmptyDataDidTapButtonBlock _Nullable emptyDataDidTapButtonBlock;
 
 @end

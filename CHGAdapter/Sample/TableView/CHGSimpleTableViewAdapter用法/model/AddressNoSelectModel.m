@@ -20,22 +20,6 @@
     return self;
 }
 
--(NSString*)getCellClass {
-    if (self.status == 0) {
-        return @"AddressNoSelectTableViewCell";//未选择地址
-    } else {
-        return @"AddressSelectedTableViewCell";//已经选择地址
-    }
-}
-
-//- (NSString *)cellClassNameInTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
-//    if (self.status == 0) {
-//        return @"AddressNoSelectTableViewCell";//未选择地址
-//    } else {
-//        return @"AddressSelectedTableViewCell";//已经选择地址
-//    }
-//}
-
 - (CGFloat)cellHeighInTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
     //    return -1;//-1会自动适应高度
     if (self.status == 0) {
@@ -44,5 +28,14 @@
         return 100;//已经选择地址cell高度
     }
 }
+
+- (NSString *)cellClassNameInTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+    if (self.status == 0) {
+        return @"AddressNoSelectTableViewCell";//未选择地址
+    } else {
+        return @"AddressSelectedTableViewCell";//已经选择地址
+    }
+}
+
 
 @end

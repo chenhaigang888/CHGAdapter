@@ -12,11 +12,13 @@
 
 @synthesize cellData;
 
-@synthesize eventTransmissionBlock;
-
 @synthesize indexPath;
 
 @synthesize targetView;
+
+@synthesize eventTransmissionBlock;
+
+@synthesize viewLifeCycleProtocols;
 
 
 - (void)awakeFromNib {
@@ -32,6 +34,14 @@
     }
     return self;
 }
+
+- (NSMutableArray<CHGViewLifeCycleProtocol> *)viewLifeCycleProtocols {
+    if (!viewLifeCycleProtocols) {
+        viewLifeCycleProtocols = [NSMutableArray<CHGViewLifeCycleProtocol> array];
+    }
+    return viewLifeCycleProtocols;
+}
+
 
 -(UITableView*)getTableView {
     return (UITableView*)self.targetView;
@@ -87,7 +97,9 @@
  @param identifier identifier
  */
 -(void)willReuseWithIdentifier:(NSString*)identifier {
-    
+    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
+        [viewLifeCycleProtocol willReuseWithIdentifier:identifier];
+    }
 }
 
 /**
@@ -97,28 +109,39 @@
  @param indexPath indexPath
  */
 -(void)willReuseWithIdentifier:(NSString*)identifier indexPath:(NSIndexPath*)indexPath {
-    
+    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
+        [viewLifeCycleProtocol willReuseWithIdentifier:identifier indexPath:indexPath];
+    }
 }
 
 /**
  cell将要显示
  */
 -(void)cellWillAppear {
-    
+    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
+        [viewLifeCycleProtocol cellWillAppear];
+    }
 }
 
 /**
  cell已经消失
  */
 -(void)cellDidDisappear {
-    
+    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
+        [viewLifeCycleProtocol cellDidDisappear];
+    }
 }
 
 - (void)cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath targetView:(nonnull UIView *)targetView withData:(nonnull id)data {
     self.indexPath = indexPath;
     self.targetView = targetView;
     self.cellData = data;
+    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
+        [viewLifeCycleProtocol cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
+    }
 }
+
+
 
 
 @end

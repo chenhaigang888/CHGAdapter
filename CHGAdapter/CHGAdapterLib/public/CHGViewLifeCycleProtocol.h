@@ -7,49 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CHGTableViewAdapterDefine.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  cell的生命周期协议
  */
-@protocol CHGCellLifeCycleProtocol <NSObject>
+@protocol CHGViewLifeCycleProtocol <NSObject>
+
+@required
 
 @property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;//当前数据可通过此block向外部传递
 @property(nonatomic,strong) NSIndexPath * indexPath;//当前cell的indexPath信息
-@property(nonatomic,weak) UIView * targetView;//当前Cell所在的tableView、collectionView
+@property(nonatomic,weak) UIView * targetView;//当前所在的父view。cell的父view为tableView、collectionView。
 @property(nonatomic,strong) id cellData;//当前cell需要显示的数据
+@property(nonatomic,strong) NSMutableArray<CHGViewLifeCycleProtocol> * viewLifeCycleProtocols;
 
-/**
- 获取当前Adapter的tag
- 
- @return 返回tag
- */
--(NSInteger)adapterTag;
 
-/**
- 获取AdapterData中的customData
- 
- @return 获取AdapterData中的customData
- */
--(id)customData;
 
-/**
- 返回当前cell所在的controller
- 
- @return 返回当前cell所在的controller
- */
--(UIViewController*)controller;
-
-/**
- 初始化子view
- */
--(void)setUpSubviews;
-
-/**
- 布局子view
- */
--(void)setLayout;
 
 /**
  必须重写这个方法 子类应该在这个方法中给cell中的各个view设定value
