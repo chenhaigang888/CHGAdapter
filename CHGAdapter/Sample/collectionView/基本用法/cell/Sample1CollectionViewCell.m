@@ -32,7 +32,7 @@
 
 -(IBAction)btnTap:(id)sender {
     __weak typeof(self) weakSelf = self;
-    self.eventTransmissionBlock(self, self.cellData, 1, ^id(id data) {
+    self.eventTransmissionBlock(self, self.model, 1, ^id(id data) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf.btn setTitle:data forState:UIControlStateNormal];
         return nil;

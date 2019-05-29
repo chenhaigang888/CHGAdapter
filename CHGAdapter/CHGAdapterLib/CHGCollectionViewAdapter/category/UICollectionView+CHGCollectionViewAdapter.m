@@ -46,7 +46,7 @@ static const void * scrollListenerKey = &scrollListenerKey;
 - (__kindof UICollectionViewCell *)swizzlingDequeueReusableCellWithReuseIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell * cell = [self swizzlingDequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     if ([cell isKindOfClass:[CHGCollectionViewCell class]]) {
-        [((CHGCollectionViewCell*)cell) willReuseWithIdentifier:identifier indexPath:indexPath];
+        [((CHGCollectionViewCell*)cell) cellWillReuseWithIdentifier:identifier indexPath:indexPath];
     }
     return cell;
 }

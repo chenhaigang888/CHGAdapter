@@ -11,7 +11,6 @@
 
 @implementation CHGCollectionViewCell
 
-@synthesize cellData;
 
 @synthesize indexPath;
 
@@ -19,14 +18,12 @@
 
 @synthesize eventTransmissionBlock;
 
-@synthesize viewLifeCycleProtocols;
+@synthesize controller;
 
-- (NSMutableArray<CHGViewLifeCycleProtocol> *)viewLifeCycleProtocols {
-    if (!viewLifeCycleProtocols) {
-        viewLifeCycleProtocols = [NSMutableArray<CHGViewLifeCycleProtocol> array];
-    }
-    return viewLifeCycleProtocols;
-}
+@synthesize model;
+
+@synthesize protocols;
+
 
 -(UICollectionView*)getCollectionView {
     return (UICollectionView*)self.targetView;
@@ -72,8 +69,8 @@
  cell将要显示
  */
 -(void)cellWillAppear {
-    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
-        [viewLifeCycleProtocol cellWillAppear];
+    for (id protocol in self.protocols) {
+        [protocol cellWillAppear];
     }
 }
 
@@ -81,30 +78,34 @@
  cell已经消失
  */
 -(void)cellDidDisappear {
-    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
-        [viewLifeCycleProtocol cellDidDisappear];
+    for (id protocol in self.protocols) {
+        [protocol cellDidDisappear];
     }
 }
 
-- (void)willReuseWithIdentifier:(nonnull NSString *)identifier {
-    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
-        [viewLifeCycleProtocol willReuseWithIdentifier:identifier];
-    }
-}
-
-- (void)willReuseWithIdentifier:(NSString *)identifier indexPath:(NSIndexPath *)indexPath {
-    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
-        [viewLifeCycleProtocol willReuseWithIdentifier:identifier indexPath:indexPath];
-    }
-}
-
-- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
+- (void)cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath targetView:(nonnull UIView *)targetView withData:(nonnull id)data {
     self.indexPath = indexPath;
     self.targetView = targetView;
-    self.cellData = data;
-    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
-        [viewLifeCycleProtocol cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
+    self.model = data;
+    for (id protocol in self.protocols) {
+        [protocol cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
     }
 }
+
+- (void)cellWillReuseWithIdentifier:(nonnull NSString *)identifier {
+    for (id protocol in self.protocols) {
+        [protocol cellWillReuseWithIdentifier:identifier];
+    }
+}
+
+
+- (void)cellWillReuseWithIdentifier:(nonnull NSString *)identifier indexPath:(nonnull NSIndexPath *)indexPath {
+    for (id protocol in self.protocols) {
+        [protocol cellWillReuseWithIdentifier:identifier indexPath:indexPath];
+    }
+}
+
+
+
 
 @end

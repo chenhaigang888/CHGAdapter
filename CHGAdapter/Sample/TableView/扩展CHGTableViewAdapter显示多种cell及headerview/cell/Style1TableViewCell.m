@@ -29,7 +29,7 @@
 }
 
 -(IBAction)btnTap:(id)sender {
-    self.eventTransmissionBlock(self, self.cellData, 1, ^id(id data) {
+    self.eventTransmissionBlock(self, self.model, 1, ^id(id data) {
         return nil;
     });
 }

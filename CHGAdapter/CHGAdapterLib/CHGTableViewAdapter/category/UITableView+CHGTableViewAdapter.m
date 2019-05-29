@@ -54,7 +54,7 @@ static const void * scrollListenerKey = &scrollListenerKey;
 - (nullable __kindof UITableViewCell *)swizzlingDequeueReusableCellWithIdentifier:(NSString *)identifier {
     UITableViewCell * cell = [self swizzlingDequeueReusableCellWithIdentifier:identifier];
     if ([cell isKindOfClass:[CHGTableViewCell class]]) {
-        [((CHGTableViewCell*)cell) willReuseWithIdentifier:identifier];
+        [((CHGTableViewCell*)cell) cellWillReuseWithIdentifier:identifier];
     }
     return cell;
 }
@@ -62,7 +62,7 @@ static const void * scrollListenerKey = &scrollListenerKey;
 - (__kindof UITableViewCell *)swizzlingDequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell * cell = [self swizzlingDequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     if ([cell isKindOfClass:[CHGTableViewCell class]]) {
-        [((CHGTableViewCell*)cell) willReuseWithIdentifier:identifier indexPath:indexPath];
+        [((CHGTableViewCell*)cell) cellWillReuseWithIdentifier:identifier indexPath:indexPath];
     }
     return cell;
 }

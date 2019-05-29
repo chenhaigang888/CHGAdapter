@@ -12,93 +12,130 @@
 
 @implementation CHGBaseView
 
-@synthesize cellData;
 
-@synthesize indexPath;
-
-@synthesize targetView;
+@synthesize controller;
 
 @synthesize eventTransmissionBlock;
 
-@synthesize viewLifeCycleProtocols;
+@synthesize indexPath;
 
-- (NSMutableArray<CHGViewLifeCycleProtocol> *)viewLifeCycleProtocols {
-    if (!viewLifeCycleProtocols) {
-        viewLifeCycleProtocols = [NSMutableArray<CHGViewLifeCycleProtocol> array];
+@synthesize model;
+
+@synthesize protocols;
+
+@synthesize targetView;
+
+/**
+ cell将要显示
+ */
+-(void)cellWillAppear {
+    for (id protocol in self.protocols) {
+        [protocol cellWillAppear];
     }
-    return viewLifeCycleProtocols;
 }
 
-- (void)cellWillAppear {
-    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
-        [viewLifeCycleProtocol cellWillAppear];
-    }
-}
-
-- (void)cellDidDisappear {
-    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
-        [viewLifeCycleProtocol cellDidDisappear];
+/**
+ cell已经消失
+ */
+-(void)cellDidDisappear {
+    for (id protocol in self.protocols) {
+        [protocol cellDidDisappear];
     }
 }
 
 - (void)cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath targetView:(nonnull UIView *)targetView withData:(nonnull id)data {
     self.indexPath = indexPath;
     self.targetView = targetView;
-    self.cellData = data;
-    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
-        [viewLifeCycleProtocol cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
+    self.model = data;
+    for (id protocol in self.protocols) {
+        [protocol cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
+    }
+}
+
+- (void)cellWillReuseWithIdentifier:(nonnull NSString *)identifier {
+    for (id protocol in self.protocols) {
+        [protocol cellWillReuseWithIdentifier:identifier];
+    }
+}
+
+
+- (void)cellWillReuseWithIdentifier:(nonnull NSString *)identifier indexPath:(nonnull NSIndexPath *)indexPath {
+    for (id protocol in self.protocols) {
+        [protocol cellWillReuseWithIdentifier:identifier indexPath:indexPath];
+    }
+}
+
+#pragma -mark CHGTableViewHeaderFooterLifeCycleProtocol method
+
+@synthesize section;
+
+@synthesize type;
+
+- (void)headerFooterForSection:(NSInteger)section inTableView:(nonnull UITableView *)tableView withData:(nonnull id)data type:(CHGTableViewHeaderFooterViewType)type {
+    self.section = section;
+    self.targetView = tableView;
+    self.model = data;
+    self.type = type;
+    for (id protocol in self.protocols) {
+        [protocol headerFooterForSection:section inTableView:tableView withData:data type:type];
+    }
+}
+
+- (void)headerFooterViewDidDisAppearWithType:(CHGTableViewHeaderFooterViewType)type {
+    for (id protocol in self.protocols) {
+        [protocol headerFooterViewDidDisAppearWithType:type];
+    }
+}
+
+- (void)headerFooterViewWillAppearWithType:(CHGTableViewHeaderFooterViewType)type {
+    for (id protocol in self.protocols) {
+        [protocol headerFooterViewWillAppearWithType:type];
     }
 }
 
 - (void)willReuseWithIdentifier:(nonnull NSString *)identifier {
-    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
-        [viewLifeCycleProtocol willReuseWithIdentifier:identifier];
+    for (id protocol in self.protocols) {
+        [protocol willReuseWithIdentifier:identifier];
+    }
+}
+
+
+@synthesize kind;
+
+
+
+- (void)reusableViewForCollectionView:(nonnull UICollectionView *)collectionView indexPath:(nonnull NSIndexPath *)indexPath kind:(nonnull NSString *)kind reusableViewData:(nonnull id)reusableViewData {
+    self.targetView = collectionView;
+    self.indexPath = indexPath;
+    self.kind = kind;
+    self.model = reusableViewData;
+    for (id protocol in self.protocols) {
+        [protocol reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind reusableViewData:reusableViewData];
+    }
+}
+
+- (void)reusableViewDidDisappear {
+    for (id protocol in self.protocols) {
+        [protocol reusableViewDidDisappear];
+    }
+}
+
+- (void)reusableViewWillAppear {
+    for (id protocol in self.protocols) {
+        [protocol reusableViewWillAppear];
     }
 }
 
 - (void)willReuseWithIdentifier:(nonnull NSString *)identifier indexPath:(nonnull NSIndexPath *)indexPath {
-    for (id<CHGViewLifeCycleProtocol> viewLifeCycleProtocol in self.viewLifeCycleProtocols) {
-        [viewLifeCycleProtocol willReuseWithIdentifier:identifier indexPath:indexPath];
+    for (id protocol in self.protocols) {
+        [protocol willReuseWithIdentifier:identifier indexPath:indexPath];
     }
 }
 
-
-
-#pragma - mark CHGTableViewHeaderFooterLifeCycleProtocol method
-
-@synthesize controller;
-
-@synthesize headerFooterData;
-
-@synthesize section;
-
-@synthesize tableView;
-
-@synthesize tableViewHeaderFooterLifeCycleProtocols;
-
-@synthesize type;
-
-- (void)headerFooterForSection:(NSInteger)section inTableView:(nonnull UITableView *)tableView withData:(nonnull id)data type:(id)type {
-    self.section = section;
-    self.tableView = tableView;
-    self.headerFooterData = data;
-    self.type = type;
-    
-    for (id<CHGTableViewHeaderFooterLifeCycleProtocol> tableViewHeaderFooterLifeCycleProtocol in self.tableViewHeaderFooterLifeCycleProtocols) {
-        [tableViewHeaderFooterLifeCycleProtocol headerFooterForSection:section inTableView:tableView withData:data type:type];
-    }
-}
-
-- (void)headerFooterViewDidDisAppearWithType:(id)type {
-    for (id<CHGTableViewHeaderFooterLifeCycleProtocol> tableViewHeaderFooterLifeCycleProtocol in self.tableViewHeaderFooterLifeCycleProtocols) {
-        [tableViewHeaderFooterLifeCycleProtocol headerFooterViewDidDisAppearWithType:type];
-    }
-}
-
-- (void)headerFooterViewWillAppearWithType:(id)type {
-    for (id<CHGTableViewHeaderFooterLifeCycleProtocol> tableViewHeaderFooterLifeCycleProtocol in self.tableViewHeaderFooterLifeCycleProtocols) {
-        [tableViewHeaderFooterLifeCycleProtocol headerFooterViewWillAppearWithType:type];
-    }
-}
 
 @end
+
+
+
+
+

@@ -194,6 +194,7 @@
 		84373CE42299314A0020A849 /* CHGBaseViewTest2View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGBaseViewTest2View.h; sourceTree = "<group>"; };
 		84373CE52299314A0020A849 /* CHGBaseViewTest2View.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGBaseViewTest2View.m; sourceTree = "<group>"; };
 		84408B22229678EB00D8F6F8 /* CHGViewLifeCycleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGViewLifeCycleProtocol.h; sourceTree = "<group>"; };
+		845334CE229E8BF80033BEB0 /* CHGViewPropertyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGViewPropertyProtocol.h; sourceTree = "<group>"; };
 		84B2936F22993DB3000AF03C /* CHGTableViewHeaderFooterLifeCycleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGTableViewHeaderFooterLifeCycleProtocol.h; sourceTree = "<group>"; };
 		84B293702299417E000AF03C /* CHGCollectionReusableViewLifeCycleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGCollectionReusableViewLifeCycleProtocol.h; sourceTree = "<group>"; };
 		8F0EE8BC21412875004058D7 /* CHGScrollListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGScrollListener.h; sourceTree = "<group>"; };
@@ -607,6 +608,7 @@
 				84408B22229678EB00D8F6F8 /* CHGViewLifeCycleProtocol.h */,
 				84B2936F22993DB3000AF03C /* CHGTableViewHeaderFooterLifeCycleProtocol.h */,
 				84B293702299417E000AF03C /* CHGCollectionReusableViewLifeCycleProtocol.h */,
+				845334CE229E8BF80033BEB0 /* CHGViewPropertyProtocol.h */,
 			);
 			path = protocol;
 			sourceTree = "<group>";

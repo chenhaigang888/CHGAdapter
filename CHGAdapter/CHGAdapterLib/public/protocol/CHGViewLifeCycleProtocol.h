@@ -8,21 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "CHGTableViewAdapterDefine.h"
+#import "CHGViewPropertyProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  cell的生命周期协议
  */
-@protocol CHGViewLifeCycleProtocol <NSObject>
+@protocol CHGViewLifeCycleProtocol <CHGViewPropertyProtocol>
 
 @required
 
-@property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;//当前数据可通过此block向外部传递
+//@property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;//当前数据可通过此block向外部传递
 @property(nonatomic,strong) NSIndexPath * indexPath;//当前cell的indexPath信息
-@property(nonatomic,weak) UIView * targetView;//当前所在的父view。cell的父view为tableView、collectionView。
-@property(nonatomic,strong) id cellData;//当前cell需要显示的数据
-@property(nonatomic,strong) NSMutableArray<CHGViewLifeCycleProtocol> * viewLifeCycleProtocols;
+//@property(nonatomic,weak) UIView * targetView;//当前所在的父view。cell的父view为tableView、collectionView。
+//@property(nonatomic,strong) id cellData;//当前cell需要显示的数据
+//@property(nonatomic,strong) NSMutableArray<CHGViewLifeCycleProtocol> * viewLifeCycleProtocols;
 
 
 
@@ -40,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param identifier identifier
  */
--(void)willReuseWithIdentifier:(NSString*)identifier;
+-(void)cellWillReuseWithIdentifier:(NSString*)identifier;
 
 /**
  将被复用
@@ -48,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param identifier identifier
  @param indexPath indexPath
  */
--(void)willReuseWithIdentifier:(NSString*)identifier indexPath:(NSIndexPath*)indexPath;
+-(void)cellWillReuseWithIdentifier:(NSString*)identifier indexPath:(NSIndexPath*)indexPath;
 
 /**
  cell将要显示

@@ -30,14 +30,14 @@
     [self swizzlingAddSubView:view];
     if([self conformsToProtocol:@protocol(CHGViewLifeCycleProtocol)] && [view conformsToProtocol:@protocol(CHGViewLifeCycleProtocol)]) {
         id<CHGViewLifeCycleProtocol> protocol = (id<CHGViewLifeCycleProtocol>)self;
-        [protocol.viewLifeCycleProtocols addObject:view];
+        [protocol.protocols addObject:view];
     }
 }
 
 - (void)swizzlingRemoveFromSuperview {
     if ([self.superview conformsToProtocol:@protocol(CHGViewLifeCycleProtocol)] && [self conformsToProtocol:@protocol(CHGViewLifeCycleProtocol)]) {
         id<CHGViewLifeCycleProtocol> protocol = (id<CHGViewLifeCycleProtocol>)self.superview;
-        [protocol.viewLifeCycleProtocols removeObject:self];
+        [protocol.protocols removeObject:self];
     }
     [self swizzlingRemoveFromSuperview];
     

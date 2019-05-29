@@ -8,16 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "CHGTableViewAdapterDefine.h"
+#import "CHGViewPropertyProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol CHGCollectionReusableViewLifeCycleProtocol <NSObject>
+@protocol CHGCollectionReusableViewLifeCycleProtocol <CHGViewPropertyProtocol>
 
-@property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;
-@property(nonatomic,weak) UICollectionView * collectionView;
+//@property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;
+//@property(nonatomic,weak) UICollectionView * collectionView;
 @property(nonatomic,strong) NSIndexPath * indexPath;
 @property(nonatomic,copy) NSString * kind;
-@property(nonatomic,strong) id reusableViewData;
+//@property(nonatomic,strong) id reusableViewData;
+//@property(nonatomic,strong) NSMutableArray<CHGCollectionReusableViewLifeCycleProtocol> * collectionReusableViewLifeCycleProtocols;
 
 -(void)reusableViewForCollectionView:(UICollectionView*)collectionView indexPath:(NSIndexPath*)indexPath kind:(NSString*)kind reusableViewData:(id)reusableViewData;
 

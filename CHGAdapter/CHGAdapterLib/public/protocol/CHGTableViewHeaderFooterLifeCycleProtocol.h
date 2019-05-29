@@ -8,18 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "CHGTableViewAdapterDefine.h"
-
+#import "CHGTableViewAdapter.h"
+#import "CHGViewPropertyProtocol.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol CHGTableViewHeaderFooterLifeCycleProtocol <NSObject>
+@protocol CHGTableViewHeaderFooterLifeCycleProtocol <CHGViewPropertyProtocol>
 
-@property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;
+//@property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;
 @property(nonatomic,assign) NSInteger section;
-@property(nonatomic,weak) UITableView * tableView;
-@property(nonatomic,strong) id headerFooterData;
+//@property(nonatomic,weak) UITableView * tableView;
+//@property(nonatomic,strong) id headerFooterData;
 @property(nonatomic,assign) CHGTableViewHeaderFooterViewType type;
-@property(nonatomic,weak) UIViewController * controller;//当前cell所在的controller
-@property(nonatomic,strong) NSMutableArray<CHGTableViewHeaderFooterLifeCycleProtocol> * tableViewHeaderFooterLifeCycleProtocols;
+//@property(nonatomic,weak) UIViewController * controller;//当前cell所在的controller
+//@property(nonatomic,strong) NSMutableArray<CHGTableViewHeaderFooterLifeCycleProtocol> * tableViewHeaderFooterLifeCycleProtocols;
 
 /**
  必须重写这个方法 子类应该在这个方法中给HeaderFooterView中的各个view设定value

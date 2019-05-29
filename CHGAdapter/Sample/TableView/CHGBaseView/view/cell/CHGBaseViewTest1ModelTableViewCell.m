@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    [self.viewLifeCycleProtocols addObject:self.baseView1];
+    [self.protocols addObject:self.baseView1];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
