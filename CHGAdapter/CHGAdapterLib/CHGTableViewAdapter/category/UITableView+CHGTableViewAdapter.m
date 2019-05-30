@@ -70,7 +70,7 @@ static const void * scrollListenerKey = &scrollListenerKey;
 - (nullable __kindof UITableViewHeaderFooterView *)swizzlingDequeueReusableHeaderFooterViewWithIdentifier:(NSString *)identifier {
     UITableViewHeaderFooterView * headerFooterView = [self swizzlingDequeueReusableHeaderFooterViewWithIdentifier:identifier];
     if ([headerFooterView isKindOfClass:[CHGTableViewHeaderFooterView class]]) {
-        [((CHGTableViewHeaderFooterView*)headerFooterView) willReuseWithIdentifier:identifier];
+        [((CHGTableViewHeaderFooterView*)headerFooterView) headerFooterViewWillReuseWithIdentifier:identifier];
     }
     return headerFooterView;
 }

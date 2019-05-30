@@ -12,23 +12,28 @@
 @implementation CHGCollectionViewCell
 
 
-@synthesize indexPath;
+@synthesize indexPath = _indexPath;
 
-@synthesize targetView;
+@synthesize targetView = _targetView;
 
-@synthesize eventTransmissionBlock;
+@synthesize eventTransmissionBlock = _eventTransmissionBlock;
 
-@synthesize controller;
+@synthesize model = _model;
 
-@synthesize model;
-
-@synthesize protocols;
+@synthesize protocols = _protocols;
 
 - (NSMutableArray *)protocols {
-    if (!protocols) {
-        protocols = [NSMutableArray array];
+    if (!_protocols) {
+        _protocols = [NSMutableArray array];
     }
-    return protocols;
+    return _protocols;
+}
+
+- (void)setEventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock {
+    _eventTransmissionBlock = eventTransmissionBlock;
+    for (id protocol in self.protocols) {
+        [protocol setEventTransmissionBlock:eventTransmissionBlock];
+    }
 }
 
 -(UICollectionView*)getCollectionView {

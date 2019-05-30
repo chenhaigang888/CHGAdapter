@@ -10,21 +10,27 @@
 
 @implementation CHGTableViewCell
 
-@synthesize model;
+@synthesize model = _model;
 
-@synthesize indexPath;
+@synthesize indexPath = _indexPath;
 
-@synthesize targetView;
+@synthesize targetView = _targetView;
 
-@synthesize eventTransmissionBlock;
+@synthesize eventTransmissionBlock = _eventTransmissionBlock;
 
-@synthesize protocols;
+@synthesize protocols = _protocols;
 
-@synthesize controller;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+}
+
+- (void)setEventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock {
+    _eventTransmissionBlock = eventTransmissionBlock;
+    for (id protocol in self.protocols) {
+        [protocol setEventTransmissionBlock:eventTransmissionBlock];
+    }
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -37,10 +43,10 @@
 }
 
 - (NSMutableArray *)protocols {
-    if (!protocols) {
-        protocols = [NSMutableArray array];
+    if (!_protocols) {
+        _protocols = [NSMutableArray array];
     }
-    return protocols;
+    return _protocols;
 }
 
 

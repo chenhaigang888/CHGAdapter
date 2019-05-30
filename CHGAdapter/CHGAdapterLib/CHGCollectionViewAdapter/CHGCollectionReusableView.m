@@ -12,25 +12,30 @@
 @implementation CHGCollectionReusableView
 
 
-@synthesize eventTransmissionBlock;
+@synthesize eventTransmissionBlock = _eventTransmissionBlock;
 
-@synthesize indexPath;
+@synthesize indexPath = _indexPath;
 
-@synthesize kind;
+@synthesize kind = _kind;
 
-@synthesize controller;
+@synthesize protocols = _protocols;
 
-@synthesize protocols;
+@synthesize model = _model;
 
-@synthesize model;
-
-@synthesize targetView;
+@synthesize targetView = _targetView;
 
 - (NSMutableArray *)protocols {
-    if (!protocols) {
-        protocols = [NSMutableArray array];
+    if (!_protocols) {
+        _protocols = [NSMutableArray array];
     }
-    return protocols;
+    return _protocols;
+}
+
+- (void)setEventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock {
+    _eventTransmissionBlock = eventTransmissionBlock;
+    for (id protocol in self.protocols) {
+        [protocol setEventTransmissionBlock:eventTransmissionBlock];
+    }
 }
 
 /**
@@ -83,11 +88,12 @@
     }
 }
 
-- (void)willReuseWithIdentifier:(nonnull NSString *)identifier indexPath:(nonnull NSIndexPath *)indexPath {
+- (void)reusableViewWillReuseWithIdentifier:(nonnull NSString *)identifier indexPath:(nonnull NSIndexPath *)indexPath {
     for (id protocol in self.protocols) {
-        [protocol willReuseWithIdentifier:identifier indexPath:indexPath];
+        [protocol reusableViewWillReuseWithIdentifier:identifier indexPath:indexPath];
     }
 }
+
 
 @end
 

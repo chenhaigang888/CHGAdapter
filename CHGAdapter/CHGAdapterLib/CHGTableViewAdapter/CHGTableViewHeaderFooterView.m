@@ -10,30 +10,24 @@
 
 @implementation CHGTableViewHeaderFooterView
 
-@synthesize controller;
+@synthesize eventTransmissionBlock = _eventTransmissionBlock;
 
-@synthesize eventTransmissionBlock;
+@synthesize section = _section;
 
+@synthesize type = _type;
 
+@synthesize model = _model;
 
-@synthesize section;
+@synthesize protocols = _protocols;
 
-
-
-@synthesize type;
-
-@synthesize model;
-
-@synthesize protocols;
-
-@synthesize targetView;
+@synthesize targetView = _targetView;
 
 
 - (NSMutableArray *)protocols {
-    if (!protocols) {
-        protocols = [NSMutableArray array];
+    if (!_protocols) {
+        _protocols = [NSMutableArray array];
     }
-    return protocols;
+    return _protocols;
 }
 
 /**
@@ -42,7 +36,6 @@
  @return 返回tag
  */
 -(NSInteger)adapterTag {
-    
     return ((UITableView*)self.targetView).tableViewAdapter.tag;
 }
 
@@ -63,46 +56,6 @@
 -(UIViewController*)controller {
     return ((UITableView*)self.targetView).tableViewAdapter.controller;
 }
-//
-///**
-// 将要复用
-//
-// @param identifier identifier
-// */
-//-(void)willReuseWithIdentifier:(NSString *)identifier {
-//    for (id<CHGTableViewHeaderFooterLifeCycleProtocol> tableViewHeaderFooterLifeCycleProtocol in self.tableViewHeaderFooterLifeCycleProtocols) {
-//        [tableViewHeaderFooterLifeCycleProtocol willReuseWithIdentifier:identifier];
-//    }
-//}
-//
-///**
-// headerFooterView将要显示
-// */
-//-(void)headerFooterViewWillAppearWithType:(CHGTableViewHeaderFooterViewType)type {
-//    for (id<CHGTableViewHeaderFooterLifeCycleProtocol> tableViewHeaderFooterLifeCycleProtocol in self.tableViewHeaderFooterLifeCycleProtocols) {
-//        [tableViewHeaderFooterLifeCycleProtocol headerFooterViewWillAppearWithType:type];
-//    }
-//}
-//
-///**
-// headerFooterView已经消失
-// */
-//-(void)headerFooterViewDidDisAppearWithType:(CHGTableViewHeaderFooterViewType)type {
-//    for (id<CHGTableViewHeaderFooterLifeCycleProtocol> tableViewHeaderFooterLifeCycleProtocol in self.tableViewHeaderFooterLifeCycleProtocols) {
-//        [tableViewHeaderFooterLifeCycleProtocol headerFooterViewDidDisAppearWithType:type];
-//    }
-//}
-//
-//-(void)headerFooterForSection:(NSInteger)section inTableView:(UITableView*)tableView withData:(id)data type:(CHGTableViewHeaderFooterViewType)type {
-//    self.section = section;
-//    self.tableView = tableView;
-//    self.headerFooterData = data;
-//    self.type = type;
-//
-//    for (id<CHGTableViewHeaderFooterLifeCycleProtocol> tableViewHeaderFooterLifeCycleProtocol in self.tableViewHeaderFooterLifeCycleProtocols) {
-//        [tableViewHeaderFooterLifeCycleProtocol headerFooterForSection:section inTableView:tableView withData:data type:type];
-//    }
-//}
 
 - (void)headerFooterForSection:(NSInteger)section inTableView:(nonnull UITableView *)tableView withData:(nonnull id)data type:(CHGTableViewHeaderFooterViewType)type {
     self.section = section;
@@ -126,11 +79,19 @@
     }
 }
 
-- (void)willReuseWithIdentifier:(nonnull NSString *)identifier {
+- (void)headerFooterViewWillReuseWithIdentifier:(nonnull NSString *)identifier {
     for (id protocol in self.protocols) {
-        [protocol willReuseWithIdentifier:identifier];
+        [protocol headerFooterViewWillReuseWithIdentifier:identifier];
     }
 }
+
+- (void)setEventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock {
+    _eventTransmissionBlock = eventTransmissionBlock;
+    for (id protocol in self.protocols) {
+        [protocol setEventTransmissionBlock:eventTransmissionBlock];
+    }
+}
+
 
 @end
 

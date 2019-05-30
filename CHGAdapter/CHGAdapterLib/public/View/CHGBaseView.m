@@ -8,29 +8,35 @@
 
 #import "CHGBaseView.h"
 
-#pragma - mark CHGViewLifeCycleProtocol method
+
 
 @implementation CHGBaseView
 
+#pragma -mark CHGViewPropertyProtocol propertys and method
 
-@synthesize controller;
+@synthesize eventTransmissionBlock = _eventTransmissionBlock;
 
-@synthesize eventTransmissionBlock;
+@synthesize indexPath = _indexPath;
 
-@synthesize indexPath;
+@synthesize model = _model;
 
-@synthesize model;
+@synthesize protocols = _protocols;
 
-@synthesize protocols;
+@synthesize targetView = _targetView;
 
-@synthesize targetView;
-
-
-- (NSMutableArray *)protocols {
-    if (!protocols) {
-        protocols = [NSMutableArray array];
+- (void)setEventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock {
+    _eventTransmissionBlock = eventTransmissionBlock;
+    for (id protocol in self.protocols) {
+        [protocol setEventTransmissionBlock:eventTransmissionBlock];
     }
-    return protocols;
+}
+
+#pragma - mark CHGViewLifeCycleProtocol method
+- (NSMutableArray *)protocols {
+    if (!_protocols) {
+        _protocols = [NSMutableArray array];
+    }
+    return _protocols;
 }
 
 /**
@@ -75,9 +81,9 @@
 
 #pragma -mark CHGTableViewHeaderFooterLifeCycleProtocol method
 
-@synthesize section;
+@synthesize section = _section;
 
-@synthesize type;
+@synthesize type = _type;
 
 - (void)headerFooterForSection:(NSInteger)section inTableView:(nonnull UITableView *)tableView withData:(nonnull id)data type:(CHGTableViewHeaderFooterViewType)type {
     self.section = section;
@@ -101,16 +107,16 @@
     }
 }
 
-- (void)willReuseWithIdentifier:(nonnull NSString *)identifier {
+- (void)headerFooterViewWillReuseWithIdentifier:(nonnull NSString *)identifier {
     for (id protocol in self.protocols) {
-        [protocol willReuseWithIdentifier:identifier];
+        [protocol headerFooterViewWillReuseWithIdentifier:identifier];
     }
 }
 
 
 #pragma -mark CHGCollectionReusableViewLifeCycleProtocol method
 
-@synthesize kind;
+@synthesize kind = _kind;
 
 - (void)reusableViewForCollectionView:(nonnull UICollectionView *)collectionView indexPath:(nonnull NSIndexPath *)indexPath kind:(nonnull NSString *)kind reusableViewData:(nonnull id)reusableViewData {
     self.targetView = collectionView;
@@ -134,11 +140,14 @@
     }
 }
 
-- (void)willReuseWithIdentifier:(nonnull NSString *)identifier indexPath:(nonnull NSIndexPath *)indexPath {
+- (void)reusableViewWillReuseWithIdentifier:(nonnull NSString *)identifier indexPath:(nonnull NSIndexPath *)indexPath {
     for (id protocol in self.protocols) {
-        [protocol willReuseWithIdentifier:identifier indexPath:indexPath];
+        [protocol reusableViewWillReuseWithIdentifier:identifier indexPath:indexPath];
     }
 }
+
+
+
 
 
 @end

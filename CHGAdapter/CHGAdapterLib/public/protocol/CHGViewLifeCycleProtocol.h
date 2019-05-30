@@ -19,14 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @required
 
-//@property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;//当前数据可通过此block向外部传递
-@property(nonatomic,strong) NSIndexPath * indexPath;//当前cell的indexPath信息
-//@property(nonatomic,weak) UIView * targetView;//当前所在的父view。cell的父view为tableView、collectionView。
-//@property(nonatomic,strong) id cellData;//当前cell需要显示的数据
-//@property(nonatomic,strong) NSMutableArray<CHGViewLifeCycleProtocol> * viewLifeCycleProtocols;
-
-
-
+///当前cell的indexPath信息
+@property(nonatomic,strong) NSIndexPath * indexPath;
 
 /**
  必须重写这个方法 子类应该在这个方法中给cell中的各个view设定value

@@ -14,13 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol CHGTableViewHeaderFooterLifeCycleProtocol <CHGViewPropertyProtocol>
 
-//@property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;
 @property(nonatomic,assign) NSInteger section;
-//@property(nonatomic,weak) UITableView * tableView;
-//@property(nonatomic,strong) id headerFooterData;
 @property(nonatomic,assign) CHGTableViewHeaderFooterViewType type;
-//@property(nonatomic,weak) UIViewController * controller;//当前cell所在的controller
-//@property(nonatomic,strong) NSMutableArray<CHGTableViewHeaderFooterLifeCycleProtocol> * tableViewHeaderFooterLifeCycleProtocols;
 
 /**
  必须重写这个方法 子类应该在这个方法中给HeaderFooterView中的各个view设定value
@@ -36,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param identifier identifier
  */
--(void)willReuseWithIdentifier:(NSString *)identifier;
+-(void)headerFooterViewWillReuseWithIdentifier:(NSString *)identifier;
 
 /**
  headerFooterView将要显示
