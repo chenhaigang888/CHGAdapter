@@ -29,7 +29,12 @@
 @synthesize targetView;
 
 
-
+- (NSMutableArray *)protocols {
+    if (!protocols) {
+        protocols = [NSMutableArray array];
+    }
+    return protocols;
+}
 
 /**
  获取当前Adapter的tag
@@ -50,14 +55,14 @@
     return ((UITableView*)self.targetView).tableViewAdapter.adapterData.customData;
 }
 
-///**
-// 返回当前cell所在的controller
-//
-// @return 返回当前cell所在的controller
-// */
-//-(UIViewController*)controller {
-//    return ((UITableView*)self.targetView).tableViewAdapter.controller;
-//}
+/**
+ 返回当前cell所在的controller
+
+ @return 返回当前cell所在的controller
+ */
+-(UIViewController*)controller {
+    return ((UITableView*)self.targetView).tableViewAdapter.controller;
+}
 //
 ///**
 // 将要复用

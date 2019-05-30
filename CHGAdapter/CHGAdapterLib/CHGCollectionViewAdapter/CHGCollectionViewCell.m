@@ -24,6 +24,12 @@
 
 @synthesize protocols;
 
+- (NSMutableArray *)protocols {
+    if (!protocols) {
+        protocols = [NSMutableArray array];
+    }
+    return protocols;
+}
 
 -(UICollectionView*)getCollectionView {
     return (UICollectionView*)self.targetView;

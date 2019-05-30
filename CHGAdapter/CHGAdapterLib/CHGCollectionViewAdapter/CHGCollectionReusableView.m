@@ -26,6 +26,13 @@
 
 @synthesize targetView;
 
+- (NSMutableArray *)protocols {
+    if (!protocols) {
+        protocols = [NSMutableArray array];
+    }
+    return protocols;
+}
+
 /**
  获取当前Adapter的tag
  
@@ -52,43 +59,6 @@
 -(UIViewController*)controller {
     return ((UICollectionView*)self.targetView).collectionViewAdapter.controller;
 }
-
-///**
-// 将被复用
-//
-// @param identifier identifier
-// @param indexPath indexPath
-// */
-//-(void)willReuseWithIdentifier:(NSString*)identifier indexPath:(NSIndexPath*)indexPath {
-//
-//}
-//
-//- (void)reusableViewForCollectionView:(nonnull UICollectionView *)collectionView indexPath:(nonnull NSIndexPath *)indexPath kind:(nonnull NSString *)kind reusableViewData:(nonnull id)reusableViewData {
-//    self.collectionView = collectionView;
-//    self.indexPath = indexPath;
-//    self.kind = kind;
-//    self.reusableViewData = reusableViewData;
-//    for (id<CHGCollectionReusableViewLifeCycleProtocol> collectionReusableViewLifeCycleProtocol in self.collectionReusableViewLifeCycleProtocols) {
-//        [collectionReusableViewLifeCycleProtocol reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind reusableViewData:reusableViewData];
-//    }
-//}
-//
-//- (void)reusableViewWillAppear {
-//    for (id<CHGCollectionReusableViewLifeCycleProtocol> collectionReusableViewLifeCycleProtocol in self.collectionReusableViewLifeCycleProtocols) {
-//        [collectionReusableViewLifeCycleProtocol reusableViewWillAppear];
-//    }
-//}
-//
-//- (void)reusableViewDidDisappear {
-//    for (id<CHGCollectionReusableViewLifeCycleProtocol> collectionReusableViewLifeCycleProtocol in self.collectionReusableViewLifeCycleProtocols) {
-//        [collectionReusableViewLifeCycleProtocol reusableViewDidDisappear];
-//    }
-//}
-
-
-
-
-
 
 
 - (void)reusableViewForCollectionView:(nonnull UICollectionView *)collectionView indexPath:(nonnull NSIndexPath *)indexPath kind:(nonnull NSString *)kind reusableViewData:(nonnull id)reusableViewData {

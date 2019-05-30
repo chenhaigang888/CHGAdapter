@@ -25,6 +25,14 @@
 
 @synthesize targetView;
 
+
+- (NSMutableArray *)protocols {
+    if (!protocols) {
+        protocols = [NSMutableArray array];
+    }
+    return protocols;
+}
+
 /**
  cell将要显示
  */
@@ -100,9 +108,9 @@
 }
 
 
+#pragma -mark CHGCollectionReusableViewLifeCycleProtocol method
+
 @synthesize kind;
-
-
 
 - (void)reusableViewForCollectionView:(nonnull UICollectionView *)collectionView indexPath:(nonnull NSIndexPath *)indexPath kind:(nonnull NSString *)kind reusableViewData:(nonnull id)reusableViewData {
     self.targetView = collectionView;

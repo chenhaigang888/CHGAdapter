@@ -9,6 +9,8 @@
 #import "UIView+CHGBehaviorListener.h"
 #import <objc/runtime.h>
 #import "CHGViewLifeCycleProtocol.h"
+#import "CHGTableViewHeaderFooterLifeCycleProtocol.h"
+#import "CHGCollectionReusableViewLifeCycleProtocol.h"
 
 @implementation UIView (CHGBehaviorListener)
 
@@ -31,12 +33,24 @@
     if([self conformsToProtocol:@protocol(CHGViewLifeCycleProtocol)] && [view conformsToProtocol:@protocol(CHGViewLifeCycleProtocol)]) {
         id<CHGViewLifeCycleProtocol> protocol = (id<CHGViewLifeCycleProtocol>)self;
         [protocol.protocols addObject:view];
+    } else if ([self conformsToProtocol:@protocol(CHGTableViewHeaderFooterLifeCycleProtocol)] && [view conformsToProtocol:@protocol(CHGTableViewHeaderFooterLifeCycleProtocol)]) {
+        id<CHGTableViewHeaderFooterLifeCycleProtocol> protocol = (id<CHGTableViewHeaderFooterLifeCycleProtocol>)self;
+        [protocol.protocols addObject:view];
+    } else if ([self conformsToProtocol:@protocol(CHGCollectionReusableViewLifeCycleProtocol)] && [view conformsToProtocol:@protocol(CHGCollectionReusableViewLifeCycleProtocol)]) {
+        id<CHGCollectionReusableViewLifeCycleProtocol> protocol = (id<CHGCollectionReusableViewLifeCycleProtocol>)self;
+        [protocol.protocols addObject:view];
     }
 }
 
 - (void)swizzlingRemoveFromSuperview {
     if ([self.superview conformsToProtocol:@protocol(CHGViewLifeCycleProtocol)] && [self conformsToProtocol:@protocol(CHGViewLifeCycleProtocol)]) {
         id<CHGViewLifeCycleProtocol> protocol = (id<CHGViewLifeCycleProtocol>)self.superview;
+        [protocol.protocols removeObject:self];
+    } else if ([self.superview conformsToProtocol:@protocol(CHGTableViewHeaderFooterLifeCycleProtocol)] && [self conformsToProtocol:@protocol(CHGTableViewHeaderFooterLifeCycleProtocol)]) {
+        id<CHGTableViewHeaderFooterLifeCycleProtocol> protocol = (id<CHGTableViewHeaderFooterLifeCycleProtocol>)self.superview;
+        [protocol.protocols removeObject:self];
+    } else if ([self.superview conformsToProtocol:@protocol(CHGCollectionReusableViewLifeCycleProtocol)] && [self conformsToProtocol:@protocol(CHGCollectionReusableViewLifeCycleProtocol)]) {
+        id<CHGCollectionReusableViewLifeCycleProtocol> protocol = (id<CHGCollectionReusableViewLifeCycleProtocol>)self.superview;
         [protocol.protocols removeObject:self];
     }
     [self swizzlingRemoveFromSuperview];
