@@ -39,7 +39,7 @@
 
 - (NSTimer *)timer {
     if (!_timer) {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(timerMethod) userInfo:nil repeats:YES];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:0.0000001 target:self selector:@selector(timerMethod) userInfo:nil repeats:YES];
     }
     return _timer;
 }
@@ -83,10 +83,16 @@
     if (self.tasks.count > self.maxTask) {
         [self.tasks removeObjectAtIndex:0];
     }
+    if (self.tasks.count > 0) {
+        [self restore];
+    }
 }
 
 -(void)removeTask:(CHGRunloopTaskBlock)task {
     [self.tasks removeObject:task];
+    if (self.tasks.count == 0) {
+        [self timerPause];
+    }
 }
 
 //
@@ -101,8 +107,18 @@ void CHG_callBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, voi
     [manager.tasks removeObjectAtIndex:0];//第一个任务执行完毕后将任务移除
     //    NSLog(@"移除一个任务后 任务数量:%li",manager.tasks.count);
     if (manager.tasks.count == 0) {
-        [manager.timer invalidate];
+        [manager timerPause];
     }
+}
+
+///恢复timer
+-(void)restore {
+    [self.timer setFireDate:[NSDate date]];
+}
+
+///暂停timer
+-(void)timerPause {
+    [self.timer setFireDate:[NSDate distantFuture]];
 }
 
 - (NSMutableArray *)tasks {
