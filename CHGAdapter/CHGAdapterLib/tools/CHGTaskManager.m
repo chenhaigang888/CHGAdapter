@@ -39,7 +39,9 @@
 
 - (NSTimer *)timer {
     if (!_timer) {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:0.0000001 target:self selector:@selector(timerMethod) userInfo:nil repeats:YES];
+        _timer = [NSTimer timerWithTimeInterval:0.0000001 target:self selector:@selector(timerMethod) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
+        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
     }
     return _timer;
 }
@@ -49,7 +51,7 @@
 }
 
 -(void)timerMethod {
-    //    NSLog(@"-----timer-----");
+    //        NSLog(@"-----timer-----");
 }
 
 
