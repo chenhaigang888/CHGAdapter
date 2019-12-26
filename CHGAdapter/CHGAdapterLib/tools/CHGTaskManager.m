@@ -41,6 +41,7 @@
     if (!_timer) {
         _timer = [NSTimer timerWithTimeInterval:0.0000001 target:self selector:@selector(timerMethod) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSDefaultRunLoopMode];
+        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:UITrackingRunLoopMode];
         [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
     }
     return _timer;
