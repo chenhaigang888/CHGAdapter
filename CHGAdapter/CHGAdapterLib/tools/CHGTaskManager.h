@@ -40,6 +40,9 @@ typedef void(^CHGRunloopTaskBlock)(void);
  */
 -(void)removeTask:(CHGRunloopTaskBlock)task;
 
+/// 移除所有任务
+-(void)removeAllTask;
+
 @end
 
 NS_ASSUME_NONNULL_END

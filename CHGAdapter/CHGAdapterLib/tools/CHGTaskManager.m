@@ -52,7 +52,7 @@
 }
 
 -(void)timerMethod {
-    //        NSLog(@"-----timer-----");
+    
 }
 
 
@@ -81,7 +81,7 @@
 
 -(void)addTask:(CHGRunloopTaskBlock)task {
     [self.tasks addObject:task];
-    //如果任务超过18个则移除第一个任务
+    //如果任务超过设置的数量则移除第一个任务
     //    NSLog(@"任务数量:%li",self.tasks.count);
     if (self.tasks.count > self.maxTask) {
         [self.tasks removeObjectAtIndex:0];
@@ -131,9 +131,13 @@ void CHG_callBack(CFRunLoopObserverRef observer, CFRunLoopActivity activity, voi
     return _tasks;
 }
 
+-(void)removeAllTask {
+    [self.tasks removeAllObjects];
+}
+
 - (void)dealloc
 {
-    //    NSLog(@"---------------------CHGTaskManager end------------------------------");
+    
 }
 
 @end
