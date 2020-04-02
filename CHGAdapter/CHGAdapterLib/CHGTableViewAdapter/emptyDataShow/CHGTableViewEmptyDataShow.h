@@ -23,9 +23,20 @@ typedef void(^CHGEmptyDataDidTapButtonBlock)(UIScrollView * _Nullable scrollView
 @property(nonatomic,strong) NSString * _Nullable imageName;
 
 /**
+没有内容时候显示的提示文本
+*/
+@property(nonatomic,strong) NSAttributedString * _Nullable titleAttributedText;
+
+/**
  没有内容时候显示的提示文本
  */
 @property(nonatomic,strong) NSString * _Nullable title;
+
+///文字颜色
+@property (nonatomic, strong) UIColor * _Nullable titleColor;
+
+///文字font
+@property (nonatomic, strong) UIFont * _Nullable titleFont;
 
 /**
  没有数据提示内容的纵向偏移量

@@ -125,11 +125,12 @@ static const void * scrollListenerKey = &scrollListenerKey;
 
 ///设置没有数据的显示
 -(void)setEmptyDataShowWithTitle:(NSString*)title image:(NSString*)imageName {
-    CHGTableViewEmptyDataShow * tableViewEmptyDataShow = [CHGTableViewEmptyDataShow new];
-    tableViewEmptyDataShow.imageName = imageName;
-    tableViewEmptyDataShow.title = title;
-    tableViewEmptyDataShow.emptyDataSetShouldAllowScroll = YES;
-    self.tableViewEmptyDataShow = tableViewEmptyDataShow;
+    if (!self.tableViewEmptyDataShow) {
+        self.tableViewEmptyDataShow = [CHGTableViewEmptyDataShow new];
+    }
+    self.tableViewEmptyDataShow.imageName = imageName;
+    self.tableViewEmptyDataShow.title = title;
+    self.tableViewEmptyDataShow.emptyDataSetShouldAllowScroll = YES;
 }
 
 -(void)setEmptyDataSetSource:(id<DZNEmptyDataSetSource>)dataSource emptyDataSetDelegate:(id<DZNEmptyDataSetDelegate>)delegate {

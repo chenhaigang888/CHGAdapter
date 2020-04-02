@@ -18,12 +18,30 @@
 }
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    NSMutableAttributedString * s = [[NSMutableAttributedString alloc] initWithString:_title
-                                                                           attributes:nil];
-    [s addAttribute:NSFontAttributeName
-              value:[UIFont systemFontOfSize:17]
-              range:NSMakeRange(0, _title.length)];
-    return s;
+    return self.titleAttributedText;
+}
+
+- (NSAttributedString *)titleAttributedText {
+    if (!_titleAttributedText) {
+        _titleAttributedText = [[NSMutableAttributedString alloc] initWithString:self.title
+                                                                      attributes:@{NSFontAttributeName: self.titleFont,
+                                                                                   NSForegroundColorAttributeName: self.titleColor}];
+    }
+    return _titleAttributedText;
+}
+
+- (UIFont *)titleFont {
+    if (!_titleFont) {
+        _titleFont = [UIFont systemFontOfSize:17];
+    }
+    return _titleFont;
+}
+
+- (UIColor *)titleColor {
+    if (!_titleColor) {
+        _titleColor = [UIColor blackColor];
+    }
+    return _titleColor;
 }
 
 - (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView {
@@ -33,6 +51,8 @@
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView {
     return self.verticalOffset;
 }
+
+
 
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view {
     if (self.emptyDataDidTapViewBlock) {
