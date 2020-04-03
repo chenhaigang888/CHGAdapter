@@ -120,17 +120,18 @@ static const void * scrollListenerKey = &scrollListenerKey;
 }
 
 -(CHGTableViewEmptyDataShow*)tableViewEmptyDataShow {
-    return objc_getAssociatedObject(self, tableViewEmptyDataShowKey);
+    CHGTableViewEmptyDataShow * tableViewEmptyDataShow = objc_getAssociatedObject(self, tableViewEmptyDataShowKey);
+    if (!tableViewEmptyDataShow) {
+        self.tableViewEmptyDataShow = [CHGTableViewEmptyDataShow new];
+        return self.tableViewEmptyDataShow;
+    }
+    return tableViewEmptyDataShow;
 }
 
 ///设置没有数据的显示
 -(void)setEmptyDataShowWithTitle:(NSString*)title image:(NSString*)imageName {
-    if (!self.tableViewEmptyDataShow) {
-        self.tableViewEmptyDataShow = [CHGTableViewEmptyDataShow new];
-    }
     self.tableViewEmptyDataShow.imageName = imageName;
     self.tableViewEmptyDataShow.title = title;
-    self.tableViewEmptyDataShow.emptyDataSetShouldAllowScroll = YES;
 }
 
 -(void)setEmptyDataSetSource:(id<DZNEmptyDataSetSource>)dataSource emptyDataSetDelegate:(id<DZNEmptyDataSetDelegate>)delegate {

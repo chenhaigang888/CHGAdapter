@@ -84,7 +84,12 @@ static const void * scrollListenerKey = &scrollListenerKey;
 }
 
 -(CHGCollectionViewEmptyDataShow*)collectionViewEmptyDataShow {
-    return objc_getAssociatedObject(self, collectionViewEmptyDataShowKey);
+    CHGCollectionViewEmptyDataShow * collectionViewEmptyDataShow = objc_getAssociatedObject(self, collectionViewEmptyDataShowKey);
+    if (!collectionViewEmptyDataShow) {
+        self.collectionViewEmptyDataShow = [CHGCollectionViewEmptyDataShow new];
+        return self.collectionViewEmptyDataShow;
+    }
+    return collectionViewEmptyDataShow;
 }
 
 -(void)setCollectionViewDidSelectItemAtIndexPathBlock:(CHGCollectionViewDidSelectItemAtIndexPathBlock)collectionViewDidSelectItemAtIndexPathBlock {
@@ -97,11 +102,8 @@ static const void * scrollListenerKey = &scrollListenerKey;
 
 ///设置没有数据的显示
 -(void)setEmptyDataShowWithTitle:(NSString*)title image:(NSString*)imageName {
-    CHGCollectionViewEmptyDataShow * collectionViewEmptyDataShow = [CHGCollectionViewEmptyDataShow new];
-    collectionViewEmptyDataShow.imageName = imageName;
-    collectionViewEmptyDataShow.title = title;
-    collectionViewEmptyDataShow.emptyDataSetShouldAllowScroll = YES;
-    self.collectionViewEmptyDataShow = collectionViewEmptyDataShow;
+    self.collectionViewEmptyDataShow.imageName = imageName;
+    self.collectionViewEmptyDataShow.title = title;
 }
 
 -(void)setEmptyDataSetSource:(id<DZNEmptyDataSetSource>)dataSource emptyDataSetDelegate:(id<DZNEmptyDataSetDelegate>)delegate {

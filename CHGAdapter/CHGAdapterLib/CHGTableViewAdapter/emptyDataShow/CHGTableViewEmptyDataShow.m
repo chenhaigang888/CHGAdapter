@@ -18,16 +18,12 @@
 }
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    return self.titleAttributedText;
-}
-
-- (NSAttributedString *)titleAttributedText {
-    if (!_titleAttributedText) {
-        _titleAttributedText = [[NSMutableAttributedString alloc] initWithString:self.title
-                                                                      attributes:@{NSFontAttributeName: self.titleFont,
-                                                                                   NSForegroundColorAttributeName: self.titleColor}];
+    if (!self.titleAttributedText) {
+        return [[NSMutableAttributedString alloc] initWithString:self.title
+                                                      attributes:@{NSFontAttributeName: self.titleFont,
+                                                                   NSForegroundColorAttributeName: self.titleColor}];
     }
-    return _titleAttributedText;
+    return self.titleAttributedText;
 }
 
 - (UIFont *)titleFont {
