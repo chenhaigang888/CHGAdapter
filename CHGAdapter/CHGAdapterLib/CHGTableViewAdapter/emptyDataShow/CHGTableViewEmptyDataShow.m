@@ -19,7 +19,7 @@
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
     if (!self.titleAttributedText) {
-        return [[NSMutableAttributedString alloc] initWithString:self.title
+        return [[NSMutableAttributedString alloc] initWithString:self.title.length == 0 ? @"" : self.title
                                                       attributes:@{NSFontAttributeName: self.titleFont,
                                                                    NSForegroundColorAttributeName: self.titleColor}];
     }
