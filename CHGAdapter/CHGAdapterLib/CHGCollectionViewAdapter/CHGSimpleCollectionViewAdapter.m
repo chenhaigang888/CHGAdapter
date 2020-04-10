@@ -27,8 +27,8 @@
         insetForSectionAtIndex:(NSInteger)section {
     id<CHGCollectionViewSupplementaryElementModelProtocol> supplementaryElementModelProtocol =
     [self headerFooterDataWithrSupplementaryElementOfKind:UICollectionElementKindSectionHeader indexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
-    if ([supplementaryElementModelProtocol respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)]) {
-        return [supplementaryElementModelProtocol collectionView:collectionView
+    if ([supplementaryElementModelProtocol respondsToSelector:@selector(chg_collectionView:layout:insetForSectionAtIndex:)]) {
+        return [supplementaryElementModelProtocol chg_collectionView:collectionView
                                                           layout:collectionViewLayout
                                           insetForSectionAtIndex:section];
     } else if ([collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]) {
@@ -42,8 +42,8 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     id<CHGCollectionViewSupplementaryElementModelProtocol> supplementaryElementModelProtocol =
     [self headerFooterDataWithrSupplementaryElementOfKind:UICollectionElementKindSectionHeader indexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
-    if ([supplementaryElementModelProtocol respondsToSelector:@selector(collectionView:layout:minimumLineSpacingForSectionAtIndex:)]) {
-        return [supplementaryElementModelProtocol collectionView:collectionView
+    if ([supplementaryElementModelProtocol respondsToSelector:@selector(chg_collectionView:layout:minimumLineSpacingForSectionAtIndex:)]) {
+        return [supplementaryElementModelProtocol chg_collectionView:collectionView
                                                           layout:collectionViewLayout
                              minimumLineSpacingForSectionAtIndex:section];
     } else if([collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]) {
@@ -57,8 +57,8 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     id<CHGCollectionViewSupplementaryElementModelProtocol> supplementaryElementModelProtocol =
     [self headerFooterDataWithrSupplementaryElementOfKind:UICollectionElementKindSectionHeader indexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
-    if ([supplementaryElementModelProtocol respondsToSelector:@selector(collectionView:layout:minimumInteritemSpacingForSectionAtIndex:)]) {
-        return [supplementaryElementModelProtocol collectionView:collectionView
+    if ([supplementaryElementModelProtocol respondsToSelector:@selector(chg_collectionView:layout:minimumInteritemSpacingForSectionAtIndex:)]) {
+        return [supplementaryElementModelProtocol chg_collectionView:collectionView
                                                           layout:collectionViewLayout
                         minimumInteritemSpacingForSectionAtIndex:section];
     } else if([collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]) {
@@ -74,8 +74,8 @@
     id<CHGCollectionViewSupplementaryElementModelProtocol> supplementaryElementModelProtocol =
     [self headerFooterDataWithrSupplementaryElementOfKind:UICollectionElementKindSectionHeader
                                                 indexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
-    if ([supplementaryElementModelProtocol respondsToSelector:@selector(collectionView:layout:referenceSizeForHeaderInSection:)]) {
-        return [supplementaryElementModelProtocol collectionView:collectionView
+    if ([supplementaryElementModelProtocol respondsToSelector:@selector(chg_collectionView:layout:referenceSizeForHeaderInSection:)]) {
+        return [supplementaryElementModelProtocol chg_collectionView:collectionView
                                                           layout:collectionViewLayout
                                  referenceSizeForHeaderInSection:section];
     } else if ([collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]){
@@ -89,8 +89,8 @@
 ///动态设置每个Item的尺寸大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     id<CHGCollectionViewCellModelProtocol> cellModelProtocol = [self cellDataWithIndexPath:indexPath collectionView:collectionView];
-    if ([cellModelProtocol respondsToSelector:@selector(collectionView:layout:sizeForItemAtIndexPath:)]) {
-        return [cellModelProtocol collectionView:collectionView
+    if ([cellModelProtocol respondsToSelector:@selector(chg_collectionView:layout:sizeForItemAtIndexPath:)]) {
+        return [cellModelProtocol chg_collectionView:collectionView
                                           layout:collectionViewLayout
                           sizeForItemAtIndexPath:indexPath];
     } else if ([collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]){
@@ -104,8 +104,8 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     id<CHGCollectionViewSupplementaryElementModelProtocol> supplementaryElementModelProtocol =
     [self headerFooterDataWithrSupplementaryElementOfKind:UICollectionElementKindSectionFooter indexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
-    if ([supplementaryElementModelProtocol respondsToSelector:@selector(collectionView:layout:referenceSizeForFooterInSection:)]) {
-        return [supplementaryElementModelProtocol collectionView:collectionView layout:collectionViewLayout referenceSizeForFooterInSection:section];
+    if ([supplementaryElementModelProtocol respondsToSelector:@selector(chg_collectionView:layout:referenceSizeForFooterInSection:)]) {
+        return [supplementaryElementModelProtocol chg_collectionView:collectionView layout:collectionViewLayout referenceSizeForFooterInSection:section];
     } else if ([collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]){
         UICollectionViewFlowLayout * layout = (UICollectionViewFlowLayout *)collectionViewLayout;
         return layout.footerReferenceSize;

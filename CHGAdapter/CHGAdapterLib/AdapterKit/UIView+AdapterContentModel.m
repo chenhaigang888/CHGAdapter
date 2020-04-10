@@ -227,13 +227,15 @@ static const void * chg_collectionViewFooterSizeKey = &chg_collectionViewFooterS
 }
 
 ///动态设置某个分区头视图大小
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+- (CGSize)chg_collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     return self.chg_collectionViewHeaderSize;
 }
 
 //动态设置某个分区尾视图大小
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+- (CGSize)chg_collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     return self.chg_collectionViewFooterSize;
 }
+
+
 
 @end
