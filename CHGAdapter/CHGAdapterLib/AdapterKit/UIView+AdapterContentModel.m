@@ -170,7 +170,7 @@ static const void * chg_collectionViewFooterSizeKey = &chg_collectionViewFooterS
     return self.chg_collectionViewCellClassName;
 }
 
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+-(CGSize)chg_collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return self.chg_collectionViewCellSize;
 }
 
