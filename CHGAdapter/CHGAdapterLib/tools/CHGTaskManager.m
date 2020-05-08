@@ -80,6 +80,9 @@
 }
 
 -(void)addTask:(CHGRunloopTaskBlock)task {
+    if (!task) {
+        return;
+    }
     [self.tasks addObject:task];
     //如果任务超过设置的数量则移除第一个任务
     //    NSLog(@"任务数量:%li",self.tasks.count);
