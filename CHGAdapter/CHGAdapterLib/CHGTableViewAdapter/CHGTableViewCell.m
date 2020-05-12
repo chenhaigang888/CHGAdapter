@@ -127,7 +127,8 @@
             if (key.length > 0) {
                 id subModel = [model objectForKey:key];
                 [((id<CHGViewLifeCycleProtocol>)vmo.view) cellForRowAtIndexPath:indexPath targetView:targetView model:subModel eventTransmissionBlock:eventTransmissionBlock];
-                
+            } else {
+                [((id<CHGViewLifeCycleProtocol>)vmo.view) cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];
             }
         } else {
             [((id<CHGViewLifeCycleProtocol>)vmo.view) cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];

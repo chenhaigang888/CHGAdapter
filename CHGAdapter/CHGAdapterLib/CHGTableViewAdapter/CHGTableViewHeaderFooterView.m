@@ -73,6 +73,8 @@
             if (key.length > 0) {
                 id subModel = [model objectForKey:key];
                 [((id<CHGTableViewHeaderFooterLifeCycleProtocol>)vmo.view) headerFooterForSection:section inTableView:tableView model:subModel type:type eventTransmissionBlock:eventTransmissionBlock];
+            } else {
+                [((id<CHGTableViewHeaderFooterLifeCycleProtocol>)vmo.view) headerFooterForSection:section inTableView:tableView model:model type:type eventTransmissionBlock:eventTransmissionBlock];
             }
         } else {
             [((id<CHGTableViewHeaderFooterLifeCycleProtocol>)vmo.view) headerFooterForSection:section inTableView:tableView model:model type:type eventTransmissionBlock:eventTransmissionBlock];

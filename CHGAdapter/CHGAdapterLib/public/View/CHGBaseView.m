@@ -63,6 +63,8 @@
                 id subModel = [model objectForKey:key];
                 
                 [((id<CHGViewLifeCycleProtocol>)vmo.view) cellForRowAtIndexPath:indexPath targetView:targetView model:subModel eventTransmissionBlock:eventTransmissionBlock];
+            } else {
+                [((id<CHGViewLifeCycleProtocol>)vmo.view) cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];
             }
         } else {
             [((id<CHGViewLifeCycleProtocol>)vmo.view) cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];
@@ -102,6 +104,8 @@
             if (key.length > 0) {
                 id subModel = [model objectForKey:key];
                 [((id<CHGTableViewHeaderFooterLifeCycleProtocol>)vmo.view) headerFooterForSection:section inTableView:tableView model:subModel type:type eventTransmissionBlock:eventTransmissionBlock];
+            } else {
+                [((id<CHGTableViewHeaderFooterLifeCycleProtocol>)vmo.view) headerFooterForSection:section inTableView:tableView model:model type:type eventTransmissionBlock:eventTransmissionBlock];
             }
         } else {
             [((id<CHGTableViewHeaderFooterLifeCycleProtocol>)vmo.view) headerFooterForSection:section inTableView:tableView model:model type:type eventTransmissionBlock:eventTransmissionBlock];
@@ -147,6 +151,8 @@
             if (key.length > 0) {
                 id subModel = [model objectForKey:key];
                 [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:subModel eventTransmissionBlock:eventTransmissionBlock];
+            } else {
+                [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:model eventTransmissionBlock:eventTransmissionBlock];
             }
         } else {
             [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:model eventTransmissionBlock:eventTransmissionBlock];

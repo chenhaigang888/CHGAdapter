@@ -76,6 +76,8 @@
             if (key.length > 0) {
                 id subModel = [model objectForKey:key];
                 [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:subModel eventTransmissionBlock:eventTransmissionBlock];
+            } else {
+                [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:model eventTransmissionBlock:eventTransmissionBlock];
             }
         } else {
             [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:model eventTransmissionBlock:eventTransmissionBlock];

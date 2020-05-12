@@ -39,11 +39,11 @@
     return model;
 }
 
-- (NSString *)headerFooterClassInTableViw:(UITableView *)tableView section:(NSInteger)section type:(CHGAdapterViewType)type {
+- (NSString *)headerFooterClassInTableView:(UITableView *)tableView section:(NSInteger)section type:(CHGAdapterViewType)type {
     return @"CountryHeaderFooterView";
 }
 
-- (CGFloat)headerFooterHeighInTableViw:(UITableView *)tableView section:(NSInteger)section type:(CHGAdapterViewType)type {
+- (CGFloat)headerFooterHeighInTableView:(UITableView *)tableView section:(NSInteger)section type:(CHGAdapterViewType)type {
     return 30;
 }
 

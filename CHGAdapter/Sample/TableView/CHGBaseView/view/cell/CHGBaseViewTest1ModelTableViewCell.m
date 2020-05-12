@@ -14,7 +14,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    [self.protocolsVMO addObject:[CHGViewMappingObject initWithView:self.baseView1 mapping:@{@(CHGAdapterViewTypeCellType):[NSNull new]}]];
+    [self.protocolsVMO addObject:[CHGViewMappingObject initWithView:self.baseView1 mapping:@{@(CHGAdapterViewTypeCellType):@""}]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
