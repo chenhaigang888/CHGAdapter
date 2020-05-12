@@ -12,10 +12,9 @@
 #import "CHGViewPropertyProtocol.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol CHGTableViewHeaderFooterLifeCycleProtocol <CHGViewPropertyProtocol>
+@protocol CHGTableViewHeaderFooterLifeCycleProtocol <CHGViewProtocol>
 
-@property(nonatomic,assign) NSInteger section;
-@property(nonatomic,assign) CHGAdapterViewType type;
+
 
 /**
  必须重写这个方法 子类应该在这个方法中给HeaderFooterView中的各个view设定value

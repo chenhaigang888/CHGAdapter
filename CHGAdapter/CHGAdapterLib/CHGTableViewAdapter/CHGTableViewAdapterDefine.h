@@ -24,4 +24,11 @@ typedef id(^CHGCallBack)(id data);
  */
 typedef id(^CHGEventTransmissionBlock)(id target,id params, NSInteger tag,CHGCallBack callBack);
 
+///CHGTableViewHeaderFooterView类型
+typedef NS_ENUM(NSUInteger, CHGAdapterViewType) {
+    CHGAdapterViewTypeHeaderType, //tableView的HeaderView
+    CHGAdapterViewTypeCellType, //tableView的cell
+    CHGAdapterViewTypeFooterType  //tableView的FooterView
+};
+
 #endif /* CHGTableViewAdapterDefine_h */

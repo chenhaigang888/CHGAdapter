@@ -25,6 +25,10 @@
 
 @synthesize targetView = _targetView;
 
+@synthesize section = _section;
+
+@synthesize type = _type;
+
 - (NSMutableArray<CHGViewMappingObject *> *)protocolsVMO {
     if (!_protocolsVMO) {
         _protocolsVMO = [NSMutableArray<CHGViewMappingObject *> array];
@@ -74,7 +78,7 @@
         if (mapping) {
             NSString * key = mapping[@(type)];
             if (key.length > 0) {
-                id subModel = [model objectForKey:key];
+                id subModel = [model valueForKeyPath:key];
                 [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:subModel eventTransmissionBlock:eventTransmissionBlock];
             } else {
                 [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:model eventTransmissionBlock:eventTransmissionBlock];
@@ -103,7 +107,21 @@
     }
 }
 
+-(void)addAutoDistributionModelView:(id<CHGViewProtocol>)view mapping:(NSDictionary * _Nullable)mapping {
+    [self.protocolsVMO addObject:[CHGViewMappingObject initWithView:view  mapping:mapping]];
+}
 
+-(void)replaceAtIndex:(NSUInteger)index autoDistributionModelView:(id<CHGViewProtocol>)view mapping:(NSDictionary * _Nullable)mapping {
+    [self.protocolsVMO replaceObjectAtIndex:index withObject:[CHGViewMappingObject initWithView:view  mapping:mapping]];
+}
+
+- (void)removeAutoDistributionModelViewAtIndex:(NSUInteger)index {
+    [self.protocolsVMO removeObjectAtIndex:index];
+}
+
+-(void)removeAutoDistributionModelView {
+    [self.protocolsVMO removeAllObjects];
+}
 @end
 
 

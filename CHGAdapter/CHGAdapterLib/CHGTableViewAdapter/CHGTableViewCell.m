@@ -21,6 +21,12 @@
 
 @synthesize protocolsVMO = _protocolsVMO;
 
+@synthesize kind = _kind;
+
+@synthesize section = _section;
+
+@synthesize type = _type;
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -92,9 +98,6 @@
     [super setFrame:frame];
 }
 
-
-
-
 /**
  cell将要显示
  */
@@ -113,8 +116,6 @@
     }
 }
 
-
-
 - (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView model:(id)model eventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock{
     self.indexPath = indexPath;
     self.targetView = targetView;
@@ -125,7 +126,7 @@
         if (mapping) {
             NSString * key = mapping[@(CHGAdapterViewTypeCellType)];
             if (key.length > 0) {
-                id subModel = [model objectForKey:key];
+                id subModel = [model valueForKeyPath:key];
                 [((id<CHGViewLifeCycleProtocol>)vmo.view) cellForRowAtIndexPath:indexPath targetView:targetView model:subModel eventTransmissionBlock:eventTransmissionBlock];
             } else {
                 [((id<CHGViewLifeCycleProtocol>)vmo.view) cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];
@@ -142,14 +143,26 @@
     }
 }
 
-
 - (void)cellWillReuseWithIdentifier:(nonnull NSString *)identifier indexPath:(nonnull NSIndexPath *)indexPath {
     for (CHGViewMappingObject * vmo in self.protocolsVMO) {
         [((id<CHGViewLifeCycleProtocol>)vmo.view) cellWillReuseWithIdentifier:identifier indexPath:indexPath];
     }
 }
 
+-(void)addAutoDistributionModelView:(id<CHGViewProtocol>)view mapping:(NSDictionary * _Nullable)mapping {
+    [self.protocolsVMO addObject:[CHGViewMappingObject initWithView:view  mapping:mapping]];
+}
 
+-(void)replaceAtIndex:(NSUInteger)index autoDistributionModelView:(id<CHGViewProtocol>)view mapping:(NSDictionary * _Nullable)mapping {
+    [self.protocolsVMO replaceObjectAtIndex:index withObject:[CHGViewMappingObject initWithView:view  mapping:mapping]];
+}
 
+- (void)removeAutoDistributionModelViewAtIndex:(NSUInteger)index {
+    [self.protocolsVMO removeObjectAtIndex:index];
+}
+
+-(void)removeAutoDistributionModelView {
+    [self.protocolsVMO removeAllObjects];
+}
 
 @end

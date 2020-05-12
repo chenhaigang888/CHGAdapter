@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="318" id="KGk-i7-Jjw" customClass="FoundTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="318"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="318"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ej-Tt-tbh" customClass="UserView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="FO5-za-HXd"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIl-2L-ZAF" customClass="InteractionView">
+                        <rect key="frame" x="0.0" y="80" width="320" height="50"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="ndZ-zZ-3h7"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="eIl-2L-ZAF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="1z5-9P-Kuy"/>
+                    <constraint firstItem="eIl-2L-ZAF" firstAttribute="trailing" secondItem="4ej-Tt-tbh" secondAttribute="trailing" id="Ubw-nh-anm"/>
+                    <constraint firstItem="eIl-2L-ZAF" firstAttribute="leading" secondItem="4ej-Tt-tbh" secondAttribute="leading" id="aIL-cK-Q14"/>
+                    <constraint firstItem="eIl-2L-ZAF" firstAttribute="top" secondItem="4ej-Tt-tbh" secondAttribute="bottom" id="alG-54-veM"/>
+                    <constraint firstItem="4ej-Tt-tbh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="b2Y-1Q-rqx"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="eIl-2L-ZAF" secondAttribute="trailing" id="cX2-hd-yJE"/>
+                    <constraint firstAttribute="trailing" secondItem="4ej-Tt-tbh" secondAttribute="trailing" id="kCA-5z-fQz"/>
+                    <constraint firstItem="4ej-Tt-tbh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yfd-mr-i22"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="1z5-9P-Kuy"/>
+                        <exclude reference="cX2-hd-yJE"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="interactionView" destination="eIl-2L-ZAF" id="Skb-B5-NEK"/>
+                <outlet property="userView" destination="4ej-Tt-tbh" id="Xpn-gR-5sY"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="244.41964285714283"/>
+        </tableViewCell>
+    </objects>
+</document>

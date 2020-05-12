@@ -60,8 +60,7 @@
         if (mapping) {
             NSString * key = mapping[@(CHGAdapterViewTypeCellType)];
             if (key.length > 0) {
-                id subModel = [model objectForKey:key];
-                
+                id subModel = [model valueForKeyPath:key];
                 [((id<CHGViewLifeCycleProtocol>)vmo.view) cellForRowAtIndexPath:indexPath targetView:targetView model:subModel eventTransmissionBlock:eventTransmissionBlock];
             } else {
                 [((id<CHGViewLifeCycleProtocol>)vmo.view) cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];
@@ -102,7 +101,7 @@
         if (mapping) {
             NSString * key = mapping[@(type)];
             if (key.length > 0) {
-                id subModel = [model objectForKey:key];
+                id subModel = [model valueForKeyPath:key];
                 [((id<CHGTableViewHeaderFooterLifeCycleProtocol>)vmo.view) headerFooterForSection:section inTableView:tableView model:subModel type:type eventTransmissionBlock:eventTransmissionBlock];
             } else {
                 [((id<CHGTableViewHeaderFooterLifeCycleProtocol>)vmo.view) headerFooterForSection:section inTableView:tableView model:model type:type eventTransmissionBlock:eventTransmissionBlock];
@@ -142,14 +141,14 @@
     self.kind = kind;
     self.model = model;
     self.eventTransmissionBlock = eventTransmissionBlock;
-    CHGAdapterViewType type = [kind isEqualToString:@"UICollectionElementKindSectionHeader"] ? CHGAdapterViewTypeHeaderType : CHGAdapterViewTypeFooterType;
+    self.type = [kind isEqualToString:@"UICollectionElementKindSectionHeader"] ? CHGAdapterViewTypeHeaderType : CHGAdapterViewTypeFooterType;
     
     for (CHGViewMappingObject * vmo in self.protocolsVMO) {
         NSDictionary * mapping = vmo.mapping;
         if (mapping) {
-            NSString * key = mapping[@(type)];
+            NSString * key = mapping[@(self.type)];
             if (key.length > 0) {
-                id subModel = [model objectForKey:key];
+                id subModel = [model valueForKeyPath:key];
                 [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:subModel eventTransmissionBlock:eventTransmissionBlock];
             } else {
                 [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:model eventTransmissionBlock:eventTransmissionBlock];
@@ -178,9 +177,21 @@
     }
 }
 
+-(void)addAutoDistributionModelView:(id<CHGViewProtocol>)view mapping:(NSDictionary * _Nullable)mapping {
+    [self.protocolsVMO addObject:[CHGViewMappingObject initWithView:view  mapping:mapping]];
+}
 
+-(void)replaceAtIndex:(NSUInteger)index autoDistributionModelView:(id<CHGViewProtocol>)view mapping:(NSDictionary * _Nullable)mapping {
+    [self.protocolsVMO replaceObjectAtIndex:index withObject:[CHGViewMappingObject initWithView:view  mapping:mapping]];
+}
 
+- (void)removeAutoDistributionModelViewAtIndex:(NSUInteger)index {
+    [self.protocolsVMO removeObjectAtIndex:index];
+}
 
+-(void)removeAutoDistributionModelView {
+    [self.protocolsVMO removeAllObjects];
+}
 
 @end
 

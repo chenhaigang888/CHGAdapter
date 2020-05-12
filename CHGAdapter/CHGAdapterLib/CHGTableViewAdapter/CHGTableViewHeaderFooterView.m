@@ -23,6 +23,9 @@
 
 @synthesize targetView = _targetView;
 
+@synthesize indexPath = _indexPath;
+
+@synthesize kind = _kind;
 
 - (NSMutableArray<CHGViewMappingObject *> *)protocolsVMO {
     if (!_protocolsVMO) {
@@ -71,7 +74,7 @@
         if (mapping) {
             NSString * key = mapping[@(type)];
             if (key.length > 0) {
-                id subModel = [model objectForKey:key];
+                id subModel = [model valueForKeyPath:key];
                 [((id<CHGTableViewHeaderFooterLifeCycleProtocol>)vmo.view) headerFooterForSection:section inTableView:tableView model:subModel type:type eventTransmissionBlock:eventTransmissionBlock];
             } else {
                 [((id<CHGTableViewHeaderFooterLifeCycleProtocol>)vmo.view) headerFooterForSection:section inTableView:tableView model:model type:type eventTransmissionBlock:eventTransmissionBlock];
@@ -100,6 +103,21 @@
     }
 }
 
+-(void)addAutoDistributionModelView:(id<CHGViewProtocol>)view mapping:(NSDictionary * _Nullable)mapping {
+    [self.protocolsVMO addObject:[CHGViewMappingObject initWithView:view  mapping:mapping]];
+}
+
+-(void)replaceAtIndex:(NSUInteger)index autoDistributionModelView:(id<CHGViewProtocol>)view mapping:(NSDictionary * _Nullable)mapping {
+    [self.protocolsVMO replaceObjectAtIndex:index withObject:[CHGViewMappingObject initWithView:view  mapping:mapping]];
+}
+
+- (void)removeAutoDistributionModelViewAtIndex:(NSUInteger)index {
+    [self.protocolsVMO removeObjectAtIndex:index];
+}
+
+-(void)removeAutoDistributionModelView {
+    [self.protocolsVMO removeAllObjects];
+}
 @end
 
 

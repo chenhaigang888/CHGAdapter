@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  cell的生命周期协议
  */
-@protocol CHGViewLifeCycleProtocol <CHGViewPropertyProtocol>
+@protocol CHGViewLifeCycleProtocol <CHGViewProtocol>
 
 @required
 

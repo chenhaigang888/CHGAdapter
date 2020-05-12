@@ -12,10 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol CHGCollectionReusableViewLifeCycleProtocol <CHGViewPropertyProtocol>
+@protocol CHGCollectionReusableViewLifeCycleProtocol <CHGViewProtocol>
 
-@property(nonatomic,strong) NSIndexPath * indexPath;
-@property(nonatomic,copy) NSString * kind;
+
 
 
 -(void)reusableViewForCollectionView:(UICollectionView*)collectionView indexPath:(NSIndexPath*)indexPath kind:(NSString*)kind model:(id)model eventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock;

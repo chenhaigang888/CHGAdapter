@@ -19,6 +19,7 @@
 #import "UIViewModelViewController.h"
 #import "UIViewModelCollectionViewController.h"
 #import "CHGBaseViewViewController.h"
+#import "DistributionDataToViewViewController.h"
 
 @interface MenuViewController ()
 
@@ -79,6 +80,9 @@
         } else if (indexPath.row == 10) {
             CHGBaseViewViewController * vc = [CHGBaseViewViewController new];
             [strongSelf.navigationController pushViewController:vc animated:YES];
+        } else if (indexPath.row == 11) {
+            DistributionDataToViewViewController * vc = [DistributionDataToViewViewController new];
+            [strongSelf.navigationController pushViewController:vc animated:YES];
         }
     };
 }
@@ -114,7 +118,8 @@
                                  @"keyPath用法（collectionView）",
                                  @"TableView直接创建UIView及之类快速布局",
                                  @"CollectionView直接创建UIView及之类快速布局",
-                                 @"CHGBaseView的使用"
+                                 @"CHGBaseView的使用",
+                                 @"自动分配数据到view"
                                  ]
                                ];
     return _adapterData;
