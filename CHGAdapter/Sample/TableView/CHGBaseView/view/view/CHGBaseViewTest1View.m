@@ -61,8 +61,8 @@
     return _view2;
 }
 
-- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
-    [super cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView model:(id)model eventTransmissionBlock:(nonnull CHGEventTransmissionBlock)eventTransmissionBlock{
+    [super cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];
 }
 
 - (void)cellWillAppear {

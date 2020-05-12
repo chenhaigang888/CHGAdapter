@@ -17,15 +17,15 @@
     [self.textField addTarget:self action:@selector(textFieldInput:) forControlEvents:UIControlEventEditingChanged];
 }
 
-//-(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView *)collectionView withData:(id)data {
+//-(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView *)collectionView model:(id)model {
 //    [super cellForRowAtIndexPath:indexPath collectionView:collectionView withData:data];
 //    [self.btn setTitle:[NSString stringWithFormat:@"%@",data] forState:UIControlStateNormal];
 //    self.textField.text = collectionView.collectionViewAdapter.adapterData.customData[indexPath];
 //}
 
-- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
-    [super cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
-    [self.btn setTitle:[NSString stringWithFormat:@"%@",data] forState:UIControlStateNormal];
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView model:(id)model eventTransmissionBlock:(nonnull CHGEventTransmissionBlock)eventTransmissionBlock{
+    [super cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];
+    [self.btn setTitle:[NSString stringWithFormat:@"%@",model] forState:UIControlStateNormal];
     
     self.textField.text = [self getCollectionView].collectionViewAdapter.adapterData.customData[indexPath];
 }

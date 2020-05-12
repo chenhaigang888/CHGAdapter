@@ -49,14 +49,14 @@
  
  @return 返回类名
  */
--(NSString*)headerFooterClassInTableViw:(UITableView*)tableView section:(NSInteger)section type:(CHGTableViewHeaderFooterViewType)type;
+-(NSString*)headerFooterClassInTableViw:(UITableView*)tableView section:(NSInteger)section type:(CHGAdapterViewType)type;
 
 /**
  返回当前headerFooter的高度
  
  @return headerFooter的高度
  */
--(CGFloat)headerFooterHeighInTableViw:(UITableView*)tableView section:(NSInteger)section type:(CHGTableViewHeaderFooterViewType)type;
+-(CGFloat)headerFooterHeighInTableViw:(UITableView*)tableView section:(NSInteger)section type:(CHGAdapterViewType)type;
 
 @optional
 -(CGFloat)getHeaderFooterHeigh CHGTableViewDeprecated(-headerFooterHeighInTableViw:section:type:);

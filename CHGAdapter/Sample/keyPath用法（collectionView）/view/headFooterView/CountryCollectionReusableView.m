@@ -16,10 +16,10 @@
     // Initialization code
 }
 
-- (void)reusableViewForCollectionView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath kind:(NSString *)kind reusableViewData:(id)reusableViewData {
-    [super reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind reusableViewData:reusableViewData];
-    CountryModel * model = reusableViewData;
-    self.title.text = model.name;
+- (void)reusableViewForCollectionView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath kind:(NSString *)kind model:(id)model eventTransmissionBlock:(nonnull CHGEventTransmissionBlock)eventTransmissionBlock{
+    [super reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:model eventTransmissionBlock:eventTransmissionBlock];
+    CountryModel * dataModel = model;
+    self.title.text = dataModel.name;
 }
 
 @end

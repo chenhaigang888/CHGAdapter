@@ -17,7 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) NSIndexPath * indexPath;
 @property(nonatomic,copy) NSString * kind;
 
--(void)reusableViewForCollectionView:(UICollectionView*)collectionView indexPath:(NSIndexPath*)indexPath kind:(NSString*)kind reusableViewData:(id)reusableViewData;
+
+-(void)reusableViewForCollectionView:(UICollectionView*)collectionView indexPath:(NSIndexPath*)indexPath kind:(NSString*)kind model:(id)model eventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock;
 
 /**
  将被复用

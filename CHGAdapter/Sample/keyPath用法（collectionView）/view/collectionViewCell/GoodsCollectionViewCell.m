@@ -17,16 +17,16 @@
     // Initialization code
 }
 
-//- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView *)collectionView withData:(id)data {
+//- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView *)collectionView model:(id)model {
 //    [super cellForRowAtIndexPath:indexPath collectionView:collectionView withData:data];
 //    GoodsModel * model = data;
 //    self.title.text = model.name;
 //}
 
-- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
-    [super cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
-    GoodsModel * model = data;
-    self.title.text = model.name;
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView model:(id)model eventTransmissionBlock:(nonnull CHGEventTransmissionBlock)eventTransmissionBlock{
+    [super cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];
+    GoodsModel * dataModel = model;
+    self.title.text = dataModel.name;
 }
 
 @end

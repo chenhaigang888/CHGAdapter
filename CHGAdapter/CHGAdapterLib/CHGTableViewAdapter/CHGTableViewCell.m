@@ -8,6 +8,7 @@
 
 #import "CHGTableViewCell.h"
 
+
 @implementation CHGTableViewCell
 
 @synthesize model = _model;
@@ -18,19 +19,12 @@
 
 @synthesize eventTransmissionBlock = _eventTransmissionBlock;
 
-@synthesize protocols = _protocols;
+@synthesize protocolsVMO = _protocolsVMO;
 
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-}
-
-- (void)setEventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock {
-    _eventTransmissionBlock = eventTransmissionBlock;
-    for (id protocol in self.protocols) {
-        [protocol setEventTransmissionBlock:eventTransmissionBlock];
-    }
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -42,11 +36,11 @@
     return self;
 }
 
-- (NSMutableArray *)protocols {
-    if (!_protocols) {
-        _protocols = [NSMutableArray array];
+- (NSMutableArray<CHGViewMappingObject *> *)protocolsVMO {
+    if (!_protocolsVMO) {
+        _protocolsVMO = [NSMutableArray<CHGViewMappingObject *> array];
     }
-    return _protocols;
+    return _protocolsVMO;
 }
 
 
@@ -98,12 +92,15 @@
     [super setFrame:frame];
 }
 
+
+
+
 /**
  cell将要显示
  */
 -(void)cellWillAppear {
-    for (id protocol in self.protocols) {
-        [protocol cellWillAppear];
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGViewLifeCycleProtocol>)vmo.view) cellWillAppear];
     }
 }
 
@@ -111,30 +108,43 @@
  cell已经消失
  */
 -(void)cellDidDisappear {
-    for (id protocol in self.protocols) {
-        [protocol cellDidDisappear];
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGViewLifeCycleProtocol>)vmo.view) cellDidDisappear];
     }
 }
 
-- (void)cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath targetView:(nonnull UIView *)targetView withData:(nonnull id)data {
+
+
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView model:(id)model eventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock{
     self.indexPath = indexPath;
     self.targetView = targetView;
-    self.model = data;
-    for (id protocol in self.protocols) {
-        [protocol cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
+    self.model = model;
+    self.eventTransmissionBlock = eventTransmissionBlock;
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        NSDictionary * mapping = vmo.mapping;
+        if (mapping) {
+            NSString * key = mapping[@(CHGAdapterViewTypeCellType)];
+            if (key.length > 0) {
+                id subModel = [model objectForKey:key];
+                [((id<CHGViewLifeCycleProtocol>)vmo.view) cellForRowAtIndexPath:indexPath targetView:targetView model:subModel eventTransmissionBlock:eventTransmissionBlock];
+                
+            }
+        } else {
+            [((id<CHGViewLifeCycleProtocol>)vmo.view) cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];
+        }
     }
 }
 
 - (void)cellWillReuseWithIdentifier:(nonnull NSString *)identifier {
-    for (id protocol in self.protocols) {
-        [protocol cellWillReuseWithIdentifier:identifier];
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGViewLifeCycleProtocol>)vmo.view) cellWillReuseWithIdentifier:identifier];
     }
 }
 
 
 - (void)cellWillReuseWithIdentifier:(nonnull NSString *)identifier indexPath:(nonnull NSIndexPath *)indexPath {
-    for (id protocol in self.protocols) {
-        [protocol cellWillReuseWithIdentifier:identifier indexPath:indexPath];
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGViewLifeCycleProtocol>)vmo.view) cellWillReuseWithIdentifier:identifier indexPath:indexPath];
     }
 }
 

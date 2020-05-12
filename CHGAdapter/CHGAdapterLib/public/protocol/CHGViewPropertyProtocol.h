@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CHGTableViewAdapterDefine.h"
+@class CHGViewMappingObject;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///当前cell、headerFooter、view需要显示的数据
 @property(nonatomic,strong) id model;
 ///根据类型不一样存储不同的协议
-@property(nonatomic,strong) NSMutableArray * protocols;
+@property(nonatomic,strong) NSMutableArray<CHGViewMappingObject*> * protocolsVMO;
 
 @end
 

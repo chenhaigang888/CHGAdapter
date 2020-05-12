@@ -8,6 +8,7 @@
 
 #import "CHGCollectionReusableView.h"
 #import "CHGCollectionViewAdapter.h"
+#import "CHGViewMappingObject.h"
 
 @implementation CHGCollectionReusableView
 
@@ -18,24 +19,17 @@
 
 @synthesize kind = _kind;
 
-@synthesize protocols = _protocols;
+@synthesize protocolsVMO = _protocolsVMO;
 
 @synthesize model = _model;
 
 @synthesize targetView = _targetView;
 
-- (NSMutableArray *)protocols {
-    if (!_protocols) {
-        _protocols = [NSMutableArray array];
+- (NSMutableArray<CHGViewMappingObject *> *)protocolsVMO {
+    if (!_protocolsVMO) {
+        _protocolsVMO = [NSMutableArray<CHGViewMappingObject *> array];
     }
-    return _protocols;
-}
-
-- (void)setEventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock {
-    _eventTransmissionBlock = eventTransmissionBlock;
-    for (id protocol in self.protocols) {
-        [protocol setEventTransmissionBlock:eventTransmissionBlock];
-    }
+    return _protocolsVMO;
 }
 
 /**
@@ -66,31 +60,44 @@
 }
 
 
-- (void)reusableViewForCollectionView:(nonnull UICollectionView *)collectionView indexPath:(nonnull NSIndexPath *)indexPath kind:(nonnull NSString *)kind reusableViewData:(nonnull id)reusableViewData {
+
+- (void)reusableViewForCollectionView:(UICollectionView *)collectionView indexPath:(NSIndexPath *)indexPath kind:(NSString *)kind model:(id)model eventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock{
     self.targetView = collectionView;
     self.indexPath = indexPath;
     self.kind = kind;
-    self.model = reusableViewData;
-    for (id protocol in self.protocols) {
-        [protocol reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind reusableViewData:reusableViewData];
-    }
-}
-
-- (void)reusableViewWillAppear {
-    for (id protocol in self.protocols) {
-        [protocol reusableViewWillAppear];
+    self.model = model;
+    self.eventTransmissionBlock = eventTransmissionBlock;
+    CHGAdapterViewType type = [kind isEqualToString:@"UICollectionElementKindSectionHeader"] ? CHGAdapterViewTypeHeaderType : CHGAdapterViewTypeFooterType;
+    
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        NSDictionary * mapping = vmo.mapping;
+        if (mapping) {
+            NSString * key = mapping[@(type)];
+            if (key.length > 0) {
+                id subModel = [model objectForKey:key];
+                [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:subModel eventTransmissionBlock:eventTransmissionBlock];
+            }
+        } else {
+            [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:model eventTransmissionBlock:eventTransmissionBlock];
+        }
     }
 }
 
 - (void)reusableViewDidDisappear {
-    for (id protocol in self.protocols) {
-        [protocol reusableViewDidDisappear];
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewDidDisappear];
+    }
+}
+
+- (void)reusableViewWillAppear {
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewWillAppear];
     }
 }
 
 - (void)reusableViewWillReuseWithIdentifier:(nonnull NSString *)identifier indexPath:(nonnull NSIndexPath *)indexPath {
-    for (id protocol in self.protocols) {
-        [protocol reusableViewWillReuseWithIdentifier:identifier indexPath:indexPath];
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewWillReuseWithIdentifier:identifier indexPath:indexPath];
     }
 }
 

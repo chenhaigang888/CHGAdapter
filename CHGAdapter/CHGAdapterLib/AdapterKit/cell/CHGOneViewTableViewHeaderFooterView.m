@@ -10,9 +10,9 @@
 
 @implementation CHGOneViewTableViewHeaderFooterView
 
-- (void)headerFooterForSection:(NSInteger)section inTableView:(UITableView *)tableView withData:(id)data type:(CHGTableViewHeaderFooterViewType)type {
-    [super headerFooterForSection:section inTableView:tableView withData:data type:type];
-    UIView * view = data;
+- (void)headerFooterForSection:(NSInteger)section inTableView:(UITableView *)tableView model:(id)model type:(CHGAdapterViewType)type eventTransmissionBlock:(nonnull CHGEventTransmissionBlock)eventTransmissionBlock{
+    [super headerFooterForSection:section inTableView:tableView model:model type:type eventTransmissionBlock:eventTransmissionBlock];;
+    UIView * view = model;
     [self.contentView addSubview:view];
 //    view.frame = self.contentView.frame;
 //    view.backgroundColor = UIColor.greenColor;

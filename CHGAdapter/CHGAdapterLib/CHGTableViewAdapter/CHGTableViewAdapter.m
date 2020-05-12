@@ -141,18 +141,19 @@
         cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     }
     //将cell的数据赋予cell
-    cell.eventTransmissionBlock = tableView.eventTransmissionBlock;
-    [cell cellForRowAtIndexPath:indexPath targetView:tableView withData:cellData];
+    
+    
+    [cell cellForRowAtIndexPath:indexPath targetView:tableView model:cellData eventTransmissionBlock:tableView.eventTransmissionBlock];
 //    [cell cellForRowAtIndexPath:indexPath tableView:tableView withData:cellData];
     return cell;
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return [self tableView:tableView tableViewHeaderFooterViewType:CHGTableViewHeaderFooterViewHeaderType viewForHeaderInSection:section];
+    return [self tableView:tableView tableViewHeaderFooterViewType:CHGAdapterViewTypeHeaderType viewForHeaderInSection:section];
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    return [self tableView:tableView tableViewHeaderFooterViewType:CHGTableViewHeaderFooterViewFooterType viewForHeaderInSection:section];
+    return [self tableView:tableView tableViewHeaderFooterViewType:CHGAdapterViewTypeFooterType viewForHeaderInSection:section];
 }
 
 /**
@@ -162,9 +163,9 @@
  @param section section
  @return 返回headerFooter的数据
  */
--(id)headerFooterDataWithType:(CHGTableViewHeaderFooterViewType)type section:(NSInteger)section{
+-(id)headerFooterDataWithType:(CHGAdapterViewType)type section:(NSInteger)section{
     NSArray * headerFooterDatas =
-    type == CHGTableViewHeaderFooterViewHeaderType
+    type == CHGAdapterViewTypeHeaderType
     ?
     self.adapterData.headerDatas
     :
@@ -186,10 +187,10 @@
  @param section section
  @return 繁华view
  */
--(UIView*)tableView:(UITableView*)tableView tableViewHeaderFooterViewType:(CHGTableViewHeaderFooterViewType)type viewForHeaderInSection:(NSInteger)section {
+-(UIView*)tableView:(UITableView*)tableView tableViewHeaderFooterViewType:(CHGAdapterViewType)type viewForHeaderInSection:(NSInteger)section {
     id headerFooterData = [self headerFooterDataWithType:type section:section];
     NSString * identifier =
-    type == CHGTableViewHeaderFooterViewHeaderType
+    type == CHGAdapterViewTypeHeaderType
     ?
     [self obtainHeaderNameWithHeaderData:headerFooterData tableView:tableView viewForHeaderInSection:section]
     :
@@ -204,16 +205,15 @@
         }
         view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
     }
-    view.eventTransmissionBlock = tableView.eventTransmissionBlock;
     view.frame = CGRectMake(0, 0, tableView.frame.size.width, [self tableView:tableView heightForHeaderInSection:section]);
-    [view headerFooterForSection:section inTableView:tableView withData:headerFooterData type:type];
+    [view headerFooterForSection:section inTableView:tableView model:headerFooterData type:type eventTransmissionBlock:tableView.eventTransmissionBlock];
     return view;
 }
 
 //headerView将显示
 -(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
     if ([view isKindOfClass:[CHGTableViewHeaderFooterView class]]) {
-        [((CHGTableViewHeaderFooterView*)view) headerFooterViewWillAppearWithType:CHGTableViewHeaderFooterViewHeaderType];
+        [((CHGTableViewHeaderFooterView*)view) headerFooterViewWillAppearWithType:CHGAdapterViewTypeHeaderType];
     }
 }
 
@@ -227,14 +227,14 @@
 //footerView将显示
 -(void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {
     if ([view isKindOfClass:[CHGTableViewHeaderFooterView class]]) {
-        [((CHGTableViewHeaderFooterView*)view) headerFooterViewWillAppearWithType:CHGTableViewHeaderFooterViewFooterType];
+        [((CHGTableViewHeaderFooterView*)view) headerFooterViewWillAppearWithType:CHGAdapterViewTypeFooterType];
     }
 }
 
 //HeaderView已经消失
 -(void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section {
     if ([view isKindOfClass:[CHGTableViewHeaderFooterView class]]) {
-        [((CHGTableViewHeaderFooterView*)view) headerFooterViewDidDisAppearWithType:CHGTableViewHeaderFooterViewHeaderType];
+        [((CHGTableViewHeaderFooterView*)view) headerFooterViewDidDisAppearWithType:CHGAdapterViewTypeHeaderType];
     }
 }
 
@@ -248,7 +248,7 @@
 //footerView已经消失
 -(void)tableView:(UITableView *)tableView didEndDisplayingFooterView:(UIView *)view forSection:(NSInteger)section {
     if ([view isKindOfClass:[CHGTableViewHeaderFooterView class]]) {
-        [((CHGTableViewHeaderFooterView*)view) headerFooterViewDidDisAppearWithType:CHGTableViewHeaderFooterViewFooterType];
+        [((CHGTableViewHeaderFooterView*)view) headerFooterViewDidDisAppearWithType:CHGAdapterViewTypeFooterType];
     }
 }
 

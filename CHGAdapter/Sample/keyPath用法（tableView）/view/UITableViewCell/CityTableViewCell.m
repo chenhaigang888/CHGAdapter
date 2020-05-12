@@ -23,16 +23,16 @@
 }
 
 
-//- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView withData:(id)data {
+//- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView model:(id)model {
 //    [super cellForRowAtIndexPath:indexPath tableView:tableView withData:data];
 //    CityModel * model = data;
 //    self.title.text = model.name;
 //}
 
-- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
-    [super cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
-    CityModel * model = data;
-    self.title.text = model.name;
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView model:(id)model eventTransmissionBlock:(nonnull CHGEventTransmissionBlock)eventTransmissionBlock{
+    [super cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];
+    CityModel * dataModel = model;
+    self.title.text = dataModel.name;
 }
 
 @end

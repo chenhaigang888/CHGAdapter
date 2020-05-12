@@ -10,15 +10,17 @@
 
 @implementation CHGOneViewCollectionViewCell
 
-//- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView *)collectionView withData:(id)data {
+//- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView *)collectionView model:(id)model {
 //    [super cellForRowAtIndexPath:indexPath collectionView:collectionView withData:data];
 //    UIView * view = data;
 //    [self.contentView addSubview:view];
 //}
 
-- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
-    [super cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
-    UIView * view = data;
+
+
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView model:(id)model eventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock{
+    [super cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];
+    UIView * view = model;
     [self.contentView addSubview:view];
 }
 

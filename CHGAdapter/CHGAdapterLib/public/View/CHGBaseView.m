@@ -7,7 +7,7 @@
 //
 
 #import "CHGBaseView.h"
-
+#import "CHGViewMappingObject.h"
 
 
 @implementation CHGBaseView
@@ -20,31 +20,24 @@
 
 @synthesize model = _model;
 
-@synthesize protocols = _protocols;
+@synthesize protocolsVMO = _protocolsVMO;
 
 @synthesize targetView = _targetView;
 
-- (void)setEventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock {
-    _eventTransmissionBlock = eventTransmissionBlock;
-    for (id protocol in self.protocols) {
-        [protocol setEventTransmissionBlock:eventTransmissionBlock];
-    }
-}
-
 #pragma - mark CHGViewLifeCycleProtocol method
-- (NSMutableArray *)protocols {
-    if (!_protocols) {
-        _protocols = [NSMutableArray array];
+- (NSMutableArray<CHGViewMappingObject*> *)protocolsVMO {
+    if (!_protocolsVMO) {
+        _protocolsVMO = [NSMutableArray<CHGViewMappingObject *> array];
     }
-    return _protocols;
+    return _protocolsVMO;
 }
 
 /**
  cell将要显示
  */
 -(void)cellWillAppear {
-    for (id protocol in self.protocols) {
-        [protocol cellWillAppear];
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGViewLifeCycleProtocol>)vmo.view) cellWillAppear];
     }
 }
 
@@ -52,30 +45,41 @@
  cell已经消失
  */
 -(void)cellDidDisappear {
-    for (id protocol in self.protocols) {
-        [protocol cellDidDisappear];
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGViewLifeCycleProtocol>)vmo.view) cellDidDisappear];
     }
 }
 
-- (void)cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath targetView:(nonnull UIView *)targetView withData:(nonnull id)data {
+- (void)cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath targetView:(nonnull UIView *)targetView model:(nonnull id)model eventTransmissionBlock:(nonnull CHGEventTransmissionBlock)eventTransmissionBlock{
     self.indexPath = indexPath;
     self.targetView = targetView;
-    self.model = data;
-    for (id protocol in self.protocols) {
-        [protocol cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
+    self.model = model;
+    
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        NSDictionary * mapping = vmo.mapping;
+        if (mapping) {
+            NSString * key = mapping[@(CHGAdapterViewTypeCellType)];
+            if (key.length > 0) {
+                id subModel = [model objectForKey:key];
+                
+                [((id<CHGViewLifeCycleProtocol>)vmo.view) cellForRowAtIndexPath:indexPath targetView:targetView model:subModel eventTransmissionBlock:eventTransmissionBlock];
+            }
+        } else {
+            [((id<CHGViewLifeCycleProtocol>)vmo.view) cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];
+        }
     }
 }
 
 - (void)cellWillReuseWithIdentifier:(nonnull NSString *)identifier {
-    for (id protocol in self.protocols) {
-        [protocol cellWillReuseWithIdentifier:identifier];
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGViewLifeCycleProtocol>)vmo.view) cellWillReuseWithIdentifier:identifier];
     }
 }
 
 
 - (void)cellWillReuseWithIdentifier:(nonnull NSString *)identifier indexPath:(nonnull NSIndexPath *)indexPath {
-    for (id protocol in self.protocols) {
-        [protocol cellWillReuseWithIdentifier:identifier indexPath:indexPath];
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGViewLifeCycleProtocol>)vmo.view) cellWillReuseWithIdentifier:identifier indexPath:indexPath];
     }
 }
 
@@ -85,31 +89,41 @@
 
 @synthesize type = _type;
 
-- (void)headerFooterForSection:(NSInteger)section inTableView:(nonnull UITableView *)tableView withData:(nonnull id)data type:(CHGTableViewHeaderFooterViewType)type {
+- (void)headerFooterForSection:(NSInteger)section inTableView:(nonnull UITableView *)tableView model:(nonnull id)model type:(CHGAdapterViewType)type eventTransmissionBlock:(nonnull CHGEventTransmissionBlock)eventTransmissionBlock{
     self.section = section;
     self.targetView = tableView;
-    self.model = data;
+    self.model = model;
     self.type = type;
-    for (id protocol in self.protocols) {
-        [protocol headerFooterForSection:section inTableView:tableView withData:data type:type];
+    
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        NSDictionary * mapping = vmo.mapping;
+        if (mapping) {
+            NSString * key = mapping[@(type)];
+            if (key.length > 0) {
+                id subModel = [model objectForKey:key];
+                [((id<CHGTableViewHeaderFooterLifeCycleProtocol>)vmo.view) headerFooterForSection:section inTableView:tableView model:subModel type:type eventTransmissionBlock:eventTransmissionBlock];
+            }
+        } else {
+            [((id<CHGTableViewHeaderFooterLifeCycleProtocol>)vmo.view) headerFooterForSection:section inTableView:tableView model:model type:type eventTransmissionBlock:eventTransmissionBlock];
+        }
     }
 }
 
-- (void)headerFooterViewDidDisAppearWithType:(CHGTableViewHeaderFooterViewType)type {
-    for (id protocol in self.protocols) {
-        [protocol headerFooterViewDidDisAppearWithType:type];
+- (void)headerFooterViewDidDisAppearWithType:(CHGAdapterViewType)type {
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGTableViewHeaderFooterLifeCycleProtocol>)vmo.view) headerFooterViewDidDisAppearWithType:type];
     }
 }
 
-- (void)headerFooterViewWillAppearWithType:(CHGTableViewHeaderFooterViewType)type {
-    for (id protocol in self.protocols) {
-        [protocol headerFooterViewWillAppearWithType:type];
+- (void)headerFooterViewWillAppearWithType:(CHGAdapterViewType)type {
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGTableViewHeaderFooterLifeCycleProtocol>)vmo.view) headerFooterViewWillAppearWithType:type];
     }
 }
 
 - (void)headerFooterViewWillReuseWithIdentifier:(nonnull NSString *)identifier {
-    for (id protocol in self.protocols) {
-        [protocol headerFooterViewWillReuseWithIdentifier:identifier];
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGTableViewHeaderFooterLifeCycleProtocol>)vmo.view) headerFooterViewWillReuseWithIdentifier:identifier];
     }
 }
 
@@ -118,31 +132,43 @@
 
 @synthesize kind = _kind;
 
-- (void)reusableViewForCollectionView:(nonnull UICollectionView *)collectionView indexPath:(nonnull NSIndexPath *)indexPath kind:(nonnull NSString *)kind reusableViewData:(nonnull id)reusableViewData {
+- (void)reusableViewForCollectionView:(nonnull UICollectionView *)collectionView indexPath:(nonnull NSIndexPath *)indexPath kind:(nonnull NSString *)kind model:(nonnull id)model eventTransmissionBlock:(nonnull CHGEventTransmissionBlock)eventTransmissionBlock{
     self.targetView = collectionView;
     self.indexPath = indexPath;
     self.kind = kind;
-    self.model = reusableViewData;
-    for (id protocol in self.protocols) {
-        [protocol reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind reusableViewData:reusableViewData];
+    self.model = model;
+    self.eventTransmissionBlock = eventTransmissionBlock;
+    CHGAdapterViewType type = [kind isEqualToString:@"UICollectionElementKindSectionHeader"] ? CHGAdapterViewTypeHeaderType : CHGAdapterViewTypeFooterType;
+    
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        NSDictionary * mapping = vmo.mapping;
+        if (mapping) {
+            NSString * key = mapping[@(type)];
+            if (key.length > 0) {
+                id subModel = [model objectForKey:key];
+                [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:subModel eventTransmissionBlock:eventTransmissionBlock];
+            }
+        } else {
+            [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:model eventTransmissionBlock:eventTransmissionBlock];
+        }
     }
 }
 
 - (void)reusableViewDidDisappear {
-    for (id protocol in self.protocols) {
-        [protocol reusableViewDidDisappear];
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewDidDisappear];
     }
 }
 
 - (void)reusableViewWillAppear {
-    for (id protocol in self.protocols) {
-        [protocol reusableViewWillAppear];
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewWillAppear];
     }
 }
 
 - (void)reusableViewWillReuseWithIdentifier:(nonnull NSString *)identifier indexPath:(nonnull NSIndexPath *)indexPath {
-    for (id protocol in self.protocols) {
-        [protocol reusableViewWillReuseWithIdentifier:identifier indexPath:indexPath];
+    for (CHGViewMappingObject * vmo in self.protocolsVMO) {
+        [((id<CHGCollectionReusableViewLifeCycleProtocol>)vmo.view) reusableViewWillReuseWithIdentifier:identifier indexPath:indexPath];
     }
 }
 

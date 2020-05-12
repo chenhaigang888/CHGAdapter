@@ -18,9 +18,10 @@
 }
 */
 
--(void)headerFooterForSection:(NSInteger)section inTableView:(UITableView *)tableView withData:(id)data type:(CHGTableViewHeaderFooterViewType)type {
-    [super headerFooterForSection:section inTableView:tableView withData:data type:type];
-    self.title.text = data;
+-(void)headerFooterForSection:(NSInteger)section inTableView:(UITableView *)tableView model:(id)model type:(CHGAdapterViewType)type eventTransmissionBlock:(nonnull CHGEventTransmissionBlock)eventTransmissionBlock{
+    
+    [super headerFooterForSection:section inTableView:tableView model:model type:type eventTransmissionBlock:eventTransmissionBlock];;
+    self.title.text = model;
 }
 
 @end

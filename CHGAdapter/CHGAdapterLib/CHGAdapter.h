@@ -28,3 +28,5 @@
 #import "CHGCollectionViewCell.h"
 #import "CHGSubDataOfKeyPathDelegate.h"
 #import "UIView+AdapterContentModel.h"
+#import "CHGViewMappingObject.h"
+#import "CHGBaseView.h"

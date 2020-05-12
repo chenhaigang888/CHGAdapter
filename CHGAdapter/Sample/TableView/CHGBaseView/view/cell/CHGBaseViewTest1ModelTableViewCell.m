@@ -7,13 +7,14 @@
 //
 
 #import "CHGBaseViewTest1ModelTableViewCell.h"
+#import "CHGViewMappingObject.h"
 
 @implementation CHGBaseViewTest1ModelTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    [self.protocols addObject:self.baseView1];
+    [self.protocolsVMO addObject:[CHGViewMappingObject initWithView:self.baseView1 mapping:@{@(CHGAdapterViewTypeCellType):[NSNull new]}]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -22,8 +23,8 @@
     // Configure the view for the selected state
 }
 
-- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
-    [super cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView model:(id)model eventTransmissionBlock:(nonnull CHGEventTransmissionBlock)eventTransmissionBlock{
+    [super cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];
 }
 
 @end

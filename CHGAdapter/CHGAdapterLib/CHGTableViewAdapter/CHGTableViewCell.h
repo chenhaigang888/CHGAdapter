@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UITableView+CHGTableViewAdapter.h"
 #import "CHGViewLifeCycleProtocol.h"
+#import "CHGViewMappingObject.h"
 
 @interface CHGTableViewCell : UITableViewCell<CHGViewLifeCycleProtocol>
 

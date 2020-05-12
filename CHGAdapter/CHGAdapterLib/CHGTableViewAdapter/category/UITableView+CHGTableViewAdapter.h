@@ -38,8 +38,6 @@ typedef void(^CHGTableViewDidSelectRowBlock)(UITableView * tableView, NSIndexPat
 ///设置没有数据的显示
 -(void)setEmptyDataShowWithTitle:(NSString*)title image:(NSString*)imageName;
 
-
-
 /**
  隐藏头部
  */
@@ -54,8 +52,5 @@ typedef void(^CHGTableViewDidSelectRowBlock)(UITableView * tableView, NSIndexPat
  自适应高度
  */
 -(void)autoHeight;
-
-//-(CHGTableViewAdapterData*)getAdapterData;
-//-(void)adapterData;
 
 @end

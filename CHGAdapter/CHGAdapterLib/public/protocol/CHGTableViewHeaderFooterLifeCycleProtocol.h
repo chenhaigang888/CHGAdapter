@@ -15,16 +15,16 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol CHGTableViewHeaderFooterLifeCycleProtocol <CHGViewPropertyProtocol>
 
 @property(nonatomic,assign) NSInteger section;
-@property(nonatomic,assign) CHGTableViewHeaderFooterViewType type;
+@property(nonatomic,assign) CHGAdapterViewType type;
 
 /**
  必须重写这个方法 子类应该在这个方法中给HeaderFooterView中的各个view设定value
  @param section 当前HeaderFooterView在UITableView中的位置
  @param tableView 当前HeaderFooterView所在的UITableView
- @param data 当前HeaderFooterView的数据
+ @param model 当前HeaderFooterView的数据
  @param type 当前类型是header或者footer
  */
--(void)headerFooterForSection:(NSInteger)section inTableView:(UITableView*)tableView withData:(id)data type:(CHGTableViewHeaderFooterViewType)type;
+-(void)headerFooterForSection:(NSInteger)section inTableView:(UITableView*)tableView model:(id)model type:(CHGAdapterViewType)type eventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock;
 
 /**
  将要复用
@@ -36,12 +36,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  headerFooterView将要显示
  */
--(void)headerFooterViewWillAppearWithType:(CHGTableViewHeaderFooterViewType)type;
+-(void)headerFooterViewWillAppearWithType:(CHGAdapterViewType)type;
 
 /**
  headerFooterView已经消失
  */
--(void)headerFooterViewDidDisAppearWithType:(CHGTableViewHeaderFooterViewType)type;
+-(void)headerFooterViewDidDisAppearWithType:(CHGAdapterViewType)type;
 
 @end
 

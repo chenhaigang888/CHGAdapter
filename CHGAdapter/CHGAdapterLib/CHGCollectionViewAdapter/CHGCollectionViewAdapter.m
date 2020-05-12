@@ -96,17 +96,15 @@
         [collectionView registerClass:NSClassFromString(identifier) forCellWithReuseIdentifier:identifier];
     }
     CHGCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    cell.eventTransmissionBlock = collectionView.eventTransmissionBlock;
-    [cell cellForRowAtIndexPath:indexPath targetView:collectionView withData:cellData];
-//    [cell cellForRowAtIndexPath:indexPath collectionView:collectionView withData:cellData];
+    [cell cellForRowAtIndexPath:indexPath targetView:collectionView model:cellData eventTransmissionBlock:collectionView.eventTransmissionBlock];
     return cell;
 }
 
--(UICollectionReusableView*)defaultReusableViewWithCollectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath headerFooterData:(id)headerFooterData{
+-(UICollectionReusableView*)defaultReusableViewWithCollectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath headerFooterData:(id)headerFooterData {
     [collectionView registerClass:[CHGCollectionReusableView class] forSupplementaryViewOfKind:kind withReuseIdentifier:@"CHGCollectionReusableView"];
     CHGCollectionReusableView * reusableView = (CHGCollectionReusableView*)[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"CHGCollectionReusableView" forIndexPath:indexPath];
-    reusableView.eventTransmissionBlock = collectionView.eventTransmissionBlock;
-    [reusableView reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind reusableViewData:headerFooterData];
+    
+    [reusableView reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:headerFooterData eventTransmissionBlock:collectionView.eventTransmissionBlock];
     return reusableView;
 }
 
@@ -152,8 +150,8 @@
         [collectionView registerClass:NSClassFromString(identifier) forSupplementaryViewOfKind:kind withReuseIdentifier:identifier];
     }
     CHGCollectionReusableView * reusableView = (CHGCollectionReusableView*)[collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:identifier forIndexPath:indexPath];
-    reusableView.eventTransmissionBlock = collectionView.eventTransmissionBlock;
-    [reusableView reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind reusableViewData:headerFooterData];
+    
+    [reusableView reusableViewForCollectionView:collectionView indexPath:indexPath kind:kind model:headerFooterData eventTransmissionBlock:collectionView.eventTransmissionBlock];
     return reusableView;
 }
 

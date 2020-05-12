@@ -23,7 +23,7 @@
     [super setSelected:selected animated:animated];
 }
 
-//-(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView withData:(id)data {
+//-(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView model:(id)model {
 //    [super cellForRowAtIndexPath:indexPath tableView:tableView withData:data];
 //    CHGTableViewAdapterData * adapterData = tableView.tableViewAdapter.adapterData;
 //    id recordData = adapterData.customData;
@@ -31,8 +31,8 @@
 //    self.textField.text = content;
 //}
 
-- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
-    [super cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView model:(id)model eventTransmissionBlock:(nonnull CHGEventTransmissionBlock)eventTransmissionBlock{
+    [super cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];
     CHGTableViewAdapterData * adapterData = ((UITableView*)self.targetView).tableViewAdapter.adapterData;
     id recordData = adapterData.customData;
     id content = recordData[indexPath];//为了方便我这里使用indexPath作为key来存储数据。也可以通过其他参数，比如model的id字段

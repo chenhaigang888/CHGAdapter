@@ -26,9 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
  必须重写这个方法 子类应该在这个方法中给cell中的各个view设定value
  @param indexPath 当前cell在UITableView中的位置
  @param targetView 当前cell所在的UITableView、UICollectionView
- @param data 当前Cell的数据
+ @param model 当前Cell的数据
  */
--(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView*)targetView withData:(id)data;
+-(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView*)targetView model:(id)model eventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock;
 
 /**
  将被复用

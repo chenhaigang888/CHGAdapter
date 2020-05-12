@@ -12,9 +12,10 @@
 #import "CHGSubDataOfKeyPathDelegate.h"
 
 ///CHGTableViewHeaderFooterView类型
-typedef NS_ENUM(NSUInteger, CHGTableViewHeaderFooterViewType) {
-    CHGTableViewHeaderFooterViewHeaderType, //tableView的HeaderView
-    CHGTableViewHeaderFooterViewFooterType  //tableView的FooterView
+typedef NS_ENUM(NSUInteger, CHGAdapterViewType) {
+    CHGAdapterViewTypeHeaderType, //tableView的HeaderView
+    CHGAdapterViewTypeCellType, //tableView的cell
+    CHGAdapterViewTypeFooterType  //tableView的FooterView
 };
 
 /**
@@ -114,7 +115,7 @@ typedef NS_ENUM(NSUInteger, CHGTableViewHeaderFooterViewType) {
  @param section section
  @return 返回headerFooter的数据
  */
--(id)headerFooterDataWithType:(CHGTableViewHeaderFooterViewType)type section:(NSInteger)section;
+-(id)headerFooterDataWithType:(CHGAdapterViewType)type section:(NSInteger)section;
 
 
 @end

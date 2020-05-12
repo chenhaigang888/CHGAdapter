@@ -15,14 +15,14 @@
     // Initialization code
 }
 
-//-(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView withData:(id)data {
+//-(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView model:(id)model {
 //    [super cellForRowAtIndexPath:indexPath tableView:tableView withData:data];
 //    [self.btn setTitle:data forState:UIControlStateNormal];
 //}
 
-- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
-    [super cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
-    [self.btn setTitle:data forState:UIControlStateNormal];
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView model:(id)model eventTransmissionBlock:(nonnull CHGEventTransmissionBlock)eventTransmissionBlock{
+    [super cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];
+    [self.btn setTitle:model forState:UIControlStateNormal];
 }
 
 -(IBAction)btnTap:(id)sender {

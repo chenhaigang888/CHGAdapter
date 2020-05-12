@@ -19,14 +19,14 @@
     self.title.textAlignment = NSTextAlignmentCenter;
 }
 
-//-(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView *)collectionView withData:(id)data {
+//-(void)cellForRowAtIndexPath:(NSIndexPath *)indexPath collectionView:(UICollectionView *)collectionView model:(id)model {
 //    [super cellForRowAtIndexPath:indexPath collectionView:collectionView withData:data];
 //    self.title.text = [NSString stringWithFormat:@"%@",data];
 //}
 
-- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView withData:(id)data {
-    [super cellForRowAtIndexPath:indexPath targetView:targetView withData:data];
-    self.title.text = [NSString stringWithFormat:@"%@",data];
+- (void)cellForRowAtIndexPath:(NSIndexPath *)indexPath targetView:(UIView *)targetView model:(id)model eventTransmissionBlock:(nonnull CHGEventTransmissionBlock)eventTransmissionBlock{
+    [super cellForRowAtIndexPath:indexPath targetView:targetView model:model eventTransmissionBlock:eventTransmissionBlock];
+    self.title.text = [NSString stringWithFormat:@"%@",model];
 }
 
 @end

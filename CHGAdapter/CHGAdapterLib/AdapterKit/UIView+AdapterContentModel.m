@@ -111,8 +111,8 @@ static const void * chg_collectionViewFooterSizeKey = &chg_collectionViewFooterS
 
 #pragma - mark CHGTableViewHeaderFooterModelProtocol method
 
-- (NSString *)headerFooterClassInTableViw:(UITableView *)tableView section:(NSInteger)section type:(CHGTableViewHeaderFooterViewType)type {
-    if (type == CHGTableViewHeaderFooterViewHeaderType) {
+- (NSString *)headerFooterClassInTableViw:(UITableView *)tableView section:(NSInteger)section type:(CHGAdapterViewType)type {
+    if (type == CHGAdapterViewTypeHeaderType) {
         if (self.chg_tableViewHeaderClassName.length == 0) {
             return DEFAULT_TABLEVIEW_HEADER_FOOTER_VIEW;
         } else {
@@ -127,8 +127,8 @@ static const void * chg_collectionViewFooterSizeKey = &chg_collectionViewFooterS
     }
 }
 
-- (CGFloat)headerFooterHeighInTableViw:(UITableView *)tableView section:(NSInteger)section type:(CHGTableViewHeaderFooterViewType)type {
-    if (type == CHGTableViewHeaderFooterViewHeaderType) {
+- (CGFloat)headerFooterHeighInTableViw:(UITableView *)tableView section:(NSInteger)section type:(CHGAdapterViewType)type {
+    if (type == CHGAdapterViewTypeHeaderType) {
         if (self.chg_tableViewHeaderHeight == 0) {
             UIView * view = [tableView.tableViewAdapter headerFooterDataWithType:type section:section];
             return view.frame.size.height;
