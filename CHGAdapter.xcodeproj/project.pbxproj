@@ -32,7 +32,6 @@
 		854024A8246A48A10026468D /* UserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 854024A7246A48A10026468D /* UserView.m */; };
 		854024AB246A48E40026468D /* InteractionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 854024AA246A48E40026468D /* InteractionView.m */; };
 		858458992468E36400EC1876 /* CHGViewMappingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 858458982468E36400EC1876 /* CHGViewMappingObject.m */; };
-		8F0EE8BE21412875004058D7 /* CHGScrollListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0EE8BD21412875004058D7 /* CHGScrollListener.m */; };
 		8F0EF9A0210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0EF99F210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m */; };
 		8F45862B20AAA3C500C5C136 /* CollectionViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45862920AAA3C500C5C136 /* CollectionViewViewController.m */; };
 		8F45862C20AAA3C500C5C136 /* CollectionViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F45862A20AAA3C500C5C136 /* CollectionViewViewController.xib */; };
@@ -202,6 +201,7 @@
 		845334CE229E8BF80033BEB0 /* CHGViewPropertyProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGViewPropertyProtocol.h; sourceTree = "<group>"; };
 		84B2936F22993DB3000AF03C /* CHGTableViewHeaderFooterLifeCycleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGTableViewHeaderFooterLifeCycleProtocol.h; sourceTree = "<group>"; };
 		84B293702299417E000AF03C /* CHGCollectionReusableViewLifeCycleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGCollectionReusableViewLifeCycleProtocol.h; sourceTree = "<group>"; };
+		85349D1B246BE9EC00776773 /* CHGScrollViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGScrollViewDelegate.h; sourceTree = "<group>"; };
 		85402497246A405A0026468D /* DistributionDataToViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DistributionDataToViewViewController.h; sourceTree = "<group>"; };
 		85402498246A405A0026468D /* DistributionDataToViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DistributionDataToViewViewController.m; sourceTree = "<group>"; };
 		85402499246A405A0026468D /* DistributionDataToViewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistributionDataToViewViewController.xib; sourceTree = "<group>"; };
@@ -216,8 +216,6 @@
 		854024AA246A48E40026468D /* InteractionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InteractionView.m; sourceTree = "<group>"; };
 		858458972468E36400EC1876 /* CHGViewMappingObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGViewMappingObject.h; sourceTree = "<group>"; };
 		858458982468E36400EC1876 /* CHGViewMappingObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGViewMappingObject.m; sourceTree = "<group>"; };
-		8F0EE8BC21412875004058D7 /* CHGScrollListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGScrollListener.h; sourceTree = "<group>"; };
-		8F0EE8BD21412875004058D7 /* CHGScrollListener.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGScrollListener.m; sourceTree = "<group>"; };
 		8F0EF99E210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+CHGSimpleTableViewAdapter.h"; sourceTree = "<group>"; };
 		8F0EF99F210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CHGSimpleTableViewAdapter.m"; sourceTree = "<group>"; };
 		8F2F9EDC2118651D00DD4946 /* CHGAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGAdapter.h; sourceTree = "<group>"; };
@@ -626,6 +624,7 @@
 				84B2936F22993DB3000AF03C /* CHGTableViewHeaderFooterLifeCycleProtocol.h */,
 				84B293702299417E000AF03C /* CHGCollectionReusableViewLifeCycleProtocol.h */,
 				845334CE229E8BF80033BEB0 /* CHGViewPropertyProtocol.h */,
+				85349D1B246BE9EC00776773 /* CHGScrollViewDelegate.h */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
@@ -703,8 +702,6 @@
 		8F0EE8BB21412854004058D7 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				8F0EE8BC21412875004058D7 /* CHGScrollListener.h */,
-				8F0EE8BD21412875004058D7 /* CHGScrollListener.m */,
 				858458972468E36400EC1876 /* CHGViewMappingObject.h */,
 				858458982468E36400EC1876 /* CHGViewMappingObject.m */,
 			);
@@ -1705,7 +1702,6 @@
 				8FB8F19221490F9500B96551 /* GoodsTableViewCell.m in Sources */,
 				8F99E7B12126A4960057C298 /* Test2CollectionReusableView.m in Sources */,
 				8FB8F1A8214932D200B96551 /* CVKeyPathViewController.m in Sources */,
-				8F0EE8BE21412875004058D7 /* CHGScrollListener.m in Sources */,
 				8F99E7A02126A15B0057C298 /* Test2CellModel.m in Sources */,
 				8F99E7B92126C3170057C298 /* TestLayout.m in Sources */,
 				854024A8246A48A10026468D /* UserView.m in Sources */,

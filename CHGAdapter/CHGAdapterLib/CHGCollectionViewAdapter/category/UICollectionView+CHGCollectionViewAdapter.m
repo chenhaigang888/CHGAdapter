@@ -17,7 +17,7 @@ static const void * collectionViewAdapterKey = &collectionViewAdapterKey;
 static const void * eventTransmissionBlockKey = &eventTransmissionBlockKey;
 static const void * collectionViewEmptyDataShowKey = &collectionViewEmptyDataShowKey;
 static const void * collectionViewDidSelectItemAtIndexPathBlockKey = &collectionViewDidSelectItemAtIndexPathBlockKey;
-static const void * scrollListenerKey = &scrollListenerKey;
+static const void * scrollViewDelegatesKey = &scrollViewDelegatesKey;
 
 @implementation UICollectionView (CHGCollectionViewAdapter)
 
@@ -111,18 +111,32 @@ static const void * scrollListenerKey = &scrollListenerKey;
     self.emptyDataSetDelegate = delegate;
 }
 
--(void)setScrollListener:(CHGScrollListener *)scrollListener {
-    objc_setAssociatedObject(self, scrollListenerKey, scrollListener, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+- (void)setScrollViewDelegates:(NSMutableArray<id<CHGScrollViewDelegate>> *)scrollViewDelegates {
+    objc_setAssociatedObject(self, scrollViewDelegatesKey, scrollViewDelegates, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (CHGScrollListener *)scrollListener {
-    id obj = objc_getAssociatedObject(self, scrollListenerKey);
+
+- (NSMutableArray<id<CHGScrollViewDelegate>> *)scrollViewDelegates {
+    id obj = objc_getAssociatedObject(self, scrollViewDelegatesKey);
     if (!obj) {
-        self.scrollListener = [CHGScrollListener new];
-        return self.scrollListener;
+        self.scrollViewDelegates = [NSMutableArray array];
+        return self.scrollViewDelegates;
     }
     return obj;
 }
+
+///添加滚动监听
+-(void)addCHGScrollViewDelegate:(id<CHGScrollViewDelegate>)scrollViewDelegate {
+    if (scrollViewDelegate && ![self.scrollViewDelegates containsObject:scrollViewDelegate]) {
+        [self.scrollViewDelegates addObject:scrollViewDelegate];
+    }
+}
+
+-(void)removeCHGScrollViewDelegate:(id<CHGScrollViewDelegate>)scrollViewDelegate {
+    [self.scrollViewDelegates removeObject:scrollViewDelegate];
+}
+
 
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CHGTableViewAdapter.h"
 #import "CHGTableViewAdapterDefine.h"
-#import "CHGScrollListener.h"
+#import "CHGScrollViewDelegate.h"
 @class CHGTableViewEmptyDataShow;
 @class CHGTableViewAdapter;
 
@@ -32,9 +32,8 @@ typedef void(^CHGTableViewDidSelectRowBlock)(UITableView * tableView, NSIndexPat
 @property(nonatomic,copy) CHGTableViewDidSelectRowBlock tableViewDidSelectRowBlock;
 ///当页面没有数据的时候的显示配置
 @property(nonatomic,strong) CHGTableViewEmptyDataShow * tableViewEmptyDataShow;
-///监听滑动
-@property(nonatomic,strong) CHGScrollListener * scrollListener;
-
+///所有的滚动视图
+@property (atomic, copy) NSArray<id<CHGScrollViewDelegate>> *scrollViewDelegates;
 ///设置没有数据的显示
 -(void)setEmptyDataShowWithTitle:(NSString*)title image:(NSString*)imageName;
 
@@ -52,5 +51,10 @@ typedef void(^CHGTableViewDidSelectRowBlock)(UITableView * tableView, NSIndexPat
  自适应高度
  */
 -(void)autoHeight;
+
+///添加滚动监听
+-(void)addCHGScrollViewDelegate:(id<CHGScrollViewDelegate>)scrollViewDelegate;
+///移除滚动监听
+-(void)removeCHGScrollViewDelegate:(id<CHGScrollViewDelegate>)scrollViewDelegate;
 
 @end

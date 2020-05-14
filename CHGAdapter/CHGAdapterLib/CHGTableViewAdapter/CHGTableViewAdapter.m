@@ -9,7 +9,7 @@
 #import "CHGTableViewAdapter.h"
 #import "CHGTableViewCell.h"
 #import "CHGTableViewHeaderFooterView.h"
-
+#import "CHGScrollViewDelegate.h"
 
 @implementation CHGTableViewAdapter
 
@@ -261,102 +261,116 @@
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    UITableView * tableView = (UITableView *)scrollView;
-    if(tableView.scrollListener && tableView.scrollListener.scrollViewDidScrollBlock){
-        tableView.scrollListener.scrollViewDidScrollBlock(scrollView);
+    for (id<CHGScrollViewDelegate> scrollViewDelegate in ((UITableView *)scrollView).scrollViewDelegates) {
+        if ([scrollViewDelegate respondsToSelector:@selector(chg_scrollViewDidScroll:)]) {
+            [scrollViewDelegate chg_scrollViewDidScroll:scrollView];
+        }
     }
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView NS_AVAILABLE_IOS(3_2){
-    UITableView * tableView = (UITableView *)scrollView;
-    if(tableView.scrollListener && tableView.scrollListener.scrollViewDidZoomBlock){
-        tableView.scrollListener.scrollViewDidZoomBlock(scrollView);
+    for (id<CHGScrollViewDelegate> scrollViewDelegate in ((UITableView *)scrollView).scrollViewDelegates) {
+        if ([scrollViewDelegate respondsToSelector:@selector(chg_scrollViewDidZoom:)]) {
+            [scrollViewDelegate chg_scrollViewDidZoom:scrollView];
+        }
     }
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    UITableView * tableView = (UITableView *)scrollView;
-    if(tableView.scrollListener && tableView.scrollListener.scrollViewWillBeginDraggingBlock){
-        tableView.scrollListener.scrollViewWillBeginDraggingBlock(scrollView);
+    for (id<CHGScrollViewDelegate> scrollViewDelegate in ((UITableView *)scrollView).scrollViewDelegates) {
+        if ([scrollViewDelegate respondsToSelector:@selector(chg_scrollViewWillBeginDragging:)]) {
+            [scrollViewDelegate chg_scrollViewWillBeginDragging:scrollView];
+        }
     }
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset NS_AVAILABLE_IOS(5_0){
-    UITableView * tableView = (UITableView *)scrollView;
-    if(tableView.scrollListener && tableView.scrollListener.scrollViewWillEndDraggingBlock){
-        tableView.scrollListener.scrollViewWillEndDraggingBlock(scrollView, velocity, *targetContentOffset);
+    for (id<CHGScrollViewDelegate> scrollViewDelegate in ((UITableView *)scrollView).scrollViewDelegates) {
+        if ([scrollViewDelegate respondsToSelector:@selector(chg_scrollViewWillEndDragging:withVelocity:targetContentOffset:)]) {
+            [scrollViewDelegate chg_scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset];
+        }
     }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    UITableView * tableView = (UITableView *)scrollView;
-    if(tableView.scrollListener && tableView.scrollListener.scrollViewDidEndDraggingBlock){
-        tableView.scrollListener.scrollViewDidEndDraggingBlock(scrollView, decelerate);
+    for (id<CHGScrollViewDelegate> scrollViewDelegate in ((UITableView *)scrollView).scrollViewDelegates) {
+        if ([scrollViewDelegate respondsToSelector:@selector(chg_scrollViewDidEndDragging:willDecelerate:)]) {
+            [scrollViewDelegate chg_scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
+        }
     }
 }
 
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
-    UITableView * tableView = (UITableView *)scrollView;
-    if(tableView.scrollListener && tableView.scrollListener.scrollViewWillBeginDeceleratingBlock){
-        tableView.scrollListener.scrollViewWillBeginDeceleratingBlock(scrollView);
+    for (id<CHGScrollViewDelegate> scrollViewDelegate in ((UITableView *)scrollView).scrollViewDelegates) {
+        if ([scrollViewDelegate respondsToSelector:@selector(chg_scrollViewWillBeginDecelerating:)]) {
+            [scrollViewDelegate chg_scrollViewWillBeginDecelerating:scrollView];
+        }
     }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    UITableView * tableView = (UITableView *)scrollView;
-    if(tableView.scrollListener && tableView.scrollListener.scrollViewDidEndDeceleratingBlock){
-        tableView.scrollListener.scrollViewDidEndDeceleratingBlock(scrollView);
+    for (id<CHGScrollViewDelegate> scrollViewDelegate in ((UITableView *)scrollView).scrollViewDelegates) {
+        if ([scrollViewDelegate respondsToSelector:@selector(chg_scrollViewDidEndDecelerating:)]) {
+            [scrollViewDelegate chg_scrollViewDidEndDecelerating:scrollView];
+        }
     }
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
-    UITableView * tableView = (UITableView *)scrollView;
-    if(tableView.scrollListener && tableView.scrollListener.scrollViewDidEndScrollingAnimationBlock){
-        tableView.scrollListener.scrollViewDidEndScrollingAnimationBlock(scrollView);
+    for (id<CHGScrollViewDelegate> scrollViewDelegate in ((UITableView *)scrollView).scrollViewDelegates) {
+        if ([scrollViewDelegate respondsToSelector:@selector(chg_scrollViewDidEndScrollingAnimation:)]) {
+            [scrollViewDelegate chg_scrollViewDidEndScrollingAnimation:scrollView];
+        }
     }
 }
 
 - (nullable UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
-    UITableView * tableView = (UITableView *)scrollView;
-    if(tableView.scrollListener && tableView.scrollListener.viewForZoomingBlock){
-        return tableView.scrollListener.viewForZoomingBlock(scrollView);
+    for (id<CHGScrollViewDelegate> scrollViewDelegate in ((UITableView *)scrollView).scrollViewDelegates) {
+        if ([scrollViewDelegate respondsToSelector:@selector(chg_viewForZoomingInScrollView:)]) {
+            return [scrollViewDelegate chg_viewForZoomingInScrollView:scrollView];
+        }
     }
     return nil;
 }
 
 - (void)scrollViewWillBeginZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view NS_AVAILABLE_IOS(3_2){
-    UITableView * tableView = (UITableView *)scrollView;
-    if(tableView.scrollListener && tableView.scrollListener.scrollViewWillBeginZoomingBlock){
-        tableView.scrollListener.scrollViewWillBeginZoomingBlock(scrollView, view);
+    for (id<CHGScrollViewDelegate> scrollViewDelegate in ((UITableView *)scrollView).scrollViewDelegates) {
+        if ([scrollViewDelegate respondsToSelector:@selector(chg_scrollViewWillBeginZooming:withView:)]) {
+            [scrollViewDelegate chg_scrollViewWillBeginZooming:scrollView withView:view];
+        }
     }
 }
 
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(nullable UIView *)view atScale:(CGFloat)scale{
-    UITableView * tableView = (UITableView *)scrollView;
-    if(tableView.scrollListener && tableView.scrollListener.scrollViewDidEndZoomingBlock){
-        tableView.scrollListener.scrollViewDidEndZoomingBlock(scrollView, view, scale);
+    for (id<CHGScrollViewDelegate> scrollViewDelegate in ((UITableView *)scrollView).scrollViewDelegates) {
+        if ([scrollViewDelegate respondsToSelector:@selector(chg_scrollViewDidEndZooming:withView:atScale:)]) {
+            [scrollViewDelegate chg_scrollViewDidEndZooming:scrollView withView:view atScale:scale];
+        }
     }
 }
 
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView{
-    UITableView * tableView = (UITableView *)scrollView;
-    if(tableView.scrollListener && tableView.scrollListener.scrollViewShouldScrollToTopBlock){
-        return tableView.scrollListener.scrollViewShouldScrollToTopBlock(scrollView);
+    for (id<CHGScrollViewDelegate> scrollViewDelegate in ((UITableView *)scrollView).scrollViewDelegates) {
+        if ([scrollViewDelegate respondsToSelector:@selector(chg_scrollViewShouldScrollToTop:)]) {
+            return [scrollViewDelegate chg_scrollViewShouldScrollToTop:scrollView];
+        }
     }
     return scrollView.scrollsToTop;
 }
 
 - (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView{
-    UITableView * tableView = (UITableView *)scrollView;
-    if(tableView.scrollListener && tableView.scrollListener.scrollViewDidScrollToTopBlock){
-        tableView.scrollListener.scrollViewDidScrollToTopBlock(scrollView);
+    for (id<CHGScrollViewDelegate> scrollViewDelegate in ((UITableView *)scrollView).scrollViewDelegates) {
+        if ([scrollViewDelegate respondsToSelector:@selector(chg_scrollViewDidScrollToTop:)]) {
+            [scrollViewDelegate chg_scrollViewDidScrollToTop:scrollView];
+        }
     }
 }
 
 - (void)scrollViewDidChangeAdjustedContentInset:(UIScrollView *)scrollView API_AVAILABLE(ios(11.0), tvos(11.0)) {
-    UITableView * tableView = (UITableView *)scrollView;
-    if(tableView.scrollListener && tableView.scrollListener.scrollViewDidChangeAdjustedContentInsetBlock){
-        tableView.scrollListener.scrollViewDidChangeAdjustedContentInsetBlock(scrollView);
+    for (id<CHGScrollViewDelegate> scrollViewDelegate in ((UITableView *)scrollView).scrollViewDelegates) {
+        if ([scrollViewDelegate respondsToSelector:@selector(chg_scrollViewDidChangeAdjustedContentInset:)]) {
+            [scrollViewDelegate chg_scrollViewDidChangeAdjustedContentInset:scrollView];
+        }
     }
 }
 

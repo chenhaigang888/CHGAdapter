@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CHGTableViewAdapterDefine.h"
 #import "CHGCollectionViewEmptyDataShow.h"
-#import "CHGScrollListener.h"
+#import "CHGScrollViewDelegate.h"
 @class CHGCollectionViewAdapter;
 
 
@@ -24,9 +24,16 @@ typedef void(^CHGCollectionViewDidSelectItemAtIndexPathBlock)(UICollectionView *
 @property(nonatomic,strong) CHGCollectionViewEmptyDataShow * collectionViewEmptyDataShow;
 ///collectionView item 点击时候的回调
 @property(nonatomic,copy) CHGCollectionViewDidSelectItemAtIndexPathBlock collectionViewDidSelectItemAtIndexPathBlock;
-@property(nonatomic,copy) CHGScrollListener * scrollListener;
+
+///所有的滚动视图
+@property (nonatomic, strong) NSMutableArray<id<CHGScrollViewDelegate>> *scrollViewDelegates;
 
 ///设置没有数据的显示
 -(void)setEmptyDataShowWithTitle:(NSString*)title image:(NSString*)imageName;
+
+///添加滚动监听
+-(void)addCHGScrollViewDelegate:(id<CHGScrollViewDelegate>)scrollViewDelegate;
+///移除滚动监听
+-(void)removeCHGScrollViewDelegate:(id<CHGScrollViewDelegate>)scrollViewDelegate;
 
 @end

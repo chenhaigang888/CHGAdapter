@@ -17,7 +17,7 @@ static const void * tableViewAdapterKey = &tableViewAdapterKey;
 static const void * eventTransmissionBlockKey = &eventTransmissionBlockKey;
 static const void * tableViewDidSelectRowBlockKey = &tableViewDidSelectRowBlockKey;
 static const void * tableViewEmptyDataShowKey = &tableViewEmptyDataShowKey;
-static const void * scrollListenerKey = &scrollListenerKey;
+static const void * scrollViewDelegatesKey = &scrollViewDelegatesKey;
 
 @implementation UITableView (CHGTableViewAdapter)
 
@@ -85,19 +85,6 @@ static const void * scrollListenerKey = &scrollListenerKey;
     self.dataSource = tableViewAdapter;
 }
 
--(void)setScrollListener:(CHGScrollListener *)scrollListener {
-    objc_setAssociatedObject(self, scrollListenerKey, scrollListener, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (CHGScrollListener *)scrollListener {
-    id obj = objc_getAssociatedObject(self, scrollListenerKey);
-    if (!obj) {
-        self.scrollListener = [CHGScrollListener new];
-        return self.scrollListener;
-    }
-    return obj;
-}
-
 -(void)setEventTransmissionBlock:(CHGEventTransmissionBlock)eventTransmissionBlock {
     objc_setAssociatedObject(self, eventTransmissionBlockKey, eventTransmissionBlock, OBJC_ASSOCIATION_COPY);
 }
@@ -152,6 +139,36 @@ static const void * scrollListenerKey = &scrollListenerKey;
     self.rowHeight = UITableViewAutomaticDimension;
     CHGTableViewAdapter * adapter = self.tableViewAdapter;
     adapter.cellHeight = -1;
+}
+
+- (void)setScrollViewDelegates:(NSMutableArray<id<CHGScrollViewDelegate>> *)scrollViewDelegates {
+    objc_setAssociatedObject(self, scrollViewDelegatesKey, scrollViewDelegates, OBJC_ASSOCIATION_COPY);
+}
+
+
+
+- (NSMutableArray<id<CHGScrollViewDelegate>> *)scrollViewDelegates {
+    id obj = objc_getAssociatedObject(self, scrollViewDelegatesKey);
+    if (!obj) {
+        self.scrollViewDelegates = [NSMutableArray array];
+        return self.scrollViewDelegates;
+    }
+    return obj;
+}
+
+///添加滚动监听
+-(void)addCHGScrollViewDelegate:(id<CHGScrollViewDelegate>)scrollViewDelegate {
+    if (scrollViewDelegate && ![self.scrollViewDelegates containsObject:scrollViewDelegate]) {
+        NSMutableArray * temp = [self.scrollViewDelegates mutableCopy];
+        [temp addObject:scrollViewDelegate];
+        self.scrollViewDelegates = temp;
+    }
+}
+
+-(void)removeCHGScrollViewDelegate:(id<CHGScrollViewDelegate>)scrollViewDelegate {
+    NSMutableArray * temp = [self.scrollViewDelegates mutableCopy];
+    [temp removeObject:scrollViewDelegate];
+    self.scrollViewDelegates = temp;
 }
 
 @end

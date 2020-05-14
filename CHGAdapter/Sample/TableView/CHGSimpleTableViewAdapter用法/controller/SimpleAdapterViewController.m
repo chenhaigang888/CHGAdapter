@@ -12,7 +12,7 @@
 #import "FooterModel.h"
 #import "CHGAdapter.h"
 
-@interface SimpleAdapterViewController ()
+@interface SimpleAdapterViewController ()<CHGScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -46,10 +46,14 @@
         return nil;
     };
     
-    self.tableView.scrollListener.scrollViewDidScrollBlock = ^(UIScrollView *scrollView) {
-        NSLog(@"y:%f",scrollView.contentOffset.y);
-    };
+
+    [self.tableView addCHGScrollViewDelegate:self];
     
+}
+
+
+- (void)chg_scrollViewDidScroll:(UIScrollView *)scrollView {
+      NSLog(@"y:%f",scrollView.contentOffset.y);
 }
 
 - (void)didReceiveMemoryWarning {
