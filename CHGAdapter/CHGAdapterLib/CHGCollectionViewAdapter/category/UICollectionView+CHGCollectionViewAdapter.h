@@ -26,7 +26,7 @@ typedef void(^CHGCollectionViewDidSelectItemAtIndexPathBlock)(UICollectionView *
 @property(nonatomic,copy) CHGCollectionViewDidSelectItemAtIndexPathBlock collectionViewDidSelectItemAtIndexPathBlock;
 
 ///所有的滚动视图
-@property (nonatomic, strong) NSMutableArray<id<CHGScrollViewDelegate>> *scrollViewDelegates;
+@property (nonatomic, copy) NSArray<id<CHGScrollViewDelegate>> *scrollViewDelegates;
 
 ///设置没有数据的显示
 -(void)setEmptyDataShowWithTitle:(NSString*)title image:(NSString*)imageName;

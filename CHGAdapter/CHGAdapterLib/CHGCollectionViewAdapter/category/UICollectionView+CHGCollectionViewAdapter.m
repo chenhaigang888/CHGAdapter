@@ -112,15 +112,15 @@ static const void * scrollViewDelegatesKey = &scrollViewDelegatesKey;
 }
 
 
-- (void)setScrollViewDelegates:(NSMutableArray<id<CHGScrollViewDelegate>> *)scrollViewDelegates {
-    objc_setAssociatedObject(self, scrollViewDelegatesKey, scrollViewDelegates, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setScrollViewDelegates:(NSArray<id<CHGScrollViewDelegate>> *)scrollViewDelegates {
+    objc_setAssociatedObject(self, scrollViewDelegatesKey, scrollViewDelegates, OBJC_ASSOCIATION_COPY);
 }
 
 
-- (NSMutableArray<id<CHGScrollViewDelegate>> *)scrollViewDelegates {
+- (NSArray<id<CHGScrollViewDelegate>> *)scrollViewDelegates {
     id obj = objc_getAssociatedObject(self, scrollViewDelegatesKey);
     if (!obj) {
-        self.scrollViewDelegates = [NSMutableArray array];
+        self.scrollViewDelegates = [NSMutableArray<id<CHGScrollViewDelegate>> array];
         return self.scrollViewDelegates;
     }
     return obj;
@@ -129,12 +129,16 @@ static const void * scrollViewDelegatesKey = &scrollViewDelegatesKey;
 ///添加滚动监听
 -(void)addCHGScrollViewDelegate:(id<CHGScrollViewDelegate>)scrollViewDelegate {
     if (scrollViewDelegate && ![self.scrollViewDelegates containsObject:scrollViewDelegate]) {
-        [self.scrollViewDelegates addObject:scrollViewDelegate];
+        NSMutableArray * temp = [self.scrollViewDelegates mutableCopy];
+        [temp addObject:scrollViewDelegate];
+        self.scrollViewDelegates = temp;
     }
 }
 
 -(void)removeCHGScrollViewDelegate:(id<CHGScrollViewDelegate>)scrollViewDelegate {
-    [self.scrollViewDelegates removeObject:scrollViewDelegate];
+    NSMutableArray * temp = [self.scrollViewDelegates mutableCopy];
+    [temp removeObject:scrollViewDelegate];
+    self.scrollViewDelegates = temp;
 }
 
 
