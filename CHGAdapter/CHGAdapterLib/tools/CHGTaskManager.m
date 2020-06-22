@@ -32,7 +32,6 @@
     self = [super init];
     if (self) {
         [self addRunloopObserver];
-        [self timer];
     }
     return self;
 }
