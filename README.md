@@ -17,228 +17,656 @@ swift版： https://github.com/chenhaigang888/CHGAdapter_swift
 > pod 'CHGAdapter', '~> 1.1.3'
 - 导入头文件 #import "CHGAdapter.h"
 
-### example 最简单的用法（不使用Adapter）
+### example （UITableView）
+以下Demo为swift代码所写，但是和OC版本没有任何区别
+
+- 1.显示cell
 
 ```
-@interface SimpleAdapterViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+import UIKit
 
-@end
+/// 展示TableView中只有cell的用法
+class Base1ViewController: UIViewController {
 
-@implementation SimpleAdapterViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.tableView.cellDatas = @[
-                                 [[AddressNoSelectModel alloc] initWithStatus:0],
-                                 [[AddressNoSelectModel alloc] initWithStatus:1],
-                                 [[AddressNoSelectModel alloc] initWithStatus:1]
-                                 ];
-    self.tableView.headerDatas = @[
-                                   [[HeaderModel alloc] initWithHeaderTitle:@"没有选择地址的Header"],
-                                   [[HeaderModel alloc] initWithHeaderTitle:@"已经选择地址的Header"]
-                                   ];
-    self.tableView.footerDatas = @[
-                                   [[FooterModel alloc] initWithFooterTitle:@"没有选择地址的Footer"],
-                                   [[FooterModel alloc] initWithFooterTitle:@"已经选择地址的Footer"]
-                                   ];
+    @IBOutlet weak var tableView: UITableView!
     
-    //cell 被点击
-    self.tableView.tableViewDidSelectRowBlock = ^(UITableView *tableView, NSIndexPath *indexPath, id itemData) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "歌曲"
+        tableView.cellDatas = [getSongs()!]
+    }
+
+    func getSongs() -> [Any]? {
+        var songs = [Any]()
+        for item in ["七里香","青花瓷","简单爱","双截棍","夜曲","以父之名","稻香","可爱女人","红尘客栈","床边故事","跨时代"] {
+            songs.append(SongsModel(name: item))
+        }
+        return songs
         
-    };
+    }
+}
+
+```
+
+- 2.显示header和footer
+
+```
+import UIKit
+
+/// 展示TableView中存在headerFooterView和cell的用法
+class Base2ViewController: UIViewController {
+
+    @IBOutlet weak var tableView: UITableView!
     
-    // cell header footer 的按钮、输入框等返回的事件
-    self.tableView.eventTransmissionBlock = ^id(id target, id params, NSInteger tag, CHGCallBack callBack) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "展示TableView中存在headerFooterView和cell的用法"
+        tableView.headerDatas = getHeaderModels()
+        tableView.cellDatas = [getSongs1(),getSongs2()]
+        tableView.footerDatas = getFooterModels()
+    }
+    
+    ///专辑1数据
+    func getSongs1() -> [Any] {
+        var songs = [Any]()
+        for item in ["半兽人","半岛铁盒","暗号","龙拳","火车叨位去","分裂（离开）","爷爷泡的茶","回到过去","米兰的小铁匠","最后的战役"] {
+            songs.append(SongsModel(name: item))
+        }
+        return songs
+    }
+    
+    ///专辑2数据
+    func getSongs2() -> [Any] {
+        var songs = [Any]()
+        for item in ["爱在西元前","爸我回来了","简单爱","忍者","开不了口","上海一九四三","对不起","威廉古堡","双截棍","安静"] {
+            songs.append(SongsModel(name: item))
+        }
+        return songs
+    }
+    
+    ///headerView数据
+    func getHeaderModels() -> [Any]? {
+        return [Album.init(name: "八度空间", createTime: "2002年7月18日"),
+                Album.init(name: "范特西", createTime: "2001年9月20日")]
+    }
+    
+    ///footerView数据
+    func getFooterModels() -> [Any]? {
+        return [AlbumDesc.init(desc: "《八度空间》这张专辑的创作灵感来自周杰伦平时看的一些电影和音乐录影带。"),
+                AlbumDesc.init(desc: "《范特西》的专辑名称来源是英文“Fantasy”的发音，意为范特西范特西(3张)“幻想” 。")]
+    }
+
+}
+
+```
+
+- 3.cell点击处理
+
+```
+import UIKit
+
+class Base3ViewController: UIViewController {
+
+    @IBOutlet weak var tableView: UITableView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "基础3（cell点击处理）"
+        tableView.cellDatas = [getSongs()]
         
-        return nil;
-    };
+        tableView.setTableViewDidSelectRowBlock { (tableView, indexPath, itemData) in
+            guard let model:SongsModel = itemData as? SongsModel else { return }
+            print("当前点击：\(model.name!)")
+        }
+    }
+
+    func getSongs() -> [Any] {
+        var songs = [Any]()
+        for item in ["七里香","青花瓷","简单爱","双截棍","夜曲","以父之名","稻香","可爱女人","红尘客栈","床边故事","跨时代"] {
+            songs.append(SongsModel(name: item))
+        }
+        return songs
+        
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-@end
 
 ```
 
-### example  UITableView  (使用Adapter)
+- 4.cell、headerFooterView中的事件传递到ViewController中
 
 ```
-#import "ViewController.h"
-#import "CHGTableViewAdapter.h"
+import UIKit
 
-@interface ViewController ()
+class Base4ViewController: UIViewController {
 
-@property(nonatomic,weak) IBOutlet UITableView * tableView;
-@property(nonatomic,strong) CHGTableViewAdapter * adapter;
-@property(nonatomic,strong) CHGTableViewAdapterData * adapterData;
-
-@end
-
-@implementation ViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.adapter.adapterData = self.adapterData;
-    self.tableView.tableViewAdapter = self.adapter;
-    [self.tableView setEmptyDataShowWithTitle:@"暂无数据" image:@"icon_dl_xsmm"];
-    self.tableView.eventTransmissionBlock = ^id(id target, id params, NSInteger tag, CHGCallBack callBack) {
-        return nil;
-    };
+    @IBOutlet weak var tableView: UITableView!
     
-    self.tableView.tableViewDidSelectRowBlock = ^(UITableView *tableView, NSIndexPath *indexPath, id itemData) {
-        NSLog(@"当前点击section:%li row:%li",indexPath.section,indexPath.row);
-    };
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
--(CHGTableViewAdapter*)adapter{
-    if (!_adapter) {
-        _adapter = [CHGTableViewAdapter new];
-        _adapter.cellName = @"SimpleTableViewCell";
-        _adapter.headerName = @"SampleTableViewHeaderFooterView";
-        _adapter.footerName = @"SampleTableViewHeaderFooterView";
-        _adapter.cellHeight = -1;
-        _adapter.headerHeight = 30;
-        _adapter.footerHeight = 44;
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "基础4（cell、headerFooterView中的事件传递到ViewController中）"
+        tableView.headerDatas = [createOrderGroup()]
+        tableView.cellDatas = [createOrders()]
+        tableView.setEventTransmissionBlock(eventTransmissionBlock: handleEventTransmissionBlock())
+        tableView.setEmptyDataShow("无数据", imageName: "")
     }
-    return _adapter;
-}
-
--(CHGTableViewAdapterData*) adapterData {
-    if (!_adapterData) {
-        _adapterData = [CHGTableViewAdapterData new];
+  
+    func createOrders() -> [Order] {
+        var orders = [Order]()
+        for i in 0...10 {
+            orders.append(Order.init(id: i, orderNO: "\(i)", createTime: "2020-7-6", amount: "\(100+i)"))
+        }
+        return orders
+        
     }
-    _adapterData.cellDatas = @[
-                               @[@"1",@"2",@"3",@"4",@"5",@"6"],
-                               @[@"1",@"2",@"3",@"4",@"5",@"6"]
-                               ];
-    _adapterData.headerDatas = @[@"第一个section的Header",@"第二个section的Header"];
-    _adapterData.footerDatas = @[@"第一个section的Footer",@"第二个section的Footer"];
-    return _adapterData;
-}
-
-@end
-
-```
-
-
-### example UICollectionView
-
-```
-#import "CollectionViewViewController.h"
-#import "TestCollectionAdapter.h"
-#import "SampleLayout.h"
-
-@interface CollectionViewViewController ()
-
-@property(nonatomic,weak) IBOutlet UICollectionView * collectionView;
-@property(nonatomic,strong) TestCollectionAdapter * adapter;
-@property(nonatomic,strong) CHGCollectionViewAdapterData * adapterData;
-
-@end
-
-@implementation CollectionViewViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    UICollectionViewFlowLayout * layout = [UICollectionViewFlowLayout new];
-    layout.itemSize = CGSizeMake(100, 100);
-    layout.headerReferenceSize = CGSizeMake(self.view.frame.size.width, 30);
-    layout.footerReferenceSize = CGSizeMake(self.view.frame.size.width, 30);
-    self.collectionView.collectionViewLayout = layout;
-    self.adapter.adapterData = self.adapterData;
-    self.collectionView.collectionViewAdapter = self.adapter;
-    [self.collectionView setEmptyDataShowWithTitle:@"没有任何数据" image:@"icon_dl_xsmm"];
-    self.collectionView.eventTransmissionBlock = ^id(id target, id params, NSInteger tag, CHGCallBack callBack) {
-        NSLog(@"paramsjjj:%@",params);
+    
+    func createOrderGroup() -> OrderGroup {
+        return OrderGroup.init(desc: "2020年6月", btnText: "全部删除")
+    }
+    
+    func handleEventTransmissionBlock() -> CHGEventTransmissionBlock {
+        return { [weak self](target, params, tag, callBack) -> Any? in
+            if target is OrderTableViewCell {//cell中的事件
+                switch OrderAction.init(rawValue: tag) {
+                case .refund:
+                    return self?.refund(with: target, params: params, tag: tag, callBack: callBack)
+                case .conform:
+                    return self?.conform(with: target, params: params, tag: tag, callBack: callBack)
+                default:
+                    break
+                }
+            } else if target is OrderGroupHeaderFooterView {//header中的事件
+                if tag == 0 {
+                    return self?.deleteAllOrders(with: target, params: params, tag: tag, callBack: callBack)
+                }
+            }
+            return nil
+        }
+    }
+    
+    func refund(with target:Any?, params:Any?, tag:Int, callBack:CHGCallBack?) -> Any? {
+        guard let model:Order = params as? Order else { return nil }
+        print("处理退货操作  订单id:\(model.id)   订单号：\(model.orderNO)   订单金额：\(model.amount)   创建时间：\(model.createTime)")
         return nil;
-    };
-
-    self.collectionView.collectionViewDidSelectItemAtIndexPathBlock = ^(UICollectionView *collectionView, NSIndexPath *indexPath, id itemData) {
-        NSLog(@"itemData:%@",itemData);
-    };
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
--(TestCollectionAdapter*)adapter {
-    if (!_adapter) {
-        _adapter = [TestCollectionAdapter new];
-        _adapter.cellName = @"Sample1CollectionViewCell";
-        _adapter.sectionHeaderName = @"SampleHeaderCollectionReusableView";
-        _adapter.sectionFooterName = @"SampleHeaderCollectionReusableView";
-        _adapter.rowsOfSectionKeyName = @"test";
     }
-    return _adapter;
-}
-
--(CHGCollectionViewAdapterData*)adapterData {
-    if (!_adapterData) {
-        _adapterData = [CHGCollectionViewAdapterData new];
+    
+    func conform(with target:Any?, params:Any?, tag:Int, callBack:CHGCallBack?) -> Any? {
+        guard let model:Order = params as? Order else { return nil }
+        print("处理确认收货操作  订单id:\(model.id)   订单号：\(model.orderNO)   订单金额：\(model.amount)   创建时间：\(model.createTime)")
+        _ = callBack?(true)//告诉cell中处理完成
+        return nil;
     }
-    _adapterData.customData = [NSMutableDictionary dictionary];
-    _adapterData.cellDatas =
-    @[
-      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]},
-      @{@"test":@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8"]}
-      ];
-    _adapterData.headerDatas = @[@"h1",@"h2"];
-    _adapterData.footerDatas = @[@"f1",@"f2",@"f3",@"f4"];
-    return _adapterData;
+    
+    func deleteAllOrders(with target:Any?, params:Any?, tag:Int, callBack:CHGCallBack?) -> Any? {
+        tableView.headerDatas = []
+        tableView.cellDatas = []
+        tableView.reloadData()
+        return nil;
+    }
+
 }
 
-@end
 ```
 
-### example  CHGSimpleTableViewAdapter快速布局
-
-- CHGSimpleTableViewAdapter中Cell的数据（Model）必须实现协议CHGTableViewCellModelProtocol并且实现并且实现其方法
-- CHGSimpleTableViewAdapter中的HeaderFooter的数据（Model）必须实现协议CHGTableViewHeaderFooterModelProtocol并且实现并且实现其方法
+- 5.多种Model在cell中
 
 ```
-具体使用请参考Demo中的SimpleAdapterViewController页面
+import UIKit
+
+class Base5ViewController: UIViewController {
+
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "基础5（多种Model在cell中）"
+        tableView.cellDatas = [createData()]
+    }
+
+
+    func createData() -> [Any] {
+        var data = [Any]()
+        for i in 0...100 {
+            if i % 2 == 0 {
+                data.append(Products.init(name: "产品：\(i)", price: "价格：\(i)", image: "pc", desc: "描述\(i)"))
+            } else {
+                data.append(SongsModel.init(name: "音乐\(i)", cover: ""))
+            }
+        }
+        return data
+        
+    }
+
+}
+
 ```
 
-### example  自定义Adapter
-CHGTableViewAdapter和CHGCollectionViewAdapter默认实现一种类型的Cell和一种类型的HeaderView以及FooterView，如果你的TableView、CollectionView想显示不通风格的Cell、HeaderView、FooterView；可以通过集成CHGCollectionViewAdapter、CHGCollectionViewAdapter方式扩展。通过扩展实现以下几个方法返回不同类型,以及在Adapter的子类中实现TableView的DataSource、Delegate方法。CollectionView同理
+- 6_1.cell和headerFooter为同一个Model
 
 ```
-/**
- 获取cell的类名
+import UIKit
 
- @param data indexPath的数据
- @param tableView tableView对象
- @param indexPath indexPath
- @return 返回indexPath的cell 类名
- */
--(NSString*)obtainCellNameWithCellData:(id)data tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+class Base6ViewController: UIViewController {
 
-/**
- 获取header的类名
+    @IBOutlet weak var tableView: UITableView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "基础5-1（cell和headerFooter为同一个Model）"
+        
+        tableView.headerDatas = createData()
+        tableView.cellDatas = createData()
+        tableView.footerDatas = createData()
+        tableView.tableViewAdapter?.keyPathOfSubData = \ProductsType.productses
+    }
 
- @param data 当前header的数据
- @param tableView tableView对象
- @param section section
- @return 返回section的类名
- */
--(NSString*)obtainHeaderNameWithHeaderData:(id)data tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
 
-/**
- 获取footer的类名
- 
- @param data 当前footer的数据
- @param tableView tableView对象
- @param section section
- @return 返回section的类名
- */
--(NSString*)obtainFooterNameWithFooterData:(id)data tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section;
+    func createData() -> [Any] {
+        var productTypes = [ProductsType]()
+        let types = ["电脑","手机","耳机"]
+        let pcs = ["联想","华为","惠普","戴尔","神舟","苹果"]
+        
+        for i in 0..<3 {
+            var productses = [Products]()
+            for item in pcs {
+                productses.append(Products.init(name: "\(item)\(types[i])", price: "4999", image: "pc", desc: ""))
+            }
+            productTypes.append(ProductsType.init(name: types[i], productses: productses, desc: "这是\(types[i])类型商品的描述内容!"))
+        }
+        
+        return productTypes
+    }
+}
+
+```
+
+- 6_2.多种cell和headerFooter为同一个Model
+
+```
+import UIKit
+
+class Base6_2ViewController: UIViewController {
+
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "基础6-2（多种cell和headerFooter为同一个Model）"
+        var data = [Any]()
+        data.append(contentsOf: createProducts())
+        data.append(contentsOf: createSinger())
+        
+        tableView.headerDatas = data
+        tableView.cellDatas = data
+        tableView.footerDatas = data
+    }
+
+    func createProducts() -> [Any] {
+        var productTypes = [ProductsType]()
+        let types = ["电脑","手机","耳机"]
+        let pcs = ["联想","华为","惠普","戴尔","神舟","苹果"]
+        
+        for i in 0..<3 {
+            var productses = [Products]()
+            for item in pcs {
+                productses.append(Products.init(name: "\(item)\(types[i])", price: "4999", image: "pc", desc: ""))
+            }
+            productTypes.append(ProductsType.init(name: types[i], productses: productses, desc: "这是\(types[i])类型商品的描述内容!"))
+        }
+        
+        return productTypes
+    }
+    
+    func createSinger() -> [Singer] {
+        var singers = [Singer]()
+        let types = ["周杰伦","林俊杰","王力宏"]
+        let jaySongs = ["七里香","青花瓷","简单爱","双截棍","夜曲","以父之名","稻香","可爱女人","红尘客栈","床边故事","跨时代"]
+        let linJunJieSongs = ["江南","一千年以后","曹操","醉赤壁","100天","她说","学不会","修炼爱情","可惜没如果","不为谁而作的歌"]
+        let wangLiHongSongs = ["公转自转","唯一","你不在","心中的日月","盖世英雄","我们的歌","心跳","需要人陪","缘分一道桥"]
+        
+        for i in 0..<3 {
+            var songs = [SongsModel]()
+            if i == 0 {
+                for song in jaySongs {
+                    songs.append(SongsModel.init(name: song, cover: ""))
+                }
+            } else if i == 1 {
+                for song in linJunJieSongs {
+                    songs.append(SongsModel.init(name: song, cover: ""))
+                }
+            } else if i == 2 {
+               for song in wangLiHongSongs {
+                   songs.append(SongsModel.init(name: song, cover: ""))
+               }
+            }
+            singers.append(Singer.init(name: types[i], songs: songs,desc: "这是歌手'\(types[i])'的简介"))
+        }
+        return singers
+    }
+}
+
+```
+
+### example （UICollectionView）用法和UICollectionView完全一样
+
+- 1.显示cell
+
+```
+import UIKit
+
+class Base1ViewController: UIViewController {
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "歌曲"
+        collectionView.cellDatas = [getSongs()!]
+    }
+
+    func getSongs() -> [Any]? {
+        var songs = [Any]()
+        for item in ["七里香","青花瓷","简单爱","双截棍","夜曲","以父之名","稻香","可爱女人","红尘客栈","床边故事","跨时代"] {
+            songs.append(SongsModel(name: item))
+        }
+        return songs
+        
+    }
+}
+
+```
+
+- 2.显示header和footer
+
+```
+import UIKit
+
+/// 展示collectionView中存在headerFooterView和cell的用法
+class Base2ViewController: UIViewController {
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "展示collectionView中存在headerFooterView和cell的用法"
+        collectionView.headerDatas = getHeaderModels()
+        collectionView.cellDatas = [getSongs1(),getSongs2()]
+        collectionView.footerDatas = getFooterModels()
+    }
+    
+    ///专辑1数据
+    func getSongs1() -> [Any] {
+        var songs = [Any]()
+        for item in ["半兽人","半岛铁盒","暗号","龙拳","火车叨位去","分裂（离开）","爷爷泡的茶","回到过去","米兰的小铁匠","最后的战役"] {
+            songs.append(SongsModel(name: item))
+        }
+        return songs
+    }
+    
+    ///专辑2数据
+    func getSongs2() -> [Any] {
+        var songs = [Any]()
+        for item in ["爱在西元前","爸我回来了","简单爱","忍者","开不了口","上海一九四三","对不起","威廉古堡","双截棍","安静"] {
+            songs.append(SongsModel(name: item))
+        }
+        return songs
+    }
+    
+    ///headerView数据
+    func getHeaderModels() -> [Any]? {
+        return [Album.init(name: "八度空间", createTime: "2002年7月18日"),
+                Album.init(name: "范特西", createTime: "2001年9月20日")]
+    }
+    
+    ///footerView数据
+    func getFooterModels() -> [Any]? {
+        return [AlbumDesc.init(desc: "《八度空间》这张专辑的创作灵感来自周杰伦平时看的一些电影和音乐录影带。"),
+                AlbumDesc.init(desc: "《范特西》的专辑名称来源是英文“Fantasy”的发音，意为范特西范特西(3张)“幻想” 。")]
+    }
+
+}
+
+```
+
+- 3.cell点击处理
+
+```
+import UIKit
+
+class Base3ViewController: UIViewController {
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "基础3（cell点击处理）"
+        collectionView.cellDatas = [getSongs()]
+        
+        collectionView.setcollectionViewDidSelectRowBlock { (collectionView, indexPath, itemData) in
+            guard let model:SongsModel = itemData as? SongsModel else { return }
+            print("当前点击：\(model.name!)")
+        }
+    }
+
+    func getSongs() -> [Any] {
+        var songs = [Any]()
+        for item in ["七里香","青花瓷","简单爱","双截棍","夜曲","以父之名","稻香","可爱女人","红尘客栈","床边故事","跨时代"] {
+            songs.append(SongsModel(name: item))
+        }
+        return songs
+        
+    }
+}
+
+
+```
+
+- 4.cell、headerFooterView中的事件传递到ViewController中
+
+```
+import UIKit
+
+class Base4ViewController: UIViewController {
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "基础4（cell、headerFooterView中的事件传递到ViewController中）"
+        collectionView.headerDatas = [createOrderGroup()]
+        collectionView.cellDatas = [createOrders()]
+        collectionView.setEventTransmissionBlock(eventTransmissionBlock: handleEventTransmissionBlock())
+        collectionView.setEmptyDataShow("无数据", imageName: "")
+    }
+  
+    func createOrders() -> [Order] {
+        var orders = [Order]()
+        for i in 0...10 {
+            orders.append(Order.init(id: i, orderNO: "\(i)", createTime: "2020-7-6", amount: "\(100+i)"))
+        }
+        return orders
+        
+    }
+    
+    func createOrderGroup() -> OrderGroup {
+        return OrderGroup.init(desc: "2020年6月", btnText: "全部删除")
+    }
+    
+    func handleEventTransmissionBlock() -> CHGEventTransmissionBlock {
+        return { [weak self](target, params, tag, callBack) -> Any? in
+            if target is OrdercollectionViewCell {//cell中的事件
+                switch OrderAction.init(rawValue: tag) {
+                case .refund:
+                    return self?.refund(with: target, params: params, tag: tag, callBack: callBack)
+                case .conform:
+                    return self?.conform(with: target, params: params, tag: tag, callBack: callBack)
+                default:
+                    break
+                }
+            } else if target is OrderGroupHeaderFooterView {//header中的事件
+                if tag == 0 {
+                    return self?.deleteAllOrders(with: target, params: params, tag: tag, callBack: callBack)
+                }
+            }
+            return nil
+        }
+    }
+    
+    func refund(with target:Any?, params:Any?, tag:Int, callBack:CHGCallBack?) -> Any? {
+        guard let model:Order = params as? Order else { return nil }
+        print("处理退货操作  订单id:\(model.id)   订单号：\(model.orderNO)   订单金额：\(model.amount)   创建时间：\(model.createTime)")
+        return nil;
+    }
+    
+    func conform(with target:Any?, params:Any?, tag:Int, callBack:CHGCallBack?) -> Any? {
+        guard let model:Order = params as? Order else { return nil }
+        print("处理确认收货操作  订单id:\(model.id)   订单号：\(model.orderNO)   订单金额：\(model.amount)   创建时间：\(model.createTime)")
+        _ = callBack?(true)//告诉cell中处理完成
+        return nil;
+    }
+    
+    func deleteAllOrders(with target:Any?, params:Any?, tag:Int, callBack:CHGCallBack?) -> Any? {
+        collectionView.headerDatas = []
+        collectionView.cellDatas = []
+        collectionView.reloadData()
+        return nil;
+    }
+
+}
+
+```
+
+- 5.多种Model在cell中
+
+```
+import UIKit
+
+class Base5ViewController: UIViewController {
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "基础5（多种Model在cell中）"
+        collectionView.cellDatas = [createData()]
+    }
+
+
+    func createData() -> [Any] {
+        var data = [Any]()
+        for i in 0...100 {
+            if i % 2 == 0 {
+                data.append(Products.init(name: "产品：\(i)", price: "价格：\(i)", image: "pc", desc: "描述\(i)"))
+            } else {
+                data.append(SongsModel.init(name: "音乐\(i)", cover: ""))
+            }
+        }
+        return data
+        
+    }
+
+}
+
+```
+
+- 6_1.cell和headerFooter为同一个Model
+
+```
+import UIKit
+
+class Base6ViewController: UIViewController {
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "基础5-1（cell和headerFooter为同一个Model）"
+        
+        collectionView.headerDatas = createData()
+        collectionView.cellDatas = createData()
+        collectionView.footerDatas = createData()
+        collectionView.collectionViewAdapter?.keyPathOfSubData = \ProductsType.productses
+    }
+
+
+    func createData() -> [Any] {
+        var productTypes = [ProductsType]()
+        let types = ["电脑","手机","耳机"]
+        let pcs = ["联想","华为","惠普","戴尔","神舟","苹果"]
+        
+        for i in 0..<3 {
+            var productses = [Products]()
+            for item in pcs {
+                productses.append(Products.init(name: "\(item)\(types[i])", price: "4999", image: "pc", desc: ""))
+            }
+            productTypes.append(ProductsType.init(name: types[i], productses: productses, desc: "这是\(types[i])类型商品的描述内容!"))
+        }
+        
+        return productTypes
+    }
+}
+
+```
+
+- 6_2.多种cell和headerFooter为同一个Model
+
+```
+import UIKit
+
+class Base6_2ViewController: UIViewController {
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "基础6-2（多种cell和headerFooter为同一个Model）"
+        var data = [Any]()
+        data.append(contentsOf: createProducts())
+        data.append(contentsOf: createSinger())
+        
+        collectionView.headerDatas = data
+        collectionView.cellDatas = data
+        collectionView.footerDatas = data
+    }
+
+    func createProducts() -> [Any] {
+        var productTypes = [ProductsType]()
+        let types = ["电脑","手机","耳机"]
+        let pcs = ["联想","华为","惠普","戴尔","神舟","苹果"]
+        
+        for i in 0..<3 {
+            var productses = [Products]()
+            for item in pcs {
+                productses.append(Products.init(name: "\(item)\(types[i])", price: "4999", image: "pc", desc: ""))
+            }
+            productTypes.append(ProductsType.init(name: types[i], productses: productses, desc: "这是\(types[i])类型商品的描述内容!"))
+        }
+        
+        return productTypes
+    }
+    
+    func createSinger() -> [Singer] {
+        var singers = [Singer]()
+        let types = ["周杰伦","林俊杰","王力宏"]
+        let jaySongs = ["七里香","青花瓷","简单爱","双截棍","夜曲","以父之名","稻香","可爱女人","红尘客栈","床边故事","跨时代"]
+        let linJunJieSongs = ["江南","一千年以后","曹操","醉赤壁","100天","她说","学不会","修炼爱情","可惜没如果","不为谁而作的歌"]
+        let wangLiHongSongs = ["公转自转","唯一","你不在","心中的日月","盖世英雄","我们的歌","心跳","需要人陪","缘分一道桥"]
+        
+        for i in 0..<3 {
+            var songs = [SongsModel]()
+            if i == 0 {
+                for song in jaySongs {
+                    songs.append(SongsModel.init(name: song, cover: ""))
+                }
+            } else if i == 1 {
+                for song in linJunJieSongs {
+                    songs.append(SongsModel.init(name: song, cover: ""))
+                }
+            } else if i == 2 {
+               for song in wangLiHongSongs {
+                   songs.append(SongsModel.init(name: song, cover: ""))
+               }
+            }
+            singers.append(Singer.init(name: types[i], songs: songs,desc: "这是歌手'\(types[i])'的简介"))
+        }
+        return singers
+    }
+}
 
 ```
