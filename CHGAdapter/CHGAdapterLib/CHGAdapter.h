@@ -29,3 +29,4 @@
 #import "UIView+AdapterContentModel.h"
 #import "CHGViewMappingObject.h"
 #import "CHGBaseView.h"
+#import "CHGCollectionReusableView.h"
