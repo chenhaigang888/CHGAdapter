@@ -1,3 +1,6 @@
+<a href="https://img.shields.io/cocoapods/v/CHGAdapter.svg"><img src="https://img.shields.io/cocoapods/v/CHGAdapter.svg"></a>
+<a href="http://cocoadocs.org/docsets/CHGAdapter"><img src="https://img.shields.io/cocoapods/p/CHGAdapter.svg?style=flat"></a>
+
 # CHGAdapter 
 主要解决UITableView 在每个controller中都需要设置dataSource和delegate的烦恼，并UITableViewCell与DataSource tableView解耦合
 具体表现为
