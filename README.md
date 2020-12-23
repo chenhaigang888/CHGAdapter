@@ -10,8 +10,16 @@
 - UITableViewCell中按钮的点击事件、UITextField的输入事件、UISwitch等等都通过统一的CHGTableViewDidSelectRowBlock进行传输。
 - controller少了很多有关UITableViewDelegate以及UITableViewDatasource的相关代码，controller代码更加清晰。
 - 基于以上特点adapter、cell、HeaderFooterView都可以最大限度的复用
+- Android : 
+- Java:https://github.com/chenhaigang888/CHGAdapter_android 
+- Kotlin:https://github.com/chenhaigang888/CHGAdapter_Kotlin
 
-swift版： https://github.com/chenhaigang888/CHGAdapter_swift
+- Ios: 
+- oc:https://github.com/chenhaigang888/CHGAdapter 
+- swift:https://github.com/chenhaigang888/CHGAdapter_swift
+
+- HarmonyOS(UltimateProvider)
+- java:https://github.com/chenhaigang888/UltimateProvider
 
 ### 如有使用方面的问题或者交流请加QQ群：494648687
 
