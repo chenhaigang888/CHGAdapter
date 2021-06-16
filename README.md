@@ -25,7 +25,7 @@
 
 ### Installation with CocoaPods
 
-> pod 'CHGAdapter', '~> 1.1.4'
+> pod 'CHGAdapter', '~> 1.1.5'
 - 导入头文件 #import "CHGAdapter.h"
 
 ### example （UITableView）
