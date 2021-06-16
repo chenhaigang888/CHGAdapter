@@ -95,6 +95,12 @@
 @property(nonatomic,assign) NSInteger tag;
 @property(nonatomic,weak) UIViewController * controller;
 
+
+@property(nonatomic,assign) BOOL canEditEnable;
+@property(nonatomic,assign) UITableViewCellEditingStyle editingStyle;
+@property(nonatomic,copy) NSString * titleForDeleteConfirmationButton;
+@property(nonatomic,copy) NSArray<UITableViewRowAction*> * rowActions;
+@property(nonatomic,assign) BOOL shouldIndentWhileEditingRow;
 /**
  获取cell的data
  

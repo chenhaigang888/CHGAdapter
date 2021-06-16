@@ -31,6 +31,11 @@
 		854024A4246A41DD0026468D /* FoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854024A2246A41DD0026468D /* FoundTableViewCell.xib */; };
 		854024A8246A48A10026468D /* UserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 854024A7246A48A10026468D /* UserView.m */; };
 		854024AB246A48E40026468D /* InteractionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 854024AA246A48E40026468D /* InteractionView.m */; };
+		854656B226799AC600919567 /* SlidingDeleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 854656B026799AC600919567 /* SlidingDeleteViewController.m */; };
+		854656B326799AC600919567 /* SlidingDeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854656B126799AC600919567 /* SlidingDeleteViewController.xib */; };
+		854656B726799B2700919567 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 854656B626799B2700919567 /* MessageModel.m */; };
+		854656BD26799BE600919567 /* MessageModelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 854656BB26799BE600919567 /* MessageModelTableViewCell.m */; };
+		854656BE26799BE600919567 /* MessageModelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854656BC26799BE600919567 /* MessageModelTableViewCell.xib */; };
 		858458992468E36400EC1876 /* CHGViewMappingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 858458982468E36400EC1876 /* CHGViewMappingObject.m */; };
 		8F0EF9A0210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0EF99F210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m */; };
 		8F45862B20AAA3C500C5C136 /* CollectionViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45862920AAA3C500C5C136 /* CollectionViewViewController.m */; };
@@ -214,6 +219,14 @@
 		854024A7246A48A10026468D /* UserView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserView.m; sourceTree = "<group>"; };
 		854024A9246A48E40026468D /* InteractionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InteractionView.h; sourceTree = "<group>"; };
 		854024AA246A48E40026468D /* InteractionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InteractionView.m; sourceTree = "<group>"; };
+		854656AF26799AC600919567 /* SlidingDeleteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SlidingDeleteViewController.h; sourceTree = "<group>"; };
+		854656B026799AC600919567 /* SlidingDeleteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlidingDeleteViewController.m; sourceTree = "<group>"; };
+		854656B126799AC600919567 /* SlidingDeleteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlidingDeleteViewController.xib; sourceTree = "<group>"; };
+		854656B526799B2700919567 /* MessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
+		854656B626799B2700919567 /* MessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
+		854656BA26799BE600919567 /* MessageModelTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageModelTableViewCell.h; sourceTree = "<group>"; };
+		854656BB26799BE600919567 /* MessageModelTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageModelTableViewCell.m; sourceTree = "<group>"; };
+		854656BC26799BE600919567 /* MessageModelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageModelTableViewCell.xib; sourceTree = "<group>"; };
 		858458972468E36400EC1876 /* CHGViewMappingObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHGViewMappingObject.h; sourceTree = "<group>"; };
 		858458982468E36400EC1876 /* CHGViewMappingObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGViewMappingObject.m; sourceTree = "<group>"; };
 		8F0EF99E210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+CHGSimpleTableViewAdapter.h"; sourceTree = "<group>"; };
@@ -688,6 +701,53 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		854656AD26799A6C00919567 /* 滑动删除 */ = {
+			isa = PBXGroup;
+			children = (
+				854656B826799BC600919567 /* View */,
+				854656B426799B0600919567 /* model */,
+				854656AE26799AA000919567 /* vc */,
+			);
+			path = "滑动删除";
+			sourceTree = "<group>";
+		};
+		854656AE26799AA000919567 /* vc */ = {
+			isa = PBXGroup;
+			children = (
+				854656AF26799AC600919567 /* SlidingDeleteViewController.h */,
+				854656B026799AC600919567 /* SlidingDeleteViewController.m */,
+				854656B126799AC600919567 /* SlidingDeleteViewController.xib */,
+			);
+			path = vc;
+			sourceTree = "<group>";
+		};
+		854656B426799B0600919567 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				854656B526799B2700919567 /* MessageModel.h */,
+				854656B626799B2700919567 /* MessageModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		854656B826799BC600919567 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				854656B926799BCE00919567 /* TableViewCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		854656B926799BCE00919567 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				854656BA26799BE600919567 /* MessageModelTableViewCell.h */,
+				854656BB26799BE600919567 /* MessageModelTableViewCell.m */,
+				854656BC26799BE600919567 /* MessageModelTableViewCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		8F0EE8BA21412848004058D7 /* public */ = {
 			isa = PBXGroup;
 			children = (
@@ -711,6 +771,7 @@
 		8F45862620AAA38200C5C136 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				854656AD26799A6C00919567 /* 滑动删除 */,
 				85402493246A3FFC0026468D /* 自动分配数据到view */,
 				84373CCE229928B90020A849 /* CHGBaseView */,
 				5FE05EDF2235122200AD18EF /* 通过UIView或者子类快速构建 */,
@@ -1585,7 +1646,9 @@
 				8FAB168E20A96AE900696281 /* ViewController.xib in Resources */,
 				8F45864420AAC84C00C5C136 /* SampleHeaderCollectionReusableView.xib in Resources */,
 				8FAB167F20A96AE900696281 /* OneTextFieldHeaderFooterView.xib in Resources */,
+				854656BE26799BE600919567 /* MessageModelTableViewCell.xib in Resources */,
 				8FAB169520A96AE900696281 /* RecordTableViewCell.xib in Resources */,
+				854656B326799AC600919567 /* SlidingDeleteViewController.xib in Resources */,
 				8FAB167920A96AE900696281 /* MenuViewController.xib in Resources */,
 				8F99E7A52126A1BA0057C298 /* Test2CollectionViewCell.xib in Resources */,
 				8F45864920AACB9200C5C136 /* Sample1CollectionViewCell.xib in Resources */,
@@ -1679,6 +1742,7 @@
 				8F99E7AD2126A2D90057C298 /* Test1ReuseableViewModel.m in Sources */,
 				8FAB168720A96AE900696281 /* Style2TableViewCell.m in Sources */,
 				8F78F67C210C037C0044BD1B /* AddressNoSelectModel.m in Sources */,
+				854656B226799AC600919567 /* SlidingDeleteViewController.m in Sources */,
 				8F45864820AACB9200C5C136 /* Sample1CollectionViewCell.m in Sources */,
 				854024AB246A48E40026468D /* InteractionView.m in Sources */,
 				8FAB168320A96AE900696281 /* CustomAdapter.m in Sources */,
@@ -1697,6 +1761,7 @@
 				8540249A246A405A0026468D /* DistributionDataToViewViewController.m in Sources */,
 				854024A3246A41DD0026468D /* FoundTableViewCell.m in Sources */,
 				8F78F66C210C01F50044BD1B /* SimpleAdapterViewController.m in Sources */,
+				854656B726799B2700919567 /* MessageModel.m in Sources */,
 				8FAB169020A96AE900696281 /* RecordAdapter.m in Sources */,
 				84373CDE22992A510020A849 /* CHGBaseViewTest1ModelTableViewCell.m in Sources */,
 				8FB8F19221490F9500B96551 /* GoodsTableViewCell.m in Sources */,
@@ -1716,6 +1781,7 @@
 				8F0EF9A0210EA6FA00186E4C /* UITableView+CHGSimpleTableViewAdapter.m in Sources */,
 				8F99E7A92126A2B50057C298 /* Test1CollectionReusableView.m in Sources */,
 				8F78F687210C07630044BD1B /* FooterModel.m in Sources */,
+				854656BD26799BE600919567 /* MessageModelTableViewCell.m in Sources */,
 				8FAB16A420A9963F00696281 /* UICollectionView+CHGCollectionViewAdapter.m in Sources */,
 				5FEAFE802234C817003480CA /* CHGTaskManager.m in Sources */,
 				8FB8F1822149065200B96551 /* TVKeyPathViewController.m in Sources */,

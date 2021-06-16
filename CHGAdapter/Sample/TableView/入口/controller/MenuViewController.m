@@ -20,7 +20,7 @@
 #import "UIViewModelCollectionViewController.h"
 #import "CHGBaseViewViewController.h"
 #import "DistributionDataToViewViewController.h"
-
+#import "SlidingDeleteViewController.h"
 @interface MenuViewController ()
 
 @property(nonatomic,weak) IBOutlet UITableView * tableView;
@@ -83,6 +83,9 @@
         } else if (indexPath.row == 11) {
             DistributionDataToViewViewController * vc = [DistributionDataToViewViewController new];
             [strongSelf.navigationController pushViewController:vc animated:YES];
+        } else if (indexPath.row == 12) {
+            SlidingDeleteViewController * vc = [SlidingDeleteViewController new];
+            [strongSelf.navigationController pushViewController:vc animated:YES];
         }
     };
 }
@@ -119,7 +122,8 @@
                                  @"TableView直接创建UIView及之类快速布局",
                                  @"CollectionView直接创建UIView及之类快速布局",
                                  @"CHGBaseView的使用",
-                                 @"自动分配数据到view"
+                                 @"自动分配数据到view",
+                                 @"滑动删除1"
                                  ]
                                ];
     return _adapterData;

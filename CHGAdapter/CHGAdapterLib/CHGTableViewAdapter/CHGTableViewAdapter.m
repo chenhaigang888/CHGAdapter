@@ -259,7 +259,45 @@
     }
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.canEditEnable;
+}
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.editingStyle;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView.tableViewCommitEditForRowBlock) {
+        tableView.tableViewCommitEditForRowBlock(tableView, editingStyle, indexPath, [self cellDataWithIndexPath:indexPath tableView:tableView]);
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return _titleForDeleteConfirmationButton;
+}
+
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.rowActions;
+}
+
+- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView.tableViewDidEndEditingBlock) {
+        tableView.tableViewDidEndEditingBlock(tableView, indexPath, [self cellDataWithIndexPath:indexPath tableView:tableView]);
+    }
+}
+
+- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView.tableViewWillBeginEditingBlock) {
+        tableView.tableViewWillBeginEditingBlock(tableView, indexPath, [self cellDataWithIndexPath:indexPath tableView:tableView]);
+    }
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.shouldIndentWhileEditingRow;
+}
+
+#pragma mark - ScrollViewDelegate method
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     for (id<CHGScrollViewDelegate> scrollViewDelegate in ((UITableView *)scrollView).scrollViewDelegates) {
         if ([scrollViewDelegate respondsToSelector:@selector(chg_scrollViewDidScroll:)]) {

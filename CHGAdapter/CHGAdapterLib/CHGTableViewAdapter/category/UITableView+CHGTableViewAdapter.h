@@ -22,6 +22,12 @@
  */
 typedef void(^CHGTableViewDidSelectRowBlock)(UITableView * tableView, NSIndexPath * indexPath, id itemData);
 
+typedef void(^CHGTableViewCommitEditForRowBlock)(UITableView * tableView, UITableViewCellEditingStyle editingStyle, NSIndexPath *indexPath, id itemData);
+
+typedef void(^CHGTableViewDidEndEditingBlock)(UITableView * tableView, NSIndexPath *indexPath, id itemData);
+
+typedef void(^CHGTableViewWillBeginEditingBlock)(UITableView * tableView, NSIndexPath *indexPath, id itemData);
+
 @interface UITableView (CHGTableViewAdapter)
 
 ///tableView的adapter
@@ -30,6 +36,10 @@ typedef void(^CHGTableViewDidSelectRowBlock)(UITableView * tableView, NSIndexPat
 @property(nonatomic,copy) CHGEventTransmissionBlock eventTransmissionBlock;
 ///tableView 点击cell会通过此block回传数据
 @property(nonatomic,copy) CHGTableViewDidSelectRowBlock tableViewDidSelectRowBlock;
+@property(nonatomic,copy) CHGTableViewCommitEditForRowBlock tableViewCommitEditForRowBlock;
+@property(nonatomic,copy) CHGTableViewDidEndEditingBlock tableViewDidEndEditingBlock;
+@property(nonatomic,copy) CHGTableViewWillBeginEditingBlock tableViewWillBeginEditingBlock;
+
 ///当页面没有数据的时候的显示配置
 @property(nonatomic,strong) CHGTableViewEmptyDataShow * tableViewEmptyDataShow;
 ///所有的滚动视图

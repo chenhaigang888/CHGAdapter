@@ -36,6 +36,22 @@
 -(NSString*)getCellClass CHGTableViewDeprecated(-cellClassNameInTableView:indexPath);
 -(CGFloat)getCellHeigh CHGTableViewDeprecated(-cellHeighInTableView:indexPath);
 
+/// 是否可以编辑
+/// @param tableView tableView description
+/// @param indexPath indexPath description
+-(BOOL)cellCanEditInTableView:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath;
+
+/// 按钮文字
+/// @param tableView tableView description
+/// @param indexPath indexPath description
+-(NSString*)titleForDeleteConfirmationButtonInTableView:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath;
+
+-(UITableViewCellEditingStyle)editingStyleInTableView:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath;
+
+-(NSArray<UITableViewRowAction*>*) editActionsInTableView:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath;
+
+-(BOOL)shouldIndentWhileEditingInTableView:(UITableView*)tableView indexPath:(NSIndexPath*)indexPath;
+
 @end
 
 /**

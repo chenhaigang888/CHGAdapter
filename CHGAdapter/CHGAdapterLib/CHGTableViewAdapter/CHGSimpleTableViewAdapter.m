@@ -97,4 +97,44 @@
     return [super subDataKeyPathWithIndexPath:indexPath targetView:targetView];
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    id<CHGTableViewCellModelProtocol> cellModelProtocol = [self cellDataWithIndexPath:indexPath tableView:tableView];
+    if ([cellModelProtocol respondsToSelector:@selector(cellCanEditInTableView:indexPath:)]) {
+        return [cellModelProtocol cellCanEditInTableView:tableView indexPath:indexPath];
+    }
+    return [super tableView:tableView canEditRowAtIndexPath:indexPath];
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    id<CHGTableViewCellModelProtocol> cellModelProtocol = [self cellDataWithIndexPath:indexPath tableView:tableView];
+    if ([cellModelProtocol respondsToSelector:@selector(editingStyleInTableView:indexPath:)]) {
+        return [cellModelProtocol editingStyleInTableView:tableView indexPath:indexPath];
+    }
+    return [super tableView:tableView editingStyleForRowAtIndexPath:indexPath];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    id<CHGTableViewCellModelProtocol> cellModelProtocol = [self cellDataWithIndexPath:indexPath tableView:tableView];
+    if ([cellModelProtocol respondsToSelector:@selector(titleForDeleteConfirmationButtonInTableView:indexPath:)]) {
+        return [cellModelProtocol titleForDeleteConfirmationButtonInTableView:tableView indexPath:indexPath];
+    }
+    return [super tableView:tableView titleForDeleteConfirmationButtonForRowAtIndexPath:indexPath];
+}
+
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    id<CHGTableViewCellModelProtocol> cellModelProtocol = [self cellDataWithIndexPath:indexPath tableView:tableView];
+    if ([cellModelProtocol respondsToSelector:@selector(editActionsInTableView:indexPath:)]) {
+        return [cellModelProtocol editActionsInTableView:tableView indexPath:indexPath];
+    }
+    return [super tableView:tableView editActionsForRowAtIndexPath:indexPath];
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
+    id<CHGTableViewCellModelProtocol> cellModelProtocol = [self cellDataWithIndexPath:indexPath tableView:tableView];
+    if ([cellModelProtocol respondsToSelector:@selector(shouldIndentWhileEditingInTableView:indexPath:)]) {
+        return [cellModelProtocol shouldIndentWhileEditingInTableView:tableView indexPath:indexPath];
+    }
+    return [super tableView:tableView shouldIndentWhileEditingRowAtIndexPath:indexPath];
+}
+
 @end

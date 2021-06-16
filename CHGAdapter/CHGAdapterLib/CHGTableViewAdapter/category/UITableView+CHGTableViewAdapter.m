@@ -19,6 +19,10 @@ static const void * tableViewDidSelectRowBlockKey = &tableViewDidSelectRowBlockK
 static const void * tableViewEmptyDataShowKey = &tableViewEmptyDataShowKey;
 static const void * scrollViewDelegatesKey = &scrollViewDelegatesKey;
 
+static const void * tableViewCommitEditForRowBlockKey = &tableViewCommitEditForRowBlockKey;
+static const void * tableViewWillBeginEditingBlockKey = &tableViewWillBeginEditingBlockKey;
+static const void * tableViewDidEndEditingBlockKey = &tableViewDidEndEditingBlockKey;
+
 @implementation UITableView (CHGTableViewAdapter)
 
 + (void)load{
@@ -99,6 +103,31 @@ static const void * scrollViewDelegatesKey = &scrollViewDelegatesKey;
 
 -(CHGTableViewDidSelectRowBlock)tableViewDidSelectRowBlock {
     return objc_getAssociatedObject(self, tableViewDidSelectRowBlockKey);
+}
+
+
+- (void)setTableViewCommitEditForRowBlock:(CHGTableViewCommitEditForRowBlock)tableViewCommitEditForRowBlock {
+    objc_setAssociatedObject(self, tableViewCommitEditForRowBlockKey, tableViewCommitEditForRowBlock, OBJC_ASSOCIATION_COPY);
+}
+
+- (CHGTableViewCommitEditForRowBlock)tableViewCommitEditForRowBlock {
+    return objc_getAssociatedObject(self, tableViewCommitEditForRowBlockKey);
+}
+
+- (void)setTableViewDidEndEditingBlock:(CHGTableViewDidEndEditingBlock)tableViewDidEndEditingBlock {
+    objc_setAssociatedObject(self, tableViewDidEndEditingBlockKey, tableViewDidEndEditingBlock, OBJC_ASSOCIATION_COPY);
+}
+
+- (CHGTableViewDidEndEditingBlock)tableViewDidEndEditingBlock {
+    return objc_getAssociatedObject(self, tableViewDidEndEditingBlockKey);
+}
+
+- (void)setTableViewWillBeginEditingBlock:(CHGTableViewWillBeginEditingBlock)tableViewWillBeginEditingBlock {
+    objc_setAssociatedObject(self, tableViewWillBeginEditingBlockKey, tableViewWillBeginEditingBlock, OBJC_ASSOCIATION_COPY);
+}
+
+- (CHGTableViewWillBeginEditingBlock)tableViewWillBeginEditingBlock {
+    return objc_getAssociatedObject(self, tableViewWillBeginEditingBlockKey);
 }
 
 -(void)setTableViewEmptyDataShow:(CHGTableViewEmptyDataShow *)tableViewEmptyDataShow {
