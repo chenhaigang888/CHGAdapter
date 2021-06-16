@@ -32,6 +32,7 @@
 
 
 //以下为自定义添加的选项方法
+
 //- (NSArray<UITableViewRowAction *> *)editActionsInTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
 //    UITableViewRowAction * action1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"normal" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
 //        if (tableView.eventTransmissionBlock) {//动作传递到controller中处理
